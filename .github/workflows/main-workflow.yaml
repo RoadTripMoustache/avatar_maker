@@ -86,7 +86,14 @@ jobs:
         run: |
           flutter pub run build_runner build
       #### RELEASE ####
-      - name: Create pre-release
-        run: |
-          gh release create ${{ needs.get_version.outputs.version }} */** --title v${{ needs.get_version.outputs.version }} -R '${{ github.repository }}' --prerelease --generate-notes
-        working-directory: build
+      - name: pre-release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          draft: false
+          prerelease: true
+          release_name: ${{ steps.version.outputs.version }}
+          tag_name: pre-${{ steps.version.outputs.version }}
+          body_path: CHANGELOG.md
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
