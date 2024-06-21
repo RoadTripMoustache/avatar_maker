@@ -17,7 +17,8 @@ const List<String> defaultAttributeIcons = [
   "attributeicons/accessories.svg",
 ];
 
-/// Default list of titles that are rendered at the top of the widget, indicating
+/// Default list of titles that are rendered at the top of the widget,
+/// indicating
 /// which attribute the user is customizing.
 const List<String> defaultAttributeTitles = [
   "Hairstyle",
