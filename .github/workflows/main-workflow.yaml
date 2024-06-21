@@ -72,4 +72,3 @@ jobs:
       - name: Create pre-release
         run: |
           gh release create ${{ needs.get_version.outputs.version }} */** --title v${{ needs.get_version.outputs.version }} -R '${{ github.repository }}' --prerelease --generate-notes
-        working-directory: build
