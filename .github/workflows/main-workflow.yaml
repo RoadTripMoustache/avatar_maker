@@ -69,6 +69,7 @@ jobs:
       - tests
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Create pre-release
         run: |
           gh release create ${{ needs.get_version.outputs.version }} */** --title v${{ needs.get_version.outputs.version }} -R '${{ github.repository }}' --prerelease --generate-notes
