@@ -69,7 +69,23 @@ jobs:
       - tests
     runs-on: ubuntu-latest
     steps:
+      #### SETUP ####
       - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+          cache: true
+      - run: flutter doctor
+      - name: Get dependencies
+        run: flutter pub get
+      - name: Generate files
+        run: |
+          flutter pub run build_runner build
+      #### RELEASE ####
       - name: Create pre-release
         run: |
           gh release create ${{ needs.get_version.outputs.version }} */** --title v${{ needs.get_version.outputs.version }} -R '${{ github.repository }}' --prerelease --generate-notes
