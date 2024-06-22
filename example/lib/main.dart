@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:avatar_maker/fluttermoji.dart';
+import 'package:avatar_maker/avatar_maker.dart';
 
 void main() {
   runApp(MyApp());
@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
           SizedBox(
             height: 25,
           ),
-          FluttermojiCircleAvatar(
+          AvatarMakerAvatar(
             backgroundColor: Colors.grey[200],
             radius: 100,
           ),
@@ -113,7 +113,7 @@ class NewPage extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 30),
-                child: FluttermojiCircleAvatar(
+                child: AvatarMakerAvatar(
                   radius: 100,
                   backgroundColor: Colors.grey[200],
                 ),
@@ -127,17 +127,17 @@ class NewPage extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Spacer(),
-                    FluttermojiSaveWidget(),
+                    AvatarMakerSaveWidget(),
                   ],
                 ),
               ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8.0, vertical: 30),
-                child: FluttermojiCustomizer(
+                child: AvatarMakerCustomizer(
                   scaffoldWidth: min(600, _width * 0.85),
                   autosave: false,
-                  theme: FluttermojiThemeData(
+                  theme: AvatarMakerThemeData(
                       boxDecoration: BoxDecoration(boxShadow: [BoxShadow()])),
                 ),
               ),

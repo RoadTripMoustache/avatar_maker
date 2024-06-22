@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:avatar_maker/fluttermojiController.dart';
-import 'package:avatar_maker/fluttermojiThemeData.dart';
+import 'package:avatar_maker/src/avatar_maker_controller.dart';
+import 'package:avatar_maker/src/avatar_maker_theme_data.dart';
 import 'package:get/get.dart';
 
 /// Renders a save button by default OR can be used as a [InkWell]
@@ -8,10 +8,10 @@ import 'package:get/get.dart';
 ///
 /// Additonal callbacks may be triggered by passing a
 /// Function to [onTap].
-class FluttermojiSaveWidget extends StatelessWidget {
+class AvatarMakerSaveWidget extends StatelessWidget {
   /// Pass in your `theme` to customize the appearance of the default
   /// save button.
-  final FluttermojiThemeData theme;
+  final AvatarMakerThemeData theme;
 
   /// Additonal callbacks to be triggered on tapping the widget
   /// after the save operation is executed.
@@ -26,11 +26,11 @@ class FluttermojiSaveWidget extends StatelessWidget {
   /// If [null], then a default save button is shown to the user.
   final Widget? child;
 
-  /// Find an instance of the [FluttermojiController] to use
+  /// Find an instance of the [AvatarMakerController] to use
   ///
   /// Note: This expects the controller to be added to `Get`
   /// previously during runtime.
-  final fluttermojiController = Get.find<FluttermojiController>();
+  final avatarmakerController = Get.find<AvatarMakerController>();
 
   final InteractiveInkFeatureFactory? splashFactory;
 
@@ -38,22 +38,22 @@ class FluttermojiSaveWidget extends StatelessWidget {
 
   final double? radius;
 
-  FluttermojiSaveWidget({
+  AvatarMakerSaveWidget({
     Key? key,
-    FluttermojiThemeData? theme,
+    AvatarMakerThemeData? theme,
     this.onTap,
     this.child,
     this.splashFactory,
     this.splashColor,
     this.radius,
-  })  : theme = theme ?? FluttermojiThemeData.standard,
+  })  : theme = theme ?? AvatarMakerThemeData.standard,
         super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        await fluttermojiController.setFluttermoji();
+        await avatarmakerController.setAvatarMaker();
         if (onTap != null) onTap!();
       },
       splashFactory: splashFactory,

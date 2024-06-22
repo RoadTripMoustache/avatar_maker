@@ -1,5 +1,5 @@
-/// SVG strings for style of avatar
-const fluttermojiStyle = {
+/// SVG strings for style of avatar's background
+const backgroundStyle = {
   "Transparent": "",
   "Circle": '''
 <g id="Circle" stroke-width="1" fill-rule="evenodd" transform="translate(12.000000, 40.000000)">

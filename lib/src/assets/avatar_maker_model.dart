@@ -1,44 +1,77 @@
 import 'package:flutter/foundation.dart';
 
+// TODO : Trouver un meilleur nom à ce fichier
+// TODO : Trouver une meilleure façon d'organiser les propriétés
+
 /// Maps attribute keys to the attribute value list
-final Map<String, FluttermojiPropertyItem> fluttermojiProperties = {
-  "style": FluttermojiPropertyItem(title: "Style", property: FluttermojiStyle),
-  "topType": FluttermojiPropertyItem(title: "Hair", property: TopType),
-  "accessoriesType":
-      FluttermojiPropertyItem(title: "Accessory", property: AccessoriesType),
-  "hairColor":
-      FluttermojiPropertyItem(title: "Hair\nColor", property: HairColor),
-  "facialHairType":
-      FluttermojiPropertyItem(title: "Facial\nHair", property: FacialHairType),
-  "facialHairColor": FluttermojiPropertyItem(
-      title: "F-Hair\nColor", property: FacialHairColor),
-  "clotheType": FluttermojiPropertyItem(title: "Outfit", property: ClotheType),
-  "clotheColor":
-      FluttermojiPropertyItem(title: "Outfit\nColor", property: ClotheColor),
-  "eyeType": FluttermojiPropertyItem(title: "Eye", property: EyeType),
-  "eyebrowType":
-      FluttermojiPropertyItem(title: "Eyebrow", property: EyebrowType),
-  "mouthType": FluttermojiPropertyItem(title: "Mouth", property: MouthType),
-  "skinColor": FluttermojiPropertyItem(title: "Skin", property: SkinColor),
+final Map<String, AvatarMakerPropertyItem> avatarProperties = {
+  "style": AvatarMakerPropertyItem(
+    title: "Style",
+    property: backgroundStyles,
+  ),
+  "topType": AvatarMakerPropertyItem(
+    title: "Hair",
+    property: TopTypes,
+  ),
+  "accessoriesType": AvatarMakerPropertyItem(
+    title: "Accessory",
+    property: AccessoriesTypes,
+  ),
+  "hairColor": AvatarMakerPropertyItem(
+    title: "Hair\nColor",
+    property: HairColors,
+  ),
+  "facialHairType": AvatarMakerPropertyItem(
+    title: "Facial\nHair",
+    property: FacialHairTypes,
+  ),
+  "facialHairColor": AvatarMakerPropertyItem(
+    title: "F-Hair\nColor",
+    property: FacialHairColors,
+  ),
+  "clotheType": AvatarMakerPropertyItem(
+    title: "Outfit",
+    property: ClotheTypes,
+  ),
+  "clotheColor": AvatarMakerPropertyItem(
+    title: "Outfit\nColor",
+    property: ClotheColors,
+  ),
+  "eyeType": AvatarMakerPropertyItem(
+    title: "Eye",
+    property: EyeTypes,
+  ),
+  "eyebrowType": AvatarMakerPropertyItem(
+    title: "Eyebrow",
+    property: EyebrowTypes,
+  ),
+  "mouthType": AvatarMakerPropertyItem(
+    title: "Mouth",
+    property: MouthTypes,
+  ),
+  "skinColor": AvatarMakerPropertyItem(
+    title: "Skin",
+    property: SkinColors,
+  ),
 };
 
 /// Models the metadata needed for rendering widgets in the UI
-///
-/// 'ExpandedFluttermojiCardItem' has been renamed to Attribute Item
 class AttributeItem {
   String title;
   String? key;
   String? iconAsset;
   double? iconsize;
+
   AttributeItem(
       {this.iconsize, this.title = "Unnamed", this.key, this.iconAsset});
 }
 
-class FluttermojiPropertyItem extends ChangeNotifier {
+class AvatarMakerPropertyItem extends ChangeNotifier {
   String title;
   int choice;
   List<String>? property;
-  FluttermojiPropertyItem({
+
+  AvatarMakerPropertyItem({
     this.title = "Unnamed",
     this.choice = 0,
     this.property,
@@ -49,7 +82,7 @@ const String emptySVGIcon = '''
 <svg xmlns="http://www.w3.org/2000/svg"  viewBox="-20 -20 80 80" width="80px" height="80px"><path fill="#dff0fe" stroke="#4788c7" stroke-miterlimit="10" d="M20,1C9.507,1,1,9.507,1,20s8.507,19,19,19s19-8.507,19-19 S30.493,1,20,1z M6,20c0-7.732,6.268-14,14-14c2.963,0,5.706,0.926,7.968,2.496L8.496,27.968C6.926,25.706,6,22.963,6,20z M20,34 c-2.963,0-5.706-0.926-7.968-2.496l19.472-19.472C33.074,14.294,34,17.037,34,20C34,27.732,27.732,34,20,34z"/></svg>
 ''';
 
-const Map<String, int> defaultFluttermojiOptions = {
+const Map<String, int> defaultAvatarOptions = {
   'topType': 24,
   'accessoriesType': 0,
   'hairColor': 1,
@@ -65,12 +98,13 @@ const Map<String, int> defaultFluttermojiOptions = {
   'graphicType': 0
 };
 
-const List<String> FluttermojiStyle = [
+const List<String> backgroundStyles = [
   'Transparent',
   'Circle',
 ];
 
-const List<String> TopType = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les top
+const List<String> TopTypes = [
   'Bald',
   'Eyepatch',
   'Hijab',
@@ -108,7 +142,8 @@ const List<String> TopType = [
   'Santa Hat w/ ears',
 ];
 
-const List<String> AccessoriesType = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les accessoires
+const List<String> AccessoriesTypes = [
   'Nothing',
   'PrescriptionGlasses',
   'Another pair of prescriptions',
@@ -118,7 +153,8 @@ const List<String> AccessoriesType = [
   'Kurt',
 ];
 
-const List<String> HairColor = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les cheveux
+const List<String> HairColors = [
   'Auburn',
   'Black',
   'Brown',
@@ -131,8 +167,9 @@ const List<String> HairColor = [
   'SilverGray',
 ];
 
-//This is the property I skipped on purpose
-const List<String> HatColor = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les chapeaux
+// TODO : ?? - This is the property I skipped on purpose
+const List<String> HatColors = [
   'Black',
   'Blue01',
   'Blue02',
@@ -150,7 +187,8 @@ const List<String> HatColor = [
   'White',
 ];
 
-const List<String> FacialHairType = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur le facial hair
+const List<String> FacialHairTypes = [
   'Nothing',
   'Full Beard',
   'Beard, Light',
@@ -158,7 +196,8 @@ const List<String> FacialHairType = [
   'That 80\'s moustache',
 ];
 
-const List<String> FacialHairColor = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur le facial hair
+const List<String> FacialHairColors = [
   'Auburn',
   'Black',
   'Blonde',
@@ -169,7 +208,8 @@ const List<String> FacialHairColor = [
   'Red',
 ];
 
-const List<String> ClotheType = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les vêtements
+const List<String> ClotheTypes = [
   'Crew Neck Tee',
   'GraphicShirt',
   'Scoop-neck Tee',
@@ -181,7 +221,8 @@ const List<String> ClotheType = [
   'BlazerSweater',
 ];
 
-const List<String> ClotheColor = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les vêtements
+const List<String> ClotheColors = [
   'Blue01',
   'Blue02',
   'PastelYellow',
@@ -199,8 +240,10 @@ const List<String> ClotheColor = [
   'White',
 ];
 
-//Not implemented
-const List<String> GraphicType = [
+
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les graphics
+// TODO : Qu'est-ce que c'est ?? - Not implemented
+const List<String> GraphicTypes = [
   'Cumbia',
   'Hola',
   'Bat',
@@ -214,7 +257,8 @@ const List<String> GraphicType = [
   'Skull',
 ];
 
-const List<String> EyeType = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les yeux
+const List<String> EyeTypes = [
   'Default',
   'Happy',
   'Squint',
@@ -229,7 +273,8 @@ const List<String> EyeType = [
   'WinkWacky',
 ];
 
-const List<String> EyebrowType = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur les sourcils
+const List<String> EyebrowTypes = [
   'Default',
   'FlatNatural',
   'Angry',
@@ -244,7 +289,8 @@ const List<String> EyebrowType = [
   'UpDownNatural',
 ];
 
-const List<String> MouthType = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur la bouche
+const List<String> MouthTypes = [
   'Concerned',
   'Default',
   'Sad',
@@ -259,7 +305,8 @@ const List<String> MouthType = [
   'Vomit',
 ];
 
-const List<String> SkinColor = [
+// TODO : A déplacer dans le fichier dart qui contient les informations sur la peau
+const List<String> SkinColors = [
   'White',
   'Peach',
   'Black',

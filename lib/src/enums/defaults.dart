@@ -1,20 +1,25 @@
+// TODO : Voir pour réorganiser ça en objet avec les différents paramètres
+// Objet "Hair" qui a une icone, un titre, un nom de paramètre
+
+// TODO : Voir pour renommer le fichier une fois réorganisé
+
 /// Default list of icons that are rendered in the bottom row, indicating
 /// the attributes available to modify.
 ///
 /// These icons come bundled with the library and the paths below
 /// are indicative of that.
 const List<String> defaultAttributeIcons = [
-  "attributeicons/hair.svg",
-  "attributeicons/haircolor.svg",
-  "attributeicons/beard.svg",
-  "attributeicons/beardcolor.svg",
-  "attributeicons/outfit.svg",
-  "attributeicons/outfitcolor.svg",
-  "attributeicons/eyes.svg",
-  "attributeicons/eyebrow.svg",
-  "attributeicons/mouth.svg",
-  "attributeicons/skin.svg",
-  "attributeicons/accessories.svg",
+  "assets/icons/hair.svg",
+  "assets/icons/haircolor.svg",
+  "assets/icons/beard.svg",
+  "assets/icons/beardcolor.svg",
+  "assets/icons/outfit.svg",
+  "assets/icons/outfitcolor.svg",
+  "assets/icons/eyes.svg",
+  "assets/icons/eyebrow.svg",
+  "assets/icons/mouth.svg",
+  "assets/icons/skin.svg",
+  "assets/icons/accessories.svg",
 ];
 
 /// Default list of titles that are rendered at the top of the widget,

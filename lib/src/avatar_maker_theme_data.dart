@@ -1,70 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:avatar_maker/fluttermojiCustomizer.dart';
+import 'package:avatar_maker/src/avatar_maker_customizer.dart';
 
-/// Defines the configuration of the overall visual [theme] for a [FluttermojiCustomizer]
+/// Defines the configuration of the overall visual [theme] for a [AvatarMakerCustomizer]
 /// and the widgets within it.
 ///
-/// The [FluttermojiCustomizer]'s `theme` property can be used to configure the appearance
+/// The [AvatarMakerCustomizer]'s `theme` property can be used to configure the appearance
 /// of the entire widget.
 ///
 /// You can set the attributes of this class to make the customizer look more in
 /// line with your app's own theme and style.
 ///
 /// See more:
-/// * [FluttermojiThemeData.standard] which is applied by default to the widgets.
-class FluttermojiThemeData {
+/// * [AvatarMakerThemeData.standard] which is applied by default to the widgets.
+class AvatarMakerThemeData {
   /// Customize the style of the attributes' titles at the top
-  /// of the [FluttermojiCustomizer]
+  /// of the [AvatarMakerCustomizer]
   final TextStyle labelTextStyle;
 
-  /// Background color of the top and bottom rows of the [FluttermojiCustomizer]
+  /// Background color of the top and bottom rows of the [AvatarMakerCustomizer]
   final Color primaryBgColor;
 
-  /// Background color of the grid area of the [FluttermojiCustomizer]
+  /// Background color of the grid area of the [AvatarMakerCustomizer]
   final Color secondaryBgColor;
 
-  /// Box decoration style of a selected tile in a grid of [FluttermojiCustomizer]
+  /// Box decoration style of a selected tile in a grid of [AvatarMakerCustomizer]
   ///
   /// Defaults to a box with green borders.
   final Decoration selectedTileDecoration;
 
-  /// Box decoration style of an uselected tile in a grid of [FluttermojiCustomizer]
+  /// Box decoration style of an uselected tile in a grid of [AvatarMakerCustomizer]
   ///
   /// Defaults to [null].
   final Decoration? unselectedTileDecoration;
 
   /// Customize the color of the default
-  /// save button in [FluttermojiSaveButton]
+  /// save button in [AvatarMakerSaveButton]
   final Color iconColor;
 
-  /// Color of a selected icon in the bottom row of [FluttermojiCustomizer]
+  /// Color of a selected icon in the bottom row of [AvatarMakerCustomizer]
   final Color selectedIconColor;
 
-  /// Color of an unselected icon in the bottom row of [FluttermojiCustomizer]
+  /// Color of an unselected icon in the bottom row of [AvatarMakerCustomizer]
   final Color unselectedIconColor;
 
-  /// Box decoration style of the [FluttermojiCustomizer]
+  /// Box decoration style of the [AvatarMakerCustomizer]
   final Decoration boxDecoration;
 
   /// Define the scroll behaviour of all scrollabes inside
-  /// the [FluttermojiCustomizer]
+  /// the [AvatarMakerCustomizer]
   final ScrollPhysics scrollPhysics;
 
-  /// Padding inside each tile in the grids of the [FluttermojiCustomizer]
+  /// Padding inside each tile in the grids of the [AvatarMakerCustomizer]
   final EdgeInsetsGeometry tilePadding;
 
-  /// Margin outside each tile in the grids of the [FluttermojiCustomizer]
+  /// Margin outside each tile in the grids of the [AvatarMakerCustomizer]
   final EdgeInsetsGeometry tileMargin;
 
-  /// Creates a visual [theme] for the [FluttermojiCustomizer]
+  /// Creates a visual [theme] for the [AvatarMakerCustomizer]
   /// and the widgets within it.
   ///
   /// You can set the attributes of this class to make the customizer look more in
   /// line with your app's own theme and style.
   ///
   /// See more:
-  /// * [FluttermojiThemeData.standard] which is applied by default to the widgets.
-  FluttermojiThemeData({
+  /// * [AvatarMakerThemeData.standard] which is applied by default to the widgets.
+  AvatarMakerThemeData({
     TextStyle? labelTextStyle,
     Color? primaryBgColor,
     Color? secondaryBgColor,
@@ -100,7 +100,7 @@ class FluttermojiThemeData {
         this.tileMargin = const EdgeInsets.all(2.0),
         this.tilePadding = const EdgeInsets.all(2.0);
 
-  FluttermojiThemeData copyWith({
+  AvatarMakerThemeData copyWith({
     TextStyle? labelTextStyle,
     Color? primaryBgColor,
     Color? secondaryBgColor,
@@ -113,7 +113,7 @@ class FluttermojiThemeData {
     EdgeInsetsGeometry? tilePadding,
     EdgeInsetsGeometry? tileMargin,
   }) {
-    return FluttermojiThemeData(
+    return AvatarMakerThemeData(
       labelTextStyle: labelTextStyle ?? this.labelTextStyle,
       primaryBgColor: primaryBgColor ?? this.primaryBgColor,
       secondaryBgColor: secondaryBgColor ?? this.secondaryBgColor,
@@ -130,7 +130,7 @@ class FluttermojiThemeData {
     );
   }
 
-  static FluttermojiThemeData standard = FluttermojiThemeData(
+  static AvatarMakerThemeData standard = AvatarMakerThemeData(
     primaryBgColor: const Color(0xFFFFFFFF),
     secondaryBgColor: const Color(0xFFF1F1F1),
     iconColor: const Color(0xFF9C9C9C),
