@@ -9,17 +9,17 @@
 /// These icons come bundled with the library and the paths below
 /// are indicative of that.
 const List<String> defaultAttributeIcons = [
-  "assets/icons/hair.svg",
-  "assets/icons/haircolor.svg",
+  "icons/accessories.svg",
+  "eyebrows.svg",
+  "assets/icons/eyes.svg",
   "assets/icons/facial_hair.svg",
   "assets/icons/facial_hair_color.svg",
+  "assets/icons/hair.svg",
+  "assets/icons/haircolor.svg",
+  "assets/icons/mouth.svg",
   "assets/icons/outfit.svg",
   "assets/icons/outfitcolor.svg",
-  "assets/icons/eyes.svg",
-  "assets/icons/eyebrows.svg",
-  "assets/icons/mouth.svg",
   "assets/icons/skin.svg",
-  "assets/icons/accessories.svg",
 ];
 
 /// Default list of titles that are rendered at the top of the widget,

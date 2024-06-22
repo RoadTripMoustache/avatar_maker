@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:avatar_maker/src/enums/defaults.dart';
-import 'package:avatar_maker/src/avatar_maker_save_widget.dart';
-import 'package:avatar_maker/src/avatar_maker_theme_data.dart';
+import 'enums/defaults.dart';
+import 'avatar_maker_save_widget.dart';
+import 'avatar_maker_theme_data.dart';
 import 'assets/avatar_maker_model.dart';
 import 'package:get/get.dart';
 import 'avatar_maker_controller.dart';
@@ -233,7 +233,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       }
 
       /// Number of options available for said [attribute]
-      /// Eg: "Hairstyle" attribue has 38 options
+      /// Eg: "Hairstyle" attribute has 38 options
       var attributeListLength =
           avatarProperties[attribute.key!]!.property!.length;
 
