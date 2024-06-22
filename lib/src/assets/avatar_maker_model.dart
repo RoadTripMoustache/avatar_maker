@@ -240,7 +240,6 @@ const List<String> ClotheColors = [
   'White',
 ];
 
-
 // TODO : A déplacer dans le fichier dart qui contient les informations sur les graphics
 // TODO : Qu'est-ce que c'est ?? - Not implemented
 const List<String> GraphicTypes = [

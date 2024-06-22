@@ -20,7 +20,8 @@ import 'assets/top/hairStyle.dart';
 ///
 /// Exposes certain static functions for use by the developer
 class AvatarMakerController extends GetxController {
-  var avatarmaker = "".obs; // TODO : Trouver un meilleur nom de variable et mettre une description
+  var avatarmaker = ""
+      .obs; // TODO : Trouver un meilleur nom de variable et mettre une description
 
   /// Stores the option selected by the user for each attribute
   /// where the key represents the Attribute
@@ -157,8 +158,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
     SharedPreferences pref = await SharedPreferences.getInstance();
     String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
-      Map<String?, int> _avatarmakerOptionsMap =
-          Map.from(defaultAvatarOptions);
+      Map<String?, int> _avatarmakerOptionsMap = Map.from(defaultAvatarOptions);
       await pref.setString(
           'avatarmakerSelectedOptions', jsonEncode(_avatarmakerOptionsMap));
       selectedOptions = _avatarmakerOptionsMap;
@@ -213,7 +213,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
         return '''<svg width="20px" height="20px" viewBox="0 -40 112 180" >''' +
             FacialHair.generateFacialHair(
                 facialHairType: FacialHairTypes[attributeValueIndex!],
-                fhColor: FacialHairColors[selectedOptions['facialHairColor']])! +
+                fhColor:
+                    FacialHairColors[selectedOptions['facialHairColor']])! +
             '''</svg>''';
 
       case 'facialHairColor':

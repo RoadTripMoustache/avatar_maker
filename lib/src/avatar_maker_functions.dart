@@ -36,9 +36,7 @@ class AvatarMakerFunctions {
   }
 
   String _getAvatarMakerProperty(String type) {
-    return avatarProperties[type]!
-        .property!
-        .elementAt(_decodedList[type]!);
+    return avatarProperties[type]!.property!.elementAt(_decodedList[type]!);
   }
 
   /// Erase avatarmaker String and Map from local storage
@@ -55,7 +53,8 @@ class AvatarMakerFunctions {
   String decodeAvatarMakerfromString(String encodedData) {
     if (encodedData != '') _decodedList = Map.from(jsonDecode(encodedData));
 
-    String _avatarmakerStyle = backgroundStyle[_getAvatarMakerProperty('style')]!;
+    String _avatarmakerStyle =
+        backgroundStyle[_getAvatarMakerProperty('style')]!;
     String _clothe = Clothes.generateClothes(
         clotheType: _getAvatarMakerProperty('clotheType'),
         clColor: _getAvatarMakerProperty('clotheColor'))!;
@@ -118,8 +117,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
     SharedPreferences pref = await SharedPreferences.getInstance();
     String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
-      Map<String, int> _avatarmakerOptionsMap =
-          Map.from(defaultAvatarOptions);
+      Map<String, int> _avatarmakerOptionsMap = Map.from(defaultAvatarOptions);
       await pref.setString(
           'avatarmakerSelectedOptions', jsonEncode(_avatarmakerOptionsMap));
 
@@ -137,8 +135,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
     SharedPreferences pref = await SharedPreferences.getInstance();
     String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
-      Map<String, int> _avatarmakerOptionsMap =
-          Map.from(defaultAvatarOptions);
+      Map<String, int> _avatarmakerOptionsMap = Map.from(defaultAvatarOptions);
       await pref.setString(
           'avatarmakerSelectedOptions', jsonEncode(_avatarmakerOptionsMap));
       return jsonEncode(_avatarmakerOptionsMap);
