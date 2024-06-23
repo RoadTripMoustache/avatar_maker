@@ -28,7 +28,7 @@ enum PropertyCategories implements PropertyCategory {
   HairColor(
     PropertyCategoryIds.HairColor,
     "Hair Colour",
-    "assets/icons/haircolor.svg",
+    "assets/icons/hair_color.svg",
     HairColors.values,
     true,
     HairColors.Black,
@@ -60,7 +60,7 @@ enum PropertyCategories implements PropertyCategory {
   OutfitColor(
     PropertyCategoryIds.OutfitColor,
     "Outfit Color",
-    "assets/icons/outfitcolor.svg",
+    "assets/icons/outfit_color.svg",
     OutfitColors.values,
     true,
     OutfitColors.PastelBlue,
@@ -76,7 +76,7 @@ enum PropertyCategories implements PropertyCategory {
   EyebrowType(
     PropertyCategoryIds.EyebrowType,
     "Eyebrows",
-    "eyebrows.svg",
+    "assets/icons/eyebrows.svg",
     Eyebrows.values,
     true,
     Eyebrows.Default,
@@ -100,7 +100,7 @@ enum PropertyCategories implements PropertyCategory {
   Accessory(
     PropertyCategoryIds.Accessory,
     "Accessories",
-    "icons/accessories.svg",
+    "assets/icons/accessories.svg",
     Accessories.values,
     true,
     Accessories.Nothing,
@@ -108,7 +108,7 @@ enum PropertyCategories implements PropertyCategory {
   Nose(
     PropertyCategoryIds.Nose,
     "Noses",
-    "icons/noses.svg", // TODO : Ajouter une icône pour gérer les nez.
+    "assets/icons/noses.svg", // TODO : Ajouter une icône pour gérer les nez.
     Noses.values,
     false,
     Noses.Default,
@@ -116,7 +116,7 @@ enum PropertyCategories implements PropertyCategory {
   Background(
     PropertyCategoryIds.Background,
     "Background",
-    "icons/background.svg", // TODO : Ajouter une icône pour gérer les backgrounds.
+    "assets/icons/background.svg", // TODO : Ajouter une icône pour gérer les backgrounds.
     BackgroundStyles.values,
     false,
     BackgroundStyles.Circle,

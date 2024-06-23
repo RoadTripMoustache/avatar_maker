@@ -249,7 +249,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
           padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 12),
           child: SvgPicture.asset(
             propertyCategory.iconFile!,
-            package: 'avatarmaker',
+            package: 'avatar_maker',
             height: (widget.scaffoldHeight != null
                 ? widget.scaffoldHeight! / heightFactor * 0.03
                 : size.height * 0.03),

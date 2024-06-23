@@ -12,7 +12,7 @@ import 'package:avatar_maker/src/services/hair_service.dart';
 import 'package:avatar_maker/src/services/property_category_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'assets/avatar_maker_model.dart';
+import 'tmp/avatar_maker_model.dart';
 import 'services/clothes_service.dart';
 import 'enums/property_items/facial_hair_types.dart';
 import 'enums/property_items/hair_styles.dart';
