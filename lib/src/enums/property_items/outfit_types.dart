@@ -165,9 +165,9 @@ enum OutfitTypes implements PropertyItem {
 						</g>
 					</g>
         """);
-  
+
   final String svg;
-  
+
   const OutfitTypes(this.svg);
 
   String get name => this.name;

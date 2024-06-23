@@ -51,8 +51,7 @@ class AvatarMakerCustomizer extends StatefulWidget {
     AvatarMakerThemeData? theme,
     this.customizedPropertyCategories,
     this.autosave = false,
-  })
-      : this.theme = theme ?? AvatarMakerThemeData.standard,
+  })  : this.theme = theme ?? AvatarMakerThemeData.standard,
         super(key: key);
 
   @override
@@ -63,8 +62,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     with SingleTickerProviderStateMixin {
   late AvatarMakerController avatarmakerController;
   late TabController tabController;
-  var heightFactor = 0.4,
-      widthFactor = 0.95;
+  var heightFactor = 0.4, widthFactor = 0.95;
 
   @override
   void initState() {
@@ -93,8 +91,8 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     super.dispose();
   }
 
-  void onTapOption(PropertyItem newSelectedItem,
-      PropertyCategoryIds categoryId) {
+  void onTapOption(
+      PropertyItem newSelectedItem, PropertyCategoryIds categoryId) {
     if (avatarmakerController.selectedOptions[categoryId] != newSelectedItem) {
       setState(() {
         avatarmakerController.selectedOptions[categoryId] = newSelectedItem;
@@ -122,9 +120,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery
-        .of(context)
-        .size;
+    var size = MediaQuery.of(context).size;
     return SizedBox(
       height: widget.scaffoldHeight ?? (size.height * heightFactor),
       width: widget.scaffoldWidth ?? size.width,
@@ -169,7 +165,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       visible: isLeft
           ? tabController.index > 0
           : tabController.index <
-          avatarmakerController.propertyCategories.length - 1,
+              avatarmakerController.propertyCategories.length - 1,
       child: IconButton(
         // splashRadius: 20,
         icon: Icon(
@@ -189,14 +185,13 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   /// [attribute] is an object with the fields attributeName and attributeKey
   // TODO : Sortir les sous-composants dans des fichiers dédiés.
   Widget body() {
-    var size = MediaQuery
-        .of(context)
-        .size;
+    var size = MediaQuery.of(context).size;
 
     var attributeGrids = <Widget>[];
     var navbarWidgets = <Widget>[];
 
-    for(final (categoryIndex, propertyCategory) in avatarmakerController.propertyCategories.indexed) {
+    for (final (categoryIndex, propertyCategory)
+        in avatarmakerController.propertyCategories.indexed) {
       /// Number of options available for said [attribute]
       /// Eg: "Hairstyle" attribute has 38 options
       var attributeListLength = propertyCategory.properties!.length;
@@ -214,7 +209,8 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       else
         gridCrossAxisCount = 4;
 
-      PropertyItem selectedItem = avatarmakerController.selectedOptions[propertyCategory.id]!;
+      PropertyItem selectedItem =
+          avatarmakerController.selectedOptions[propertyCategory.id]!;
 
       /// Build the main Tile Grid with all the options from the attribute
       var _tileGrid = GridView.builder(
@@ -225,26 +221,26 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
           crossAxisSpacing: 4.0,
           mainAxisSpacing: 4.0,
         ),
-        itemBuilder: (BuildContext context, int index) =>
-            InkWell(
-              onTap: () => onTapOption(propertyCategory.properties![index], propertyCategory.id),
-              child: Container(
-                decoration: index == propertyCategory.properties!.indexOf(selectedItem)
+        itemBuilder: (BuildContext context, int index) => InkWell(
+          onTap: () => onTapOption(
+              propertyCategory.properties![index], propertyCategory.id),
+          child: Container(
+            decoration:
+                index == propertyCategory.properties!.indexOf(selectedItem)
                     ? widget.theme.selectedTileDecoration
                     : widget.theme.unselectedTileDecoration,
-                margin: widget.theme.tileMargin,
-                padding: widget.theme.tilePadding,
-                child: SvgPicture.string(
-                  avatarmakerController.getComponentSVG(propertyCategory.id, index),
-                  height: 20,
-                  semanticsLabel: 'Your AvatarMaker',
-                  placeholderBuilder: (context) =>
-                      Center(
-                        child: CupertinoActivityIndicator(),
-                      ),
-                ),
+            margin: widget.theme.tileMargin,
+            padding: widget.theme.tilePadding,
+            child: SvgPicture.string(
+              avatarmakerController.getComponentSVG(propertyCategory.id, index),
+              height: 20,
+              semanticsLabel: 'Your AvatarMaker',
+              placeholderBuilder: (context) => Center(
+                child: CupertinoActivityIndicator(),
               ),
             ),
+          ),
+        ),
       );
 
       /// Builds the icon for the attribute to be placed in the bottom row
@@ -254,8 +250,8 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
             propertyCategory.iconFile!,
             package: 'avatarmaker',
             height: (widget.scaffoldHeight != null
-                    ? widget.scaffoldHeight! / heightFactor * 0.03
-                    : size.height * 0.03),
+                ? widget.scaffoldHeight! / heightFactor * 0.03
+                : size.height * 0.03),
             colorFilter: ColorFilter.mode(
                 categoryIndex == tabController.index
                     ? widget.theme.selectedIconColor

@@ -13,7 +13,8 @@ class PropertyCategoryService {
   static List<CustomizedPropertyCategory> mergePropertyCategories(
     List<CustomizedPropertyCategory>? customizedPropertyCategories,
   ) {
-    if (customizedPropertyCategories == null || customizedPropertyCategories.isEmpty) {
+    if (customizedPropertyCategories == null ||
+        customizedPropertyCategories.isEmpty) {
       return PropertyCategories.values
           .map(_toCustomizedPropertyCategory)
           .toList();

@@ -128,5 +128,4 @@ enum PropertyCategories implements PropertyCategory {
     this.toDisplay,
     this.defaultValue,
   );
-
 }

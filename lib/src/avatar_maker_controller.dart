@@ -23,7 +23,8 @@ import 'enums/property_items/hair_styles.dart';
 ///
 /// Exposes certain static functions for use by the developer
 class AvatarMakerController extends GetxController {
-  var displayedAvatar = "".obs; // TODO : Trouver un meilleur nom de variable et mettre une description
+  var displayedAvatar = ""
+      .obs; // TODO : Trouver un meilleur nom de variable et mettre une description
 
   late final List<CustomizedPropertyCategory> propertyCategories;
   late final Map<PropertyCategoryIds, PropertyItem> defaultSelectedOptions;
@@ -87,7 +88,9 @@ class AvatarMakerController extends GetxController {
     SharedPreferences pref = await SharedPreferences.getInstance();
 
     // Replace observable [avatarmaker] with latest saved version or use default attributes if null
-    updatePreview(avatarmakerNew: pref.getString('avatarmaker') ?? jsonEncode(defaultSelectedOptions));
+    updatePreview(
+        avatarmakerNew: pref.getString('avatarmaker') ??
+            jsonEncode(defaultSelectedOptions));
 
     selectedOptions = await getSelectedOptions();
     update();
@@ -205,7 +208,6 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
   /// to display as a preview
   // TODO : Sortir la génération du SVG dans des méthodes
   String getComponentSVG(PropertyCategoryIds categoryId, int index) {
-
     PropertyItem item = getPropertyCategoryById(categoryId).properties![index];
     switch (categoryId) {
       case PropertyCategoryIds.OutfitType:
