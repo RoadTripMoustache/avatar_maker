@@ -1,7 +1,8 @@
-/// SVG strings for style of avatar's background
-const backgroundStyle = {
-  "Transparent": "",
-  "Circle": '''
+import "package:avatar_maker/src/models/property_item.dart";
+
+enum BackgroundStyles implements PropertyItem {
+  Transparent(""),
+  Circle("""
 <g id="Circle" stroke-width="1" fill-rule="evenodd" transform="translate(12.000000, 40.000000)">
 <mask id="mask-2" fill="white"><use xlink:href="#path-1">
 </use>
@@ -11,5 +12,13 @@ const backgroundStyle = {
 <rect id="🖍Color" x="0" y="0" width="240" height="240"></rect>
 </g>
 </g>
-<mask id="mask-4" fill="white"><use xlink:href="#path-3"></use></mask>''',
-};
+<mask id="mask-4" fill="white"><use xlink:href="#path-3"></use></mask>""");
+
+  final String svg;
+
+  const BackgroundStyles(this.svg);
+
+  String get name => this.name;
+
+  String get value => this.svg;
+}

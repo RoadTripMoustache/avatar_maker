@@ -1,18 +1,21 @@
 import 'dart:convert';
-import './assets/style.dart';
+import 'package:avatar_maker/src/enums/property_categories.dart';
+import 'package:avatar_maker/src/enums/property_category_ids.dart';
+import 'package:avatar_maker/src/enums/property_items/facial_hair_colors.dart';
+import 'package:avatar_maker/src/enums/property_items/hair_colors.dart';
+import 'package:avatar_maker/src/enums/property_items/outfit_colors.dart';
+import 'package:avatar_maker/src/enums/property_items/outfit_types.dart';
+import 'package:avatar_maker/src/models/customized_property_category.dart';
+import 'package:avatar_maker/src/models/property_item.dart';
+import 'package:avatar_maker/src/services/facial_hairs_service.dart';
+import 'package:avatar_maker/src/services/hair_service.dart';
+import 'package:avatar_maker/src/services/property_category_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'avatar_maker_functions.dart';
 import 'assets/avatar_maker_model.dart';
-import 'assets/clothes/clothes.dart';
-import 'assets/face/eyebrow.dart';
-import 'assets/face/eyes.dart';
-import 'assets/face/mouth.dart';
-import 'assets/face/nose.dart';
-import 'assets/skin.dart';
-import 'assets/top/accessories.dart';
-import 'assets/top/facialHair.dart';
-import 'assets/top/hairStyle.dart';
+import 'services/clothes_service.dart';
+import 'enums/property_items/facial_hair_types.dart';
+import 'enums/property_items/hair_styles.dart';
 
 /// Brains of the Avatar_Maker package
 ///
@@ -20,31 +23,51 @@ import 'assets/top/hairStyle.dart';
 ///
 /// Exposes certain static functions for use by the developer
 class AvatarMakerController extends GetxController {
-  var avatarmaker = ""
-      .obs; // TODO : Trouver un meilleur nom de variable et mettre une description
+  var displayedAvatar = "".obs; // TODO : Trouver un meilleur nom de variable et mettre une description
+
+  late final List<CustomizedPropertyCategory> propertyCategories;
+  late final Map<PropertyCategoryIds, PropertyItem> defaultSelectedOptions;
+
+  AvatarMakerController(
+    List<CustomizedPropertyCategory>? customizedPropertyCategories,
+  ) {
+    this.propertyCategories = PropertyCategoryService.mergePropertyCategories(
+        customizedPropertyCategories);
+    // Generate the default selected options based on the
+    // [CustomizedPropertyCategory] list given to the constructor.
+    this.defaultSelectedOptions = {
+      for (var category in this.propertyCategories)
+        category.id: category.defaultValue!
+    };
+  }
 
   /// Stores the option selected by the user for each attribute
   /// where the key represents the Attribute
   /// and the value represents the index of the selected option.
   ///
-  /// Eg: selectedIndexes["eyes"] gives the index of
+  /// Eg: selectedOptions["eyes"] gives the index of
   /// the kind of eyes picked by the user
-  Map<String?, dynamic> selectedOptions = <String?, dynamic>{};
+  Map<PropertyCategoryIds, PropertyItem> selectedOptions =
+      <PropertyCategoryIds, PropertyItem>{};
 
   @override
-  void onInit() {
+  void onInit() async {
     // called immediately after the widget is allocated memory
-    init();
+    selectedOptions = await getSelectedOptions();
+    displayedAvatar.value = getAvatarMakerFromOptions();
+    update();
+    // init(); TODO - A retirer après les tests
     super.onInit();
   }
 
-  void init() async {
-    Map<String?, int> _tempIndexes = await getAvatarMakerOptions();
-    selectedOptions = _tempIndexes;
-    update();
-    avatarmaker.value = getAvatarMakerFromOptions();
-    update();
-  }
+  // TODO : Pourquoi avoir deux updates ?
+  // TODO : Pourquoi avoir une méthode dédiée ?
+  // void init() async {
+  //   selectedOptions = await getAvatarMakerOptions();
+  // update();
+  //   displayedAvatar.value = getAvatarMakerFromOptions();
+//   update();
+  // }
 
   /// Adds avatarmaker new string to avatarmaker in GetX Controller
   void updatePreview({
@@ -53,69 +76,72 @@ class AvatarMakerController extends GetxController {
     if (avatarmakerNew.isEmpty) {
       avatarmakerNew = getAvatarMakerFromOptions();
     }
-    avatarmaker.value = avatarmakerNew;
+    // TODO : Voir si ça modifie bien les valeurs des paramètres sélectionnés
+    displayedAvatar.value = avatarmakerNew;
     update();
   }
 
   /// Restore controller state
-  /// with the latest SAVED version of [avatarmaker] and [selectedOptions]
+  /// with the latest SAVED version of [displayedAvatar] and [selectedOptions]
   void restoreState() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
 
     // Replace observable [avatarmaker] with latest saved version or use default attributes if null
-    avatarmaker.value = pref.getString('avatarmaker') ??
-        AvatarMakerFunctions().decodeAvatarMakerfromString(
-          jsonEncode(defaultAvatarOptions),
-        );
+    updatePreview(avatarmakerNew: pref.getString('avatarmaker') ?? jsonEncode(defaultSelectedOptions));
 
-    selectedOptions = await getAvatarMakerOptions();
+    selectedOptions = await getSelectedOptions();
     update();
   }
 
-  String _getAvatarMakerProperty(String type) {
-    return avatarProperties[type]!
-        .property!
-        .elementAt(selectedOptions[type] as int);
-  }
-
-  ///  Accepts a String [avatarmaker]
+  ///  Accepts a String [displayedAvatar]
   ///
-  ///  stores [avatarmaker] in device storage
+  ///  stores [displayedAvatar] in device storage
   ///  adds the new name to controller
   ///
   ///  Thereby updating all the states which are listening to controller
+  // Pour permettre à un utilisateur de charger un avatar
+  // TODO : Clean up
   Future<void> setAvatarMaker({String avatarmakerNew = ''}) async {
     if (avatarmakerNew.isEmpty) {
       avatarmakerNew = getAvatarMakerFromOptions();
     }
     SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString('avatarmaker', avatarmakerNew);
-    avatarmaker.value = avatarmakerNew;
+    displayedAvatar.value = avatarmakerNew;
     await pref.setString(
         'avatarmakerSelectedOptions', jsonEncode(selectedOptions));
     update();
   }
 
   /// Generates a [String] avatarmaker from [selectedOptions] pref
+  // TODO : drawAvatar ? generateAvatarSVG?
   String getAvatarMakerFromOptions() {
-    String _avatarmakerStyle =
-        backgroundStyle[_getAvatarMakerProperty('style')]!;
-    String _clothe = Clothes.generateClothes(
-        clotheType: _getAvatarMakerProperty('clotheType'),
-        clColor: _getAvatarMakerProperty('clotheColor'))!;
-    String _facialhair = FacialHair.generateFacialHair(
-        facialHairType: _getAvatarMakerProperty('facialHairType'),
-        fhColor: _getAvatarMakerProperty('facialHairColor'))!;
-    String _mouth = mouth['${_getAvatarMakerProperty('mouthType')}'];
-    String _nose = nose['Default'];
-    String _eyes = eyes['${_getAvatarMakerProperty('eyeType')}'];
-    String _eyebrows = eyebrow['${_getAvatarMakerProperty('eyebrowType')}'];
-    String _accessory = accessories[_getAvatarMakerProperty('accessoriesType')];
-    String _hair = HairStyle.generateHairStyle(
-        hairType: _getAvatarMakerProperty('topType'),
-        hColor: _getAvatarMakerProperty('hairColor'))!;
-    String _skin = skin[_getAvatarMakerProperty('skinColor')];
-    String _completeSVG = '''
+    String _backgroundStyle =
+        selectedOptions[PropertyCategoryIds.Background]!.value;
+    String _clothe = ClothesService.generateClothes(
+      color: selectedOptions[PropertyCategoryIds.OutfitColor] as OutfitColors,
+      type: selectedOptions[PropertyCategoryIds.OutfitType] as OutfitTypes,
+    );
+    String _facialHair = FacialHairsService.generateFacialHair(
+      color: selectedOptions[PropertyCategoryIds.FacialHairColor]
+          as FacialHairColors,
+      type: selectedOptions[PropertyCategoryIds.FacialHairType]
+          as FacialHairTypes,
+    );
+    String _mouth = selectedOptions[PropertyCategoryIds.MouthType]!.value;
+    String _nose = selectedOptions[PropertyCategoryIds.Nose]!.value;
+    String _eyes = selectedOptions[PropertyCategoryIds.EyeType]!.value;
+    String _eyebrows = selectedOptions[PropertyCategoryIds.EyebrowType]!.value;
+    String _accessory = selectedOptions[PropertyCategoryIds.Accessory]!.value;
+    String _hair = HairService.generateHairStyle(
+      color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
+      style: selectedOptions[PropertyCategoryIds.HairStyle] as HairStyles,
+    );
+    String _skin = selectedOptions[PropertyCategoryIds.SkinColor]!.value;
+
+    // TODO : "path-3"? "path-5" ?? Voir leur utilisation et les changer
+    // TODO : Voir pour sortir ce svg de base d'ici et le mettre dans un service dédié
+    String _completeSVG = """
 <svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
 xmlns="http://www.w3.org/2000/svg"
 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -127,9 +153,9 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 </defs>
 <g id="AvatarMaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
 <g transform="translate(-825.000000, -1100.000000)" id="avatar_maker/Circle">
-<g transform="translate(825.000000, 1100.000000)">''' +
-        _avatarmakerStyle +
-        '''
+<g transform="translate(825.000000, 1100.000000)">""" +
+        _backgroundStyle +
+        """
 <g id="Mask"></g>
 <g id="AvatarMaker" stroke-width="1" fill-rule="evenodd">
 <g id="Body" transform="translate(32.000000, 36.000000)">
@@ -137,115 +163,100 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 <mask id="mask-6" fill="white">
 <use xlink:href="#path-5"></use>
 </mask>
-<use fill="#D0C6AC" xlink:href="#path-5"></use>''' +
+<use fill="#D0C6AC" xlink:href="#path-5"></use>""" +
         _skin +
-        '''<path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path></g>''' +
+        """<path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path></g>""" +
         _clothe +
-        '''<g id="Face" transform="translate(76.000000, 82.000000)" fill="#000000">''' +
+        """<g id="Face" transform="translate(76.000000, 82.000000)" fill="#000000">""" +
         _mouth +
-        _facialhair +
+        _facialHair +
         _nose +
         _eyes +
         _eyebrows +
         _accessory +
-        '''</g>''' +
+        """</g>""" +
         _hair +
-        '''</g></g></g></g></svg>''';
+        """</g></g></g></g></svg>""";
     return _completeSVG;
   }
 
-  Future<Map<String?, int>> getAvatarMakerOptions() async {
+  /// Permet de récupérer les préférences stockées de l'utilisateur ou les options sélectionnées par défaut.
+  Future<Map<PropertyCategoryIds, PropertyItem>> getSelectedOptions() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
+    // TODO : Constante
     String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
-      Map<String?, int> _avatarmakerOptionsMap = Map.from(defaultAvatarOptions);
+      Map<PropertyCategoryIds, PropertyItem> _avatarmakerOptionsMap = {
+        for (var category in PropertyCategories.values)
+          category.id: category.defaultValue
+      };
       await pref.setString(
           'avatarmakerSelectedOptions', jsonEncode(_avatarmakerOptionsMap));
       selectedOptions = _avatarmakerOptionsMap;
-
-      update();
-      return _avatarmakerOptionsMap;
+    } else {
+      // TODO : A tester le jsonDecode
+      selectedOptions = Map.from(jsonDecode(_avatarmakerOptions));
     }
-    selectedOptions = Map.from(jsonDecode(_avatarmakerOptions));
     update();
-    return Map.from(jsonDecode(_avatarmakerOptions));
+    return selectedOptions;
   }
 
-  String? getComponentTitle(String attributeKey, int attriibuteValueIndex) {
-    return avatarProperties[attributeKey]!
-        .property
-        ?.elementAt(attriibuteValueIndex);
-  }
-
-  /// Generates compnonent SVG string for an individual component
+  /// Generates component SVG string for an individual component
   /// to display as a preview
-  String getComponentSVG(String? attributeKey, int? attributeValueIndex) {
-    switch (attributeKey) {
-      case 'clotheType':
-        return '''<svg width="100px" height="120px" viewBox="30 100 200 250" >''' +
-            Clothes.generateClothes(
-                clotheType: ClotheTypes.elementAt(attributeValueIndex!),
-                clColor: ClotheColors[selectedOptions['clotheColor']])! +
-            '''</svg>''';
+  // TODO : Sortir la génération du SVG dans des méthodes
+  String getComponentSVG(PropertyCategoryIds categoryId, int index) {
 
-      case 'clotheColor':
-        return '''<svg width="120px" height="120px" > 
-                <circle cx="60" cy="60" r="35" stroke="black" stroke-width="1" fill="''' +
-            Clothes.clotheColor[ClotheColors[attributeValueIndex!]] +
-            '''"/></svg>''';
+    PropertyItem item = getPropertyCategoryById(categoryId).properties![index];
+    switch (categoryId) {
+      case PropertyCategoryIds.OutfitType:
+        return """<svg width="100px" height="120px" viewBox="30 100 200 250" >${ClothesService.generateClothes(
+          color:
+              selectedOptions[PropertyCategoryIds.OutfitColor] as OutfitColors,
+          type: item as OutfitTypes,
+        )}</svg>""";
 
-      case 'topType':
-        if (attributeValueIndex == 0) return emptySVGIcon;
-        return '''<svg width="20px" width="100px" height="100px" viewBox="10 0 250 250">''' +
-            HairStyle.generateHairStyle(
-                hairType: TopTypes[attributeValueIndex!],
-                hColor: HairColors[selectedOptions['hairColor']])! +
-            '''</svg>''';
+      case PropertyCategoryIds.OutfitColor:
+        return """<svg width="120px" height="120px" > 
+                <circle cx="60" cy="60" r="35" stroke="black" stroke-width="1" fill="${item.value}"/></svg>""";
 
-      case 'hairColor':
-        return '''<svg width="120px" height="120px" > 
-                <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="''' +
-            HairStyle.hairColor[HairColors.elementAt(attributeValueIndex!)] +
-            '''"/> </svg>''';
+      case PropertyCategoryIds.HairStyle:
+        if (index == 0) return emptySVGIcon;
+        return """<svg width="20px" width="100px" height="100px" viewBox="10 0 250 250">${HairService.generateHairStyle(
+          color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
+          style: item as HairStyles,
+        )}</svg>""";
 
-      case 'facialHairType':
-        if (attributeValueIndex == 0) return emptySVGIcon;
-        return '''<svg width="20px" height="20px" viewBox="0 -40 112 180" >''' +
-            FacialHair.generateFacialHair(
-                facialHairType: FacialHairTypes[attributeValueIndex!],
-                fhColor:
-                    FacialHairColors[selectedOptions['facialHairColor']])! +
-            '''</svg>''';
+      case PropertyCategoryIds.HairColor:
+        return """<svg width="120px" height="120px" > 
+                <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="${selectedOptions[PropertyCategoryIds.HairColor]!.value}"/> </svg>""";
 
-      case 'facialHairColor':
-        return '''<svg width="120px" height="120px" > 
-                <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="''' +
-            FacialHair.facialHairColor[FacialHairColors[attributeValueIndex!]] +
-            '''"/></svg>''';
+      case PropertyCategoryIds.FacialHairType:
+        if (index == 0) return emptySVGIcon;
+        return """<svg width="20px" height="20px" viewBox="0 -40 112 180" >${FacialHairsService.generateFacialHair(
+          color: selectedOptions[PropertyCategoryIds.FacialHairColor]
+              as FacialHairColors,
+          type: item as FacialHairTypes,
+        )}</svg>""";
 
-      case 'eyeType':
-        return '''<svg width="20px" height="20px" viewBox="-3 -30 120 120">''' +
-            eyes[EyeTypes[attributeValueIndex!]] +
-            '''</svg>''';
+      case PropertyCategoryIds.FacialHairColor:
+        return """<svg width="120px" height="120px" > 
+                <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="${item.value}"/></svg>""";
 
-      case 'eyebrowType':
-        return '''<svg width="20px" height="20px" viewBox="-3 -50 120 120">''' +
-            eyebrow[EyebrowTypes[attributeValueIndex!]] +
-            '''</svg>''';
+      case PropertyCategoryIds.EyeType:
+        return """<svg width="20px" height="20px" viewBox="-3 -30 120 120">${item.value}</svg>""";
 
-      case 'mouthType':
-        return '''<svg width="20px" height="20px" viewBox="0 10 120 120">''' +
-            mouth[MouthTypes[attributeValueIndex!]] +
-            '''</svg>''';
+      case PropertyCategoryIds.EyebrowType:
+        return """<svg width="20px" height="20px" viewBox="-3 -50 120 120">${item.value}</svg>""";
 
-      case 'accessoriesType':
-        if (attributeValueIndex == 0) return emptySVGIcon;
-        return '''<svg width="20px" height="20px" viewBox="-3 -50 120 170" >''' +
-            accessories[AccessoriesTypes[attributeValueIndex!]] +
-            '''</svg>''';
+      case PropertyCategoryIds.MouthType:
+        return """<svg width="20px" height="20px" viewBox="0 10 120 120">${item.value}</svg>""";
 
-      case 'skinColor':
-        return '''<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
+      case PropertyCategoryIds.Accessory:
+        if (index == 0) return emptySVGIcon;
+        return """<svg width="20px" height="20px" viewBox="-3 -50 120 170" >${item.value}</svg>""";
+
+      case PropertyCategoryIds.SkinColor:
+        return """<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
 xmlns="http://www.w3.org/2000/svg"
 xmlns:xlink="http://www.w3.org/1999/xlink">
 <desc>AvatarMaker Skin Preview</desc>
@@ -264,16 +275,15 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 							<use xlink:href="#path-5"></use>
 						</mask>
 						<use fill="#D0C6AC" xlink:href="#path-5"></use>
-        ''' +
-            skin[SkinColors[attributeValueIndex!]] +
-            '''	<path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path>
+        ${item.value}
+           <path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path>
 				</g>
 		</g>
 	</g>
-</svg>''';
+</svg>""";
 
-      case 'style':
-        return '''<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
+      case PropertyCategoryIds.Background: // TODO : Pas convaincu
+        return """<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
 xmlns="http://www.w3.org/2000/svg"
 xmlns:xlink="http://www.w3.org/1999/xlink">
 <desc>AvatarMaker Skin Preview</desc>
@@ -284,29 +294,42 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 </defs>
 	<g id="AvatarMaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
     <g transform="translate(-825.000000, -1100.000000)" id="avatar_maker/Circle">
-			<g transform="translate(825.000000, 1100.000000)">''' +
-            backgroundStyle[backgroundStyle[attributeValueIndex!]]! +
-            '''<g id="Mask"></g>
+			<g transform="translate(825.000000, 1100.000000)">${item.value}<g id="Mask"></g>
         <g id="AvatarMaker" stroke-width="1" fill-rule="evenodd">
 					<g id="Body" transform="translate(32.000000, 36.000000)">
 						<mask id="mask-6" fill="white">
 							<use xlink:href="#path-5"></use>
 						</mask>
 						<use fill="#D0C6AC" xlink:href="#path-5"></use>
-        ''' +
-            skin[SkinColors[1]] +
-            '''	<path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path>
+						${selectedOptions[PropertyCategoryIds.SkinColor]!.value}
+						<path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path>
 				</g>
 		</g>
 	</g>
-</svg>''';
+</svg>""";
 
       default:
         return emptySVGIcon;
     }
   }
 
-  @Deprecated(
-      'No longer used by the library, please use the field `selectedOptions` instead.')
-  Map<String?, dynamic> selectedIndexes = <String?, dynamic>{};
+  CustomizedPropertyCategory getPropertyCategoryById(PropertyCategoryIds id) {
+    CustomizedPropertyCategory searchedCategory = this.propertyCategories.first;
+    for (CustomizedPropertyCategory category in this.propertyCategories) {
+      if (category.id == id) {
+        searchedCategory = category;
+        break;
+      }
+    }
+    return searchedCategory;
+  }
+
+  /// Erase avatarmaker String and Map from local storage
+  Future<List<bool>> clearAvatarMaker() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    return Future.wait([
+      pref.remove('avatarmakerSelectedOptions'), // TODO : Constante
+      pref.remove('avatarmaker'),
+    ]);
+  }
 }

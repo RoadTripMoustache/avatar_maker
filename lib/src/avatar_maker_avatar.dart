@@ -1,3 +1,4 @@
+import 'package:avatar_maker/src/models/customized_property_category.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -13,8 +14,14 @@ import './avatar_maker_controller.dart';
 class AvatarMakerAvatar extends StatelessWidget {
   final double radius;
   final Color? backgroundColor;
-  AvatarMakerAvatar({Key? key, this.radius = 75.0, this.backgroundColor})
-      : super(key: key);
+  final List<CustomizedPropertyCategory>? customizedPropertyCategories;
+
+  AvatarMakerAvatar({
+    Key? key,
+    this.radius = 75.0,
+    this.backgroundColor,
+    this.customizedPropertyCategories,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +33,14 @@ class AvatarMakerAvatar extends StatelessWidget {
 
   GetX<AvatarMakerController> buildGetX() {
     return GetX<AvatarMakerController>(
-        init: AvatarMakerController(),
+        init: AvatarMakerController(this.customizedPropertyCategories),
         autoRemove: false,
         builder: (snapshot) {
-          if (snapshot.avatarmaker.value.isEmpty) {
+          if (snapshot.displayedAvatar.value.isEmpty) {
             return CupertinoActivityIndicator();
           }
           return SvgPicture.string(
-            snapshot.avatarmaker.value,
+            snapshot.displayedAvatar.value,
             height: radius * 1.6,
             semanticsLabel: "Your avatar",
             placeholderBuilder: (context) => Center(

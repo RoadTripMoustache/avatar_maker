@@ -1,6 +1,7 @@
-/// SVG strings for eyes
-Map<String, dynamic> eyes = {
-  'Close': '''
+import 'package:avatar_maker/src/models/property_item.dart';
+
+enum Eyes implements PropertyItem {
+  Close("""
   <g
         id='Eyes/Closed-😌'
         transform='translate(0.000000, 8.000000)'
@@ -16,8 +17,8 @@ Map<String, dynamic> eyes = {
           transform='translate(85.000000, 30.000000) scale(1, -1) translate(-85.000000, -30.000000) '
         />
       </g>
-  ''',
-  'Cry': '''
+  """),
+  Cry("""
   <g id='Eyes/Cry-😢' transform='translate(0.000000, 8.000000)'>
         <circle
           id='Eye'
@@ -44,8 +45,8 @@ Map<String, dynamic> eyes = {
           r='6'
         />
       </g>
-  ''',
-  'Default': '''
+  """),
+  Default("""
   <g
         id='Eyes/Default-😀'
         transform='translate(0.000000, 8.000000)'
@@ -53,8 +54,8 @@ Map<String, dynamic> eyes = {
         <circle id='Eye' cx='30' cy='22' r='6' />
         <circle id='Eye' cx='82' cy='22' r='6' />
       </g>
-  ''',
-  'Dizzy': '''
+  """),
+  Dizzy("""
   <g
         id='Eyes/X-Dizzy-😵'
         transform='translate(0.000000, 8.000000)'
@@ -69,8 +70,8 @@ Map<String, dynamic> eyes = {
           id='Eye'
         />
       </g>
-  ''',
-  'EyeRoll': '''
+  """),
+  EyeRoll("""
   <g id='Eyes/Eye-Roll-🙄' transform='translate(0.000000, 8.000000)'>
         <circle id='Eyeball' fill='#FFFFFF' cx='30' cy='22' r='14' />
         <circle id='The-white-stuff' fill='#FFFFFF' cx='82' cy='22' r='14' />
@@ -91,8 +92,8 @@ Map<String, dynamic> eyes = {
           r='6'
         />
       </g>
-      ''',
-  'Happy': '''
+      """),
+  Happy("""
     <g
         id='Eyes/Happy-😁'
         transform='translate(0.000000, 8.000000)'
@@ -106,8 +107,8 @@ Map<String, dynamic> eyes = {
           id='Squint'
         />
       </g>
-    ''',
-  'Hearts': '''
+    """),
+  Hearts("""
   <g
         id='Eyes/Hearts-😍'
         transform='translate(0.000000, 8.000000)'
@@ -123,8 +124,8 @@ Map<String, dynamic> eyes = {
           id='Heart'
         />
       </g>
-  ''',
-  'Side': '''
+  """),
+  Side("""
   <g
         id='Eyes/Side-😒'
         transform='translate(0.000000, 8.000000)'
@@ -138,8 +139,8 @@ Map<String, dynamic> eyes = {
           id='Eye'
         />
       </g>
-  ''',
-  'Surprised': '''
+  """),
+  Surprised("""
   <g id='Eyes/Surprised-😳' transform='translate(0.000000, 8.000000)'>
         <circle id='The-White-Stuff' fill='#FFFFFF' cx='30' cy='22' r='14' />
         <circle id='Eye-Ball' fill='#FFFFFF' cx='82' cy='22' r='14' />
@@ -160,8 +161,8 @@ Map<String, dynamic> eyes = {
           r='6'
         />
       </g>
-  ''',
-  'Wink': '''
+  """),
+  Wink("""
   <g
         id='Eyes/Wink-😉'
         transform='translate(0.000000, 8.000000)'
@@ -173,8 +174,8 @@ Map<String, dynamic> eyes = {
           transform='translate(81.252230, 21.757577) rotate(-4.000000) translate(-81.252230, -21.757577) '
         />
       </g>
-  ''',
-  'WinkWacky': '''
+  """),
+  WinkWacky("""
 <g id='Eyes/Wink-Wacky-😜' transform='translate(0.000000, 8.000000)'>
         <circle
           id='Cornea?-I-don&#39;t-know'
@@ -198,8 +199,8 @@ Map<String, dynamic> eyes = {
           fill='#000000'
         />
       </g>
-  ''',
-  'Squint': '''
+  """),
+  Squint("""
   	<g id="Eyes/Squint-😊" transform="translate(0.000000, 8.000000)">
 							<defs>
 								<path d="M14,14.0481187 C23.6099827,14.0481187 28,18.4994466 28,11.5617716 C28,4.62409673 21.7319865,0 14,0 C6.2680135,0 0,4.62409673 0,11.5617716 C0,18.4994466 4.39001726,14.0481187 14,14.0481187 Z" id="react-path-55832"></path>
@@ -219,5 +220,13 @@ Map<String, dynamic> eyes = {
 								<use id="Eyeball-Mask" fill="#FFFFFF" xlink:href="#react-path-55833"></use>
 								<circle fill-opacity="0.699999988" fill="#000000" mask="url(#react-mask-55835)" cx="14" cy="10" r="6"></circle>
 							</g>
-						</g>''',
-};
+						</g>""");
+
+  final String svg;
+
+  const Eyes(this.svg);
+
+  String get name => this.name;
+
+  String get value => this.svg;
+}
