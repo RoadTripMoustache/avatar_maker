@@ -61,7 +61,7 @@ class PropertyCategoryService {
 
     // Check if the default value of the property category is in its property list.
     PropertyItem? defaultValueInThePropertyList = properties
-        .firstWhereOrNull((element) => element.name == defaultValue.name);
+        .firstWhereOrNull((element) => element.label == defaultValue.label);
     if (defaultValueInThePropertyList == null) {
       throw new ArgumentError(
         "The default value of a category must be in its property list.",

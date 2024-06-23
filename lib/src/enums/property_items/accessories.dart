@@ -125,6 +125,6 @@ enum Accessories implements PropertyItem {
 
   const Accessories(this.svg);
 
-  String get name => this.name;
+  String get label => this.name;
   String get value => this.svg;
 }

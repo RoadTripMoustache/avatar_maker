@@ -90,7 +90,7 @@ class AvatarMakerController extends GetxController {
     // Replace observable [avatarmaker] with latest saved version or use default attributes if null
     updatePreview(
         avatarmakerNew: pref.getString('avatarmaker') ??
-            jsonEncode(defaultSelectedOptions));
+            jsonEncodeSelectedOptions(defaultSelectedOptions));
 
     selectedOptions = await getSelectedOptions();
     update();
@@ -109,10 +109,12 @@ class AvatarMakerController extends GetxController {
       avatarmakerNew = getAvatarMakerFromOptions();
     }
     SharedPreferences pref = await SharedPreferences.getInstance();
-    await pref.setString('avatarmaker', avatarmakerNew);
+    await pref.setString('avatarmaker', avatarmakerNew); // TODO : Constante
+
     displayedAvatar.value = avatarmakerNew;
-    await pref.setString(
-        'avatarmakerSelectedOptions', jsonEncode(selectedOptions));
+
+    await pref.setString( // TODO : Constante
+        'avatarmakerSelectedOptions', jsonEncodeSelectedOptions(selectedOptions));
     update();
   }
 
@@ -186,6 +188,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
   /// Permet de récupérer les préférences stockées de l'utilisateur ou les options sélectionnées par défaut.
   Future<Map<PropertyCategoryIds, PropertyItem>> getSelectedOptions() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
+    await pref.setString(  'avatarmakerSelectedOptions', ""); // TODO : A retirer après les tests
     // TODO : Constante
     String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
@@ -193,12 +196,13 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
         for (var category in PropertyCategories.values)
           category.id: category.defaultValue
       };
+
       await pref.setString(
-          'avatarmakerSelectedOptions', jsonEncode(_avatarmakerOptionsMap));
+          'avatarmakerSelectedOptions', jsonEncodeSelectedOptions(_avatarmakerOptionsMap));
       selectedOptions = _avatarmakerOptionsMap;
     } else {
       // TODO : A tester le jsonDecode
-      selectedOptions = Map.from(jsonDecode(_avatarmakerOptions));
+      selectedOptions = jsonDecodeSelectedOptions(_avatarmakerOptions);
     }
     update();
     return selectedOptions;
@@ -230,7 +234,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 
       case PropertyCategoryIds.HairColor:
         return """<svg width="120px" height="120px" > 
-                <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="${selectedOptions[PropertyCategoryIds.HairColor]!.value}"/> </svg>""";
+                <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="${item.value}"/> </svg>""";
 
       case PropertyCategoryIds.FacialHairType:
         if (index == 0) return emptySVGIcon;
@@ -333,5 +337,25 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
       pref.remove('avatarmakerSelectedOptions'), // TODO : Constante
       pref.remove('avatarmaker'),
     ]);
+  }
+
+  String jsonEncodeSelectedOptions(Map<PropertyCategoryIds, PropertyItem> selectedOptions) {
+    Map<String, String> optionsToEncode = {};
+    selectedOptions.forEach((key, value) => optionsToEncode.putIfAbsent(key.name, () => value.label));
+    return jsonEncode(optionsToEncode);
+  }
+
+  // TODO : Retirer les print
+  Map<PropertyCategoryIds, PropertyItem> jsonDecodeSelectedOptions(String encodedOptions) {
+    var decodedOptions = jsonDecode(encodedOptions);
+
+    Map<PropertyCategoryIds, PropertyItem> selectedOptions = {};
+
+    decodedOptions.forEach((key, value) {
+      PropertyCategoryIds categoryId = PropertyCategoryIds.values.firstWhere((id) => id.name == key,);
+      PropertyItem item = getPropertyCategoryById(categoryId).properties!.firstWhere((property) => property.label == value,);
+      selectedOptions.putIfAbsent(categoryId, () => item);
+    });
+    return selectedOptions;
   }
 }

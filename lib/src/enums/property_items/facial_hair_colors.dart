@@ -14,6 +14,6 @@ enum FacialHairColors implements PropertyItem {
 
   const FacialHairColors(this.hexCode);
 
-  String get name => this.name;
+  String get label => this.name;
   String get value => this.hexCode;
 }

@@ -1,4 +1,4 @@
 class PropertyItem {
-  String get name => "";
+  String get label => "";
   String get value => "";
 }

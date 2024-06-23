@@ -35,12 +35,12 @@ class AvatarMakerAvatar extends StatelessWidget {
     return GetX<AvatarMakerController>(
         init: AvatarMakerController(this.customizedPropertyCategories),
         autoRemove: false,
-        builder: (snapshot) {
-          if (snapshot.displayedAvatar.value.isEmpty) {
+        builder: (controller) {
+          if (controller.displayedAvatar.value.isEmpty) {
             return CupertinoActivityIndicator();
           }
           return SvgPicture.string(
-            snapshot.displayedAvatar.value,
+            controller.getAvatarMakerFromOptions(),
             height: radius * 1.6,
             semanticsLabel: "Your avatar",
             placeholderBuilder: (context) => Center(

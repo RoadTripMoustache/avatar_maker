@@ -1,5 +1,6 @@
 import 'package:avatar_maker/src/enums/property_category_ids.dart';
 import 'package:avatar_maker/src/enums/property_items/accessories.dart';
+import 'package:avatar_maker/src/enums/property_items/background_style.dart';
 import 'package:avatar_maker/src/enums/property_items/noses.dart';
 import 'package:avatar_maker/src/enums/property_items/outfit_colors.dart';
 import 'package:avatar_maker/src/enums/property_items/eyebrows.dart';
@@ -111,6 +112,14 @@ enum PropertyCategories implements PropertyCategory {
     Noses.values,
     false,
     Noses.Default,
+  ),
+  Background(
+    PropertyCategoryIds.Background,
+    "Background",
+    "icons/background.svg", // TODO : Ajouter une icône pour gérer les backgrounds.
+    BackgroundStyles.values,
+    false,
+    BackgroundStyles.Circle,
   );
 
   final PropertyCategoryIds id;

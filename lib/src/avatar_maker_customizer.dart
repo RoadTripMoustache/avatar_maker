@@ -208,6 +208,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
         gridCrossAxisCount = 2;
       else
         gridCrossAxisCount = 4;
+      gridCrossAxisCount = 6;
 
       PropertyItem selectedItem =
           avatarmakerController.selectedOptions[propertyCategory.id]!;

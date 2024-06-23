@@ -54,7 +54,7 @@ enum SkinColors implements PropertyItem {
 
   const SkinColors(this.svg);
 
-  String get name => this.name;
+  String get label => this.name;
 
   String get value => this.svg;
 }
