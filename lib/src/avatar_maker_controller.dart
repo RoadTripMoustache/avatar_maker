@@ -113,8 +113,10 @@ class AvatarMakerController extends GetxController {
 
     displayedAvatar.value = avatarmakerNew;
 
-    await pref.setString( // TODO : Constante
-        'avatarmakerSelectedOptions', jsonEncodeSelectedOptions(selectedOptions));
+    await pref.setString(
+        // TODO : Constante
+        'avatarmakerSelectedOptions',
+        jsonEncodeSelectedOptions(selectedOptions));
     update();
   }
 
@@ -188,7 +190,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
   /// Permet de récupérer les préférences stockées de l'utilisateur ou les options sélectionnées par défaut.
   Future<Map<PropertyCategoryIds, PropertyItem>> getSelectedOptions() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    await pref.setString(  'avatarmakerSelectedOptions', ""); // TODO : A retirer après les tests
+    await pref.setString(
+        'avatarmakerSelectedOptions', ""); // TODO : A retirer après les tests
     // TODO : Constante
     String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
@@ -197,8 +200,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
           category.id: category.defaultValue
       };
 
-      await pref.setString(
-          'avatarmakerSelectedOptions', jsonEncodeSelectedOptions(_avatarmakerOptionsMap));
+      await pref.setString('avatarmakerSelectedOptions',
+          jsonEncodeSelectedOptions(_avatarmakerOptionsMap));
       selectedOptions = _avatarmakerOptionsMap;
     } else {
       // TODO : A tester le jsonDecode
@@ -339,21 +342,29 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
     ]);
   }
 
-  String jsonEncodeSelectedOptions(Map<PropertyCategoryIds, PropertyItem> selectedOptions) {
+  String jsonEncodeSelectedOptions(
+      Map<PropertyCategoryIds, PropertyItem> selectedOptions) {
     Map<String, String> optionsToEncode = {};
-    selectedOptions.forEach((key, value) => optionsToEncode.putIfAbsent(key.name, () => value.label));
+    selectedOptions.forEach((key, value) =>
+        optionsToEncode.putIfAbsent(key.name, () => value.label));
     return jsonEncode(optionsToEncode);
   }
 
   // TODO : Retirer les print
-  Map<PropertyCategoryIds, PropertyItem> jsonDecodeSelectedOptions(String encodedOptions) {
+  Map<PropertyCategoryIds, PropertyItem> jsonDecodeSelectedOptions(
+      String encodedOptions) {
     var decodedOptions = jsonDecode(encodedOptions);
 
     Map<PropertyCategoryIds, PropertyItem> selectedOptions = {};
 
     decodedOptions.forEach((key, value) {
-      PropertyCategoryIds categoryId = PropertyCategoryIds.values.firstWhere((id) => id.name == key,);
-      PropertyItem item = getPropertyCategoryById(categoryId).properties!.firstWhere((property) => property.label == value,);
+      PropertyCategoryIds categoryId = PropertyCategoryIds.values.firstWhere(
+        (id) => id.name == key,
+      );
+      PropertyItem item =
+          getPropertyCategoryById(categoryId).properties!.firstWhere(
+                (property) => property.label == value,
+              );
       selectedOptions.putIfAbsent(categoryId, () => item);
     });
     return selectedOptions;
