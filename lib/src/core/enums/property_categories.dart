@@ -1,19 +1,19 @@
-import "package:avatar_maker/src/enums/property_category_ids.dart";
-import "package:avatar_maker/src/enums/property_items/accessories.dart";
-import "package:avatar_maker/src/enums/property_items/background_style.dart";
-import "package:avatar_maker/src/enums/property_items/noses.dart";
-import "package:avatar_maker/src/enums/property_items/outfit_colors.dart";
-import "package:avatar_maker/src/enums/property_items/eyebrows.dart";
-import "package:avatar_maker/src/enums/property_items/eyes.dart";
-import "package:avatar_maker/src/enums/property_items/facial_hair_colors.dart";
-import "package:avatar_maker/src/enums/property_items/facial_hair_types.dart";
-import "package:avatar_maker/src/enums/property_items/hair_colors.dart";
-import "package:avatar_maker/src/enums/property_items/hair_styles.dart";
-import "package:avatar_maker/src/enums/property_items/outfit_types.dart";
-import "package:avatar_maker/src/enums/property_items/mouths.dart";
-import "package:avatar_maker/src/enums/property_items/skin_colors.dart";
-import "package:avatar_maker/src/models/property_category.dart";
-import "package:avatar_maker/src/models/property_item.dart";
+import "package:avatar_maker/src/core/enums/property_category_ids.dart";
+import "package:avatar_maker/src/core/enums/property_items/accessories.dart";
+import "package:avatar_maker/src/core/enums/property_items/background_style.dart";
+import "package:avatar_maker/src/core/enums/property_items/noses.dart";
+import "package:avatar_maker/src/core/enums/property_items/outfit_colors.dart";
+import "package:avatar_maker/src/core/enums/property_items/eyebrows.dart";
+import "package:avatar_maker/src/core/enums/property_items/eyes.dart";
+import "package:avatar_maker/src/core/enums/property_items/facial_hair_colors.dart";
+import "package:avatar_maker/src/core/enums/property_items/facial_hair_types.dart";
+import "package:avatar_maker/src/core/enums/property_items/hair_colors.dart";
+import "package:avatar_maker/src/core/enums/property_items/hair_styles.dart";
+import "package:avatar_maker/src/core/enums/property_items/outfit_types.dart";
+import "package:avatar_maker/src/core/enums/property_items/mouths.dart";
+import "package:avatar_maker/src/core/enums/property_items/skin_colors.dart";
+import "package:avatar_maker/src/core/models/property_category.dart";
+import "package:avatar_maker/src/core/models/property_item.dart";
 
 // TODO : l10n
 enum PropertyCategories implements PropertyCategory {

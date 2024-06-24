@@ -1,7 +1,7 @@
-import "package:avatar_maker/src/enums/property_categories.dart";
-import "package:avatar_maker/src/models/customized_property_category.dart";
-import "package:avatar_maker/src/models/property_category.dart";
-import "package:avatar_maker/src/models/property_item.dart";
+import "package:avatar_maker/src/core/enums/property_categories.dart";
+import "package:avatar_maker/src/core/models/customized_property_category.dart";
+import "package:avatar_maker/src/core/models/property_category.dart";
+import "package:avatar_maker/src/core/models/property_item.dart";
 import "package:get/get.dart";
 
 class PropertyCategoryService {

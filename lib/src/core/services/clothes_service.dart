@@ -1,6 +1,6 @@
-import "package:avatar_maker/src/enums/placeholders.dart";
-import "package:avatar_maker/src/enums/property_items/outfit_colors.dart";
-import "package:avatar_maker/src/enums/property_items/outfit_types.dart";
+import "package:avatar_maker/src/core/enums/placeholders.dart";
+import "package:avatar_maker/src/core/enums/property_items/outfit_colors.dart";
+import "package:avatar_maker/src/core/enums/property_items/outfit_types.dart";
 
 class ClothesService {
   static String generateClothes({

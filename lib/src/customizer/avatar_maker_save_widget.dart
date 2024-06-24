@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
-import "package:avatar_maker/src/controllers/avatar_maker_controller.dart";
-import "package:avatar_maker/src/models/theme_data.dart";
+import "package:avatar_maker/src/core/controllers/avatar_maker_controller.dart";
+import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:get/get.dart";
 
 /// Renders a save button by default OR can be used as a [InkWell]

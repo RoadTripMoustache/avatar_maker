@@ -1,6 +1,6 @@
-import "package:avatar_maker/src/enums/placeholders.dart";
-import "package:avatar_maker/src/enums/property_items/hair_colors.dart";
-import "package:avatar_maker/src/enums/property_items/hair_styles.dart";
+import "package:avatar_maker/src/core/enums/placeholders.dart";
+import "package:avatar_maker/src/core/enums/property_items/hair_colors.dart";
+import "package:avatar_maker/src/core/enums/property_items/hair_styles.dart";
 
 class HairService {
   static String generateHairStyle({

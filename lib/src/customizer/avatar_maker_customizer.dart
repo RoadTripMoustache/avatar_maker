@@ -1,8 +1,8 @@
-import "package:avatar_maker/src/controllers/avatar_maker_controller.dart";
-import "package:avatar_maker/src/enums/property_category_ids.dart";
-import "package:avatar_maker/src/models/customized_property_category.dart";
-import "package:avatar_maker/src/models/property_item.dart";
-import "package:avatar_maker/src/models/theme_data.dart";
+import "package:avatar_maker/src/core/controllers/avatar_maker_controller.dart";
+import "package:avatar_maker/src/core/enums/property_category_ids.dart";
+import "package:avatar_maker/src/core/models/customized_property_category.dart";
+import "package:avatar_maker/src/core/models/property_item.dart";
+import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";

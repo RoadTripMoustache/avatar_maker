@@ -1,5 +1,5 @@
-import "package:avatar_maker/src/enums/placeholders.dart";
-import "package:avatar_maker/src/models/property_item.dart";
+import "package:avatar_maker/src/core/enums/placeholders.dart";
+import "package:avatar_maker/src/core/models/property_item.dart";
 
 enum HairStyles implements PropertyItem {
   Bald(""),

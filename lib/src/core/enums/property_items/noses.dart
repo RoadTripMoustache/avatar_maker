@@ -1,4 +1,4 @@
-import "package:avatar_maker/src/models/property_item.dart";
+import "package:avatar_maker/src/core/models/property_item.dart";
 
 enum Noses implements PropertyItem {
   Default("""
