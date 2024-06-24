@@ -47,7 +47,7 @@ SVG Assets used are derived from [getavataaars.com](https://getavataaars.com/) .
 	```
 2. Add the following import to your .dart file
 	```dart
-	import 'package:avatar_maker/avatar_maker.dart';
+	import "package:avatar_maker/avatar_maker.dart";
 	```
 3. Add the FluttermojiCircleAvatar widget to display your Fluttermoji where needed.
 	```dart

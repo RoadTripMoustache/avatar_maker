@@ -3,6 +3,7 @@ import "package:avatar_maker/src/core/enums/property_category_ids.dart";
 import "package:avatar_maker/src/core/models/customized_property_category.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
+import "package:avatar_maker/src/customizer/widgets/customizer_body.dart";
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
@@ -59,10 +60,9 @@ class AvatarMakerCustomizer extends StatefulWidget {
 
 class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     with SingleTickerProviderStateMixin {
-  late AvatarMakerController avatarmakerController;
+  late AvatarMakerController avatarMakerController;
   late int categoriesTabsLength;
   late TabController tabController;
-  var heightFactor = 0.4, widthFactor = 0.95;
 
   @override
   void initState() {
@@ -73,7 +73,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     categoriesTabsLength = _controller.displayedPropertyCategories.length;
 
     setState(() {
-      avatarmakerController = _controller;
+      avatarMakerController = _controller;
       tabController = TabController(
         length: categoriesTabsLength,
         vsync: this,
@@ -88,19 +88,19 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   @override
   void dispose() {
     // This ensures that unsaved edits are reverted
-    avatarmakerController.restoreState();
+    avatarMakerController.restoreState();
     super.dispose();
   }
 
   void onTapOption(
       PropertyItem newSelectedItem, PropertyCategoryIds categoryId) {
-    if (avatarmakerController.selectedOptions[categoryId] != newSelectedItem) {
+    if (avatarMakerController.selectedOptions[categoryId] != newSelectedItem) {
       setState(() {
-        avatarmakerController.selectedOptions[categoryId] = newSelectedItem;
+        avatarMakerController.selectedOptions[categoryId] = newSelectedItem;
       });
-      avatarmakerController.updatePreview();
+      avatarMakerController.updatePreview();
       if (widget.autosave) {
-        avatarmakerController.saveAvatarSVG();
+        avatarMakerController.saveAvatarSVG();
       }
     }
   }
@@ -122,153 +122,16 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SizedBox(
-      height: widget.scaffoldHeight ?? (size.height * heightFactor),
+      height:
+          widget.scaffoldHeight ?? (size.height * widget.theme.heightFactor),
       width: widget.scaffoldWidth ?? size.width,
-      child: body(),
-    );
-  }
-
-  Container bottomNavBar(List<Widget> navbarWidgets) {
-    return Container(
-      color: widget.theme.primaryBgColor,
-      child: TabBar(
-        controller: tabController,
-        isScrollable: true,
-        labelPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
-        indicatorColor: widget.theme.selectedIconColor,
-        tabs: navbarWidgets,
-        tabAlignment: TabAlignment.center,
-      ),
-    );
-  }
-
-  AppBar appbar() {
-    return AppBar(
-      centerTitle: true,
-      elevation: 0,
-      backgroundColor: widget.theme.primaryBgColor,
-      automaticallyImplyLeading: false,
-      title: Text(
-        avatarmakerController
-            .displayedPropertyCategories[tabController.index].name!,
-        style: widget.theme.labelTextStyle,
-        textAlign: TextAlign.center,
-      ),
-      leading: arrowButton(true),
-      actions: [
-        arrowButton(false),
-      ],
-    );
-  }
-
-  Widget arrowButton(bool isLeft) {
-    return Visibility(
-      visible: isLeft
-          ? tabController.index > 0
-          : tabController.index < categoriesTabsLength - 1,
-      child: IconButton(
-        // splashRadius: 20,
-        icon: Icon(
-          isLeft
-              ? Icons.arrow_back_ios_new_rounded
-              : Icons.arrow_forward_ios_rounded,
-          color: widget.theme.iconColor,
-        ),
-        onPressed: () => onArrowTap(isLeft),
-      ),
-    );
-  }
-
-  /// Widget that renders an expanded layout for customization
-  /// Accepts a [cardTitle] and a [attributes].
-  ///
-  /// [attribute] is an object with the fields attributeName and attributeKey
-  // TODO : Sortir les sous-composants dans des fichiers dédiés.
-  Widget body() {
-    var size = MediaQuery.of(context).size;
-
-    var attributeGrids = <Widget>[];
-    var navbarWidgets = <Widget>[];
-
-    for (final (categoryIndex, propertyCategory)
-        in avatarmakerController.displayedPropertyCategories.indexed) {
-      if (propertyCategory.toDisplay) {
-        /// Number of options available for said [attribute]
-        /// Eg: "Hairstyle" attribute has 38 options
-        var attributeListLength = propertyCategory.properties!.length;
-
-        PropertyItem selectedItem =
-            avatarmakerController.selectedOptions[propertyCategory.id]!;
-
-        /// Build the main Tile Grid with all the options from the attribute
-        var _tileGrid = GridView.builder(
-          physics: widget.theme.scrollPhysics,
-          itemCount: attributeListLength,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: widget.theme.gridCrossAxisCount,
-            crossAxisSpacing: 4.0,
-            mainAxisSpacing: 4.0,
-          ),
-          itemBuilder: (BuildContext context, int index) => InkWell(
-            onTap: () => onTapOption(
-                propertyCategory.properties![index], propertyCategory.id),
-            child: Container(
-              decoration:
-                  index == propertyCategory.properties!.indexOf(selectedItem)
-                      ? widget.theme.selectedTileDecoration
-                      : widget.theme.unselectedTileDecoration,
-              margin: widget.theme.tileMargin,
-              padding: widget.theme.tilePadding,
-              child: SvgPicture.string(
-                avatarmakerController.getComponentSVG(
-                    propertyCategory.id, index),
-                height: 20,
-                semanticsLabel: 'Your AvatarMaker',
-                placeholderBuilder: (context) => Center(
-                  child: CupertinoActivityIndicator(),
-                ),
-              ),
-            ),
-          ),
-        );
-
-        /// Builds the icon for the attribute to be placed in the bottom row
-        var bottomNavWidget = SvgPicture.asset(
-          propertyCategory.iconFile!,
-          package: 'avatar_maker',
-          height: (widget.scaffoldHeight != null
-              ? widget.scaffoldHeight! / heightFactor * 0.04
-              : size.height * 0.04),
-          colorFilter: ColorFilter.mode(
-              categoryIndex == tabController.index
-                  ? widget.theme.selectedIconColor
-                  : widget.theme.unselectedIconColor,
-              BlendMode.srcIn),
-          semanticsLabel: propertyCategory.name,
-        );
-
-        /// Add all the initialized widgets to the state
-        attributeGrids.add(_tileGrid);
-        navbarWidgets.add(bottomNavWidget);
-      }
-    }
-
-    return Container(
-      decoration: widget.theme.boxDecoration,
-      clipBehavior: Clip.hardEdge,
-      child: DefaultTabController(
-        length: attributeGrids.length,
-        child: Scaffold(
-          key: const ValueKey('AvatarMakerCustomizer'),
-          backgroundColor: widget.theme.secondaryBgColor,
-          appBar: appbar(),
-          body: TabBarView(
-            physics: widget.theme.scrollPhysics,
-            controller: tabController,
-            children: attributeGrids,
-          ),
-          bottomNavigationBar: bottomNavBar(navbarWidgets),
-        ),
+      child: CustomizerBody(
+        avatarMakerController: avatarMakerController,
+        tabController: tabController,
+        theme: widget.theme,
+        scaffoldHeight: widget.scaffoldHeight,
+        onTapOption: onTapOption,
+        onArrowTap: onArrowTap,
       ),
     );
   }

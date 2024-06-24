@@ -1,7 +1,7 @@
-import 'dart:math';
+import "dart:math";
 
-import 'package:flutter/material.dart';
-import 'package:avatar_maker/avatar_maker.dart';
+import "package:flutter/material.dart";
+import "package:avatar_maker/avatar_maker.dart";
 
 void main() {
   runApp(MyApp());

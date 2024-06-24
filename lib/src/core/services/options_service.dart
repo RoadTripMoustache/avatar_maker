@@ -1,7 +1,7 @@
-import 'dart:convert';
+import "dart:convert";
 
-import 'package:avatar_maker/avatar_maker.dart';
-import 'package:avatar_maker/src/core/services/property_category_service.dart';
+import "package:avatar_maker/avatar_maker.dart";
+import "package:avatar_maker/src/core/services/property_category_service.dart";
 
 class OptionsService {
   static String jsonEncodeSelectedOptions(

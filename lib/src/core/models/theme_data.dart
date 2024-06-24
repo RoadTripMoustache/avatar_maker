@@ -57,6 +57,8 @@ class AvatarMakerThemeData {
   final EdgeInsetsGeometry tileMargin;
 
   final int gridCrossAxisCount;
+  final double heightFactor;
+  final double widthFactor;
 
   /// Creates a visual [theme] for the [AvatarMakerCustomizer]
   /// and the widgets within it.
@@ -80,6 +82,8 @@ class AvatarMakerThemeData {
     EdgeInsetsGeometry? tilePadding,
     EdgeInsetsGeometry? tileMargin,
     int? nbrTilesRow,
+    double? heightFactor,
+    double? widthFactor,
   })  : this.primaryBgColor = primaryBgColor ?? standard.primaryBgColor,
         this.secondaryBgColor = secondaryBgColor ?? standard.secondaryBgColor,
         this.iconColor = iconColor ?? standard.iconColor,
@@ -96,7 +100,9 @@ class AvatarMakerThemeData {
         this.scrollPhysics = scrollPhysics ?? standard.scrollPhysics,
         this.tileMargin = tileMargin ?? standard.tileMargin,
         this.tilePadding = tilePadding ?? standard.tilePadding,
-        this.gridCrossAxisCount = nbrTilesRow ?? standard.gridCrossAxisCount;
+        this.gridCrossAxisCount = nbrTilesRow ?? standard.gridCrossAxisCount,
+        this.heightFactor = heightFactor ?? standard.heightFactor,
+        this.widthFactor = widthFactor ?? standard.widthFactor;
 
   AvatarMakerThemeData copyWith({
     TextStyle? labelTextStyle,
@@ -111,6 +117,8 @@ class AvatarMakerThemeData {
     EdgeInsetsGeometry? tilePadding,
     EdgeInsetsGeometry? tileMargin,
     int? nbrTilesRow,
+    double? heightFactor,
+    double? widthFactor,
   }) {
     return AvatarMakerThemeData(
       labelTextStyle: labelTextStyle ?? this.labelTextStyle,
@@ -127,6 +135,8 @@ class AvatarMakerThemeData {
       tilePadding: tilePadding ?? this.tilePadding,
       tileMargin: tileMargin ?? this.tileMargin,
       nbrTilesRow: nbrTilesRow ?? this.gridCrossAxisCount,
+      heightFactor: heightFactor ?? this.heightFactor,
+      widthFactor: widthFactor ?? this.widthFactor,
     );
   }
 
@@ -151,5 +161,7 @@ class AvatarMakerThemeData {
     tileMargin: const EdgeInsets.all(2.0),
     tilePadding: const EdgeInsets.all(2.0),
     nbrTilesRow: 6,
+    heightFactor: 0.4,
+    widthFactor: 0.95,
   );
 }
