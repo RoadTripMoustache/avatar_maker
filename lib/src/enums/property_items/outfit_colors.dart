@@ -15,7 +15,12 @@ enum OutfitColors implements PropertyItem {
   PastelYellow("#FFFFB1"),
   Pink("#FF488E"),
   Red("#FF5C5C"),
-  White("#FFFFFF");
+  White("#FFFFFF"),
+  Green("#1B5E20"),
+  Purple("#8E24AA"),
+  Fuchsia("#D81B60"),
+  Orange("#E64A19"),
+  Lemon("#CDDC39");
 
   final String hexCode;
 
