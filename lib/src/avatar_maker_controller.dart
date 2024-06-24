@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:avatar_maker/src/enums/placeholders.dart';
 import 'package:avatar_maker/src/enums/property_categories.dart';
 import 'package:avatar_maker/src/enums/property_category_ids.dart';
 import 'package:avatar_maker/src/enums/property_items/facial_hair_colors.dart';
@@ -12,7 +13,6 @@ import 'package:avatar_maker/src/services/hair_service.dart';
 import 'package:avatar_maker/src/services/property_category_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'tmp/avatar_maker_model.dart';
 import 'services/clothes_service.dart';
 import 'enums/property_items/facial_hair_types.dart';
 import 'enums/property_items/hair_styles.dart';
@@ -225,7 +225,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
                 <circle cx="60" cy="60" r="35" stroke="black" stroke-width="1" fill="${item.value}"/></svg>""";
 
       case PropertyCategoryIds.HairStyle:
-        if (index == 0) return emptySVGIcon;
+        if (item.value == "") return emptySVGIcon;
         return """<svg width="20px" width="100px" height="100px" viewBox="10 0 250 250">${HairService.generateHairStyle(
           color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
           style: item as HairStyles,
@@ -236,7 +236,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
                 <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="${item.value}"/> </svg>""";
 
       case PropertyCategoryIds.FacialHairType:
-        if (index == 0) return emptySVGIcon;
+        if (item.value == "") return emptySVGIcon;
         return """<svg width="20px" height="20px" viewBox="0 -40 112 180" >${FacialHairsService.generateFacialHair(
           color: selectedOptions[PropertyCategoryIds.FacialHairColor]
               as FacialHairColors,
@@ -257,7 +257,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
         return """<svg width="20px" height="20px" viewBox="0 10 120 120">${item.value}</svg>""";
 
       case PropertyCategoryIds.Accessory:
-        if (index == 0) return emptySVGIcon;
+        if (item.value == "") return emptySVGIcon;
         return """<svg width="20px" height="20px" viewBox="-3 -50 120 170" >${item.value}</svg>""";
 
       case PropertyCategoryIds.SkinColor:

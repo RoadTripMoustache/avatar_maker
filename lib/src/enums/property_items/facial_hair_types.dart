@@ -3,7 +3,7 @@ import 'package:avatar_maker/src/models/property_item.dart';
 import '../placeholders.dart';
 
 enum FacialHairTypes implements PropertyItem {
-  Nothing(""""""),
+  Nothing(""),
   FullBeard("""
         <g id="Facial-Hair/Beard-Medium" transform="translate(-28.000000, -8.000000)">
 									<defs>

@@ -119,7 +119,7 @@ enum PropertyCategories implements PropertyCategory {
     "assets/icons/background.svg",
     BackgroundStyles.values,
     false,
-    BackgroundStyles.Circle,
+    BackgroundStyles.Transparent,
   );
 
   final PropertyCategoryIds id;
