@@ -10,4 +10,18 @@ class FacialHairsService {
     return type.svg
         .replaceAll(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR, color.hexCode);
   }
+
+  static String drawSVG({
+    FacialHairTypes type = FacialHairTypes.Nothing,
+    FacialHairColors color = FacialHairColors.Black,
+  }) {
+    return """
+    <svg width="20px" height="20px" viewBox="0 -40 112 180" >
+      ${generateFacialHair(
+        color: color,
+        type: type,
+      )}
+    </svg>
+    """;
+  }
 }

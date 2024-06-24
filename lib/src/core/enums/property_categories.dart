@@ -16,6 +16,7 @@ import "package:avatar_maker/src/core/models/property_category.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 
 // TODO : l10n
+// TODO doc - Noter que l'ordre ici correspond à l'ordre d'affichage des onglets
 enum PropertyCategories implements PropertyCategory {
   HairStyle(
     PropertyCategoryIds.HairStyle,

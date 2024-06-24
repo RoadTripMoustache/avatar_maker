@@ -11,12 +11,20 @@ import 'package:avatar_maker/src/core/enums/property_items/outfit_colors.dart';
 import 'package:avatar_maker/src/core/enums/property_items/outfit_types.dart';
 import 'package:avatar_maker/src/core/models/customized_property_category.dart';
 import 'package:avatar_maker/src/core/models/property_item.dart';
+import 'package:avatar_maker/src/core/services/accessory_service.dart';
 import 'package:avatar_maker/src/core/services/avatar_service.dart';
+import 'package:avatar_maker/src/core/services/background_service.dart';
+import 'package:avatar_maker/src/core/services/color_service.dart';
+import 'package:avatar_maker/src/core/services/eye_service.dart';
+import 'package:avatar_maker/src/core/services/eyebrow_service.dart';
+import 'package:avatar_maker/src/core/services/mouth_service.dart';
+import 'package:avatar_maker/src/core/services/nose_service.dart';
 import 'package:avatar_maker/src/core/services/options_service.dart';
 import 'package:avatar_maker/src/core/services/outfit_service.dart';
 import 'package:avatar_maker/src/core/services/facial_hairs_service.dart';
 import 'package:avatar_maker/src/core/services/hair_service.dart';
 import 'package:avatar_maker/src/core/services/property_category_service.dart';
+import 'package:avatar_maker/src/core/services/skin_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -178,111 +186,63 @@ class AvatarMakerController extends GetxController {
 
   /// Generates component SVG string for an individual component
   /// to display as a preview
-  // TODO : Sortir la génération du SVG dans des méthodes
   String getComponentSVG(PropertyCategoryIds categoryId, int index) {
     PropertyItem item = PropertyCategoryService.getPropertyCategoryById(
             this.propertyCategories, categoryId)
         .properties![index];
+    if (item.value == "") {
+      return emptySVGIcon;
+    }
     switch (categoryId) {
+      case PropertyCategoryIds.Accessory:
+        return AccessoryService.drawSVG(accessory: item.value);
+
+      case PropertyCategoryIds.Background:
+        return BackgroundService.drawSVG(background: item.value);
+
+      case PropertyCategoryIds.EyebrowType:
+        return EyebrowService.drawSVG(eyebrow: item.value);
+
+      case PropertyCategoryIds.EyeType:
+        return EyeService.drawSVG(eye: item.value);
+
+      case PropertyCategoryIds.FacialHairColor:
+        return ColorService.drawSVG(hexColorCode: item.value);
+
+      case PropertyCategoryIds.FacialHairType:
+        return FacialHairsService.drawSVG(
+          color: selectedOptions[PropertyCategoryIds.FacialHairColor]
+          as FacialHairColors,
+          type: item as FacialHairTypes,
+        );
+
+      case PropertyCategoryIds.HairColor:
+        return ColorService.drawSVG(hexColorCode: item.value);
+
+      case PropertyCategoryIds.HairStyle:
+        return HairService.drawSVG(
+          color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
+          style: item as HairStyles,
+        );
+
+      case PropertyCategoryIds.MouthType:
+        return MouthService.drawSVG(mouth: item.value);
+
+      case PropertyCategoryIds.Nose:
+        return NoseService.drawSVG(nose: item.value);
+
+      case PropertyCategoryIds.OutfitColor:
+        return ColorService.drawSVG(hexColorCode: item.value);
+
       case PropertyCategoryIds.OutfitType:
-        return """<svg width="100px" height="120px" viewBox="30 100 200 250" >${OutfitService.generateOutfit(
+        return OutfitService.drawSVG(
           color:
               selectedOptions[PropertyCategoryIds.OutfitColor] as OutfitColors,
           type: item as OutfitTypes,
-        )}</svg>""";
-
-      case PropertyCategoryIds.OutfitColor:
-        return """<svg width="120px" height="120px" > 
-                <circle cx="60" cy="60" r="35" stroke="black" stroke-width="1" fill="${item.value}"/></svg>""";
-
-      case PropertyCategoryIds.HairStyle:
-        if (item.value == "") return emptySVGIcon;
-        return """<svg width="100px" height="100px" viewBox="10 0 250 250">${HairService.generateHairStyle(
-          color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
-          style: item as HairStyles,
-        )}</svg>""";
-
-      case PropertyCategoryIds.HairColor:
-        return """<svg width="120px" height="120px" > 
-                <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="${item.value}"/> </svg>""";
-
-      case PropertyCategoryIds.FacialHairType:
-        if (item.value == "") return emptySVGIcon;
-        return """<svg width="20px" height="20px" viewBox="0 -40 112 180" >${FacialHairsService.generateFacialHair(
-          color: selectedOptions[PropertyCategoryIds.FacialHairColor]
-              as FacialHairColors,
-          type: item as FacialHairTypes,
-        )}</svg>""";
-
-      case PropertyCategoryIds.FacialHairColor:
-        return """<svg width="120px" height="120px" > 
-                <circle cx="60" cy="60" r="30" stroke="black" stroke-width="1" fill="${item.value}"/></svg>""";
-
-      case PropertyCategoryIds.EyeType:
-        return """<svg width="20px" height="20px" viewBox="-3 -30 120 120">${item.value}</svg>""";
-
-      case PropertyCategoryIds.EyebrowType:
-        return """<svg width="20px" height="20px" viewBox="-3 -50 120 120">${item.value}</svg>""";
-
-      case PropertyCategoryIds.MouthType:
-        return """<svg width="20px" height="20px" viewBox="0 10 120 120">${item.value}</svg>""";
-
-      case PropertyCategoryIds.Accessory:
-        if (item.value == "") return emptySVGIcon;
-        return """<svg width="20px" height="20px" viewBox="-3 -50 120 170" >${item.value}</svg>""";
+        );
 
       case PropertyCategoryIds.SkinColor:
-        return """<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
-    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path
-            d="M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z"
-            id="path-5"></path>
-    </defs>
-    <g id="AvatarMaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <g transform="translate(-825.000000, -1100.000000)" id="avatar_maker/Circle">
-    <g transform="translate(825.000000, 1100.000000)">
-        <g id="Mask"></g>
-        <g id="AvatarMaker" stroke-width="1" fill-rule="evenodd">
-            <g id="Body" transform="translate(32.000000, 36.000000)">
-                <mask id="mask-6" fill="white">
-                    <use xlink:href="#path-5"></use>
-                </mask>
-                <use fill="#D0C6AC" xlink:href="#path-5"></use>
-                ${item.value}
-                <path
-                    d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z"
-                    id="Neck-Shadow" opacity="0.100000001" fill="#000000"
-                    mask="url(#mask-6)"></path>
-            </g>
-        </g>
-    </g>
-</svg>""";
-
-      case PropertyCategoryIds.Background:
-        return """<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
-xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<defs>
-<path d="M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z" id="path-5"></path>
-</defs>
-	<g id="AvatarMaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-    <g transform="translate(-825.000000, -1100.000000)" id="avatar_maker/Circle">
-			<g transform="translate(825.000000, 1100.000000)">${item.value}<g id="Mask"></g>
-        <g id="AvatarMaker" stroke-width="1" fill-rule="evenodd">
-					<g id="Body" transform="translate(32.000000, 36.000000)">
-						<mask id="mask-6" fill="white">
-							<use xlink:href="#path-5"></use>
-						</mask>
-						<use fill="#D0C6AC" xlink:href="#path-5"></use>
-						${selectedOptions[PropertyCategoryIds.SkinColor]!.value}
-						<path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path>
-				</g>
-		</g>
-	</g>
-</svg>""";
-
-      default:
-        return emptySVGIcon;
+        return SkinService.drawSVG(skinColor: item.value);
     }
   }
 

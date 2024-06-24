@@ -9,4 +9,18 @@ class HairService {
   }) {
     return style.svg.replaceAll(TO_REPLACE_WITH_HAIRS_COLOR, color.hexCode);
   }
+
+  static String drawSVG({
+    HairStyles style = HairStyles.Eyepatch,
+    HairColors color = HairColors.Black,
+  }) {
+    return """
+      <svg width="100px" height="100px" viewBox="10 0 250 250">
+        ${generateHairStyle(
+          color: color,
+          style: style,
+        )}
+      </svg>
+    """;
+  }
 }
