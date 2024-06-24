@@ -17,8 +17,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get property_category_eyebrows => 'Sourcils';
 
   @override
-  String get property_category_facial_hair_colors =>
-      'Couleurs de barbe et moustache';
+  String get property_category_facial_hair_colors => 'Couleurs de barbe et moustache';
 
   @override
   String get property_category_facial_hair_types => 'Barbes et moustaches';
