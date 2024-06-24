@@ -27,6 +27,7 @@ class AvatarMakerController extends GetxController {
   var displayedAvatar = "".obs;
 
   late final List<CustomizedPropertyCategory> propertyCategories;
+  late final List<CustomizedPropertyCategory> displayedPropertyCategories;
   late final Map<PropertyCategoryIds, PropertyItem> defaultSelectedOptions;
 
   AvatarMakerController(
@@ -34,6 +35,10 @@ class AvatarMakerController extends GetxController {
   ) {
     this.propertyCategories = PropertyCategoryService.mergePropertyCategories(
         customizedPropertyCategories);
+    this.displayedPropertyCategories = this
+        .propertyCategories
+        .where((category) => category.toDisplay)
+        .toList();
     // Generate the default selected options based on the
     // [CustomizedPropertyCategory] list given to the constructor.
     this.defaultSelectedOptions = {

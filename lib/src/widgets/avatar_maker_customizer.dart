@@ -70,9 +70,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
 
     Get.put(AvatarMakerController(widget.customizedPropertyCategories));
     final _controller = Get.find<AvatarMakerController>();
-    categoriesTabsLength = _controller.propertyCategories!
-        .where((category) => category.toDisplay)
-        .length;
+    categoriesTabsLength = _controller.displayedPropertyCategories.length;
 
     setState(() {
       avatarmakerController = _controller;
@@ -151,7 +149,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       backgroundColor: widget.theme.primaryBgColor,
       automaticallyImplyLeading: false,
       title: Text(
-        avatarmakerController.propertyCategories[tabController.index].name!,
+        avatarmakerController.displayedPropertyCategories[tabController.index].name!,
         style: widget.theme.labelTextStyle,
         textAlign: TextAlign.center,
       ),
@@ -192,7 +190,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     var navbarWidgets = <Widget>[];
 
     for (final (categoryIndex, propertyCategory)
-        in avatarmakerController.propertyCategories.indexed) {
+        in avatarmakerController.displayedPropertyCategories.indexed) {
       if (propertyCategory.toDisplay) {
         /// Number of options available for said [attribute]
         /// Eg: "Hairstyle" attribute has 38 options
