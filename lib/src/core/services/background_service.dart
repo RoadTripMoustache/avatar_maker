@@ -1,5 +1,4 @@
 class BackgroundService {
-
   static String drawSVG({
     required String background,
   }) {

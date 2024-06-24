@@ -1,5 +1,4 @@
 class MouthService {
-
   static String drawSVG({
     required String mouth,
   }) {

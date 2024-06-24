@@ -17,9 +17,9 @@ class HairService {
     return """
       <svg width="100px" height="100px" viewBox="10 0 250 250">
         ${generateHairStyle(
-          color: color,
-          style: style,
-        )}
+      color: color,
+      style: style,
+    )}
       </svg>
     """;
   }

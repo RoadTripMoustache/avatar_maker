@@ -1,5 +1,4 @@
 class AccessoryService {
-
   static String drawSVG({
     required String accessory,
   }) {

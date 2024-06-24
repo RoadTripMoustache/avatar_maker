@@ -1,5 +1,4 @@
 class NoseService {
-
   static String drawSVG({
     required String nose,
   }) {

@@ -212,7 +212,7 @@ class AvatarMakerController extends GetxController {
       case PropertyCategoryIds.FacialHairType:
         return FacialHairsService.drawSVG(
           color: selectedOptions[PropertyCategoryIds.FacialHairColor]
-          as FacialHairColors,
+              as FacialHairColors,
           type: item as FacialHairTypes,
         );
 

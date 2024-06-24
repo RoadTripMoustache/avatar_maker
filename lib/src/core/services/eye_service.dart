@@ -1,5 +1,4 @@
 class EyeService {
-
   static String drawSVG({
     required String eye,
   }) {

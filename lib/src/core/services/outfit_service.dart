@@ -16,9 +16,9 @@ class OutfitService {
   }) {
     return """<svg width="100px" height="120px" viewBox="30 100 200 250" >
       ${generateOutfit(
-        color: color,
-        type: type,
-      )}
+      color: color,
+      type: type,
+    )}
     </svg>""";
   }
 }

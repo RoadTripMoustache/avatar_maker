@@ -1,5 +1,4 @@
 class SkinService {
-
   static String drawSVG({
     required String skinColor,
   }) {

@@ -1,5 +1,4 @@
 class ColorService {
-
   static String drawSVG({
     required String hexColorCode,
   }) {

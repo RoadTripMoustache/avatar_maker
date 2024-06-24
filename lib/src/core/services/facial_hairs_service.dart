@@ -18,9 +18,9 @@ class FacialHairsService {
     return """
     <svg width="20px" height="20px" viewBox="0 -40 112 180" >
       ${generateFacialHair(
-        color: color,
-        type: type,
-      )}
+      color: color,
+      type: type,
+    )}
     </svg>
     """;
   }
