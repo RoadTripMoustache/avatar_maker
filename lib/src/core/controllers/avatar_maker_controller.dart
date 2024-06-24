@@ -12,6 +12,7 @@ import 'package:avatar_maker/src/core/enums/property_items/outfit_types.dart';
 import 'package:avatar_maker/src/core/models/customized_property_category.dart';
 import 'package:avatar_maker/src/core/models/property_item.dart';
 import 'package:avatar_maker/src/core/services/avatar_service.dart';
+import 'package:avatar_maker/src/core/services/options_service.dart';
 import 'package:avatar_maker/src/core/services/outfit_service.dart';
 import 'package:avatar_maker/src/core/services/facial_hairs_service.dart';
 import 'package:avatar_maker/src/core/services/hair_service.dart';
@@ -90,7 +91,7 @@ class AvatarMakerController extends GetxController {
     // Replace observable [avatarmaker] with latest saved version or use default attributes if null
     updatePreview(
         avatarmakerNew: pref.getString(PreferencesLabel.avatarMakerSVG.name) ??
-            jsonEncodeSelectedOptions(defaultSelectedOptions));
+            OptionsService.jsonEncodeSelectedOptions(defaultSelectedOptions));
 
     selectedOptions = await getStoredOptions();
     update();
@@ -106,14 +107,15 @@ class AvatarMakerController extends GetxController {
   Future<void> saveAvatarSVG({String? jsonAvatarOptions}) async {
     // Update the selectedOptions if jsonAvatarOptions is not null
     if (jsonAvatarOptions != null) {
-      selectedOptions = jsonDecodeSelectedOptions(jsonAvatarOptions);
+      selectedOptions = OptionsService.jsonDecodeSelectedOptions(
+          this.propertyCategories, jsonAvatarOptions);
     }
 
     // Update selectedOptions stored
     SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString(
       PreferencesLabel.avatarMakerSelectedOptions.name,
-      jsonEncodeSelectedOptions(selectedOptions),
+      OptionsService.jsonEncodeSelectedOptions(selectedOptions),
     );
 
     // Get the SVG to display and store
@@ -164,10 +166,11 @@ class AvatarMakerController extends GetxController {
       };
 
       await pref.setString(PreferencesLabel.avatarMakerSelectedOptions.name,
-          jsonEncodeSelectedOptions(_avatarmakerOptionsMap));
+          OptionsService.jsonEncodeSelectedOptions(_avatarmakerOptionsMap));
       selectedOptions = _avatarmakerOptionsMap;
     } else {
-      selectedOptions = jsonDecodeSelectedOptions(_avatarmakerOptions);
+      selectedOptions = OptionsService.jsonDecodeSelectedOptions(
+          this.propertyCategories, _avatarmakerOptions);
     }
     update();
     return selectedOptions;
@@ -177,7 +180,9 @@ class AvatarMakerController extends GetxController {
   /// to display as a preview
   // TODO : Sortir la génération du SVG dans des méthodes
   String getComponentSVG(PropertyCategoryIds categoryId, int index) {
-    PropertyItem item = getPropertyCategoryById(categoryId).properties![index];
+    PropertyItem item = PropertyCategoryService.getPropertyCategoryById(
+            this.propertyCategories, categoryId)
+        .properties![index];
     switch (categoryId) {
       case PropertyCategoryIds.OutfitType:
         return """<svg width="100px" height="120px" viewBox="30 100 200 250" >${OutfitService.generateOutfit(
@@ -281,50 +286,12 @@ xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     }
   }
 
-  CustomizedPropertyCategory getPropertyCategoryById(PropertyCategoryIds id) {
-    CustomizedPropertyCategory searchedCategory = this.propertyCategories.first;
-    for (CustomizedPropertyCategory category in this.propertyCategories) {
-      if (category.id == id) {
-        searchedCategory = category;
-        break;
-      }
-    }
-    return searchedCategory;
-  }
-
-  /// Erase avatarmaker String and Map from local storage
+  /// Erase AvatarMaker user's preferences from local storage
   Future<List<bool>> clearAvatarMaker() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     return Future.wait([
       pref.remove(PreferencesLabel.avatarMakerSelectedOptions.name),
       pref.remove(PreferencesLabel.avatarMakerSVG.name),
     ]);
-  }
-
-  String jsonEncodeSelectedOptions(
-      Map<PropertyCategoryIds, PropertyItem> selectedOptions) {
-    Map<String, String> optionsToEncode = {};
-    selectedOptions.forEach((key, value) =>
-        optionsToEncode.putIfAbsent(key.name, () => value.label));
-    return jsonEncode(optionsToEncode);
-  }
-
-  Map<PropertyCategoryIds, PropertyItem> jsonDecodeSelectedOptions(
-      String encodedOptions) {
-    var decodedOptions = jsonDecode(encodedOptions);
-
-    Map<PropertyCategoryIds, PropertyItem> selectedOptions = {};
-
-    decodedOptions.forEach((key, value) {
-      PropertyCategoryIds categoryId = PropertyCategoryIds.values.firstWhere(
-        (id) => id.name == key,
-      );
-      PropertyItem item =
-          getPropertyCategoryById(categoryId).properties!.firstWhere(
-                (property) => property.label == value,
-              );
-      selectedOptions.putIfAbsent(categoryId, () => item);
-    });
-    return selectedOptions;
   }
 }

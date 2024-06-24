@@ -1,10 +1,24 @@
+import "package:avatar_maker/avatar_maker.dart";
 import "package:avatar_maker/src/core/enums/property_categories.dart";
-import "package:avatar_maker/src/core/models/customized_property_category.dart";
 import "package:avatar_maker/src/core/models/property_category.dart";
-import "package:avatar_maker/src/core/models/property_item.dart";
 import "package:get/get.dart";
 
 class PropertyCategoryService {
+
+  static CustomizedPropertyCategory getPropertyCategoryById(
+    List<CustomizedPropertyCategory> propertyCategories,
+    PropertyCategoryIds id,
+  ) {
+    CustomizedPropertyCategory searchedCategory = propertyCategories.first;
+    for (CustomizedPropertyCategory category in propertyCategories) {
+      if (category.id == id) {
+        searchedCategory = category;
+        break;
+      }
+    }
+    return searchedCategory;
+  }
+
   /// mergePropertyCategories - Override the [PropertyCategories] with a list
   /// of [CustomizedPropertyCategory] given in parameters.
   /// If the same property is override multiple times, only the first will be
