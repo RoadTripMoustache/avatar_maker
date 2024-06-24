@@ -4,7 +4,6 @@ import "package:avatar_maker/src/core/models/property_category.dart";
 import "package:get/get.dart";
 
 class PropertyCategoryService {
-
   static CustomizedPropertyCategory getPropertyCategoryById(
     List<CustomizedPropertyCategory> propertyCategories,
     PropertyCategoryIds id,

@@ -21,9 +21,8 @@ class OptionsService {
     Map<PropertyCategoryIds, PropertyItem> selectedOptions = {};
 
     decodedOptions.forEach((key, value) {
-      PropertyCategoryIds categoryId = PropertyCategoryIds.values.firstWhere(
-        (id) => id.name == key
-      );
+      PropertyCategoryIds categoryId =
+          PropertyCategoryIds.values.firstWhere((id) => id.name == key);
       PropertyItem item = PropertyCategoryService.getPropertyCategoryById(
               propertyCategories, categoryId)
           .properties!
