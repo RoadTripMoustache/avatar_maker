@@ -149,7 +149,8 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       backgroundColor: widget.theme.primaryBgColor,
       automaticallyImplyLeading: false,
       title: Text(
-        avatarmakerController.displayedPropertyCategories[tabController.index].name!,
+        avatarmakerController
+            .displayedPropertyCategories[tabController.index].name!,
         style: widget.theme.labelTextStyle,
         textAlign: TextAlign.center,
       ),
