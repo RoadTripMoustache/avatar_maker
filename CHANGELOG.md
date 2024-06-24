@@ -1,5 +1,13 @@
 ## Unreleased
- * ...
+### Added
+- New colors for facial hairs, hairs & outfits
+- Documentation
+  - tooling/peanut.md
+
+### Updated
+- Refactor and reorganize the code to match with RoadTripMoustache standards ([#9](https://github.com/RoadTripMoustache/avatar_maker/issues/9))
+- Documentation
+  - README.md
 
 ---
 # Fluttermoji legacy CHANGELOG
