@@ -100,7 +100,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       });
       avatarmakerController.updatePreview();
       if (widget.autosave) {
-        avatarmakerController.setAvatarMaker();
+        avatarmakerController.saveAvatarSVG();
       }
     }
   }

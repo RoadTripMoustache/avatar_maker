@@ -1,0 +1,4 @@
+enum PreferencesLabel {
+  avatarMakerSelectedOptions,
+  avatarMakerSVG;
+}

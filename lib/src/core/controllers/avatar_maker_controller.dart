@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:avatar_maker/src/core/enums/placeholders.dart';
+import 'package:avatar_maker/src/core/enums/preferences_label.dart';
 import 'package:avatar_maker/src/core/enums/property_categories.dart';
 import 'package:avatar_maker/src/core/enums/property_category_ids.dart';
 import 'package:avatar_maker/src/core/enums/property_items/facial_hair_colors.dart';
@@ -23,8 +24,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 ///
 /// Exposes certain static functions for use by the developer
 class AvatarMakerController extends GetxController {
-  // TODO : Trouver un meilleur nom de variable et mettre une description
-  var displayedAvatar = "".obs;
+  var displayedAvatarSVG = "".obs;
 
   late final List<CustomizedPropertyCategory> propertyCategories;
   late final List<CustomizedPropertyCategory> displayedPropertyCategories;
@@ -60,7 +60,7 @@ class AvatarMakerController extends GetxController {
   void onInit() async {
     // called immediately after the widget is allocated memory
     selectedOptions = await getStoredOptions();
-    displayedAvatar.value = drawAvatar();
+    displayedAvatarSVG.value = drawAvatarSVG();
     update();
     super.onInit();
   }
@@ -75,56 +75,56 @@ class AvatarMakerController extends GetxController {
     String avatarmakerNew = '',
   }) {
     if (avatarmakerNew.isEmpty) {
-      avatarmakerNew = drawAvatar();
+      avatarmakerNew = drawAvatarSVG();
     }
-    // TODO : Voir si ça modifie bien les valeurs des paramètres sélectionnés
-    displayedAvatar.value = avatarmakerNew;
+    displayedAvatarSVG.value = avatarmakerNew;
     update();
   }
 
   /// Restore controller state
-  /// with the latest SAVED version of [displayedAvatar] and [selectedOptions]
+  /// with the latest SAVED version of [displayedAvatarSVG] and [selectedOptions]
   void restoreState() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
 
     // Replace observable [avatarmaker] with latest saved version or use default attributes if null
     updatePreview(
-        avatarmakerNew: pref.getString('avatarmaker') ??
+        avatarmakerNew: pref.getString(PreferencesLabel.avatarMakerSVG.name) ??
             jsonEncodeSelectedOptions(defaultSelectedOptions));
 
     selectedOptions = await getStoredOptions();
     update();
   }
 
-  ///  Accepts a String [displayedAvatar]
+  ///  Accepts a String [displayedAvatarSVG]
   ///
-  ///  stores [displayedAvatar] in device storage
+  ///  stores [displayedAvatarSVG] in device storage
   ///  adds the new name to controller
   ///
   ///  Thereby updating all the states which are listening to controller
-  // Pour permettre à un utilisateur de charger un avatar
-  // TODO : Clean up
-  // TODO : Retirer les print
-  Future<void> setAvatarMaker({String avatarmakerNew = ''}) async {
-    if (avatarmakerNew.isEmpty) {
-      avatarmakerNew = drawAvatar();
+  // TODO : modifier doc - Pour permettre à un utilisateur de charger un avatar + Enregistre les configs actuelles si rien n'est passé en paramètre
+  Future<void> saveAvatarSVG({String? jsonAvatarOptions}) async {
+    // Update the selectedOptions if jsonAvatarOptions is not null
+    if (jsonAvatarOptions != null) {
+      selectedOptions = jsonDecodeSelectedOptions(jsonAvatarOptions);
     }
+
+    // Update selectedOptions stored
     SharedPreferences pref = await SharedPreferences.getInstance();
-    await pref.setString('avatarmaker', avatarmakerNew); // TODO : Constante
-
-    displayedAvatar.value = avatarmakerNew;
-
     await pref.setString(
-      // TODO : Constante
-      'avatarmakerSelectedOptions',
+      PreferencesLabel.avatarMakerSelectedOptions.name,
       jsonEncodeSelectedOptions(selectedOptions),
     );
+
+    // Get the SVG to display and store
+    final String avatarSVG = drawAvatarSVG();
+    await pref.setString(PreferencesLabel.avatarMakerSVG.name, avatarSVG);
+    displayedAvatarSVG.value = avatarSVG;
+
     update();
   }
 
   /// Generates a [String] avatarmaker from [selectedOptions] pref
-  // TODO : drawAvatar ? generateAvatarSVG?
-  String drawAvatar() {
+  String drawAvatarSVG() {
     String _backgroundStyle =
         selectedOptions[PropertyCategoryIds.Background]!.value;
     String _clothe = ClothesService.generateClothes(
@@ -192,17 +192,15 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
   /// Permet de récupérer les préférences stockées de l'utilisateur ou les options sélectionnées par défaut.
   Future<Map<PropertyCategoryIds, PropertyItem>> getStoredOptions() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    //await pref.setString(
-    //    'avatarmakerSelectedOptions', ""); // TODO : A retirer après les tests
-    // TODO : Constante
-    String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
+    String? _avatarmakerOptions =
+        pref.getString(PreferencesLabel.avatarMakerSelectedOptions.name);
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
       Map<PropertyCategoryIds, PropertyItem> _avatarmakerOptionsMap = {
         for (var category in PropertyCategories.values)
           category.id: category.defaultValue
       };
 
-      await pref.setString('avatarmakerSelectedOptions',
+      await pref.setString(PreferencesLabel.avatarMakerSelectedOptions.name,
           jsonEncodeSelectedOptions(_avatarmakerOptionsMap));
       selectedOptions = _avatarmakerOptionsMap;
     } else {
@@ -338,8 +336,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
   Future<List<bool>> clearAvatarMaker() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     return Future.wait([
-      pref.remove('avatarmakerSelectedOptions'), // TODO : Constante
-      pref.remove('avatarmaker'),
+      pref.remove(PreferencesLabel.avatarMakerSelectedOptions.name),
+      pref.remove(PreferencesLabel.avatarMakerSVG.name),
     ]);
   }
 

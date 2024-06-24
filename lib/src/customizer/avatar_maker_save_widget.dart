@@ -53,7 +53,7 @@ class AvatarMakerSaveWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () async {
-        await avatarmakerController.setAvatarMaker();
+        await avatarmakerController.saveAvatarSVG();
         if (onTap != null) onTap!();
       },
       splashFactory: splashFactory,
