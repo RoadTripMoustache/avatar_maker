@@ -89,7 +89,8 @@ class PropertyCategoryService {
     return CustomizedPropertyCategory(
       id: propertyCategory.id,
       toDisplay: customizedPropertyCategory.toDisplay,
-      name: customizedPropertyCategory.name ?? propertyCategory.getL10nName(l10n),
+      name:
+          customizedPropertyCategory.name ?? propertyCategory.getL10nName(l10n),
       defaultValue: defaultValue,
       iconFile:
           customizedPropertyCategory.iconFile ?? propertyCategory.iconFile,
