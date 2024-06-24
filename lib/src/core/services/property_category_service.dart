@@ -9,7 +9,7 @@ class PropertyCategoryService {
   /// of [CustomizedPropertyCategory] given in parameters.
   /// If the same property is override multiple times, only the first will be
   /// considered.
-  // TODO : Doc + params
+  // TODO doc : Doc + params
   static List<CustomizedPropertyCategory> mergePropertyCategories(
     List<CustomizedPropertyCategory>? customizedPropertyCategories,
   ) {

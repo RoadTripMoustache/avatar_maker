@@ -11,7 +11,8 @@ import 'package:avatar_maker/src/core/enums/property_items/outfit_colors.dart';
 import 'package:avatar_maker/src/core/enums/property_items/outfit_types.dart';
 import 'package:avatar_maker/src/core/models/customized_property_category.dart';
 import 'package:avatar_maker/src/core/models/property_item.dart';
-import 'package:avatar_maker/src/core/services/clothes_service.dart';
+import 'package:avatar_maker/src/core/services/avatar_service.dart';
+import 'package:avatar_maker/src/core/services/outfit_service.dart';
 import 'package:avatar_maker/src/core/services/facial_hairs_service.dart';
 import 'package:avatar_maker/src/core/services/hair_service.dart';
 import 'package:avatar_maker/src/core/services/property_category_service.dart';
@@ -101,7 +102,7 @@ class AvatarMakerController extends GetxController {
   ///  adds the new name to controller
   ///
   ///  Thereby updating all the states which are listening to controller
-  // TODO : modifier doc - Pour permettre à un utilisateur de charger un avatar + Enregistre les configs actuelles si rien n'est passé en paramètre
+  // TODO doc : modifier doc - Pour permettre à un utilisateur de charger un avatar + Enregistre les configs actuelles si rien n'est passé en paramètre
   Future<void> saveAvatarSVG({String? jsonAvatarOptions}) async {
     // Update the selectedOptions if jsonAvatarOptions is not null
     if (jsonAvatarOptions != null) {
@@ -124,72 +125,34 @@ class AvatarMakerController extends GetxController {
   }
 
   /// Generates a [String] avatarmaker from [selectedOptions] pref
+  /// TODO doc : parler du SVG
   String drawAvatarSVG() {
-    String _backgroundStyle =
-        selectedOptions[PropertyCategoryIds.Background]!.value;
-    String _clothe = ClothesService.generateClothes(
-      color: selectedOptions[PropertyCategoryIds.OutfitColor] as OutfitColors,
-      type: selectedOptions[PropertyCategoryIds.OutfitType] as OutfitTypes,
+    return AvatarService.drawSVG(
+      accessory: selectedOptions[PropertyCategoryIds.Accessory]!.value,
+      backgroundStyle: selectedOptions[PropertyCategoryIds.Background]!.value,
+      eyebrows: selectedOptions[PropertyCategoryIds.EyebrowType]!.value,
+      eyes: selectedOptions[PropertyCategoryIds.EyeType]!.value,
+      facialHair: FacialHairsService.generateFacialHair(
+        color: selectedOptions[PropertyCategoryIds.FacialHairColor]
+        as FacialHairColors,
+        type: selectedOptions[PropertyCategoryIds.FacialHairType]
+        as FacialHairTypes,
+      ),
+      hair: HairService.generateHairStyle(
+        color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
+        style: selectedOptions[PropertyCategoryIds.HairStyle] as HairStyles,
+      ),
+      mouth: selectedOptions[PropertyCategoryIds.MouthType]!.value,
+      nose: selectedOptions[PropertyCategoryIds.Nose]!.value,
+      outfit: OutfitService.generateOutfit(
+        color: selectedOptions[PropertyCategoryIds.OutfitColor] as OutfitColors,
+        type: selectedOptions[PropertyCategoryIds.OutfitType] as OutfitTypes,
+      ),
+      skin: selectedOptions[PropertyCategoryIds.SkinColor]!.value,
     );
-    String _facialHair = FacialHairsService.generateFacialHair(
-      color: selectedOptions[PropertyCategoryIds.FacialHairColor]
-          as FacialHairColors,
-      type: selectedOptions[PropertyCategoryIds.FacialHairType]
-          as FacialHairTypes,
-    );
-    String _mouth = selectedOptions[PropertyCategoryIds.MouthType]!.value;
-    String _nose = selectedOptions[PropertyCategoryIds.Nose]!.value;
-    String _eyes = selectedOptions[PropertyCategoryIds.EyeType]!.value;
-    String _eyebrows = selectedOptions[PropertyCategoryIds.EyebrowType]!.value;
-    String _accessory = selectedOptions[PropertyCategoryIds.Accessory]!.value;
-    String _hair = HairService.generateHairStyle(
-      color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
-      style: selectedOptions[PropertyCategoryIds.HairStyle] as HairStyles,
-    );
-    String _skin = selectedOptions[PropertyCategoryIds.SkinColor]!.value;
-
-    // TODO : "path-3"? "path-5" ?? Voir leur utilisation et les changer
-    // TODO : Voir pour sortir ce svg de base d'ici et le mettre dans un service dédié
-    String _completeSVG = """
-<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
-xmlns="http://www.w3.org/2000/svg"
-xmlns:xlink="http://www.w3.org/1999/xlink">
-<desc>AvatarMaker on pub.dev</desc>
-<defs>
-<circle id="path-1" cx="120" cy="120" r="120"></circle>
-<path d="M12,160 C12,226.27417 65.72583,280 132,280 C198.27417,280 252,226.27417 252,160 L264,160 L264,-1.42108547e-14 L-3.19744231e-14,-1.42108547e-14 L-3.19744231e-14,160 L12,160 Z" id="path-3"></path>
-<path d="M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z" id="path-5"></path>
-</defs>
-<g id="AvatarMaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-<g transform="translate(-825.000000, -1100.000000)" id="avatar_maker/Circle">
-<g transform="translate(825.000000, 1100.000000)">""" +
-        _backgroundStyle +
-        """
-<g id="Mask"></g>
-<g id="AvatarMaker" stroke-width="1" fill-rule="evenodd">
-<g id="Body" transform="translate(32.000000, 36.000000)">
-
-<mask id="mask-6" fill="white">
-<use xlink:href="#path-5"></use>
-</mask>
-<use fill="#D0C6AC" xlink:href="#path-5"></use>""" +
-        _skin +
-        """<path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path></g>""" +
-        _clothe +
-        """<g id="Face" transform="translate(76.000000, 82.000000)" fill="#000000">""" +
-        _mouth +
-        _facialHair +
-        _nose +
-        _eyes +
-        _eyebrows +
-        _accessory +
-        """</g>""" +
-        _hair +
-        """</g></g></g></g></svg>""";
-    return _completeSVG;
   }
 
-  /// Permet de récupérer les préférences stockées de l'utilisateur ou les options sélectionnées par défaut.
+  /// TODO doc : Permet de récupérer les préférences stockées de l'utilisateur ou les options sélectionnées par défaut.
   Future<Map<PropertyCategoryIds, PropertyItem>> getStoredOptions() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String? _avatarmakerOptions =
@@ -217,7 +180,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
     PropertyItem item = getPropertyCategoryById(categoryId).properties![index];
     switch (categoryId) {
       case PropertyCategoryIds.OutfitType:
-        return """<svg width="100px" height="120px" viewBox="30 100 200 250" >${ClothesService.generateClothes(
+        return """<svg width="100px" height="120px" viewBox="30 100 200 250" >${OutfitService.generateOutfit(
           color:
               selectedOptions[PropertyCategoryIds.OutfitColor] as OutfitColors,
           type: item as OutfitTypes,
@@ -229,7 +192,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 
       case PropertyCategoryIds.HairStyle:
         if (item.value == "") return emptySVGIcon;
-        return """<svg width="20px" width="100px" height="100px" viewBox="10 0 250 250">${HairService.generateHairStyle(
+        return """<svg width="100px" height="100px" viewBox="10 0 250 250">${HairService.generateHairStyle(
           color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
           style: item as HairStyles,
         )}</svg>""";
@@ -265,39 +228,36 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 
       case PropertyCategoryIds.SkinColor:
         return """<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
-xmlns="http://www.w3.org/2000/svg"
-xmlns:xlink="http://www.w3.org/1999/xlink">
-<desc>AvatarMaker Skin Preview</desc>
-<defs>
-<circle id="path-1" cx="120" cy="120" r="120"></circle>
-<path d="M12,160 C12,226.27417 65.72583,280 132,280 C198.27417,280 252,226.27417 252,160 L264,160 L264,-1.42108547e-14 L-3.19744231e-14,-1.42108547e-14 L-3.19744231e-14,160 L12,160 Z" id="path-3"></path>
-<path d="M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z" id="path-5"></path>
-</defs>
-	<g id="AvatarMaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-		<g transform="translate(-825.000000, -1100.000000)" id="avatar_maker/Circle">
-			<g transform="translate(825.000000, 1100.000000)">
-				<g id="Mask"></g>
+    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path
+            d="M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z"
+            id="path-5"></path>
+    </defs>
+    <g id="AvatarMaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <g transform="translate(-825.000000, -1100.000000)" id="avatar_maker/Circle">
+    <g transform="translate(825.000000, 1100.000000)">
+        <g id="Mask"></g>
         <g id="AvatarMaker" stroke-width="1" fill-rule="evenodd">
-					<g id="Body" transform="translate(32.000000, 36.000000)">
-						<mask id="mask-6" fill="white">
-							<use xlink:href="#path-5"></use>
-						</mask>
-						<use fill="#D0C6AC" xlink:href="#path-5"></use>
-        ${item.value}
-           <path d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z" id="Neck-Shadow" opacity="0.100000001" fill="#000000" mask="url(#mask-6)"></path>
-				</g>
-		</g>
-	</g>
+            <g id="Body" transform="translate(32.000000, 36.000000)">
+                <mask id="mask-6" fill="white">
+                    <use xlink:href="#path-5"></use>
+                </mask>
+                <use fill="#D0C6AC" xlink:href="#path-5"></use>
+                ${item.value}
+                <path
+                    d="M156,79 L156,102 C156,132.927946 130.927946,158 100,158 C69.072054,158 44,132.927946 44,102 L44,79 L44,94 C44,124.927946 69.072054,150 100,150 C130.927946,150 156,124.927946 156,94 L156,79 Z"
+                    id="Neck-Shadow" opacity="0.100000001" fill="#000000"
+                    mask="url(#mask-6)"></path>
+            </g>
+        </g>
+    </g>
 </svg>""";
 
       case PropertyCategoryIds.Background:
         return """<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
-xmlns="http://www.w3.org/2000/svg"
-xmlns:xlink="http://www.w3.org/1999/xlink">
-<desc>AvatarMaker Skin Preview</desc>
+xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
-<circle id="path-1" cx="120" cy="120" r="120"></circle>
-<path d="M12,160 C12,226.27417 65.72583,280 132,280 C198.27417,280 252,226.27417 252,160 L264,160 L264,-1.42108547e-14 L-3.19744231e-14,-1.42108547e-14 L-3.19744231e-14,160 L12,160 Z" id="path-3"></path>
 <path d="M124,144.610951 L124,163 L128,163 L128,163 C167.764502,163 200,195.235498 200,235 L200,244 L0,244 L0,235 C-4.86974701e-15,195.235498 32.235498,163 72,163 L72,163 L76,163 L76,144.610951 C58.7626345,136.422372 46.3722246,119.687011 44.3051388,99.8812385 C38.4803105,99.0577866 34,94.0521096 34,88 L34,74 C34,68.0540074 38.3245733,63.1180731 44,62.1659169 L44,56 L44,56 C44,25.072054 69.072054,5.68137151e-15 100,0 L100,0 L100,0 C130.927946,-5.68137151e-15 156,25.072054 156,56 L156,62.1659169 C161.675427,63.1180731 166,68.0540074 166,74 L166,88 C166,94.0521096 161.51969,99.0577866 155.694861,99.8812385 C153.627775,119.687011 141.237365,136.422372 124,144.610951 Z" id="path-5"></path>
 </defs>
 	<g id="AvatarMaker" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">

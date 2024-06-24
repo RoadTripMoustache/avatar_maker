@@ -12,7 +12,7 @@ enum OutfitTypes implements PropertyItem {
 								<use xlink:href="#react-path-34666"></use>
 							</mask>
 							<use id="Clothes" fill="#E6E6E6" xlink:href="#react-path-34666"></use>
-							<g id="Color/Palette/Black" mask="url(#react-mask-34667)" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+							<g id="Color/Palette/Black" mask="url(#react-mask-34667)" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 								<g transform="translate(-32.000000, -29.000000)" id="🖍Color">
 									<rect x="0" y="0" width="264" height="110"></rect>
 								</g>
@@ -40,7 +40,7 @@ enum OutfitTypes implements PropertyItem {
 							<use xlink:href="#react-path-34905"></use>
 						</mask>
 						<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#react-path-34905"></use>
-						<g id="Color/Palette/Black" mask="url(#react-mask-34906)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+						<g id="Color/Palette/Black" mask="url(#react-mask-34906)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 						<g id="Blazer" stroke-width="1" fill-rule="evenodd" transform="translate(32.000000, 28.000000)">
@@ -61,7 +61,7 @@ enum OutfitTypes implements PropertyItem {
 							<use xlink:href="#react-path-35116"></use>
 						</mask>
 						<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#react-path-35116"></use>
-						<g id="Color/Palette/Gray-01" mask="url(#react-mask-35117)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+						<g id="Color/Palette/Gray-01" mask="url(#react-mask-35117)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 						<path d="M156,22.2794906 C162.181647,26.8351858 166,33.1057265 166,40.027915 C166,47.2334941 161.862605,53.7329769 155.228997,58.3271669 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,22.2794906 Z M108,21.5714994 C101.232748,26.1740081 97,32.7397769 97,40.027915 C97,47.4261549 101.361602,54.080035 108.308428,58.6915723 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5714994 Z" id="Collar" fill="#F2F2F2" fill-rule="evenodd"></path>
@@ -76,7 +76,7 @@ enum OutfitTypes implements PropertyItem {
 							<use xlink:href="#react-path-35920"></use>
 						</mask>
 						<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#react-path-35920"></use>
-						<g id="Color/Palette/Gray-01" mask="url(#react-mask-35921)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+						<g id="Color/Palette/Gray-01" mask="url(#react-mask-35921)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 						<g id="Clothing/Graphic/Skull" mask="url(#react-mask-35921)" fill-rule="evenodd" fill="#FFFFFF">
@@ -95,7 +95,7 @@ enum OutfitTypes implements PropertyItem {
 							<use xlink:href="#react-path-35937"></use>
 						</mask>
 						<use id="Hoodie" fill="#B7C1DB" fill-rule="evenodd" xlink:href="#react-path-35937"></use>
-						<g id="Color/Palette/Gray-01" mask="url(#react-mask-35938)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+						<g id="Color/Palette/Gray-01" mask="url(#react-mask-35938)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 						<path d="M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z" id="Straps" fill="#F4F4F4" fill-rule="evenodd" mask="url(#react-mask-35938)"></path>
@@ -111,7 +111,7 @@ enum OutfitTypes implements PropertyItem {
 							<use xlink:href="#react-path-35771"></use>
 						</mask>
 						<use id="Overall" fill="#B7C1DB" fill-rule="evenodd" xlink:href="#react-path-35771"></use>
-						<g id="Color/Palette/Gray-01" mask="url(#react-mask-35772)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+						<g id="Color/Palette/Gray-01" mask="url(#react-mask-35772)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 						<circle id="Button" fill="#F4F4F4" fill-rule="evenodd" cx="81" cy="83" r="5"></circle>
@@ -127,7 +127,7 @@ enum OutfitTypes implements PropertyItem {
 							<use xlink:href="#react-path-36269"></use>
 						</mask>
 						<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#react-path-36269"></use>
-						<g id="Color/Palette/Gray-01" mask="url(#react-mask-36270)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+						<g id="Color/Palette/Gray-01" mask="url(#react-mask-36270)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 						<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#react-mask-36270)" fill-opacity="0.16" fill="#000000">
@@ -146,7 +146,7 @@ enum OutfitTypes implements PropertyItem {
 							<use xlink:href="#react-path-36388"></use>
 						</mask>
 						<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#react-path-36388"></use>
-						<g id="Color/Palette/Gray-01" mask="url(#react-mask-36389)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+						<g id="Color/Palette/Gray-01" mask="url(#react-mask-36389)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 					</g>
@@ -160,7 +160,7 @@ enum OutfitTypes implements PropertyItem {
 							<use xlink:href="#react-path-36091"></use>
 						</mask>
 						<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#react-path-36091"></use>
-						<g id="Color/Palette/Gray-01" mask="url(#react-mask-36092)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_CLOTHES_COLOR">
+						<g id="Color/Palette/Gray-01" mask="url(#react-mask-36092)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 					</g>
