@@ -1,4 +1,5 @@
 import "package:avatar_maker/avatar_maker.dart";
+import "package:avatar_maker/l10n/app_localizations.dart";
 import "package:avatar_maker/src/core/enums/property_categories.dart";
 import "package:avatar_maker/src/core/models/property_category.dart";
 import "package:get/get.dart";
@@ -25,17 +26,18 @@ class PropertyCategoryService {
   // TODO doc : Doc + params
   static List<CustomizedPropertyCategory> mergePropertyCategories(
     List<CustomizedPropertyCategory>? customizedPropertyCategories,
+    AppLocalizations l10n,
   ) {
     if (customizedPropertyCategories == null ||
         customizedPropertyCategories.isEmpty) {
-      return PropertyCategories.values
-          .map(_toCustomizedPropertyCategory)
+      return defaultPropertyCategories
+          .map((category) => _toCustomizedPropertyCategory(category, l10n))
           .toList();
     }
 
     List<CustomizedPropertyCategory> mergedCategoriesList = List.empty();
 
-    PropertyCategories.values.forEach((propertyCategory) {
+    defaultPropertyCategories.forEach((propertyCategory) {
       // Search if is there a customization for the category.
       CustomizedPropertyCategory? customizedPropertyCategory =
           customizedPropertyCategories.firstWhereOrNull(
@@ -45,13 +47,14 @@ class PropertyCategoryService {
       // If not, add the base property category
       if (customizedPropertyCategory == null) {
         mergedCategoriesList
-            .add(_toCustomizedPropertyCategory(propertyCategory));
+            .add(_toCustomizedPropertyCategory(propertyCategory, l10n));
       } else {
         // Otherwise, override the base property category parameters with the
         // ones defined in the customized property category.
         mergedCategoriesList.add(_mergePropertyCategories(
           propertyCategory,
           customizedPropertyCategory,
+          l10n,
         ));
       }
     });
@@ -62,6 +65,7 @@ class PropertyCategoryService {
   static CustomizedPropertyCategory _mergePropertyCategories(
     PropertyCategory propertyCategory,
     CustomizedPropertyCategory customizedPropertyCategory,
+    AppLocalizations l10n,
   ) {
     List<PropertyItem> properties = propertyCategory.properties;
     if (customizedPropertyCategory.properties != null &&
@@ -85,7 +89,7 @@ class PropertyCategoryService {
     return CustomizedPropertyCategory(
       id: propertyCategory.id,
       toDisplay: customizedPropertyCategory.toDisplay,
-      name: customizedPropertyCategory.name ?? propertyCategory.name,
+      name: customizedPropertyCategory.name ?? propertyCategory.getL10nName(l10n),
       defaultValue: defaultValue,
       iconFile:
           customizedPropertyCategory.iconFile ?? propertyCategory.iconFile,
@@ -94,11 +98,13 @@ class PropertyCategoryService {
   }
 
   static CustomizedPropertyCategory _toCustomizedPropertyCategory(
-      PropertyCategory propertyCategory) {
+    PropertyCategory propertyCategory,
+    AppLocalizations l10n,
+  ) {
     return CustomizedPropertyCategory(
       id: propertyCategory.id,
       toDisplay: propertyCategory.toDisplay,
-      name: propertyCategory.name,
+      name: propertyCategory.getL10nName(l10n),
       defaultValue: propertyCategory.defaultValue,
       iconFile: propertyCategory.iconFile,
       properties: propertyCategory.properties,

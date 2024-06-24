@@ -1,4 +1,4 @@
-import "dart:convert";
+import "package:avatar_maker/l10n/app_localizations.dart";
 import "package:avatar_maker/src/core/enums/placeholders.dart";
 import "package:avatar_maker/src/core/enums/preferences_label.dart";
 import "package:avatar_maker/src/core/enums/property_categories.dart";
@@ -25,6 +25,7 @@ import "package:avatar_maker/src/core/services/facial_hairs_service.dart";
 import "package:avatar_maker/src/core/services/hair_service.dart";
 import "package:avatar_maker/src/core/services/property_category_service.dart";
 import "package:avatar_maker/src/core/services/skin_service.dart";
+import "package:flutter/material.dart";
 import "package:get/get.dart";
 import "package:shared_preferences/shared_preferences.dart";
 
@@ -39,12 +40,18 @@ class AvatarMakerController extends GetxController {
   late final List<CustomizedPropertyCategory> propertyCategories;
   late final List<CustomizedPropertyCategory> displayedPropertyCategories;
   late final Map<PropertyCategoryIds, PropertyItem> defaultSelectedOptions;
+  late final AppLocalizations l10n;
 
-  AvatarMakerController(
-    List<CustomizedPropertyCategory>? customizedPropertyCategories,
-  ) {
+  AvatarMakerController({
+    required List<CustomizedPropertyCategory>? customizedPropertyCategories,
+    Locale? locale,
+  }) {
+    if (locale == null) {
+      locale = AppLocalizations.supportedLocales.first;
+    }
+    this.l10n = lookupAppLocalizations(locale);
     this.propertyCategories = PropertyCategoryService.mergePropertyCategories(
-        customizedPropertyCategories);
+        customizedPropertyCategories, l10n);
     this.displayedPropertyCategories = this
         .propertyCategories
         .where((category) => category.toDisplay)
@@ -169,7 +176,7 @@ class AvatarMakerController extends GetxController {
         pref.getString(PreferencesLabel.avatarMakerSelectedOptions.name);
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
       Map<PropertyCategoryIds, PropertyItem> _avatarmakerOptionsMap = {
-        for (var category in PropertyCategories.values)
+        for (var category in defaultPropertyCategories)
           category.id: category.defaultValue
       };
 

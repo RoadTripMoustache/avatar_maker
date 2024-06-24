@@ -68,7 +68,8 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   void initState() {
     super.initState();
 
-    Get.put(AvatarMakerController(widget.customizedPropertyCategories));
+    Get.put(AvatarMakerController(
+        customizedPropertyCategories: widget.customizedPropertyCategories));
     final _controller = Get.find<AvatarMakerController>();
     categoriesTabsLength = _controller.displayedPropertyCategories.length;
 

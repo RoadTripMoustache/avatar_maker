@@ -1,0 +1,16 @@
+{
+  "@@locale": "fr",
+  "property_category_accessories": "Accessoires",
+  "property_category_backgrounds": "Arrière plans",
+  "property_category_eyes": "Yeux",
+  "property_category_eyebrows": "Sourcils",
+  "property_category_facial_hair_colors": "Couleurs de barbe et moustache",
+  "property_category_facial_hair_types": "Barbes et moustaches",
+  "property_category_hair_colors": "Couleurs cheveux",
+  "property_category_hairstyles": "Cheveux",
+  "property_category_mouths": "Bouches",
+  "property_category_noses": "Nez",
+  "property_category_outfit_colors": "Couleurs des tenues",
+  "property_category_outfit_types": "Tenues",
+  "property_category_skins": "Peaux"
+}

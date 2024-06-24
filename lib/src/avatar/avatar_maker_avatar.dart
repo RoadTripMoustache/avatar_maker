@@ -15,12 +15,14 @@ class AvatarMakerAvatar extends StatelessWidget {
   final double radius;
   final Color? backgroundColor;
   final List<CustomizedPropertyCategory>? customizedPropertyCategories;
+  final Locale? locale;
 
   AvatarMakerAvatar({
     Key? key,
     this.radius = 75.0,
     this.backgroundColor,
     this.customizedPropertyCategories,
+    this.locale,
   }) : super(key: key);
 
   @override
@@ -33,7 +35,10 @@ class AvatarMakerAvatar extends StatelessWidget {
 
   GetX<AvatarMakerController> buildGetX() {
     return GetX<AvatarMakerController>(
-        init: AvatarMakerController(this.customizedPropertyCategories),
+        init: AvatarMakerController(
+          customizedPropertyCategories: this.customizedPropertyCategories,
+          locale: this.locale,
+        ),
         autoRemove: false,
         builder: (controller) {
           if (controller.displayedAvatarSVG.value.isEmpty) {
