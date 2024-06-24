@@ -134,9 +134,9 @@ class AvatarMakerController extends GetxController {
       eyes: selectedOptions[PropertyCategoryIds.EyeType]!.value,
       facialHair: FacialHairsService.generateFacialHair(
         color: selectedOptions[PropertyCategoryIds.FacialHairColor]
-        as FacialHairColors,
+            as FacialHairColors,
         type: selectedOptions[PropertyCategoryIds.FacialHairType]
-        as FacialHairTypes,
+            as FacialHairTypes,
       ),
       hair: HairService.generateHairStyle(
         color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
