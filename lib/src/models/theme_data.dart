@@ -27,7 +27,8 @@ class AvatarMakerThemeData {
   /// Defaults to a box with green borders.
   final Decoration selectedTileDecoration;
 
-  /// Box decoration style of an uselected tile in a grid of [AvatarMakerCustomizer]
+  /// Box decoration style of an unselected tile in a grid of
+  /// [AvatarMakerCustomizer]
   ///
   /// Defaults to [null].
   final Decoration? unselectedTileDecoration;
@@ -45,7 +46,7 @@ class AvatarMakerThemeData {
   /// Box decoration style of the [AvatarMakerCustomizer]
   final Decoration boxDecoration;
 
-  /// Define the scroll behaviour of all scrollabes inside
+  /// Define the scroll behaviour of all scrollable elements inside
   /// the [AvatarMakerCustomizer]
   final ScrollPhysics scrollPhysics;
 
@@ -54,6 +55,8 @@ class AvatarMakerThemeData {
 
   /// Margin outside each tile in the grids of the [AvatarMakerCustomizer]
   final EdgeInsetsGeometry tileMargin;
+
+  final int gridCrossAxisCount;
 
   /// Creates a visual [theme] for the [AvatarMakerCustomizer]
   /// and the widgets within it.
@@ -76,28 +79,24 @@ class AvatarMakerThemeData {
     ScrollPhysics? scrollPhysics,
     EdgeInsetsGeometry? tilePadding,
     EdgeInsetsGeometry? tileMargin,
-  })  : this.primaryBgColor = primaryBgColor ?? const Color(0xFFFFFFFF),
-        this.secondaryBgColor = secondaryBgColor ?? const Color(0xFFF1F1F1),
-        this.iconColor = iconColor ?? const Color(0xFF9C9C9C),
-        this.selectedIconColor = selectedIconColor ?? const Color(0xFF424242),
+    int? nbrTilesRow,
+  })  : this.primaryBgColor = primaryBgColor ?? standard.primaryBgColor,
+        this.secondaryBgColor = secondaryBgColor ?? standard.secondaryBgColor,
+        this.iconColor = iconColor ?? standard.iconColor,
+        this.selectedIconColor =
+            selectedIconColor ?? standard.selectedIconColor,
         this.unselectedIconColor =
-            unselectedIconColor ?? const Color(0xFF9C9C9C),
-        this.selectedTileDecoration = selectedTileDecoration ??
-            BoxDecoration(
-              borderRadius: BorderRadius.circular(12.0),
-              border: Border.all(
-                color: const Color(0xFF00FF00),
-                width: 3.0,
-              ),
-            ),
-        this.unselectedTileDecoration = unselectedTileDecoration,
-        this.boxDecoration = boxDecoration ??
-            BoxDecoration(borderRadius: BorderRadius.circular(18)),
-        this.labelTextStyle = labelTextStyle ??
-            const TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
-        this.scrollPhysics = scrollPhysics ?? const ClampingScrollPhysics(),
-        this.tileMargin = const EdgeInsets.all(2.0),
-        this.tilePadding = const EdgeInsets.all(2.0);
+            unselectedIconColor ?? standard.unselectedIconColor,
+        this.selectedTileDecoration =
+            selectedTileDecoration ?? standard.selectedTileDecoration,
+        this.unselectedTileDecoration =
+            unselectedTileDecoration ?? standard.unselectedTileDecoration,
+        this.boxDecoration = boxDecoration ?? standard.boxDecoration,
+        this.labelTextStyle = labelTextStyle ?? standard.labelTextStyle,
+        this.scrollPhysics = scrollPhysics ?? standard.scrollPhysics,
+        this.tileMargin = tileMargin ?? standard.tileMargin,
+        this.tilePadding = tilePadding ?? standard.tilePadding,
+        this.gridCrossAxisCount = nbrTilesRow ?? standard.gridCrossAxisCount;
 
   AvatarMakerThemeData copyWith({
     TextStyle? labelTextStyle,
@@ -111,6 +110,7 @@ class AvatarMakerThemeData {
     ScrollPhysics? scrollPhysics,
     EdgeInsetsGeometry? tilePadding,
     EdgeInsetsGeometry? tileMargin,
+    int? nbrTilesRow,
   }) {
     return AvatarMakerThemeData(
       labelTextStyle: labelTextStyle ?? this.labelTextStyle,
@@ -126,6 +126,7 @@ class AvatarMakerThemeData {
       scrollPhysics: scrollPhysics ?? this.scrollPhysics,
       tilePadding: tilePadding ?? this.tilePadding,
       tileMargin: tileMargin ?? this.tileMargin,
+      nbrTilesRow: nbrTilesRow ?? this.gridCrossAxisCount,
     );
   }
 
@@ -134,6 +135,7 @@ class AvatarMakerThemeData {
     secondaryBgColor: const Color(0xFFF1F1F1),
     iconColor: const Color(0xFF9C9C9C),
     selectedIconColor: const Color(0xFF424242),
+    unselectedIconColor: const Color(0x80424242),
     selectedTileDecoration: BoxDecoration(
       borderRadius: BorderRadius.circular(12.0),
       border: Border.all(
@@ -141,12 +143,13 @@ class AvatarMakerThemeData {
         width: 3.0,
       ),
     ),
-    unselectedTileDecoration: null,
+    unselectedTileDecoration: BoxDecoration(),
     boxDecoration: BoxDecoration(borderRadius: BorderRadius.circular(18)),
     labelTextStyle:
         const TextStyle(fontWeight: FontWeight.w600, color: Colors.black),
     scrollPhysics: const ClampingScrollPhysics(),
     tileMargin: const EdgeInsets.all(2.0),
     tilePadding: const EdgeInsets.all(2.0),
+    nbrTilesRow: 6,
   );
 }

@@ -197,20 +197,6 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
         /// Eg: "Hairstyle" attribute has 38 options
         var attributeListLength = propertyCategory.properties!.length;
 
-        /// Number of tiles per horizontal row,
-        int gridCrossAxisCount;
-
-        /// Set the number of tiles per horizontal row,
-        /// depending on the [attributeListLength]
-        // TODO : Constantes
-        if (attributeListLength < 12)
-          gridCrossAxisCount = 3;
-        else if (attributeListLength < 9)
-          gridCrossAxisCount = 2;
-        else
-          gridCrossAxisCount = 4;
-        gridCrossAxisCount = 6;
-
         PropertyItem selectedItem =
             avatarmakerController.selectedOptions[propertyCategory.id]!;
 
@@ -219,7 +205,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
           physics: widget.theme.scrollPhysics,
           itemCount: attributeListLength,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: gridCrossAxisCount,
+            crossAxisCount: widget.theme.gridCrossAxisCount,
             crossAxisSpacing: 4.0,
             mainAxisSpacing: 4.0,
           ),
