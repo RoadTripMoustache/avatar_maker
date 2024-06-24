@@ -1,4 +1,4 @@
-import 'package:avatar_maker/src/models/property_item.dart';
+import "package:avatar_maker/src/models/property_item.dart";
 
 enum FacialHairColors implements PropertyItem {
   Auburn("#A55728"),
@@ -11,7 +11,7 @@ enum FacialHairColors implements PropertyItem {
   Platinum("#ECDCBF"),
   Red("#C93305"),
   SilverGray("#E8E1E1"),
-  DarkGray("#212121"),
+  DarkGray("#444444"),
   LightGray("#78909C"),
   Purple("#8E24AA"),
   Fuchsia("#D81B60"),

@@ -1,4 +1,4 @@
-import 'package:avatar_maker/src/models/property_item.dart';
+import "package:avatar_maker/src/models/property_item.dart";
 
 enum OutfitColors implements PropertyItem {
   Black("#262E33"),

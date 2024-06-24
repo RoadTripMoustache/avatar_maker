@@ -3,19 +3,19 @@ import 'package:avatar_maker/src/enums/placeholders.dart';
 import 'package:avatar_maker/src/enums/property_categories.dart';
 import 'package:avatar_maker/src/enums/property_category_ids.dart';
 import 'package:avatar_maker/src/enums/property_items/facial_hair_colors.dart';
+import 'package:avatar_maker/src/enums/property_items/facial_hair_types.dart';
 import 'package:avatar_maker/src/enums/property_items/hair_colors.dart';
+import 'package:avatar_maker/src/enums/property_items/hair_styles.dart';
 import 'package:avatar_maker/src/enums/property_items/outfit_colors.dart';
 import 'package:avatar_maker/src/enums/property_items/outfit_types.dart';
 import 'package:avatar_maker/src/models/customized_property_category.dart';
 import 'package:avatar_maker/src/models/property_item.dart';
+import 'package:avatar_maker/src/services/clothes_service.dart';
 import 'package:avatar_maker/src/services/facial_hairs_service.dart';
 import 'package:avatar_maker/src/services/hair_service.dart';
 import 'package:avatar_maker/src/services/property_category_service.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'services/clothes_service.dart';
-import 'enums/property_items/facial_hair_types.dart';
-import 'enums/property_items/hair_styles.dart';
 
 /// Brains of the Avatar_Maker package
 ///

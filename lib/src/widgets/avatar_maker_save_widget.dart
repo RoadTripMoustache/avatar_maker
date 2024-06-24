@@ -1,19 +1,19 @@
-import 'package:flutter/material.dart';
-import 'package:avatar_maker/src/avatar_maker_controller.dart';
-import 'package:avatar_maker/src/avatar_maker_theme_data.dart';
-import 'package:get/get.dart';
+import "package:flutter/material.dart";
+import "package:avatar_maker/src/controllers/avatar_maker_controller.dart";
+import "package:avatar_maker/src/models/theme_data.dart";
+import "package:get/get.dart";
 
 /// Renders a save button by default OR can be used as a [InkWell]
 /// wrapper for the [child] widget.
 ///
-/// Additonal callbacks may be triggered by passing a
+/// Additional callbacks may be triggered by passing a
 /// Function to [onTap].
 class AvatarMakerSaveWidget extends StatelessWidget {
   /// Pass in your `theme` to customize the appearance of the default
   /// save button.
   final AvatarMakerThemeData theme;
 
-  /// Additonal callbacks to be triggered on tapping the widget
+  /// Additional callbacks to be triggered on tapping the widget
   /// after the save operation is executed.
   /// *******
   /// Example: \

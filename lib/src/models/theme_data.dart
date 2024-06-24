@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:avatar_maker/src/avatar_maker_customizer.dart';
+import "package:flutter/material.dart";
 
 /// Defines the configuration of the overall visual [theme] for a [AvatarMakerCustomizer]
 /// and the widgets within it.

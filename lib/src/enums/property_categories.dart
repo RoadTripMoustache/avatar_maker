@@ -1,19 +1,19 @@
-import 'package:avatar_maker/src/enums/property_category_ids.dart';
-import 'package:avatar_maker/src/enums/property_items/accessories.dart';
-import 'package:avatar_maker/src/enums/property_items/background_style.dart';
-import 'package:avatar_maker/src/enums/property_items/noses.dart';
-import 'package:avatar_maker/src/enums/property_items/outfit_colors.dart';
-import 'package:avatar_maker/src/enums/property_items/eyebrows.dart';
-import 'package:avatar_maker/src/enums/property_items/eyes.dart';
-import 'package:avatar_maker/src/enums/property_items/facial_hair_colors.dart';
-import 'package:avatar_maker/src/enums/property_items/facial_hair_types.dart';
-import 'package:avatar_maker/src/enums/property_items/hair_colors.dart';
-import 'package:avatar_maker/src/enums/property_items/hair_styles.dart';
-import 'package:avatar_maker/src/enums/property_items/outfit_types.dart';
-import 'package:avatar_maker/src/enums/property_items/mouths.dart';
-import 'package:avatar_maker/src/enums/property_items/skin_colors.dart';
-import 'package:avatar_maker/src/models/property_category.dart';
-import 'package:avatar_maker/src/models/property_item.dart';
+import "package:avatar_maker/src/enums/property_category_ids.dart";
+import "package:avatar_maker/src/enums/property_items/accessories.dart";
+import "package:avatar_maker/src/enums/property_items/background_style.dart";
+import "package:avatar_maker/src/enums/property_items/noses.dart";
+import "package:avatar_maker/src/enums/property_items/outfit_colors.dart";
+import "package:avatar_maker/src/enums/property_items/eyebrows.dart";
+import "package:avatar_maker/src/enums/property_items/eyes.dart";
+import "package:avatar_maker/src/enums/property_items/facial_hair_colors.dart";
+import "package:avatar_maker/src/enums/property_items/facial_hair_types.dart";
+import "package:avatar_maker/src/enums/property_items/hair_colors.dart";
+import "package:avatar_maker/src/enums/property_items/hair_styles.dart";
+import "package:avatar_maker/src/enums/property_items/outfit_types.dart";
+import "package:avatar_maker/src/enums/property_items/mouths.dart";
+import "package:avatar_maker/src/enums/property_items/skin_colors.dart";
+import "package:avatar_maker/src/models/property_category.dart";
+import "package:avatar_maker/src/models/property_item.dart";
 
 // TODO : l10n
 enum PropertyCategories implements PropertyCategory {
@@ -49,22 +49,6 @@ enum PropertyCategories implements PropertyCategory {
     true,
     FacialHairColors.Black,
   ),
-  OutfitType(
-    PropertyCategoryIds.OutfitType,
-    "Outfit",
-    "assets/icons/outfit.svg",
-    OutfitTypes.values,
-    true,
-    OutfitTypes.Hoodie,
-  ),
-  OutfitColor(
-    PropertyCategoryIds.OutfitColor,
-    "Outfit Color",
-    "assets/icons/outfit_color.svg",
-    OutfitColors.values,
-    true,
-    OutfitColors.PastelBlue,
-  ),
   EyeType(
     PropertyCategoryIds.EyeType,
     "Eyes",
@@ -80,6 +64,14 @@ enum PropertyCategories implements PropertyCategory {
     Eyebrows.values,
     true,
     Eyebrows.Default,
+  ),
+  Nose(
+    PropertyCategoryIds.Nose,
+    "Noses",
+    "assets/icons/noses.svg",
+    Noses.values,
+    false,
+    Noses.Default,
   ),
   MouthType(
     PropertyCategoryIds.MouthType,
@@ -97,6 +89,22 @@ enum PropertyCategories implements PropertyCategory {
     true,
     SkinColors.Brown,
   ),
+  OutfitType(
+    PropertyCategoryIds.OutfitType,
+    "Outfit",
+    "assets/icons/outfit.svg",
+    OutfitTypes.values,
+    true,
+    OutfitTypes.Hoodie,
+  ),
+  OutfitColor(
+    PropertyCategoryIds.OutfitColor,
+    "Outfit Color",
+    "assets/icons/outfit_color.svg",
+    OutfitColors.values,
+    true,
+    OutfitColors.PastelBlue,
+  ),
   Accessory(
     PropertyCategoryIds.Accessory,
     "Accessories",
@@ -104,14 +112,6 @@ enum PropertyCategories implements PropertyCategory {
     Accessories.values,
     true,
     Accessories.Nothing,
-  ),
-  Nose(
-    PropertyCategoryIds.Nose,
-    "Noses",
-    "assets/icons/noses.svg",
-    Noses.values,
-    false,
-    Noses.Default,
   ),
   Background(
     PropertyCategoryIds.Background,

@@ -1,5 +1,5 @@
-import 'package:avatar_maker/src/models/property_item.dart';
-import '../placeholders.dart';
+import "package:avatar_maker/src/enums/placeholders.dart";
+import "package:avatar_maker/src/models/property_item.dart";
 
 enum OutfitTypes implements PropertyItem {
   BlazerTShirt("""

@@ -1,5 +1,6 @@
 import 'package:avatar_maker/src/models/property_item.dart';
 
+// TODO : Scale les SVG x4
 enum Accessories implements PropertyItem {
   Nothing(""),
   Kurt("""
