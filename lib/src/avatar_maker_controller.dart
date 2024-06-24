@@ -23,8 +23,8 @@ import 'enums/property_items/hair_styles.dart';
 ///
 /// Exposes certain static functions for use by the developer
 class AvatarMakerController extends GetxController {
-  var displayedAvatar = ""
-      .obs; // TODO : Trouver un meilleur nom de variable et mettre une description
+  // TODO : Trouver un meilleur nom de variable et mettre une description
+  var displayedAvatar = "".obs;
 
   late final List<CustomizedPropertyCategory> propertyCategories;
   late final Map<PropertyCategoryIds, PropertyItem> defaultSelectedOptions;
@@ -54,28 +54,27 @@ class AvatarMakerController extends GetxController {
   @override
   void onInit() async {
     // called immediately after the widget is allocated memory
-    selectedOptions = await getSelectedOptions();
-    displayedAvatar.value = getAvatarMakerFromOptions();
+    print("==== onInit ====");
+    selectedOptions = await getStoredOptions();
+    displayedAvatar.value = drawAvatar();
     update();
-    // init(); TODO - A retirer après les tests
     super.onInit();
   }
 
-  // TODO : Pourquoi avoir deux updates ?
-  // TODO : Pourquoi avoir une méthode dédiée ?
-  // void init() async {
-  //   selectedOptions = await getAvatarMakerOptions();
-  // update();
-  //   displayedAvatar.value = getAvatarMakerFromOptions();
-//   update();
-  // }
+  @override
+  void onReady() {
+    print("==== READY ====");
+    super.onReady();
+  }
 
   /// Adds avatarmaker new string to avatarmaker in GetX Controller
   void updatePreview({
     String avatarmakerNew = '',
   }) {
+    print("-- updatePreview");
     if (avatarmakerNew.isEmpty) {
-      avatarmakerNew = getAvatarMakerFromOptions();
+      print("empty");
+      avatarmakerNew = drawAvatar();
     }
     // TODO : Voir si ça modifie bien les valeurs des paramètres sélectionnés
     displayedAvatar.value = avatarmakerNew;
@@ -85,6 +84,7 @@ class AvatarMakerController extends GetxController {
   /// Restore controller state
   /// with the latest SAVED version of [displayedAvatar] and [selectedOptions]
   void restoreState() async {
+    print("==== restoreState ====");
     SharedPreferences pref = await SharedPreferences.getInstance();
 
     // Replace observable [avatarmaker] with latest saved version or use default attributes if null
@@ -92,7 +92,8 @@ class AvatarMakerController extends GetxController {
         avatarmakerNew: pref.getString('avatarmaker') ??
             jsonEncodeSelectedOptions(defaultSelectedOptions));
 
-    selectedOptions = await getSelectedOptions();
+    selectedOptions = await getStoredOptions();
+    print("\n${selectedOptions}\n");
     update();
   }
 
@@ -104,9 +105,12 @@ class AvatarMakerController extends GetxController {
   ///  Thereby updating all the states which are listening to controller
   // Pour permettre à un utilisateur de charger un avatar
   // TODO : Clean up
+  // TODO : Retirer les print
   Future<void> setAvatarMaker({String avatarmakerNew = ''}) async {
+    print("-- setAvatarMaker");
     if (avatarmakerNew.isEmpty) {
-      avatarmakerNew = getAvatarMakerFromOptions();
+      print("empty");
+      avatarmakerNew = drawAvatar();
     }
     SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString('avatarmaker', avatarmakerNew); // TODO : Constante
@@ -116,13 +120,16 @@ class AvatarMakerController extends GetxController {
     await pref.setString(
         // TODO : Constante
         'avatarmakerSelectedOptions',
-        jsonEncodeSelectedOptions(selectedOptions));
+        jsonEncodeSelectedOptions(selectedOptions),
+    );
+    print("setAvatarMaker :: ${selectedOptions}");
     update();
   }
 
   /// Generates a [String] avatarmaker from [selectedOptions] pref
   // TODO : drawAvatar ? generateAvatarSVG?
-  String getAvatarMakerFromOptions() {
+  String drawAvatar() {
+    print(" --> drawAvatar - ${selectedOptions[PropertyCategoryIds.HairStyle]}");
     String _backgroundStyle =
         selectedOptions[PropertyCategoryIds.Background]!.value;
     String _clothe = ClothesService.generateClothes(
@@ -188,11 +195,12 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
   }
 
   /// Permet de récupérer les préférences stockées de l'utilisateur ou les options sélectionnées par défaut.
-  Future<Map<PropertyCategoryIds, PropertyItem>> getSelectedOptions() async {
+  Future<Map<PropertyCategoryIds, PropertyItem>> getStoredOptions() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    await pref.setString(
-        'avatarmakerSelectedOptions', ""); // TODO : A retirer après les tests
+    //await pref.setString(
+    //    'avatarmakerSelectedOptions', ""); // TODO : A retirer après les tests
     // TODO : Constante
+    print("==== selectedOptions :: ${selectedOptions}");
     String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
       Map<PropertyCategoryIds, PropertyItem> _avatarmakerOptionsMap = {
@@ -200,11 +208,15 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
           category.id: category.defaultValue
       };
 
+
       await pref.setString('avatarmakerSelectedOptions',
           jsonEncodeSelectedOptions(_avatarmakerOptionsMap));
+      print("==== getSelectedOptions 1 ====");
+      print(_avatarmakerOptionsMap);
       selectedOptions = _avatarmakerOptionsMap;
     } else {
-      // TODO : A tester le jsonDecode
+      print("==== getSelectedOptions 2 ====");
+      print(jsonDecodeSelectedOptions(_avatarmakerOptions));
       selectedOptions = jsonDecodeSelectedOptions(_avatarmakerOptions);
     }
     update();
@@ -291,7 +303,7 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 	</g>
 </svg>""";
 
-      case PropertyCategoryIds.Background: // TODO : Pas convaincu
+      case PropertyCategoryIds.Background:
         return """<svg width="264px" height="280px" viewBox="0 0 264 280" version="1.1"
 xmlns="http://www.w3.org/2000/svg"
 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -350,7 +362,6 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
     return jsonEncode(optionsToEncode);
   }
 
-  // TODO : Retirer les print
   Map<PropertyCategoryIds, PropertyItem> jsonDecodeSelectedOptions(
       String encodedOptions) {
     var decodedOptions = jsonDecode(encodedOptions);

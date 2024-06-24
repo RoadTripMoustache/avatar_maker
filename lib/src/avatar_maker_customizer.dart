@@ -61,6 +61,7 @@ class AvatarMakerCustomizer extends StatefulWidget {
 class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     with SingleTickerProviderStateMixin {
   late AvatarMakerController avatarmakerController;
+  late int categoriesTabsLength;
   late TabController tabController;
   var heightFactor = 0.4, widthFactor = 0.95;
 
@@ -70,11 +71,14 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
 
     Get.put(AvatarMakerController(widget.customizedPropertyCategories));
     final _controller = Get.find<AvatarMakerController>();
+    categoriesTabsLength = _controller.propertyCategories!
+        .where((category) => category.toDisplay)
+        .length;
 
     setState(() {
       avatarmakerController = _controller;
       tabController = TabController(
-        length: _controller.propertyCategories.length,
+        length: categoriesTabsLength,
         vsync: this,
       );
     });
@@ -93,7 +97,9 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
 
   void onTapOption(
       PropertyItem newSelectedItem, PropertyCategoryIds categoryId) {
+    print("==> onTapOption ;; ${categoryId} = ${newSelectedItem}");
     if (avatarmakerController.selectedOptions[categoryId] != newSelectedItem) {
+      print("-2-");
       setState(() {
         avatarmakerController.selectedOptions[categoryId] = newSelectedItem;
       });
@@ -111,7 +117,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
           .animateTo(_currentIndex > 0 ? _currentIndex - 1 : _currentIndex);
     else
       tabController.animateTo(
-          _currentIndex < avatarmakerController.propertyCategories.length - 1
+          _currentIndex < categoriesTabsLength - 1
               ? _currentIndex + 1
               : _currentIndex);
 
@@ -134,10 +140,10 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       child: TabBar(
         controller: tabController,
         isScrollable: true,
-        labelPadding: EdgeInsets.fromLTRB(0, 8, 0, 8),
+        labelPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         indicatorColor: widget.theme.selectedIconColor,
-        indicatorPadding: EdgeInsets.all(2),
         tabs: navbarWidgets,
+        tabAlignment: TabAlignment.center,
       ),
     );
   }
@@ -165,7 +171,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       visible: isLeft
           ? tabController.index > 0
           : tabController.index <
-              avatarmakerController.propertyCategories.length - 1,
+          categoriesTabsLength - 1,
       child: IconButton(
         // splashRadius: 20,
         icon: Icon(
@@ -192,78 +198,79 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
 
     for (final (categoryIndex, propertyCategory)
         in avatarmakerController.propertyCategories.indexed) {
-      /// Number of options available for said [attribute]
-      /// Eg: "Hairstyle" attribute has 38 options
-      var attributeListLength = propertyCategory.properties!.length;
+      if (propertyCategory.toDisplay) {
+        /// Number of options available for said [attribute]
+        /// Eg: "Hairstyle" attribute has 38 options
+        var attributeListLength = propertyCategory.properties!.length;
 
-      /// Number of tiles per horizontal row,
-      int gridCrossAxisCount;
+        /// Number of tiles per horizontal row,
+        int gridCrossAxisCount;
 
-      /// Set the number of tiles per horizontal row,
-      /// depending on the [attributeListLength]
-      // TODO : Constantes
-      if (attributeListLength < 12)
-        gridCrossAxisCount = 3;
-      else if (attributeListLength < 9)
-        gridCrossAxisCount = 2;
-      else
-        gridCrossAxisCount = 4;
-      gridCrossAxisCount = 6;
+        /// Set the number of tiles per horizontal row,
+        /// depending on the [attributeListLength]
+        // TODO : Constantes
+        if (attributeListLength < 12)
+          gridCrossAxisCount = 3;
+        else if (attributeListLength < 9)
+          gridCrossAxisCount = 2;
+        else
+          gridCrossAxisCount = 4;
+        gridCrossAxisCount = 6;
 
-      PropertyItem selectedItem =
-          avatarmakerController.selectedOptions[propertyCategory.id]!;
+        PropertyItem selectedItem =
+            avatarmakerController.selectedOptions[propertyCategory.id]!;
 
-      /// Build the main Tile Grid with all the options from the attribute
-      var _tileGrid = GridView.builder(
-        physics: widget.theme.scrollPhysics,
-        itemCount: attributeListLength,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: gridCrossAxisCount,
-          crossAxisSpacing: 4.0,
-          mainAxisSpacing: 4.0,
-        ),
-        itemBuilder: (BuildContext context, int index) => InkWell(
-          onTap: () => onTapOption(
-              propertyCategory.properties![index], propertyCategory.id),
-          child: Container(
-            decoration:
-                index == propertyCategory.properties!.indexOf(selectedItem)
-                    ? widget.theme.selectedTileDecoration
-                    : widget.theme.unselectedTileDecoration,
-            margin: widget.theme.tileMargin,
-            padding: widget.theme.tilePadding,
-            child: SvgPicture.string(
-              avatarmakerController.getComponentSVG(propertyCategory.id, index),
-              height: 20,
-              semanticsLabel: 'Your AvatarMaker',
-              placeholderBuilder: (context) => Center(
-                child: CupertinoActivityIndicator(),
+        /// Build the main Tile Grid with all the options from the attribute
+        var _tileGrid = GridView.builder(
+          physics: widget.theme.scrollPhysics,
+          itemCount: attributeListLength,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: gridCrossAxisCount,
+            crossAxisSpacing: 4.0,
+            mainAxisSpacing: 4.0,
+          ),
+          itemBuilder: (BuildContext context, int index) => InkWell(
+            onTap: () => onTapOption(
+                propertyCategory.properties![index], propertyCategory.id),
+            child: Container(
+              decoration:
+                  index == propertyCategory.properties!.indexOf(selectedItem)
+                      ? widget.theme.selectedTileDecoration
+                      : widget.theme.unselectedTileDecoration,
+              margin: widget.theme.tileMargin,
+              padding: widget.theme.tilePadding,
+              child: SvgPicture.string(
+                avatarmakerController.getComponentSVG(
+                    propertyCategory.id, index),
+                height: 20,
+                semanticsLabel: 'Your AvatarMaker',
+                placeholderBuilder: (context) => Center(
+                  child: CupertinoActivityIndicator(),
+                ),
               ),
             ),
           ),
-        ),
-      );
+        );
 
-      /// Builds the icon for the attribute to be placed in the bottom row
-      var bottomNavWidget = Padding(
-          padding: EdgeInsets.symmetric(vertical: 2.0, horizontal: 12),
-          child: SvgPicture.asset(
-            propertyCategory.iconFile!,
-            package: 'avatar_maker',
-            height: (widget.scaffoldHeight != null
-                ? widget.scaffoldHeight! / heightFactor * 0.03
-                : size.height * 0.03),
-            colorFilter: ColorFilter.mode(
-                categoryIndex == tabController.index
-                    ? widget.theme.selectedIconColor
-                    : widget.theme.unselectedIconColor,
-                BlendMode.srcIn),
-            semanticsLabel: propertyCategory.name,
-          ));
+        /// Builds the icon for the attribute to be placed in the bottom row
+        var bottomNavWidget = SvgPicture.asset(
+          propertyCategory.iconFile!,
+          package: 'avatar_maker',
+          height: (widget.scaffoldHeight != null
+              ? widget.scaffoldHeight! / heightFactor * 0.04
+              : size.height * 0.04),
+          colorFilter: ColorFilter.mode(
+              categoryIndex == tabController.index
+                  ? widget.theme.selectedIconColor
+                  : widget.theme.unselectedIconColor,
+              BlendMode.srcIn),
+          semanticsLabel: propertyCategory.name,
+        );
 
-      /// Add all the initialized widgets to the state
-      attributeGrids.add(_tileGrid);
-      navbarWidgets.add(bottomNavWidget);
+        /// Add all the initialized widgets to the state
+        attributeGrids.add(_tileGrid);
+        navbarWidgets.add(bottomNavWidget);
+      }
     }
 
     return Container(

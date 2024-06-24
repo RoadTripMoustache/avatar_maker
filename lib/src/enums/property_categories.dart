@@ -108,7 +108,7 @@ enum PropertyCategories implements PropertyCategory {
   Nose(
     PropertyCategoryIds.Nose,
     "Noses",
-    "assets/icons/noses.svg", // TODO : Ajouter une icône pour gérer les nez.
+    "assets/icons/noses.svg",
     Noses.values,
     false,
     Noses.Default,
@@ -116,7 +116,7 @@ enum PropertyCategories implements PropertyCategory {
   Background(
     PropertyCategoryIds.Background,
     "Background",
-    "assets/icons/background.svg", // TODO : Ajouter une icône pour gérer les backgrounds.
+    "assets/icons/background.svg",
     BackgroundStyles.values,
     false,
     BackgroundStyles.Circle,

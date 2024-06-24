@@ -40,7 +40,7 @@ class AvatarMakerAvatar extends StatelessWidget {
             return CupertinoActivityIndicator();
           }
           return SvgPicture.string(
-            controller.getAvatarMakerFromOptions(),
+            controller.drawAvatar(),
             height: radius * 1.6,
             semanticsLabel: "Your avatar",
             placeholderBuilder: (context) => Center(
