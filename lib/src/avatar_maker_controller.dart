@@ -118,9 +118,9 @@ class AvatarMakerController extends GetxController {
     displayedAvatar.value = avatarmakerNew;
 
     await pref.setString(
-        // TODO : Constante
-        'avatarmakerSelectedOptions',
-        jsonEncodeSelectedOptions(selectedOptions),
+      // TODO : Constante
+      'avatarmakerSelectedOptions',
+      jsonEncodeSelectedOptions(selectedOptions),
     );
     print("setAvatarMaker :: ${selectedOptions}");
     update();
@@ -129,7 +129,8 @@ class AvatarMakerController extends GetxController {
   /// Generates a [String] avatarmaker from [selectedOptions] pref
   // TODO : drawAvatar ? generateAvatarSVG?
   String drawAvatar() {
-    print(" --> drawAvatar - ${selectedOptions[PropertyCategoryIds.HairStyle]}");
+    print(
+        " --> drawAvatar - ${selectedOptions[PropertyCategoryIds.HairStyle]}");
     String _backgroundStyle =
         selectedOptions[PropertyCategoryIds.Background]!.value;
     String _clothe = ClothesService.generateClothes(
@@ -207,7 +208,6 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
         for (var category in PropertyCategories.values)
           category.id: category.defaultValue
       };
-
 
       await pref.setString('avatarmakerSelectedOptions',
           jsonEncodeSelectedOptions(_avatarmakerOptionsMap));

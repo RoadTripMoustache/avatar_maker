@@ -116,10 +116,9 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       tabController
           .animateTo(_currentIndex > 0 ? _currentIndex - 1 : _currentIndex);
     else
-      tabController.animateTo(
-          _currentIndex < categoriesTabsLength - 1
-              ? _currentIndex + 1
-              : _currentIndex);
+      tabController.animateTo(_currentIndex < categoriesTabsLength - 1
+          ? _currentIndex + 1
+          : _currentIndex);
 
     setState(() {});
   }
@@ -170,8 +169,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     return Visibility(
       visible: isLeft
           ? tabController.index > 0
-          : tabController.index <
-          categoriesTabsLength - 1,
+          : tabController.index < categoriesTabsLength - 1,
       child: IconButton(
         // splashRadius: 20,
         icon: Icon(
