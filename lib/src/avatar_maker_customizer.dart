@@ -97,9 +97,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
 
   void onTapOption(
       PropertyItem newSelectedItem, PropertyCategoryIds categoryId) {
-    print("==> onTapOption ;; ${categoryId} = ${newSelectedItem}");
     if (avatarmakerController.selectedOptions[categoryId] != newSelectedItem) {
-      print("-2-");
       setState(() {
         avatarmakerController.selectedOptions[categoryId] = newSelectedItem;
       });

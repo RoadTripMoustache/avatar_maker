@@ -54,7 +54,6 @@ class AvatarMakerController extends GetxController {
   @override
   void onInit() async {
     // called immediately after the widget is allocated memory
-    print("==== onInit ====");
     selectedOptions = await getStoredOptions();
     displayedAvatar.value = drawAvatar();
     update();
@@ -63,7 +62,6 @@ class AvatarMakerController extends GetxController {
 
   @override
   void onReady() {
-    print("==== READY ====");
     super.onReady();
   }
 
@@ -71,9 +69,7 @@ class AvatarMakerController extends GetxController {
   void updatePreview({
     String avatarmakerNew = '',
   }) {
-    print("-- updatePreview");
     if (avatarmakerNew.isEmpty) {
-      print("empty");
       avatarmakerNew = drawAvatar();
     }
     // TODO : Voir si ça modifie bien les valeurs des paramètres sélectionnés
@@ -84,7 +80,6 @@ class AvatarMakerController extends GetxController {
   /// Restore controller state
   /// with the latest SAVED version of [displayedAvatar] and [selectedOptions]
   void restoreState() async {
-    print("==== restoreState ====");
     SharedPreferences pref = await SharedPreferences.getInstance();
 
     // Replace observable [avatarmaker] with latest saved version or use default attributes if null
@@ -93,7 +88,6 @@ class AvatarMakerController extends GetxController {
             jsonEncodeSelectedOptions(defaultSelectedOptions));
 
     selectedOptions = await getStoredOptions();
-    print("\n${selectedOptions}\n");
     update();
   }
 
@@ -107,9 +101,7 @@ class AvatarMakerController extends GetxController {
   // TODO : Clean up
   // TODO : Retirer les print
   Future<void> setAvatarMaker({String avatarmakerNew = ''}) async {
-    print("-- setAvatarMaker");
     if (avatarmakerNew.isEmpty) {
-      print("empty");
       avatarmakerNew = drawAvatar();
     }
     SharedPreferences pref = await SharedPreferences.getInstance();
@@ -122,15 +114,12 @@ class AvatarMakerController extends GetxController {
       'avatarmakerSelectedOptions',
       jsonEncodeSelectedOptions(selectedOptions),
     );
-    print("setAvatarMaker :: ${selectedOptions}");
     update();
   }
 
   /// Generates a [String] avatarmaker from [selectedOptions] pref
   // TODO : drawAvatar ? generateAvatarSVG?
   String drawAvatar() {
-    print(
-        " --> drawAvatar - ${selectedOptions[PropertyCategoryIds.HairStyle]}");
     String _backgroundStyle =
         selectedOptions[PropertyCategoryIds.Background]!.value;
     String _clothe = ClothesService.generateClothes(
@@ -201,7 +190,6 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
     //await pref.setString(
     //    'avatarmakerSelectedOptions', ""); // TODO : A retirer après les tests
     // TODO : Constante
-    print("==== selectedOptions :: ${selectedOptions}");
     String? _avatarmakerOptions = pref.getString('avatarmakerSelectedOptions');
     if (_avatarmakerOptions == null || _avatarmakerOptions == '') {
       Map<PropertyCategoryIds, PropertyItem> _avatarmakerOptionsMap = {
@@ -211,12 +199,8 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 
       await pref.setString('avatarmakerSelectedOptions',
           jsonEncodeSelectedOptions(_avatarmakerOptionsMap));
-      print("==== getSelectedOptions 1 ====");
-      print(_avatarmakerOptionsMap);
       selectedOptions = _avatarmakerOptionsMap;
     } else {
-      print("==== getSelectedOptions 2 ====");
-      print(jsonDecodeSelectedOptions(_avatarmakerOptions));
       selectedOptions = jsonDecodeSelectedOptions(_avatarmakerOptions);
     }
     update();
