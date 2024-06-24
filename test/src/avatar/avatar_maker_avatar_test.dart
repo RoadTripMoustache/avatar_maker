@@ -23,7 +23,9 @@ void main() {
       });
 
       testWidgets("With custom radius", (WidgetTester tester) async {
-        await tester.pumpWidget(AvatarMakerAvatar(radius: 12.0,));
+        await tester.pumpWidget(AvatarMakerAvatar(
+          radius: 12.0,
+        ));
 
         final avatar = find.byType(CircleAvatar);
         expect(avatar, findsOneWidget);
@@ -56,9 +58,12 @@ void main() {
         );
       });
 
-      testWidgets("With custom background color and radius", (WidgetTester tester) async {
+      testWidgets("With custom background color and radius",
+          (WidgetTester tester) async {
         await tester.pumpWidget(AvatarMakerAvatar(
-            backgroundColor: Colors.red, radius: 29.0,));
+          backgroundColor: Colors.red,
+          radius: 29.0,
+        ));
 
         final avatar = find.byType(CircleAvatar);
         expect(avatar, findsOneWidget);
