@@ -8,8 +8,7 @@ import "../../../helpers.dart";
 
 void main() {
   final List<CustomizedPropertyCategory> propertyCategories = [
-    CustomizedPropertyCategory(
-        id: PropertyCategoryIds.Nose, name: "nose-name"),
+    CustomizedPropertyCategory(id: PropertyCategoryIds.Nose, name: "nose-name"),
     CustomizedPropertyCategory(
         id: PropertyCategoryIds.Background, name: "background-name"),
     CustomizedPropertyCategory(
