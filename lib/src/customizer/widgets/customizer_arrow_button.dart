@@ -21,7 +21,6 @@ class CustomizerArrowButton extends StatelessWidget {
     return Visibility(
       visible: isLeft ? tabIndex > 0 : tabIndex < nbrTabs - 1,
       child: IconButton(
-        // splashRadius: 20,
         icon: Icon(
           isLeft
               ? Icons.arrow_back_ios_new_rounded
