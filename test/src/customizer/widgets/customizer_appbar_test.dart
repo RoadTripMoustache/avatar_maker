@@ -197,7 +197,6 @@ void main() {
         expect(appBarTitle, findsNothing);
         appBarTitle = find.text("hairstyle-name");
         expect(appBarTitle, findsOneWidget);
-
       });
     });
   });
