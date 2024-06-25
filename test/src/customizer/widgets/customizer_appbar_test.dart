@@ -73,7 +73,7 @@ void main() {
           ..having((btn) => btn.isLeft, "Check right button", false);
       });
     });
-    group("Arrow button", () {
+    group("Arrow buttons", () {
       testWidgets("Click on left button", (WidgetTester tester) async {
         bool clickLeft = false;
         bool clickRight = false;
@@ -166,6 +166,38 @@ void main() {
 
         expect(clickLeft, true);
         expect(clickRight, false);
+      });
+    });
+    group("App bar", () {
+      testWidgets("Title change", (WidgetTester tester) async {
+        // Load the widget
+        when(tabControllerMock.index).thenReturn(0);
+        await tester.pumpMaterialApp(CustomizerAppbar(
+            avatarMakerController: avatarMakerControllerMock,
+            tabController: tabControllerMock,
+            theme: AvatarMakerThemeData.standard,
+            onArrowTap: (bool isLeft) {}));
+
+        // Check the first app bar title displayed
+        var appBarTitle = find.text("nose-name");
+        expect(appBarTitle, findsOneWidget);
+        appBarTitle = find.text("hairstyle-name");
+        expect(appBarTitle, findsNothing);
+
+        // Simulate actions on the arrow buttons to change tabs
+        when(tabControllerMock.index).thenReturn(2);
+        await tester.pumpMaterialApp(CustomizerAppbar(
+            avatarMakerController: avatarMakerControllerMock,
+            tabController: tabControllerMock,
+            theme: AvatarMakerThemeData.standard,
+            onArrowTap: (bool isLeft) {}));
+
+        // Check the title again, it should take the 3rd element of the list
+        appBarTitle = find.text("nose-name");
+        expect(appBarTitle, findsNothing);
+        appBarTitle = find.text("hairstyle-name");
+        expect(appBarTitle, findsOneWidget);
+
       });
     });
   });
