@@ -2,15 +2,15 @@ import "package:avatar_maker/avatar_maker.dart";
 import "package:flutter/material.dart";
 
 class CustomizerArrowButton extends StatelessWidget {
-  final AvatarMakerController avatarMakerController;
-  final TabController tabController;
+  final int nbrTabs;
+  final int tabIndex;
   final bool isLeft;
   final AvatarMakerThemeData theme;
   final void Function(bool isLeft) onArrowTap;
 
   const CustomizerArrowButton({
-    required this.avatarMakerController,
-    required this.tabController,
+    required this.nbrTabs,
+    required this.tabIndex,
     required this.isLeft,
     required this.theme,
     required this.onArrowTap,
@@ -19,10 +19,7 @@ class CustomizerArrowButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Visibility(
-      visible: isLeft
-          ? tabController.index > 0
-          : tabController.index <
-              avatarMakerController.displayedPropertyCategories.length - 1,
+      visible: isLeft ? tabIndex > 0 : tabIndex < nbrTabs - 1,
       child: IconButton(
         // splashRadius: 20,
         icon: Icon(

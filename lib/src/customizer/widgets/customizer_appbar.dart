@@ -3,14 +3,14 @@ import "package:avatar_maker/src/customizer/widgets/customizer_arrow_button.dart
 import "package:flutter/material.dart";
 
 class CustomizerAppbar extends StatelessWidget implements PreferredSizeWidget {
-  final AvatarMakerController avatarMakerController;
-  final TabController tabController;
+  final List<CustomizedPropertyCategory> propertyCategories;
+  final int tabIndex;
   final AvatarMakerThemeData theme;
   final void Function(bool isLeft) onArrowTap;
 
   const CustomizerAppbar({
-    required this.avatarMakerController,
-    required this.tabController,
+    required this.propertyCategories,
+    required this.tabIndex,
     required this.theme,
     required this.onArrowTap,
   });
@@ -23,22 +23,21 @@ class CustomizerAppbar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: theme.primaryBgColor,
       automaticallyImplyLeading: false,
       title: Text(
-        avatarMakerController
-            .displayedPropertyCategories[tabController.index].name!,
+        propertyCategories[tabIndex].name!,
         style: theme.labelTextStyle,
         textAlign: TextAlign.center,
       ),
       leading: CustomizerArrowButton(
-        avatarMakerController: avatarMakerController,
-        tabController: tabController,
+        nbrTabs: propertyCategories.length,
+        tabIndex: tabIndex,
         theme: theme,
         isLeft: true,
         onArrowTap: onArrowTap,
       ),
       actions: [
         CustomizerArrowButton(
-          avatarMakerController: avatarMakerController,
-          tabController: tabController,
+          nbrTabs: propertyCategories.length,
+          tabIndex: tabIndex,
           theme: theme,
           isLeft: false,
           onArrowTap: onArrowTap,
