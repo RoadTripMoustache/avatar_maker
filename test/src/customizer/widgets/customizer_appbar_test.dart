@@ -3,7 +3,6 @@ import "package:avatar_maker/src/customizer/widgets/customizer_appbar.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_arrow_button.dart";
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
-import "package:mockito/mockito.dart";
 import "../../../helpers.dart";
 
 void main() {

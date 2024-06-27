@@ -6,8 +6,10 @@ extension WidgetTesterExtension on WidgetTester {
     return pumpWidget(
       MaterialApp(
         home: new Scaffold(
-          body: new Column(
-            children: [widget],
+          body: new SizedBox(
+            height: 600.0,
+            width: 600.0,
+            child: widget,
           ),
         ),
       ),

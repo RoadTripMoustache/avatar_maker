@@ -15,7 +15,6 @@ import "package:avatar_maker/src/core/enums/property_items/mouths.dart";
 import "package:avatar_maker/src/core/enums/property_items/skin_colors.dart";
 import "package:avatar_maker/src/core/models/property_category.dart";
 
-// TODO : l10n
 final PropertyCategory Accessory = PropertyCategory(
   id: PropertyCategoryIds.Accessory,
   getL10nName: (AppLocalizations l10n) {
