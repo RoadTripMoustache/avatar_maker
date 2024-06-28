@@ -36,15 +36,15 @@ void main() {
       testWidgets("Default", (WidgetTester tester) async {
         await tester.pumpMaterialApp(CustomizerBottomNavbar(
           navbarWidgets: propertyCategoriesTabs,
-            tabController: tabControllerMock,
-            theme: AvatarMakerThemeData.standard,
-            ));
+          tabController: tabControllerMock,
+          theme: AvatarMakerThemeData.standard,
+        ));
 
         isA<Container>().having(
-            (container) => container.color,
-            "Check container color",
-            AvatarMakerThemeData.standard.primaryBgColor,
-          );
+          (container) => container.color,
+          "Check container color",
+          AvatarMakerThemeData.standard.primaryBgColor,
+        );
 
         isA<TabBar>()
           ..having(
