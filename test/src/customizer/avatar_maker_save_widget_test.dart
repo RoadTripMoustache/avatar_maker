@@ -1,5 +1,4 @@
 import "package:avatar_maker/avatar_maker.dart";
-import "package:avatar_maker/src/avatar/avatar_maker_avatar.dart";
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
 import "package:get/get.dart";
@@ -35,17 +34,21 @@ void main() {
       testWidgets("Default", (WidgetTester tester) async {
         await tester.pumpMaterialApp(AvatarMakerSaveWidget());
 
+        final inkWellConditions = isA<InkWell>()
+            .having((i) => i.radius, "Check radius", null)
+            .having((i) => i.splashFactory, "Check splashFactory", null)
+            .having((i) => i.splashColor, "Check splashColor", null);
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);
+        expect(inkwell.evaluate().first.widget, inkWellConditions);
 
-        isA<InkWell>()
-          ..having((i) => i.radius, "Check radius", null)
-          ..having((i) => i.splashFactory, "Check splashFactory", null)
-          ..having((i) => i.splashColor, "Check splashColor", null);
-        isA<Icon>()
-          ..having((i) => i.icon, "Check save icon", Icons.save)
-          ..having((i) => i.color, "Check save icon color",
-              AvatarMakerThemeData.standard.iconColor);
+        final iconConditions = isA<Icon>()
+            .having((i) => i.icon, "Check save icon", Icons.save)
+            .having((i) => i.color, "Check save icon color",
+                AvatarMakerThemeData.standard.iconColor);
+        final icon = find.byType(Icon);
+        expect(icon, findsOneWidget);
+        expect(icon.evaluate().first.widget, iconConditions);
 
         verifyNever(avatarMakerControllerMock.saveAvatarSVG());
       });
@@ -55,17 +58,21 @@ void main() {
           radius: radius,
         ));
 
+        final inkWellConditions = isA<InkWell>()
+            .having((i) => i.radius, "Check radius", radius)
+            .having((i) => i.splashFactory, "Check splashFactory", null)
+            .having((i) => i.splashColor, "Check splashColor", null);
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);
+        expect(inkwell.evaluate().first.widget, inkWellConditions);
 
-        isA<InkWell>()
-          ..having((i) => i.radius, "Check radius", radius)
-          ..having((i) => i.splashFactory, "Check splashFactory", null)
-          ..having((i) => i.splashColor, "Check splashColor", null);
-        isA<Icon>()
-          ..having((i) => i.icon, "Check save icon", Icons.save)
-          ..having((i) => i.color, "Check save icon color",
-              AvatarMakerThemeData.standard.iconColor);
+        final iconConditions = isA<Icon>()
+            .having((i) => i.icon, "Check save icon", Icons.save)
+            .having((i) => i.color, "Check save icon color",
+                AvatarMakerThemeData.standard.iconColor);
+        final icon = find.byType(Icon);
+        expect(icon, findsOneWidget);
+        expect(icon.evaluate().first.widget, iconConditions);
 
         verifyNever(avatarMakerControllerMock.saveAvatarSVG());
       });
@@ -75,17 +82,21 @@ void main() {
           splashColor: splashColor,
         ));
 
+        final inkWellConditions = isA<InkWell>()
+            .having((i) => i.radius, "Check radius", null)
+            .having((i) => i.splashFactory, "Check splashFactory", null)
+            .having((i) => i.splashColor, "Check splashColor", splashColor);
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);
+        expect(inkwell.evaluate().first.widget, inkWellConditions);
 
-        isA<InkWell>()
-          ..having((i) => i.radius, "Check radius", null)
-          ..having((i) => i.splashFactory, "Check splashFactory", null)
-          ..having((i) => i.splashColor, "Check splashColor", splashColor);
-        isA<Icon>()
-          ..having((i) => i.icon, "Check save icon", Icons.save)
-          ..having((i) => i.color, "Check save icon color",
-              AvatarMakerThemeData.standard.iconColor);
+        final iconConditions = isA<Icon>()
+            .having((i) => i.icon, "Check save icon", Icons.save)
+            .having((i) => i.color, "Check save icon color",
+                AvatarMakerThemeData.standard.iconColor);
+        final icon = find.byType(Icon);
+        expect(icon, findsOneWidget);
+        expect(icon.evaluate().first.widget, iconConditions);
 
         verifyNever(avatarMakerControllerMock.saveAvatarSVG());
       });
@@ -97,16 +108,20 @@ void main() {
           ),
         ));
 
+        final inkWellConditions = isA<InkWell>()
+            .having((i) => i.radius, "Check radius", null)
+            .having((i) => i.splashFactory, "Check splashFactory", null)
+            .having((i) => i.splashColor, "Check splashColor", splashColor);
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);
+        expect(inkwell.evaluate().first.widget, inkWellConditions);
 
-        isA<InkWell>()
-          ..having((i) => i.radius, "Check radius", null)
-          ..having((i) => i.splashFactory, "Check splashFactory", null)
-          ..having((i) => i.splashColor, "Check splashColor", splashColor);
-        isA<Icon>()
-          ..having((i) => i.icon, "Check save icon", Icons.save)
-          ..having((i) => i.color, "Check save icon color", Colors.pink);
+        final iconConditions = isA<Icon>()
+            .having((i) => i.icon, "Check save icon", Icons.save)
+            .having((i) => i.color, "Check save icon color", Colors.pink);
+        final icon = find.byType(Icon);
+        expect(icon, findsOneWidget);
+        expect(icon.evaluate().first.widget, iconConditions);
 
         verifyNever(avatarMakerControllerMock.saveAvatarSVG());
       });

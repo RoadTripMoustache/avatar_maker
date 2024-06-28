@@ -1,7 +1,3 @@
-import "package:avatar_maker/src/core/enums/placeholders.dart";
-import "package:avatar_maker/src/core/enums/property_items/outfit_colors.dart";
-import "package:avatar_maker/src/core/enums/property_items/outfit_types.dart";
-
 class AvatarService {
   static String drawSVG({
     required String backgroundStyle,

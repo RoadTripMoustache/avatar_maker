@@ -8,18 +8,20 @@ void main() {
       testWidgets("Default", (WidgetTester tester) async {
         await tester.pumpWidget(AvatarMakerAvatar());
 
+        final circleAvatarConditions = isA<CircleAvatar>()
+            .having(
+              (circle) => circle.backgroundColor,
+              "Check background color",
+              null,
+            )
+            .having(
+              (circle) => circle.radius,
+              "Check radius",
+              75.0,
+            );
         final avatar = find.byType(CircleAvatar);
         expect(avatar, findsOneWidget);
-        isA<CircleAvatar>().having(
-          (circle) => circle.backgroundColor,
-          "Check background color",
-          null,
-        );
-        isA<CircleAvatar>().having(
-          (circle) => circle.radius,
-          "Check radius",
-          75.0,
-        );
+        expect(avatar.evaluate().first.widget, circleAvatarConditions);
       });
 
       testWidgets("With custom radius", (WidgetTester tester) async {
@@ -27,35 +29,39 @@ void main() {
           radius: 12.0,
         ));
 
+        final circleAvatarConditions = isA<CircleAvatar>()
+            .having(
+              (circle) => circle.backgroundColor,
+              "Check background color",
+              null,
+            )
+            .having(
+              (circle) => circle.radius,
+              "Check radius",
+              12.0,
+            );
         final avatar = find.byType(CircleAvatar);
         expect(avatar, findsOneWidget);
-        isA<CircleAvatar>().having(
-          (circle) => circle.backgroundColor,
-          "Check background color",
-          null,
-        );
-        isA<CircleAvatar>().having(
-          (circle) => circle.radius,
-          "Check radius",
-          12.0,
-        );
+        expect(avatar.evaluate().first.widget, circleAvatarConditions);
       });
 
       testWidgets("With custom background color", (WidgetTester tester) async {
         await tester.pumpWidget(AvatarMakerAvatar(backgroundColor: Colors.red));
 
+        final circleAvatarConditions = isA<CircleAvatar>()
+            .having(
+              (circle) => circle.backgroundColor,
+              "Check background color",
+              Colors.red,
+            )
+            .having(
+              (circle) => circle.radius,
+              "Check radius",
+              75.0,
+            );
         final avatar = find.byType(CircleAvatar);
         expect(avatar, findsOneWidget);
-        isA<CircleAvatar>().having(
-          (circle) => circle.backgroundColor,
-          "Check background color",
-          Colors.red,
-        );
-        isA<CircleAvatar>().having(
-          (circle) => circle.radius,
-          "Check radius",
-          75.0,
-        );
+        expect(avatar.evaluate().first.widget, circleAvatarConditions);
       });
 
       testWidgets("With custom background color and radius",
@@ -65,18 +71,20 @@ void main() {
           radius: 29.0,
         ));
 
+        final circleAvatarConditions = isA<CircleAvatar>()
+            .having(
+              (circle) => circle.backgroundColor,
+              "Check background color",
+              Colors.red,
+            )
+            .having(
+              (circle) => circle.radius,
+              "Check radius",
+              29.0,
+            );
         final avatar = find.byType(CircleAvatar);
         expect(avatar, findsOneWidget);
-        isA<CircleAvatar>().having(
-          (circle) => circle.backgroundColor,
-          "Check background color",
-          Colors.red,
-        );
-        isA<CircleAvatar>().having(
-          (circle) => circle.radius,
-          "Check radius",
-          29.0,
-        );
+        expect(avatar.evaluate().first.widget, circleAvatarConditions);
       });
     });
   });

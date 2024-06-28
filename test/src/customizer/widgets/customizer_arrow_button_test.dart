@@ -1,9 +1,7 @@
 import "package:avatar_maker/avatar_maker.dart";
-import "package:avatar_maker/src/customizer/widgets/customizer_appbar.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_arrow_button.dart";
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
-import "package:mockito/mockito.dart";
 import "../../../helpers.dart";
 
 void main() {
@@ -61,8 +59,11 @@ void main() {
                   onArrowTap: (bool isLeft) => {}));
 
               // Check the visibility of the widget
-              isA<Visibility>().having(
+              final visibilityConditions = isA<Visibility>().having(
                   (v) => v.visible, "Check visibility", testCase["visibility"]);
+              final visibility = find.byType(Visibility);
+              expect(visibility, findsOneWidget);
+              expect(visibility.evaluate().first.widget, visibilityConditions);
 
               // Check the button
               final button = find.byType(IconButton);
@@ -70,12 +71,15 @@ void main() {
 
               // Check the icon
               if (testCase["visibility"]) {
-                isA<Icon>().having(
+                final iconConditions = isA<Icon>().having(
                     (i) => i.icon,
                     "Check icon",
                     groupTestCases["isLeft"]
                         ? Icons.arrow_back_ios_new_rounded
                         : Icons.arrow_forward_ios_rounded);
+                final icon = find.byType(Icon);
+                expect(icon, findsOneWidget);
+                expect(icon.evaluate().first.widget, iconConditions);
               }
             });
           }

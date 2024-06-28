@@ -4,9 +4,7 @@ import "package:avatar_maker/src/core/models/customized_property_category.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_body.dart";
-import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
-import "package:flutter_svg/flutter_svg.dart";
 import "package:get/get.dart";
 
 /// This widget provides the user with a UI for customizing their Avatar_Maker

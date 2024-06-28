@@ -1,7 +1,6 @@
 import "package:avatar_maker/avatar_maker.dart";
 import "package:avatar_maker/src/core/enums/property_categories.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_appbar.dart";
-import "package:avatar_maker/src/customizer/widgets/customizer_arrow_button.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_body.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_bottom_navbar.dart";
 import "package:flutter/material.dart";
@@ -89,56 +88,66 @@ void main() {
             onArrowTap: (bool isLeft) {}));
 
         // Check app bar
-        isA<CustomizerAppbar>()
-          ..having(
-            (appbar) => appbar.propertyCategories,
-            "Check propertyCategories",
-            propertyCategories,
-          )
-          ..having(
-            (appbar) => appbar.theme,
-            "Check theme",
-            AvatarMakerThemeData.standard,
-          )
-          ..having((appbar) => appbar.tabIndex, "Check tabIndex", 2)
-          ..having(
-            (appbar) => appbar.onArrowTap,
-            "Check onArrowTap",
-            (bool isLeft) {},
-          );
+        final appBarConditions = isA<CustomizerAppbar>()
+            .having(
+              (appbar) => appbar.propertyCategories,
+              "Check propertyCategories",
+              propertyCategories,
+            )
+            .having(
+              (appbar) => appbar.theme,
+              "Check theme",
+              AvatarMakerThemeData.standard,
+            )
+            .having((appbar) => appbar.tabIndex, "Check tabIndex", 2)
+            .having(
+              (appbar) => appbar.onArrowTap,
+              "Check onArrowTap",
+              (bool isLeft) {},
+            );
+        final appBar = find.byType(CustomizerAppbar);
+        expect(appBar, findsOneWidget);
+        expect(appBar.evaluate().first.widget, appBarConditions);
 
         // Check tab bar
+        final tabControllerConditions = isA<DefaultTabController>().having(
+          (tabCtrl) => tabCtrl.length,
+          "Check tab controller length",
+          propertyCategories.length,
+        );
+        final tabBarController = find.byType(DefaultTabController);
+        expect(tabBarController, findsOneWidget);
+        expect(
+            tabBarController.evaluate().first.widget, tabControllerConditions);
+
+        final tabBarConditions = isA<TabBarView>().having(
+          (tabBar) => tabBar.controller,
+          "Check tab bar controller",
+          tabControllerMock,
+        );
         final tabBarView = find.byType(TabBarView);
         expect(tabBarView, findsOneWidget);
+        expect(tabBarView.evaluate().first.widget, tabBarConditions);
 
-        isA<DefaultTabController>()
-          ..having(
-            (tabCtrl) => tabCtrl.length,
-            "Check tab controller length",
-            propertyCategories.length,
-          );
-        isA<TabBarView>()
-          ..having(
-            (tabBar) => tabBar.controller,
-            "Check tab bar controller",
-            tabControllerMock,
-          );
-        isA<CustomizerBottomNavbar>()
-          ..having(
-            (navBar) => navBar.tabController,
-            "Check nav bar controller",
-            tabControllerMock,
-          )
-          ..having(
-            (navBar) => navBar.navbarWidgets,
-            "Check nav bar number of widgets",
-            propertyCategories.length,
-          )
-          ..having(
-            (navBar) => navBar.theme,
-            "Check nav bar theme",
-            AvatarMakerThemeData.standard,
-          );
+        final bottomNavBarConditions = isA<CustomizerBottomNavbar>()
+            .having(
+              (navBar) => navBar.tabController,
+              "Check nav bar controller",
+              tabControllerMock,
+            )
+            .having(
+              (navBar) => navBar.navbarWidgets,
+              "Check nav bar number of widgets",
+              propertyCategories.length,
+            )
+            .having(
+              (navBar) => navBar.theme,
+              "Check nav bar theme",
+              AvatarMakerThemeData.standard,
+            );
+        final bottomNavBar = find.byType(CustomizerBottomNavbar);
+        expect(bottomNavBar, findsOneWidget);
+        expect(bottomNavBar.evaluate().first.widget, bottomNavBarConditions);
       });
     });
   });

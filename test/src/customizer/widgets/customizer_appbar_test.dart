@@ -24,22 +24,26 @@ void main() {
             theme: AvatarMakerThemeData.standard,
             onArrowTap: (bool isLeft) => {}));
 
-        final appBar = find.byType(AppBar);
-        expect(appBar, findsOneWidget);
-        isA<AppBar>().having(
+        final appBarConditions = isA<AppBar>().having(
           (appbar) => appbar.backgroundColor,
           "Check background color",
           AvatarMakerThemeData.standard.primaryBgColor,
         );
+        final appBar = find.byType(AppBar);
+        expect(appBar, findsOneWidget);
+        expect(appBar.evaluate().first.widget, appBarConditions);
 
         final title = find.text("hairstyle-name");
         expect(title, findsOneWidget);
 
+        final arrowLeftButtonConditions = isA<CustomizerArrowButton>()
+            .having((btn) => btn.isLeft, "Check left button", true);
+        final arrowRightButtonConditions = isA<CustomizerArrowButton>()
+            .having((btn) => btn.isLeft, "Check right button", false);
         final arrowButtons = find.byType(CustomizerArrowButton);
         expect(arrowButtons, findsNWidgets(2));
-        isA<CustomizerArrowButton>()
-          ..having((btn) => btn.isLeft, "Check left button", true)
-          ..having((btn) => btn.isLeft, "Check right button", false);
+        expect(arrowButtons.evaluate().first.widget, arrowLeftButtonConditions);
+        expect(arrowButtons.evaluate().last.widget, arrowRightButtonConditions);
       });
     });
     group("Arrow buttons", () {
