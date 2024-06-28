@@ -10,7 +10,7 @@ import "package:flutter/material.dart";
 /// line with your app's own theme and style.
 ///
 /// See more:
-/// * [AvatarMakerThemeData.standard] which is applied by default to the widgets.
+/// * [AvatarMakerThemeData.defaultTheme] which is applied by default to the widgets.
 class AvatarMakerThemeData {
   /// Customize the style of the attributes' titles at the top
   /// of the [AvatarMakerCustomizer]
@@ -56,8 +56,13 @@ class AvatarMakerThemeData {
   /// Margin outside each tile in the grids of the [AvatarMakerCustomizer]
   final EdgeInsetsGeometry tileMargin;
 
+  /// Number of items per row in the customizer.
   final int gridCrossAxisCount;
+
+  /// Height factor of the screen to apply to the customizer container.
   final double heightFactor;
+
+  /// Width factor of the screen to apply to the customizer container.
   final double widthFactor;
 
   /// Creates a visual [theme] for the [AvatarMakerCustomizer]
@@ -67,7 +72,7 @@ class AvatarMakerThemeData {
   /// line with your app's own theme and style.
   ///
   /// See more:
-  /// * [AvatarMakerThemeData.standard] which is applied by default to the widgets.
+  /// * [AvatarMakerThemeData.defaultTheme] which is applied by default to the widgets.
   AvatarMakerThemeData({
     TextStyle? labelTextStyle,
     Color? primaryBgColor,
@@ -84,25 +89,25 @@ class AvatarMakerThemeData {
     int? nbrTilesRow,
     double? heightFactor,
     double? widthFactor,
-  })  : this.primaryBgColor = primaryBgColor ?? standard.primaryBgColor,
-        this.secondaryBgColor = secondaryBgColor ?? standard.secondaryBgColor,
-        this.iconColor = iconColor ?? standard.iconColor,
+  })  : this.primaryBgColor = primaryBgColor ?? defaultTheme.primaryBgColor,
+        this.secondaryBgColor = secondaryBgColor ?? defaultTheme.secondaryBgColor,
+        this.iconColor = iconColor ?? defaultTheme.iconColor,
         this.selectedIconColor =
-            selectedIconColor ?? standard.selectedIconColor,
+            selectedIconColor ?? defaultTheme.selectedIconColor,
         this.unselectedIconColor =
-            unselectedIconColor ?? standard.unselectedIconColor,
+            unselectedIconColor ?? defaultTheme.unselectedIconColor,
         this.selectedTileDecoration =
-            selectedTileDecoration ?? standard.selectedTileDecoration,
+            selectedTileDecoration ?? defaultTheme.selectedTileDecoration,
         this.unselectedTileDecoration =
-            unselectedTileDecoration ?? standard.unselectedTileDecoration,
-        this.boxDecoration = boxDecoration ?? standard.boxDecoration,
-        this.labelTextStyle = labelTextStyle ?? standard.labelTextStyle,
-        this.scrollPhysics = scrollPhysics ?? standard.scrollPhysics,
-        this.tileMargin = tileMargin ?? standard.tileMargin,
-        this.tilePadding = tilePadding ?? standard.tilePadding,
-        this.gridCrossAxisCount = nbrTilesRow ?? standard.gridCrossAxisCount,
-        this.heightFactor = heightFactor ?? standard.heightFactor,
-        this.widthFactor = widthFactor ?? standard.widthFactor;
+            unselectedTileDecoration ?? defaultTheme.unselectedTileDecoration,
+        this.boxDecoration = boxDecoration ?? defaultTheme.boxDecoration,
+        this.labelTextStyle = labelTextStyle ?? defaultTheme.labelTextStyle,
+        this.scrollPhysics = scrollPhysics ?? defaultTheme.scrollPhysics,
+        this.tileMargin = tileMargin ?? defaultTheme.tileMargin,
+        this.tilePadding = tilePadding ?? defaultTheme.tilePadding,
+        this.gridCrossAxisCount = nbrTilesRow ?? defaultTheme.gridCrossAxisCount,
+        this.heightFactor = heightFactor ?? defaultTheme.heightFactor,
+        this.widthFactor = widthFactor ?? defaultTheme.widthFactor;
 
   AvatarMakerThemeData copyWith({
     TextStyle? labelTextStyle,
@@ -140,7 +145,8 @@ class AvatarMakerThemeData {
     );
   }
 
-  static AvatarMakerThemeData standard = AvatarMakerThemeData(
+  /// Default theme of Avatar Maker components.
+  static AvatarMakerThemeData defaultTheme = AvatarMakerThemeData(
     primaryBgColor: const Color(0xFFFFFFFF),
     secondaryBgColor: const Color(0xFFF1F1F1),
     iconColor: const Color(0xFF9C9C9C),

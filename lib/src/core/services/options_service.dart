@@ -4,6 +4,7 @@ import "package:avatar_maker/avatar_maker.dart";
 import "package:avatar_maker/src/core/services/property_category_service.dart";
 
 class OptionsService {
+  /// Encode the selected options to a JSON string
   static String jsonEncodeSelectedOptions(
       Map<PropertyCategoryIds, PropertyItem> selectedOptions) {
     Map<String, String> optionsToEncode = {};
@@ -12,6 +13,8 @@ class OptionsService {
     return jsonEncode(optionsToEncode);
   }
 
+  /// Decode the JSON selected options to a
+  /// Map<PropertyCategoryIds, PropertyItem>.
   static Map<PropertyCategoryIds, PropertyItem> jsonDecodeSelectedOptions(
     List<CustomizedPropertyCategory> propertyCategories,
     String encodedOptions,

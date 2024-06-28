@@ -1,6 +1,7 @@
 import "package:avatar_maker/src/core/enums/placeholders.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the outfit types displayed by default.
 enum OutfitTypes implements PropertyItem {
   BlazerTShirt("""
           <g id="Clothing/Blazer-+-Shirt" transform="translate(0.000000, 170.000000)">

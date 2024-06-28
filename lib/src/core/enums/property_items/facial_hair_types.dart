@@ -1,6 +1,7 @@
 import "package:avatar_maker/src/core/enums/placeholders.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the facial hair types displayed by default.
 enum FacialHairTypes implements PropertyItem {
   Nothing(""),
   FullBeard("""

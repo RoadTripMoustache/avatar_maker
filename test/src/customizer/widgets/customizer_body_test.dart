@@ -80,7 +80,7 @@ void main() {
             avatarMakerController: avatarMakerControllerMock,
             tabController: tabControllerMock,
             scaffoldHeight: 1.0,
-            theme: AvatarMakerThemeData.standard,
+            theme: AvatarMakerThemeData.defaultTheme,
             onTapOption: (
               PropertyItem newSelectedItem,
               PropertyCategoryIds categoryId,
@@ -97,7 +97,7 @@ void main() {
             .having(
               (appbar) => appbar.theme,
               "Check theme",
-              AvatarMakerThemeData.standard,
+              AvatarMakerThemeData.defaultTheme,
             )
             .having((appbar) => appbar.tabIndex, "Check tabIndex", 1);
         final appBar = find.byType(CustomizerAppbar);
@@ -138,7 +138,7 @@ void main() {
             .having(
               (navBar) => navBar.theme,
               "Check nav bar theme",
-              AvatarMakerThemeData.standard,
+              AvatarMakerThemeData.defaultTheme,
             );
         final bottomNavBar = find.byType(CustomizerBottomNavbar);
         expect(bottomNavBar, findsOneWidget);

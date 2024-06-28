@@ -1,3 +1,4 @@
+/// List of property categories which exist in the library.
 import "package:avatar_maker/l10n/app_localizations.dart";
 import "package:avatar_maker/src/core/enums/property_category_ids.dart";
 import "package:avatar_maker/src/core/enums/property_items/accessories.dart";
@@ -146,7 +147,8 @@ final PropertyCategory SkinColor = PropertyCategory(
   defaultValue: SkinColors.Brown,
 );
 
-// TODO doc - Noter que l'ordre ici correspond à l'ordre d'affichage des onglets
+// List of all the default property categories. The order here represents the
+// tab order to display in the Customizer widget.
 final List<PropertyCategory> defaultPropertyCategories = [
   HairStyle,
   HairColor,

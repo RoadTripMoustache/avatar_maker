@@ -49,7 +49,7 @@ class AvatarMakerCustomizer extends StatefulWidget {
     AvatarMakerThemeData? theme,
     this.customizedPropertyCategories,
     this.autosave = false,
-  })  : this.theme = theme ?? AvatarMakerThemeData.standard,
+  })  : this.theme = theme ?? AvatarMakerThemeData.defaultTheme,
         super(key: key);
 
   @override

@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the eyebrows displayed by default.
 enum Eyebrows implements PropertyItem {
   Angry("""
   <g

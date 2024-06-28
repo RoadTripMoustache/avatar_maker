@@ -1,4 +1,6 @@
+/// Contains all the methods related to mouths.
 class MouthService {
+  /// Draw the SVG of a mouth given in parameter.
   static String drawSVG({
     required String mouth,
   }) {

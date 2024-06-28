@@ -1,4 +1,6 @@
+/// Contains all the methods related to eyes.
 class EyeService {
+  /// Draw the SVG of an eye given in parameter.
   static String drawSVG({
     required String eye,
   }) {

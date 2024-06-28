@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the eyes displayed by default.
 enum Eyes implements PropertyItem {
   Close("""
   <g

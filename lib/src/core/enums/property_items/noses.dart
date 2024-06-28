@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the noses displayed by default.
 enum Noses implements PropertyItem {
   Default("""
   <g id="Nose/Default" transform="translate(28.000000, 40.000000)" opacity="0.16">

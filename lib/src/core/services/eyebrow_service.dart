@@ -1,6 +1,4 @@
 class EyebrowService {
-  // TODO : Faire un drawSVG global pour les éléments qui ont juste besoin
-  // d'être mis dans une boite pour devenir un item
 
   static String drawSVG({
     required String eyebrow,

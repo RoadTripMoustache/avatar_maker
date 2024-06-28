@@ -1,4 +1,6 @@
+/// Contains all the methods related to backgrounds.
 class BackgroundService {
+  /// Draw the SVG of a background given in parameter.
   static String drawSVG({
     required String background,
   }) {

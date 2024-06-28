@@ -1,4 +1,6 @@
+/// Contains all the methods related to noses.
 class NoseService {
+  /// Draw the SVG of a nose given in parameter.
   static String drawSVG({
     required String nose,
   }) {

@@ -46,7 +46,7 @@ class AvatarMakerSaveWidget extends StatelessWidget {
     this.splashFactory,
     this.splashColor,
     this.radius,
-  })  : theme = theme ?? AvatarMakerThemeData.standard,
+  })  : theme = theme ?? AvatarMakerThemeData.defaultTheme,
         super(key: key);
 
   @override

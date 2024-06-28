@@ -4,26 +4,23 @@ import "package:avatar_maker/src/core/enums/property_categories.dart";
 import "package:avatar_maker/src/core/models/property_category.dart";
 import "package:get/get.dart";
 
+/// Contains all the methods related to property categories.
 class PropertyCategoryService {
+  /// Search the propertyCategory matching the id.
   static CustomizedPropertyCategory getPropertyCategoryById(
     List<CustomizedPropertyCategory> propertyCategories,
     PropertyCategoryIds id,
   ) {
-    CustomizedPropertyCategory searchedCategory = propertyCategories.first;
-    for (CustomizedPropertyCategory category in propertyCategories) {
-      if (category.id == id) {
-        searchedCategory = category;
-        break;
-      }
-    }
-    return searchedCategory;
+    return propertyCategories
+        .where((category) => category.id == category.id)
+        .first;
   }
 
   /// mergePropertyCategories - Override the [PropertyCategories] with a list
   /// of [CustomizedPropertyCategory] given in parameters.
   /// If the same property is override multiple times, only the first will be
   /// considered.
-  // TODO doc : Doc + params
+  /// Returns all the merged categories as [CustomizedPropertyCategory]
   static List<CustomizedPropertyCategory> mergePropertyCategories(
     List<CustomizedPropertyCategory>? customizedPropertyCategories,
     AppLocalizations l10n,
@@ -62,6 +59,9 @@ class PropertyCategoryService {
     return mergedCategoriesList;
   }
 
+  /// Merge the CustomizedPropertyCategory given by the user to the static
+  /// PropertyCategory.
+  /// Returns a [CustomizedPropertyCategory] instance.
   static CustomizedPropertyCategory _mergePropertyCategories(
     PropertyCategory propertyCategory,
     CustomizedPropertyCategory customizedPropertyCategory,
@@ -98,6 +98,7 @@ class PropertyCategoryService {
     );
   }
 
+  /// Transform a [PropertyCategory] to a [CustomizedPropertyCategory].
   static CustomizedPropertyCategory _toCustomizedPropertyCategory(
     PropertyCategory propertyCategory,
     AppLocalizations l10n,

@@ -21,13 +21,13 @@ void main() {
         await tester.pumpMaterialApp(CustomizerAppbar(
             propertyCategories: propertyCategories,
             tabIndex: 2,
-            theme: AvatarMakerThemeData.standard,
+            theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) => {}));
 
         final appBarConditions = isA<AppBar>().having(
           (appbar) => appbar.backgroundColor,
           "Check background color",
-          AvatarMakerThemeData.standard.primaryBgColor,
+          AvatarMakerThemeData.defaultTheme.primaryBgColor,
         );
         final appBar = find.byType(AppBar);
         expect(appBar, findsOneWidget);
@@ -53,7 +53,7 @@ void main() {
         await tester.pumpMaterialApp(CustomizerAppbar(
             propertyCategories: propertyCategories,
             tabIndex: 2,
-            theme: AvatarMakerThemeData.standard,
+            theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {
               if (isLeft) {
                 clickLeft = true;
@@ -75,7 +75,7 @@ void main() {
         await tester.pumpMaterialApp(CustomizerAppbar(
             propertyCategories: propertyCategories,
             tabIndex: 2,
-            theme: AvatarMakerThemeData.standard,
+            theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {
               if (isLeft) {
                 clickLeft = true;
@@ -98,7 +98,7 @@ void main() {
         await tester.pumpMaterialApp(CustomizerAppbar(
             propertyCategories: propertyCategories,
             tabIndex: 0,
-            theme: AvatarMakerThemeData.standard,
+            theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {
               if (isLeft) {
                 clickLeft = true;
@@ -121,7 +121,7 @@ void main() {
         await tester.pumpMaterialApp(CustomizerAppbar(
             propertyCategories: propertyCategories,
             tabIndex: 3,
-            theme: AvatarMakerThemeData.standard,
+            theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {
               if (isLeft) {
                 clickLeft = true;
@@ -145,7 +145,7 @@ void main() {
         await tester.pumpMaterialApp(CustomizerAppbar(
             propertyCategories: propertyCategories,
             tabIndex: 0,
-            theme: AvatarMakerThemeData.standard,
+            theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {}));
 
         // Check the first app bar title displayed
@@ -158,7 +158,7 @@ void main() {
         await tester.pumpMaterialApp(CustomizerAppbar(
             propertyCategories: propertyCategories,
             tabIndex: 2,
-            theme: AvatarMakerThemeData.standard,
+            theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {}));
 
         // Check the title again, it should take the 3rd element of the list

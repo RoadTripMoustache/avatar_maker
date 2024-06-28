@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the hair colors displayed by default.
 enum HairColors implements PropertyItem {
   Auburn("#A55728"),
   Black("#2C1B18"),

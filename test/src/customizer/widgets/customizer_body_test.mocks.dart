@@ -297,11 +297,11 @@ class MockAvatarMakerController extends _i1.Mock
       );
 
   @override
-  void updatePreview({String? avatarmakerNew = r''}) => super.noSuchMethod(
+  void updatePreview({String? newAvatarMakerSVG = r''}) => super.noSuchMethod(
         Invocation.method(
           #updatePreview,
           [],
-          {#avatarmakerNew: avatarmakerNew},
+          {#avatarmakerNew: newAvatarMakerSVG},
         ),
         returnValueForMissingStub: null,
       );

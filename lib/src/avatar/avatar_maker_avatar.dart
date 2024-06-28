@@ -5,12 +5,17 @@ import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
 import "package:get/get.dart";
 
-/// This widget renders the avatar of the user on screen
+/// This widget renders the avatar of the user on screen.
 ///
-/// Accepts a [radius] which defaults to 75.0
-/// and a [backgroundColor] which defaults to blueAccent
-///
-/// Advice the users to set up their avatar first to avoid unexpected issues.
+/// Parameters :
+/// - [radius] : double - Radius of the circle which contains the avatar.
+/// Default : 75.0
+/// - [backgroundColor] : Color? - Background color to define for the circle.
+/// - [customizedPropertyCategories] : List<CustomizedPropertyCategory>? -
+/// List of the customized property categories you want to use. If a property
+/// category is not override, it will use the default one instead.
+/// - [locale] : Locale? - Locale to use. If nothing is defined, the default
+/// language will be used.
 class AvatarMakerAvatar extends StatelessWidget {
   final double radius;
   final Color? backgroundColor;
@@ -27,12 +32,12 @@ class AvatarMakerAvatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (backgroundColor == null)
-      CircleAvatar(radius: radius, child: buildGetX());
     return CircleAvatar(
         radius: radius, backgroundColor: backgroundColor, child: buildGetX());
   }
 
+  /// Create the svg picture encapsulated in a [GetX] to manage dynamic updates
+  /// with the [AvatarMakerController]
   GetX<AvatarMakerController> buildGetX() {
     return GetX<AvatarMakerController>(
         init: AvatarMakerController(
@@ -41,6 +46,8 @@ class AvatarMakerAvatar extends StatelessWidget {
         ),
         autoRemove: false,
         builder: (controller) {
+          /// Returns an activity indicator if the initialization of the
+          /// controller isn't fully done.
           if (controller.displayedAvatarSVG.value.isEmpty) {
             return CupertinoActivityIndicator();
           }

@@ -55,7 +55,7 @@ void main() {
                   nbrTabs: 5,
                   tabIndex: testCase["tabIndex"],
                   isLeft: groupTestCases["isLeft"],
-                  theme: AvatarMakerThemeData.standard,
+                  theme: AvatarMakerThemeData.defaultTheme,
                   onArrowTap: (bool isLeft) => {}));
 
               // Check the visibility of the widget
@@ -101,7 +101,7 @@ void main() {
               nbrTabs: 5,
               tabIndex: 2,
               isLeft: testCase["isLeft"],
-              theme: AvatarMakerThemeData.standard,
+              theme: AvatarMakerThemeData.defaultTheme,
               onArrowTap: (bool isLeft) {
                 isLeftParam = isLeft;
                 isTapped = true;

@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the background styles displayed by default.
 enum BackgroundStyles implements PropertyItem {
   Transparent(""),
   Circle("""

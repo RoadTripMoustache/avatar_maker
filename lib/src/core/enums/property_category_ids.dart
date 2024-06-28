@@ -1,3 +1,4 @@
+/// List of all the Property Category ids.
 enum PropertyCategoryIds {
   Accessory,
   Background,

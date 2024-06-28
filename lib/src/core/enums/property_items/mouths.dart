@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the mouths displayed by default.
 enum Mouths implements PropertyItem {
   Concerned("""
         <g id="Mouth/Concerned" transform="translate(2.000000, 52.000000)">

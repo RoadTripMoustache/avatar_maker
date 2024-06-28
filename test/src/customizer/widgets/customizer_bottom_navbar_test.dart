@@ -32,13 +32,13 @@ void main() {
         await tester.pumpMaterialApp(CustomizerBottomNavbar(
           navbarWidgets: propertyCategoriesTabs,
           tabController: tabControllerMock,
-          theme: AvatarMakerThemeData.standard,
+          theme: AvatarMakerThemeData.defaultTheme,
         ));
 
         final containerConditions = isA<Container>().having(
           (container) => container.color,
           "Check container color",
-          AvatarMakerThemeData.standard.primaryBgColor,
+          AvatarMakerThemeData.defaultTheme.primaryBgColor,
         );
         final container = find.byType(Container);
         expect(container, findsOneWidget);
@@ -63,7 +63,7 @@ void main() {
             .having(
               (tabBar) => tabBar.indicatorColor,
               "Check indicator color",
-              AvatarMakerThemeData.standard.selectedIconColor,
+              AvatarMakerThemeData.defaultTheme.selectedIconColor,
             );
         final tabBar = find.byType(TabBar);
         expect(tabBar, findsOneWidget);

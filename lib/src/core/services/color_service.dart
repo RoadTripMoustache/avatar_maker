@@ -1,4 +1,6 @@
+/// Contains all the methods related to colors.
 class ColorService {
+  /// Draw the SVG of a circle with color given in parameter.
   static String drawSVG({
     required String hexColorCode,
   }) {

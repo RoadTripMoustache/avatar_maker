@@ -1,4 +1,6 @@
+/// Contains all the methods related to avatars.
 class AvatarService {
+  /// Draw the SVG of an avatar with all the selected options.
   static String drawSVG({
     required String backgroundStyle,
     required String outfit,

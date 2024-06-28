@@ -2,7 +2,12 @@ import "package:avatar_maker/avatar_maker.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_arrow_button.dart";
 import "package:flutter/material.dart";
 
+/// Top app bar of the Customizer widget.
+///
+/// This widget is used to display the title of the current category and
+/// navigate through categories using arrows.
 class CustomizerAppbar extends StatelessWidget implements PreferredSizeWidget {
+
   final List<CustomizedPropertyCategory> propertyCategories;
   final int tabIndex;
   final AvatarMakerThemeData theme;

@@ -1,6 +1,7 @@
 import "package:avatar_maker/src/core/enums/placeholders.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the hair styles displayed by default.
 enum HairStyles implements PropertyItem {
   Bald(""),
   Eyepatch("""<g id="Top" strokeWidth="1" fill-rule="evenodd">

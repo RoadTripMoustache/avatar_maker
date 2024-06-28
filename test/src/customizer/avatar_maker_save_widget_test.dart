@@ -45,7 +45,7 @@ void main() {
         final iconConditions = isA<Icon>()
             .having((i) => i.icon, "Check save icon", Icons.save)
             .having((i) => i.color, "Check save icon color",
-                AvatarMakerThemeData.standard.iconColor);
+                AvatarMakerThemeData.defaultTheme.iconColor);
         final icon = find.byType(Icon);
         expect(icon, findsOneWidget);
         expect(icon.evaluate().first.widget, iconConditions);
@@ -69,7 +69,7 @@ void main() {
         final iconConditions = isA<Icon>()
             .having((i) => i.icon, "Check save icon", Icons.save)
             .having((i) => i.color, "Check save icon color",
-                AvatarMakerThemeData.standard.iconColor);
+                AvatarMakerThemeData.defaultTheme.iconColor);
         final icon = find.byType(Icon);
         expect(icon, findsOneWidget);
         expect(icon.evaluate().first.widget, iconConditions);
@@ -93,7 +93,7 @@ void main() {
         final iconConditions = isA<Icon>()
             .having((i) => i.icon, "Check save icon", Icons.save)
             .having((i) => i.color, "Check save icon color",
-                AvatarMakerThemeData.standard.iconColor);
+                AvatarMakerThemeData.defaultTheme.iconColor);
         final icon = find.byType(Icon);
         expect(icon, findsOneWidget);
         expect(icon.evaluate().first.widget, iconConditions);

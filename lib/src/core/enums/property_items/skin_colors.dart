@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the accessories skin colors by default.
 enum SkinColors implements PropertyItem {
   Tanned("""
   <g id="Skin/Tanned" mask="url(#mask-6)" fill="#FD9841">

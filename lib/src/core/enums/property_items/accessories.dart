@@ -1,6 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
-// TODO : Scale les SVG x4
+/// List of all the accessories displayed by default.
 enum Accessories implements PropertyItem {
   Nothing(""),
   Kurt("""

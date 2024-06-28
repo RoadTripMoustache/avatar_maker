@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
+/// List of all the outfits displayed by default.
 enum OutfitColors implements PropertyItem {
   Black("#262E33"),
   LightBlue("#65C9FF"),

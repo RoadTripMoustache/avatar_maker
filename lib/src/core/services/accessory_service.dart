@@ -1,4 +1,6 @@
+/// Contains all the methods related to accessories.
 class AccessoryService {
+  /// Draw the SVG of an accessory given in parameter.
   static String drawSVG({
     required String accessory,
   }) {
