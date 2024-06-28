@@ -7,7 +7,6 @@ import "package:flutter/material.dart";
 /// This widget is used to display the title of the current category and
 /// navigate through categories using arrows.
 class CustomizerAppbar extends StatelessWidget implements PreferredSizeWidget {
-
   final List<CustomizedPropertyCategory> propertyCategories;
   final int tabIndex;
   final AvatarMakerThemeData theme;

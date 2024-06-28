@@ -1,5 +1,5 @@
 /// Contains all the methods related to skins.
-class  SkinService {
+class SkinService {
   /// Draw the SVG of a skin given in parameter.
   static String drawSVG({
     required String skinColor,

@@ -1,10 +1,12 @@
 /// Placeholder to use for a SVG which will be use for an outfit which can
 /// change color.
 const String TO_REPLACE_WITH_OUTFIT_COLOR = "TO_REPLACE_WITH_OUTFIT_COLOR";
+
 /// Placeholder to use for a SVG which will be use for facial hairs which can
 /// change color.
 const String TO_REPLACE_WITH_FACIAL_HAIRS_COLOR =
     "TO_REPLACE_WITH_FACIAL_HAIRS_COLOR";
+
 /// Placeholder to use for a SVG which will be use for hairs which can
 /// change color.
 const String TO_REPLACE_WITH_HAIRS_COLOR = "TO_REPLACE_WITH_HAIRS_COLOR";

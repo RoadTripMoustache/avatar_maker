@@ -1,5 +1,4 @@
 class EyebrowService {
-
   static String drawSVG({
     required String eyebrow,
   }) {

@@ -90,7 +90,8 @@ class AvatarMakerThemeData {
     double? heightFactor,
     double? widthFactor,
   })  : this.primaryBgColor = primaryBgColor ?? defaultTheme.primaryBgColor,
-        this.secondaryBgColor = secondaryBgColor ?? defaultTheme.secondaryBgColor,
+        this.secondaryBgColor =
+            secondaryBgColor ?? defaultTheme.secondaryBgColor,
         this.iconColor = iconColor ?? defaultTheme.iconColor,
         this.selectedIconColor =
             selectedIconColor ?? defaultTheme.selectedIconColor,
@@ -105,7 +106,8 @@ class AvatarMakerThemeData {
         this.scrollPhysics = scrollPhysics ?? defaultTheme.scrollPhysics,
         this.tileMargin = tileMargin ?? defaultTheme.tileMargin,
         this.tilePadding = tilePadding ?? defaultTheme.tilePadding,
-        this.gridCrossAxisCount = nbrTilesRow ?? defaultTheme.gridCrossAxisCount,
+        this.gridCrossAxisCount =
+            nbrTilesRow ?? defaultTheme.gridCrossAxisCount,
         this.heightFactor = heightFactor ?? defaultTheme.heightFactor,
         this.widthFactor = widthFactor ?? defaultTheme.widthFactor;
 
