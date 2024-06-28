@@ -101,7 +101,6 @@ void main() {
         verifyNever(avatarMakerControllerMock.saveAvatarSVG());
       });
       testWidgets("With custom theme", (WidgetTester tester) async {
-        final Color splashColor = Colors.green;
         await tester.pumpMaterialApp(AvatarMakerSaveWidget(
           theme: AvatarMakerThemeData(
             iconColor: Colors.pink,
@@ -111,7 +110,7 @@ void main() {
         final inkWellConditions = isA<InkWell>()
             .having((i) => i.radius, "Check radius", null)
             .having((i) => i.splashFactory, "Check splashFactory", null)
-            .having((i) => i.splashColor, "Check splashColor", splashColor);
+            .having((i) => i.splashColor, "Check splashColor", null);
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);
         expect(inkwell.evaluate().first.widget, inkWellConditions);

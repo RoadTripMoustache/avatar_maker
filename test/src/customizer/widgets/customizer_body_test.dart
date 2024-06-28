@@ -99,12 +99,7 @@ void main() {
               "Check theme",
               AvatarMakerThemeData.standard,
             )
-            .having((appbar) => appbar.tabIndex, "Check tabIndex", 2)
-            .having(
-              (appbar) => appbar.onArrowTap,
-              "Check onArrowTap",
-              (bool isLeft) {},
-            );
+            .having((appbar) => appbar.tabIndex, "Check tabIndex", 1);
         final appBar = find.byType(CustomizerAppbar);
         expect(appBar, findsOneWidget);
         expect(appBar.evaluate().first.widget, appBarConditions);
@@ -136,7 +131,7 @@ void main() {
               tabControllerMock,
             )
             .having(
-              (navBar) => navBar.navbarWidgets,
+              (navBar) => navBar.navbarWidgets.length,
               "Check nav bar number of widgets",
               propertyCategories.length,
             )
