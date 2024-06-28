@@ -90,9 +90,9 @@ void main() {
         // Check app bar
         final appBarConditions = isA<CustomizerAppbar>()
             .having(
-              (appbar) => appbar.propertyCategories,
-              "Check propertyCategories",
-              propertyCategories,
+              (appbar) => appbar.nbrCategories,
+              "Check nbrCategories",
+              propertyCategories.length,
             )
             .having(
               (appbar) => appbar.theme,

@@ -19,7 +19,8 @@ void main() {
     group("UI", () {
       testWidgets("Default", (WidgetTester tester) async {
         await tester.pumpMaterialApp(CustomizerAppbar(
-            propertyCategories: propertyCategories,
+            nbrCategories: propertyCategories.length,
+            title: propertyCategories[2].name!,
             tabIndex: 2,
             theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) => {}));
@@ -51,7 +52,8 @@ void main() {
         bool clickLeft = false;
         bool clickRight = false;
         await tester.pumpMaterialApp(CustomizerAppbar(
-            propertyCategories: propertyCategories,
+            nbrCategories: propertyCategories.length,
+            title: propertyCategories[2].name!,
             tabIndex: 2,
             theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {
@@ -73,7 +75,8 @@ void main() {
         bool clickLeft = false;
         bool clickRight = false;
         await tester.pumpMaterialApp(CustomizerAppbar(
-            propertyCategories: propertyCategories,
+            nbrCategories: propertyCategories.length,
+            title: propertyCategories[2].name!,
             tabIndex: 2,
             theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {
@@ -96,7 +99,8 @@ void main() {
         bool clickLeft = false;
         bool clickRight = false;
         await tester.pumpMaterialApp(CustomizerAppbar(
-            propertyCategories: propertyCategories,
+            nbrCategories: propertyCategories.length,
+            title: propertyCategories[0].name!,
             tabIndex: 0,
             theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {
@@ -119,7 +123,8 @@ void main() {
         bool clickLeft = false;
         bool clickRight = false;
         await tester.pumpMaterialApp(CustomizerAppbar(
-            propertyCategories: propertyCategories,
+            nbrCategories: propertyCategories.length,
+            title: propertyCategories[3].name!,
             tabIndex: 3,
             theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {
@@ -143,7 +148,8 @@ void main() {
       testWidgets("Title change", (WidgetTester tester) async {
         // Load the widget
         await tester.pumpMaterialApp(CustomizerAppbar(
-            propertyCategories: propertyCategories,
+            nbrCategories: propertyCategories.length,
+            title: propertyCategories[0].name!,
             tabIndex: 0,
             theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {}));
@@ -156,7 +162,8 @@ void main() {
 
         // Simulate actions on the arrow buttons to change tabs
         await tester.pumpMaterialApp(CustomizerAppbar(
-            propertyCategories: propertyCategories,
+            nbrCategories: propertyCategories.length,
+            title: propertyCategories[2].name!,
             tabIndex: 2,
             theme: AvatarMakerThemeData.defaultTheme,
             onArrowTap: (bool isLeft) {}));
