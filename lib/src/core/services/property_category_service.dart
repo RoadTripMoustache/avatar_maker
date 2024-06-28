@@ -11,9 +11,14 @@ class PropertyCategoryService {
     List<CustomizedPropertyCategory> propertyCategories,
     PropertyCategoryIds id,
   ) {
-    return propertyCategories
-        .where((category) => category.id == category.id)
-        .first;
+    CustomizedPropertyCategory searchedCategory = propertyCategories.first;
+    for (CustomizedPropertyCategory category in propertyCategories) {
+      if (category.id == id) {
+        searchedCategory = category;
+        break;
+      }
+    }
+    return searchedCategory;
   }
 
   /// mergePropertyCategories - Override the [PropertyCategories] with a list

@@ -7,13 +7,15 @@ import "package:flutter/material.dart";
 /// This widget is used to display the title of the current category and
 /// navigate through categories using arrows.
 class CustomizerAppbar extends StatelessWidget implements PreferredSizeWidget {
-  final List<CustomizedPropertyCategory> propertyCategories;
+  final int nbrCategories;
+  final String title;
   final int tabIndex;
   final AvatarMakerThemeData theme;
   final void Function(bool isLeft) onArrowTap;
 
   const CustomizerAppbar({
-    required this.propertyCategories,
+    required this.nbrCategories,
+    required this.title,
     required this.tabIndex,
     required this.theme,
     required this.onArrowTap,
@@ -27,12 +29,12 @@ class CustomizerAppbar extends StatelessWidget implements PreferredSizeWidget {
       backgroundColor: theme.primaryBgColor,
       automaticallyImplyLeading: false,
       title: Text(
-        propertyCategories[tabIndex].name!,
+        title,
         style: theme.labelTextStyle,
         textAlign: TextAlign.center,
       ),
       leading: CustomizerArrowButton(
-        nbrTabs: propertyCategories.length,
+        nbrTabs: nbrCategories,
         tabIndex: tabIndex,
         theme: theme,
         isLeft: true,
@@ -40,7 +42,7 @@ class CustomizerAppbar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         CustomizerArrowButton(
-          nbrTabs: propertyCategories.length,
+          nbrTabs: nbrCategories,
           tabIndex: tabIndex,
           theme: theme,
           isLeft: false,

@@ -102,8 +102,9 @@ class CustomizerBody extends StatelessWidget {
           key: const ValueKey('AvatarMakerCustomizer'),
           backgroundColor: theme.secondaryBgColor,
           appBar: CustomizerAppbar(
-            propertyCategories:
-                avatarMakerController.displayedPropertyCategories,
+            nbrCategories:
+                avatarMakerController.displayedPropertyCategories.length,
+            title: avatarMakerController.displayedPropertyCategories[tabController.index].name!,
             theme: theme,
             tabIndex: tabController.index,
             onArrowTap: onArrowTap,

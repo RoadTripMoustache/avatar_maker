@@ -59,7 +59,9 @@ class AvatarMakerCustomizer extends StatefulWidget {
 class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     with SingleTickerProviderStateMixin {
   late AvatarMakerController avatarMakerController;
-  late int categoriesTabsLength;
+
+  /// Number of displayed categories in the customizer widget.
+  late int nbrDisplayedCategories;
   late TabController tabController;
 
   @override
@@ -69,12 +71,12 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     Get.put(AvatarMakerController(
         customizedPropertyCategories: widget.customizedPropertyCategories));
     final _controller = Get.find<AvatarMakerController>();
-    categoriesTabsLength = _controller.displayedPropertyCategories.length;
+    nbrDisplayedCategories = _controller.displayedPropertyCategories.length;
 
     setState(() {
       avatarMakerController = _controller;
       tabController = TabController(
-        length: categoriesTabsLength,
+        length: nbrDisplayedCategories,
         vsync: this,
       );
     });
@@ -91,6 +93,8 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     super.dispose();
   }
 
+  /// On tap on a option, select the tapped option for the current category
+  /// selected.
   void onTapOption(
       PropertyItem newSelectedItem, PropertyCategoryIds categoryId) {
     if (avatarMakerController.selectedOptions[categoryId] != newSelectedItem) {
@@ -104,13 +108,17 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     }
   }
 
+  /// Move to the previous or the next tab, depending the direction of the
+  /// array.
+  /// isLeft = true - Go to the previous tab
+  /// isLeft = false - Go to the next tab
   void onArrowTap(bool isLeft) {
     int _currentIndex = tabController.index;
     if (isLeft)
       tabController
           .animateTo(_currentIndex > 0 ? _currentIndex - 1 : _currentIndex);
     else
-      tabController.animateTo(_currentIndex < categoriesTabsLength - 1
+      tabController.animateTo(_currentIndex < nbrDisplayedCategories - 1
           ? _currentIndex + 1
           : _currentIndex);
 
