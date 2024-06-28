@@ -104,7 +104,8 @@ class CustomizerBody extends StatelessWidget {
           appBar: CustomizerAppbar(
             nbrCategories:
                 avatarMakerController.displayedPropertyCategories.length,
-            title: avatarMakerController.displayedPropertyCategories[tabController.index].name!,
+            title: avatarMakerController
+                .displayedPropertyCategories[tabController.index].name!,
             theme: theme,
             tabIndex: tabController.index,
             onArrowTap: onArrowTap,

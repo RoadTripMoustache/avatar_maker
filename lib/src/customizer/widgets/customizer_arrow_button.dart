@@ -5,12 +5,16 @@ import "package:flutter/material.dart";
 class CustomizerArrowButton extends StatelessWidget {
   /// Total of tabs which are displayed
   final int nbrTabs;
+
   /// Index of the current tab
   final int tabIndex;
+
   /// Is the arrow must be directed to the left.
   final bool isLeft;
+
   /// Theme to use for this widget.
   final AvatarMakerThemeData theme;
+
   /// Action to perform if the arrow is tapped.
   final void Function(bool isLeft) onArrowTap;
 

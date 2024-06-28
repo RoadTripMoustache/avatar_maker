@@ -6,8 +6,10 @@ import "package:flutter/material.dart";
 class CustomizerBottomNavbar extends StatelessWidget {
   /// Tabs to display
   final List<Widget> navbarWidgets;
+
   /// Theme to apply
   final AvatarMakerThemeData theme;
+
   /// Tab controller to manage the movement between tabs.
   final TabController tabController;
 
