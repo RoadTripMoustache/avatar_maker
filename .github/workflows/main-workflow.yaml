@@ -52,7 +52,7 @@ jobs:
         run: flutter pub get
       - name: Generate files
         run: |
-          flutter pub run build_runner build
+          flutter pub run build_runner build --delete-conflicting-outputs
           flutter pub get # Temporary until https://github.com/flutter/flutter/issues/148333 is solved
 
       ### CHECKS ###
