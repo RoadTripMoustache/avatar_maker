@@ -269,7 +269,7 @@ class MockAvatarMakerController extends _i1.Mock
         Invocation.method(
           #updatePreview,
           [],
-          {#avatarmakerNew: newAvatarMakerSVG},
+          {#newAvatarMakerSVG: newAvatarMakerSVG},
         ),
         returnValueForMissingStub: null,
       );
@@ -367,16 +367,6 @@ class MockAvatarMakerController extends _i1.Mock
           ),
         ),
       ) as String);
-
-  @override
-  _i8.Future<List<bool>> clearAvatarMaker() => (super.noSuchMethod(
-        Invocation.method(
-          #clearAvatarMaker,
-          [],
-        ),
-        returnValue: _i8.Future<List<bool>>.value(<bool>[]),
-        returnValueForMissingStub: _i8.Future<List<bool>>.value(<bool>[]),
-      ) as _i8.Future<List<bool>>);
 
   @override
   void update([

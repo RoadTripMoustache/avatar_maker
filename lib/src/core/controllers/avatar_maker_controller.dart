@@ -1,7 +1,6 @@
 import "package:avatar_maker/l10n/app_localizations.dart";
 import "package:avatar_maker/src/core/enums/placeholders.dart";
 import "package:avatar_maker/src/core/enums/preferences_label.dart";
-import "package:avatar_maker/src/core/enums/property_categories.dart";
 import "package:avatar_maker/src/core/enums/property_category_ids.dart";
 import "package:avatar_maker/src/core/enums/property_items/facial_hair_colors.dart";
 import "package:avatar_maker/src/core/enums/property_items/facial_hair_types.dart";
