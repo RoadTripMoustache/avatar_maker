@@ -11,16 +11,20 @@ import "package:get/get.dart";
 ///
 ///*****
 ///Note: \
-/// It is advised that a [AvatarMakerCircleAvatar] also be present in the same page.
-/// to show the user a preview of the changes being made.
+/// It is advised that a [AvatarMakerCircleAvatar] also be present in the same
+/// page to show the user a preview of the changes being made.
 class AvatarMakerCustomizer extends StatefulWidget {
+  /// To define the height of the component.
   final double? scaffoldHeight;
+  /// To define the width of the component.
   final double? scaffoldWidth;
 
   /// Configuration for the overall visual theme for this widget
   /// and the components within it.
   final AvatarMakerThemeData theme;
 
+  /// List of all the customized property categories you want to use instead of
+  /// the default ones.
   final List<CustomizedPropertyCategory>? customizedPropertyCategories;
 
   /// Will save the selection automatically everytime the user selects

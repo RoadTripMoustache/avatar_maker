@@ -32,8 +32,10 @@ class AvatarMakerSaveWidget extends StatelessWidget {
   /// previously during runtime.
   final avatarmakerController = Get.find<AvatarMakerController>();
 
+  /// Defines the appearance of the splash.
   final InteractiveInkFeatureFactory? splashFactory;
 
+  /// The splash color of the ink response.
   final Color? splashColor;
 
   final double? radius;

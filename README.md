@@ -1,33 +1,63 @@
-# Avatar_Maker  
-![Pub Version](https://img.shields.io/pub/v/avatar_maker) [![Generic badge](https://img.shields.io/badge/demo-LIVE-green.svg)](https://RoadTripMoustache.github.io/avatar_maker/) [![GitHub stars](https://img.shields.io/github/stars/RoadTripMoustache/avatar_maker?style=social)](https://github.com/psk907/fluttermoji/stargazers) 
+# Avatar_Maker
 
-A light-weight and highly customizable SVG graphic set for Flutter, which provides a Customizer Widget, CircleAvatar and other utility functions.
+![Pub Version](https://img.shields.io/pub/v/avatar_maker) [![Generic badge](https://img.shields.io/badge/demo-LIVE-green.svg)](https://RoadTripMoustache.github.io/avatar_maker/) [![GitHub stars](https://img.shields.io/github/stars/RoadTripMoustache/avatar_maker?style=social)](https://github.com/psk907/fluttermoji/stargazers)
+
+A light-weight and highly customizable SVG graphic set for Flutter, which provides an Avatar,
+Customizer and other utility widgets/functions.
+
+## Available widgets
 
 This package provides you three easy-to-use widgets -
 
-| Name | Description | Screenshot | 
-|--------|----------|---------- |
-|FluttermojiCircleAvatar | Use your fluttermoji anywhere in your Flutter app with a simple customizable widget. Supports material dark theme too.| ![1608830483994](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif)|
-|FluttermojiCustomizer | A comprehensize UI to customize the user's fluttermoji. Offers previews of each individual component and whose looks can be tweaked with a `FluttermojiThemeData`|![1608827561239](https://user-images.githubusercontent.com/37346450/154008536-a687828c-dc9d-4a62-aa11-b800d4fb7763.jpg)|
-|FluttermojiSaveWidget | Renders a save button by default OR can be used as an [InkWell] wrapper for the [child] widget.|![1608827561239](https://user-images.githubusercontent.com/37346450/154008545-8325af7b-58a2-4419-8544-929ffbdbb9ff.jpg)|
+| Name                  | Description                                                                                                                                                  | Screenshot                                                                                                              | 
+|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| AvatarMakerAvatar     | Use your avatar anywhere in your Flutter app with a simple customizable widget. Supports material dark theme too.                                            | ![1608830483994](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif) |
+| AvatarMakerCustomizer | A comprehensize UI to customize the user's avatar. Offers previews of each individual component and whose looks can be tweaked with a `AvatarMakerThemeData` | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008536-a687828c-dc9d-4a62-aa11-b800d4fb7763.jpg) |
+| AvatarMakerSaveWidget | Renders a save button by default OR can be used as an [InkWell] wrapper for the [child] widget.                                                              | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008545-8325af7b-58a2-4419-8544-929ffbdbb9ff.jpg) |
 
 ******
-The appearance of the widgets can be tweaked with `FluttermojiThemeData`. It let's you change things like the customizer's background colours, the box decoration etc.
+
+## Customization
+
+### Theme
+
+The appearance of the widgets can be tweaked with `AvatarMakerThemeData`. It let's you change things
+like the customizer's background colours, the box decoration etc.
+
+### Categories and properties
+
+**All the categories** *(like outfits or hairs)* **and all the properties** *(like all the colors
+available for hairs or facial hairs)* are also fully customizable ! You want to change a title? hide
+a category? or add some custom properties? AvatarMaker is fully customizable to fulfill all your
+needs. Check [this documentation](./docs/how-to/define_custom_theme.md) to know how to do it easily.
+
+### Localization
+
+By defining a locale, you can change the language of the displayed titles !
+
+#### Supported languages
+
+- English *[Default]*
+- Français *(French)*
+
 ******
 
-Use the given utility functions to send and receive Avatar_Maker data from your server/DB efficiently.
+Use the given utility functions to send and receive Avatar_Maker data from your server/DB
+efficiently.
 
-| Function Prototype | Description | 
-|------------------|---------------|
-|String decodeFluttermojifromString(String encodedData)| Decode your string containing the attributes to a SVG and render it by enclosing this string with a SvgPicture.string() | 
-| Future\<Map> encodeMySVGtoMap() | Encodes the local user's fluttermoji to a Map denoting the selected attributes |
-|Future\<String> encodeMySVGtoString() | Encodes the local user's fluttermoji to a Map denoting the selected attributes , and stringifies the result before returning the value. | 
-| Future<List<bool>> clearFluttermoji() | Erases local user's fluttermoji SVG String and selection from local storage |
-	
+| Function Prototype                            | Description                                                  | 
+|-----------------------------------------------|--------------------------------------------------------------|
+| Future<String> getJsonOptions()               | Extract the selected options to JSON for an external save.   | 
+| void setJsonOptions(String jsonAvatarOptions) | Import the given options in a JSON format to the controller. | 
+| Future<String> getAvatarSVG()                 | Import the given options in a JSON format to the controller. | 
+| Future<List<bool>> clearAvatarMaker()         | Extract the current avatar SVG for an external save.         |
+
 SVG Assets used are derived from [getavataaars.com](https://getavataaars.com/) .
 
 ## Screenshots
-###  Example app
+
+### Example app
+
 <a href="https://psk907.github.io/fluttermoji" >Try out the demo on your browser now</a>
 <br />
 <br />
@@ -40,46 +70,73 @@ SVG Assets used are derived from [getavataaars.com](https://getavataaars.com/) .
 <a href="https://play.google.com/store/apps/details?id=com.statefullyfidgeting.tugofwar" ><img src="https://user-images.githubusercontent.com/37346450/103443017-00a15f80-4c81-11eb-8223-3404a35079aa.jpg" height="400" /></a>
 
 ## Usage Instructions
+
 1. Depend on it by importing your package in the ```pubspec.yaml```  file.
-	```yaml
-	dependencies:
-          fluttermoji: latest_version
-	```
+   ```yaml
+   dependencies:
+         avatar_maker: latest_version
+   ```
 2. Add the following import to your .dart file
-	```dart
-	import "package:avatar_maker/avatar_maker.dart";
-	```
-3. Add the FluttermojiCircleAvatar widget to display your Fluttermoji where needed.
-	```dart
-	FluttermojiCircleAvatar();
-	```
-4. To allow your users to personalize their Fluttermoji, add the following widget and pair it with the above one in your page.
-	```dart
-	FluttermojiCustomizer();
-	```
+   ```dart
+   import "package:avatar_maker/avatar_maker.dart";
+   ```
+3. Add the AvatarMakerAvatar widget to display your avatar where needed.
+   ```dart
+   AvatarMakerAvatar();
+   ```
+4. To allow your users to personalize their avatar, add the following widget and pair it with
+   the above one in your page.
+   ```dart
+   AvatarMakerCustomizer();
+   ```
 
-That's all it takes, simple right ? The two widgets communicate with each other and update in real-time throughout your widget tree.
+That's all it takes, simple right ? The two widgets communicate with each other and update in
+real-time throughout your widget tree.
 
-##  Usage Guidelines
-The package offers a ton of features in the simplest way possible, however there are some points worth noting.
+## Usage Guidelines
 
-- `FluttermojiCircleAvatar` only renders the local user's avatar. To display the avatar of other users', you'll have to use the `SvgPicture.string()` method from `flutter_svg` .
-- `FluttermojiCircleAvatar` would render a default avatar until customized and saved by the local user for the first time.
-- Use the `canvaskit` renderer when building for web, the default `html` renderer will not work with SVGs.
-- The fluttermoji's attributes are saved to local app/browser storage. Clearing app/browser data would mean clearing these attributes as well.
-- You can create a `FluttermojiThemeData` instance to configure the look and feel of the widgets to your liking.
+The package offers a ton of features in the simplest way possible, however there are some points
+worth noting.
+
+- `AvatarMakerAvatar` only renders the local user's avatar. To display the avatar of other
+  users', you'll have to use the `SvgPicture.string()` method from `flutter_svg` .
+- `AvatarMakerAvatar` would render a default avatar until customized and saved by the local
+  user for the first time.
+- Use the `canvaskit` renderer when building for web, the default `html` renderer will not work with
+  SVGs.
+- The avatar maker's attributes are saved to local app/browser storage. Clearing app/browser data
+  would mean clearing these attributes as well.
+- You can create a `AvatarMakerThemeData` instance to configure the look and feel of the widgets to
+  your liking.
+
+More details can be found in the widgets documentations or in the how-to :
+- Widgets
+  - [AvatarMakerAvatar](./docs/widgets/avatar.md)
+  - [AvatarMakerCustomizer](./docs/widgets/customizer.md)
+  - [AvatarMakerSaveWidget](./docs/widgets/save.md)
+- How-to
+  - [define a custom theme ?](./docs/how-to/define_custom_theme.md)
+  - [customize property category ?](./docs/how-to/define_customized_property_category.md)
 
 ## Attributions
 
-- SVG assets from [Fang-Pen Lin](getAvataars.com)'s  [GitHub repository](https://github.com/fangpenlin/avataaars-generator)
-- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-- Animated [GIF](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif) designed by [Reesha Shenoy](https://github.com/reeshaa) 
+- SVG assets from [Fang-Pen Lin](getAvataars.com)'
+  s  [GitHub repository](https://github.com/fangpenlin/avataaars-generator)
+- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+  from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+-
+
+Animated [GIF](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif)
+designed by [Reesha Shenoy](https://github.com/reeshaa)
+
 - Original code from [psk907/fluttermoji](https://github.com/psk907/fluttermoji)
 
 ## Community
-If you find any issues or have some feedback, please raise the same on the GitHub repo or contact me directly.
+
+If you find any issues or have some feedback, please raise the same on the GitHub repo.
+
+If you want to contribute to the project, please follow the [CONTRIBUTING](./CONTRIBUTING.md) section.
 
 Do leave a thumbs up if you liked it.
 
-
-**Happy Fluttering ; )**
+**Happy Fluttering 😀**

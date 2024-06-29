@@ -2,7 +2,16 @@
 ### Added
 - New colors for facial hairs, hairs & outfits
 - Documentation
-  - tooling/peanut.md
+  - [tooling - peanut](./docs/tooling/peanut.md)
+  - [tooling - l10n](./docs/tooling/l10n.md)
+  - [How to define a custom theme ?](./docs/how-to/define_custom_theme.md)
+  - [How to customize property category ?](./docs/how-to/define_customized_property_category.md)
+  - [How to support a new language ?](./docs/how-to/support_new_language.md)
+- Localization
+  - English
+  - French
+- Add customization of categories and properties
+- Unit tests
 
 ### Updated
 - Refactor and reorganize the code to match with RoadTripMoustache standards ([#9](https://github.com/RoadTripMoustache/avatar_maker/issues/9))

@@ -276,4 +276,28 @@ class AvatarMakerController extends GetxController {
       pref.remove(PreferencesLabel.avatarMakerSVG.name),
     ]);
   }
+
+  /// Extract the selected options to JSON for an external save.
+  ///
+  /// Method made to simplify actions from library users.
+  static Future<String> getJsonOptions() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    return pref.get(PreferencesLabel.avatarMakerSelectedOptions.name) as String;
+  }
+
+  /// Import the given options in a JSON format to the controller.
+  ///
+  /// Method made to simplify actions from library users.
+  static void setJsonOptions(String jsonAvatarOptions) {
+    final avatarMakerController = Get.find<AvatarMakerController>();
+    avatarMakerController.saveAvatarSVG(jsonAvatarOptions: jsonAvatarOptions);
+  }
+
+  /// Extract the current avatar SVG for an external save.
+  ///
+  /// Method made to simplify actions from library users.
+  static Future<String> getAvatarSVG() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    return pref.get(PreferencesLabel.avatarMakerSVG.name) as String;
+  }
 }
