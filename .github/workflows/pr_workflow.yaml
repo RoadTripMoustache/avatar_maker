@@ -45,7 +45,7 @@ jobs:
       ### CHECKS ###
       # Check the format of the code and commit the formatted files.
       - name: Format files in lib and test directories
-        run: dart format lib test --set-exit-if-changed
+        run: dart format lib/src lib/avatar_maker.dart test --set-exit-if-changed
 
       # Check if the code has any errors/warnings
       - name: Analyze code
