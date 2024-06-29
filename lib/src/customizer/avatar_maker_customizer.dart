@@ -16,6 +16,7 @@ import "package:get/get.dart";
 class AvatarMakerCustomizer extends StatefulWidget {
   /// To define the height of the component.
   final double? scaffoldHeight;
+
   /// To define the width of the component.
   final double? scaffoldWidth;
 
