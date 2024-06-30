@@ -9,11 +9,12 @@ Customizer and other utility widgets/functions.
 
 This package provides you three easy-to-use widgets -
 
-| Name                  | Description                                                                                                                                                  | Screenshot                                                                                                              | 
-|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| AvatarMakerAvatar     | Use your avatar anywhere in your Flutter app with a simple customizable widget. Supports material dark theme too.                                            | ![1608830483994](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif) |
-| AvatarMakerCustomizer | A comprehensize UI to customize the user's avatar. Offers previews of each individual component and whose looks can be tweaked with a `AvatarMakerThemeData` | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008536-a687828c-dc9d-4a62-aa11-b800d4fb7763.jpg) |
-| AvatarMakerSaveWidget | Renders a save button by default OR can be used as an [InkWell] wrapper for the [child] widget.                                                              | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008545-8325af7b-58a2-4419-8544-929ffbdbb9ff.jpg) |
+| Name                                                  | Description                                                                                                                                                  | Screenshot                                                                                                                        | 
+|-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| [AvatarMakerAvatar](./docs/widgets/avatar.md)         | Use your avatar anywhere in your Flutter app with a simple customizable widget. Supports material dark theme too.                                            | ![1608830483994](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif)           |
+| [AvatarMakerCustomizer](./docs/widgets/customizer.md) | A comprehensize UI to customize the user's avatar. Offers previews of each individual component and whose looks can be tweaked with a `AvatarMakerThemeData` | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008536-a687828c-dc9d-4a62-aa11-b800d4fb7763.jpg)           |
+| [AvatarMakerResetWidget](./docs/widgets/reset.md)     | Renders a reset button by default OR can be used as an [InkWell] wrapper for the [child] widget. It resets the avatar to the last avatar saved state.        | ![AvatarMakerResetWidget](https://github.com/RoadTripMoustache/avatar_maker/assets/36586573/ef052b05-1b23-4f77-8a47-1d08fc734958) |
+| [AvatarMakerSaveWidget](./docs/widgets/save.md)       | Renders a save button by default OR can be used as an [InkWell] wrapper for the [child] widget.                                                              | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008545-8325af7b-58a2-4419-8544-929ffbdbb9ff.jpg)           |
 
 ******
 
@@ -110,13 +111,14 @@ worth noting.
   your liking.
 
 More details can be found in the widgets documentations or in the how-to :
+
 - Widgets
-  - [AvatarMakerAvatar](./docs/widgets/avatar.md)
-  - [AvatarMakerCustomizer](./docs/widgets/customizer.md)
-  - [AvatarMakerSaveWidget](./docs/widgets/save.md)
+    - [AvatarMakerAvatar](./docs/widgets/avatar.md)
+    - [AvatarMakerCustomizer](./docs/widgets/customizer.md)
+    - [AvatarMakerSaveWidget](./docs/widgets/save.md)
 - How-to
-  - [define a custom theme ?](./docs/how-to/define_custom_theme.md)
-  - [customize property category ?](./docs/how-to/define_customized_property_category.md)
+    - [define a custom theme ?](./docs/how-to/define_custom_theme.md)
+    - [customize property category ?](./docs/how-to/define_customized_property_category.md)
 
 ## Attributions
 
@@ -135,7 +137,8 @@ designed by [Reesha Shenoy](https://github.com/reeshaa)
 
 If you find any issues or have some feedback, please raise the same on the GitHub repo.
 
-If you want to contribute to the project, please follow the [CONTRIBUTING](./CONTRIBUTING.md) section.
+If you want to contribute to the project, please follow the [CONTRIBUTING](./CONTRIBUTING.md)
+section.
 
 Do leave a thumbs up if you liked it.
 

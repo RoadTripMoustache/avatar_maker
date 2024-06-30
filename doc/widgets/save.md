@@ -1,5 +1,7 @@
 # AvatarMakerSaveWidget
 
+![1608827561239](https://user-images.githubusercontent.com/37346450/154008545-8325af7b-58a2-4419-8544-929ffbdbb9ff.jpg)
+
 Renders a save button by default OR can be used as a [InkWell] wrapper for the [child] widget.
 
 Additional callbacks may be triggered by passing a Function to [onTap].

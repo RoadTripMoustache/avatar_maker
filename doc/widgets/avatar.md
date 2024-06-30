@@ -1,5 +1,7 @@
 # AvatarMakerAvatar
 
+![1608830483994](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif)
+
 This widget renders the avatar of the user on screen.
 
 ## Parameters

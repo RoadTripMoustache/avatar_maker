@@ -1,5 +1,7 @@
 # AvatarMakerCustomizer
 
+![1608827561239](https://user-images.githubusercontent.com/37346450/154008536-a687828c-dc9d-4a62-aa11-b800d4fb7763.jpg)
+
 This widget provides the user with a UI for customizing their Avatar_Maker
 
 ## Parameters
