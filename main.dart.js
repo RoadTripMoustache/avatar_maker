@@ -35954,12 +35954,12 @@ if(p<q){k=j.qB(p)
 if(s.$2(a,k)>0){j.b[b]=k
 b=p}}j.b[b]=a}}
 A.FK.prototype={
-N(a){return new A.vD(new A.vQ("Avatar Maker",null),"Fluttermoji Demo",A.akf(B.M,null),!1,null)}}
+N(a){return new A.vD(new A.vQ("Avatar Maker",null),"Avatar Maker Demo",A.akf(B.M,null),!1,null)}}
 A.vQ.prototype={
 ak(){return new A.MT(B.l)}}
 A.MT.prototype={
 N(a){var s=null,r=A.ady(s,!0,s,!0,s,s,A.xT(this.a.c,s,s)),q=t.F
-q=A.ak_(A.a([A.eW(s,25,s),new A.el(B.D6,A.xT("Use your Fluttermoji anywhere\nwith the below widget",A.nU(s,s,s,s,s,s,s,s,s,s,s,20,s,s,B.dL,s,s,!0,s,s,s,s,s,s,s,s),B.cd),s),A.eW(s,25,s),A.agS(B.jY,100),A.eW(s,25,s),new A.el(B.kd,A.xT("and create your own page to customize them using our widgets",A.nU(s,s,s,s,s,s,s,s,s,s,s,20,s,s,B.dL,s,s,!0,s,s,s,s,s,s,s,s),B.cd),s),A.eW(s,50,s),A.HE(A.a([new A.qs(2,s),A.ahW(A.mm(s,A.arP(A.XK(B.F3,s,s),A.xT("Customize",s,s),new A.a95(a)),B.D,s,s,s,s,35,s,s,s,s,s),3),new A.qs(2,s)],q),B.br,B.cU),A.eW(s,100,s)],q),!0,!0,!0)
+q=A.ak_(A.a([A.eW(s,25,s),new A.el(B.D6,A.xT("Use your Avatar Maker anywhere\nwith the below widget",A.nU(s,s,s,s,s,s,s,s,s,s,s,20,s,s,B.dL,s,s,!0,s,s,s,s,s,s,s,s),B.cd),s),A.eW(s,25,s),A.agS(B.jY,100),A.eW(s,25,s),new A.el(B.kd,A.xT("and create your own page to customize them using our widgets",A.nU(s,s,s,s,s,s,s,s,s,s,s,20,s,s,B.dL,s,s,!0,s,s,s,s,s,s,s,s),B.cd),s),A.eW(s,50,s),A.HE(A.a([new A.qs(2,s),A.ahW(A.mm(s,A.arP(A.XK(B.F3,s,s),A.xT("Customize",s,s),new A.a95(a)),B.D,s,s,s,s,35,s,s,s,s,s),3),new A.qs(2,s)],q),B.br,B.cU),A.eW(s,100,s)],q),!0,!0,!0)
 return A.aeM(r,s,new A.Fh(q,s,B.aG,!1,s,s,new A.oJ(B.uT,s),!1,s,9,B.aJ,B.uW,s,B.Y,s),s,s)}}
 A.a95.prototype={
 $0(){var s=A.aiL(new A.a94(),null,t.z)
