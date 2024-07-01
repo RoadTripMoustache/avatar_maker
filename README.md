@@ -47,10 +47,10 @@ efficiently.
 
 | Function Prototype                            | Description                                                  | 
 |-----------------------------------------------|--------------------------------------------------------------|
-| Future<String> getJsonOptions()               | Extract the selected options to JSON for an external save.   | 
-| void setJsonOptions(String jsonAvatarOptions) | Import the given options in a JSON format to the controller. | 
-| Future<String> getAvatarSVG()                 | Import the given options in a JSON format to the controller. | 
-| Future<List<bool>> clearAvatarMaker()         | Extract the current avatar SVG for an external save.         |
+| `Future<String> getJsonOptions()`               | Extract the selected options to JSON for an external save.   | 
+| `void setJsonOptions(String jsonAvatarOptions)` | Import the given options in a JSON format to the controller. | 
+| `Future<String> getAvatarSVG()`                 | Import the given options in a JSON format to the controller. | 
+| `Future<List<bool>> clearAvatarMaker()`         | Extract the current avatar SVG for an external save.         |
 
 SVG Assets used are derived from [getavataaars.com](https://getavataaars.com/) .
 
