@@ -56,7 +56,7 @@ class AvatarMakerRandomWidget extends StatelessWidget {
     return InkWell(
       onTap: () async {
         avatarmakerController.randomizedSelectedOptions();
-        if (onTap != null) onTap!();
+        onTap?.call();
       },
       splashFactory: splashFactory,
       radius: radius,
