@@ -1,6 +1,7 @@
 ## Unreleased
 ### Added 
 - Add a reset button [#15](https://github.com/RoadTripMoustache/avatar_maker/issues/15)
+- Add a randomizer button [#16](https://github.com/RoadTripMoustache/avatar_maker/issues/14)
 
 ### Fixed
 - Example configurations

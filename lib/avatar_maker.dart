@@ -28,5 +28,6 @@ export "src/core/models/theme_data.dart";
 // Widgets
 export "src/avatar/avatar_maker_avatar.dart";
 export "src/customizer/avatar_maker_customizer.dart";
+export "src/customizer/avatar_maker_random_widget.dart";
 export "src/customizer/avatar_maker_reset_widget.dart";
 export "src/customizer/avatar_maker_save_widget.dart";

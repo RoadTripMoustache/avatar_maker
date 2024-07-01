@@ -128,6 +128,7 @@ class NewPage extends StatelessWidget {
                     ),
                     Spacer(),
                     AvatarMakerSaveWidget(),
+                    AvatarMakerRandomWidget(),
                     AvatarMakerResetWidget(),
                   ],
                 ),

@@ -1,3 +1,5 @@
+import "dart:math";
+
 import "package:avatar_maker/l10n/app_localizations.dart";
 import "package:avatar_maker/src/core/enums/placeholders.dart";
 import "package:avatar_maker/src/core/enums/preferences_label.dart";
@@ -265,6 +267,23 @@ class AvatarMakerController extends GetxController {
       case PropertyCategoryIds.SkinColor:
         return SkinService.drawSVG(skinColor: item.value);
     }
+  }
+
+  /// Randomize the select options of all the displayed property categories.
+  /// All the non displayed categories keep their default value.
+  void randomizedSelectedOptions() {
+    var rng = Random();
+    displayedPropertyCategories.forEach(
+      (propertyCategory) {
+        selectedOptions.update(
+          propertyCategory.id,
+          (value) => propertyCategory.properties!
+              .elementAt(rng.nextInt(propertyCategory.properties!.length)),
+        );
+      },
+    );
+
+    updatePreview();
   }
 
   /// Erase AvatarMaker user's preferences from local storage
