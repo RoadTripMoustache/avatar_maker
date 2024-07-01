@@ -20,7 +20,7 @@ class AvatarMakerResetWidget extends StatelessWidget {
   /// Example: \
   /// You may pass a function that triggers a snackbar saying "Reset done!" on
   /// the screen.
-  final Function? onTap;
+  final VoidCallback? onTap;
 
   /// A widget to render as the child of a [InkWell].
   ///
