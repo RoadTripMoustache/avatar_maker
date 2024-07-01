@@ -6,6 +6,7 @@ import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_body.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
+import "package:get/get_state_manager/src/simple/list_notifier.dart";
 
 /// This widget provides the user with a UI for customizing their Avatar_Maker
 ///
@@ -69,6 +70,9 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   late int nbrDisplayedCategories;
   late TabController tabController;
 
+  /// To easily dispose of the listener on the dispose of the widget.
+  Disposer? avatarMakerControllerListenerDisposer;
+
   @override
   void initState() {
     super.initState();
@@ -89,10 +93,17 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     tabController.addListener(() {
       setState(() {});
     });
+    avatarMakerControllerListenerDisposer = _controller.addListener(() {
+      setState(() {});
+    });
   }
 
   @override
   void dispose() {
+    // Dispose of the lister for the avatar maker controller.
+    if (avatarMakerControllerListenerDisposer != null) {
+      avatarMakerControllerListenerDisposer!();
+    }
     // This ensures that unsaved edits are reverted
     avatarMakerController.restoreState();
     super.dispose();

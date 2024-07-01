@@ -1,4 +1,7 @@
 ## Unreleased
+### Added 
+- Add a reset button [#15](https://github.com/RoadTripMoustache/avatar_maker/issues/15)
+
 ### Fixed
 - Example configurations
 - README
