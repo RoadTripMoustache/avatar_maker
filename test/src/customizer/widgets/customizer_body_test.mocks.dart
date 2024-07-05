@@ -401,6 +401,15 @@ class MockAvatarMakerController extends _i1.Mock
       ) as String);
 
   @override
+  void randomizedSelectedOptions() => super.noSuchMethod(
+        Invocation.method(
+          #randomizedSelectedOptions,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
   void update([
     List<Object>? ids,
     bool? condition = true,
