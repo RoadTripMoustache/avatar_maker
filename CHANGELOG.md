@@ -1,5 +1,9 @@
 ## Unreleased
 
+## [0.3.0] - 26/05/2025
+### Added
+- ci: Improve github action pipelines
+
 ## [0.2.1] - 25/05/2025
 ### Added
 - Bump dependencies to latest versions
