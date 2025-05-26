@@ -18,6 +18,22 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  bump_version:
+    name: Bump version
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.base.ref == 'main'
+    outputs:
+      stop: ${{ steps.bump.outputs.has_changed }}
+      version: ${{ steps.bump.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bump version using labels
+        id: bump
+        uses: apomalyn/bump-version-using-labels@v1.5.0
+        with:
+          file_path: 'pubspec.yaml'
+          reference_branch: 'main'
+          commit_message: "chore(bot): Bump version from {old} to {new}"
   tests:
     name: Run the tests and checks
     runs-on: ubuntu-latest
