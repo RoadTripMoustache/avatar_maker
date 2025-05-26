@@ -1,5 +1,8 @@
 ## Unreleased
 
+## [0.2.1] - 25/05/2025
+### Added
+- Bump dependencies to latest versions
 
 ## [0.2.0] - 08/07/2024
 ### Added 
