@@ -15,16 +15,16 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.10
   get: ^4.6.6
-  intl: ^0.19.0
+  intl: ^0.20.2
   shared_preferences: ^2.2.3
 dev_dependencies:
-  analyzer: 6.4.0
+  analyzer: ^7.4.5
   build_runner: ^2.4.11
   flutter_gen: ^5.5.0+1
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
-  mockito: ^5.4.2
+  mockito: ^5.4.6
 
 flutter:
   assets:
