@@ -15,11 +15,12 @@ class AvatarMakerSaveWidget extends StatelessWidget {
 
   /// Additional callbacks to be triggered on tapping the widget
   /// after the save operation is executed.
+  /// [avatarSvg] is the SVG string of the avatar that was saved.
   /// *******
   /// Example: \
   /// You may pass a function that triggers a snackbar saying "Saved!" on
   /// the screen.
-  final Function? onTap;
+  final Function(String avatarSvg)? onTap;
 
   /// A widget to render as the child of a [InkWell].
   ///
@@ -56,7 +57,7 @@ class AvatarMakerSaveWidget extends StatelessWidget {
     return InkWell(
       onTap: () async {
         await avatarmakerController.saveAvatarSVG();
-        if (onTap != null) onTap!();
+        if (onTap != null) onTap!(avatarmakerController.drawAvatarSVG());
       },
       splashFactory: splashFactory,
       radius: radius,

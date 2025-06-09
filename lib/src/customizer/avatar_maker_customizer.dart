@@ -36,6 +36,10 @@ class AvatarMakerCustomizer extends StatefulWidget {
   /// in your app to let users save their selection manually.
   final bool autosave;
 
+  /// Called every time the user selects a new option and returns the SVG string
+  /// of the avatar.
+  final Function(String avatarSvg)? onChange;
+
   /// Creates a widget UI to customize the AvatarMaker
   ///
   /// You may provide a [AvatarMakerThemeData] instance to adjust the appearance of this
@@ -55,6 +59,7 @@ class AvatarMakerCustomizer extends StatefulWidget {
     AvatarMakerThemeData? theme,
     this.customizedPropertyCategories,
     this.autosave = false,
+    this.onChange
   })  : this.theme = theme ?? AvatarMakerThemeData.defaultTheme,
         super(key: key);
 
@@ -118,6 +123,9 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
         avatarMakerController.selectedOptions[categoryId] = newSelectedItem;
       });
       avatarMakerController.updatePreview();
+      if(widget.onChange != null) {
+        widget.onChange!(avatarMakerController.drawAvatarSVG());
+      }
       if (widget.autosave) {
         avatarMakerController.saveAvatarSVG();
       }
