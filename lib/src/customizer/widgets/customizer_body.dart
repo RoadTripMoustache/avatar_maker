@@ -40,7 +40,8 @@ class CustomizerBody extends StatelessWidget {
       var attributeListLength = propertyCategory.properties!.length;
 
       PropertyItem selectedItem =
-          avatarMakerController.selectedOptions[propertyCategory.id]!;
+          avatarMakerController.selectedOptions[propertyCategory.id] ??
+              propertyCategory.properties!.first;
 
       /// Build the main Tile Grid with all the options from the attribute
       var _tileGrid = GridView.builder(
@@ -55,10 +56,9 @@ class CustomizerBody extends StatelessWidget {
           onTap: () => onTapOption(
               propertyCategory.properties![index], propertyCategory.id),
           child: Container(
-            decoration:
-                index == propertyCategory.properties!.indexOf(selectedItem)
-                    ? theme.selectedTileDecoration
-                    : theme.unselectedTileDecoration,
+            decoration: index == propertyCategory.properties!.indexOf(selectedItem)
+                ? theme.selectedTileDecoration
+                : theme.unselectedTileDecoration,
             margin: theme.tileMargin,
             padding: theme.tilePadding,
             child: SvgPicture.string(
