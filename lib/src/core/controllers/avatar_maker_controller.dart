@@ -27,16 +27,17 @@ import "package:avatar_maker/src/core/services/hair_service.dart";
 import "package:avatar_maker/src/core/services/property_category_service.dart";
 import "package:avatar_maker/src/core/services/skin_service.dart";
 import "package:flutter/material.dart";
-import "package:get/get.dart";
 import "package:shared_preferences/shared_preferences.dart";
 
 /// Brains of the Avatar_Maker package
 ///
-/// Built using the getX architecture to allow the two widgets to easily
+/// Built using the ChangeNotifier architecture to allow the two widgets to easily
 /// communicate with each other
-class AvatarMakerController extends GetxController {
-  /// Observable value which contains the svg code of the avatar to display
-  var displayedAvatarSVG = "".obs;
+class AvatarMakerController extends ChangeNotifier {
+  /// Value which contains the svg code of the avatar to display
+  String _displayedAvatarSVG = "";
+
+  String get displayedAvatarSVG => _displayedAvatarSVG;
 
   /// List of all the property categories merged (the one given by the user with
   /// the default one stored in the code). Useful to get the default value from
@@ -83,20 +84,16 @@ class AvatarMakerController extends GetxController {
       for (var category in this.propertyCategories)
         category.id: category.defaultValue!
     };
+
+    // Initialize the controller
+    initController();
   }
 
-  @override
-  void onInit() async {
-    // called immediately after the widget is allocated memory
+  /// Initialize the controller by loading stored options and updating the preview
+  Future<void> initController() async {
     selectedOptions = await getStoredOptions();
-    displayedAvatarSVG.value = drawAvatarSVG();
-    update();
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
+    _displayedAvatarSVG = drawAvatarSVG();
+    notifyListeners();
   }
 
   /// Update the displayed SVG with the new SVG given in parameter, or the one
@@ -107,8 +104,8 @@ class AvatarMakerController extends GetxController {
     if (newAvatarMakerSVG.isEmpty) {
       newAvatarMakerSVG = drawAvatarSVG();
     }
-    displayedAvatarSVG.value = newAvatarMakerSVG;
-    update();
+    _displayedAvatarSVG = newAvatarMakerSVG;
+    notifyListeners();
   }
 
   /// Restore controller state with the latest SAVED version of
@@ -124,7 +121,7 @@ class AvatarMakerController extends GetxController {
             OptionsService.jsonEncodeSelectedOptions(defaultSelectedOptions));
 
     selectedOptions = await getStoredOptions();
-    update();
+    notifyListeners();
   }
 
   /// Save the selected options and the current SVG in the Shared Preferences,
@@ -203,7 +200,7 @@ class AvatarMakerController extends GetxController {
       selectedOptions = OptionsService.jsonDecodeSelectedOptions(
           this.propertyCategories, _avatarMakerOptions);
     }
-    update();
+    notifyListeners();
     return selectedOptions;
   }
 
@@ -306,9 +303,10 @@ class AvatarMakerController extends GetxController {
   /// Import the given options in a JSON format to the controller.
   ///
   /// Method made to simplify actions from library users.
-  static void setJsonOptions(String jsonAvatarOptions) {
-    final avatarMakerController = Get.find<AvatarMakerController>();
-    avatarMakerController.saveAvatarSVG(jsonAvatarOptions: jsonAvatarOptions);
+  /// 
+  /// [controller] - The AvatarMakerController instance to use
+  static void setJsonOptions(String jsonAvatarOptions, {required AvatarMakerController controller}) {
+    controller.saveAvatarSVG(jsonAvatarOptions: jsonAvatarOptions);
   }
 
   /// Extract the current avatar SVG for an external save.
