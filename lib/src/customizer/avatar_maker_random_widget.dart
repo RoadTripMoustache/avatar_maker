@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:avatar_maker/src/core/controllers/avatar_maker_controller.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
-import "package:get/get.dart";
+import "package:provider/provider.dart";
 
 /// Renders a randomizer button by default OR can be used as a [InkWell]
 /// wrapper for the [child] widget.
@@ -26,11 +26,10 @@ class AvatarMakerRandomWidget extends StatelessWidget {
   /// If [null], then a default randomizer button is shown to the user.
   final Widget? child;
 
-  /// Find an instance of the [AvatarMakerController] to use
+  /// The [AvatarMakerController] to use for randomizing the avatar.
   ///
-  /// Note: This expects the controller to be added to `Get`
-  /// previously during runtime.
-  final avatarmakerController = Get.find<AvatarMakerController>();
+  /// If not provided, it will be fetched from Provider.
+  final AvatarMakerController? controller;
 
   /// Defines the appearance of the splash.
   final InteractiveInkFeatureFactory? splashFactory;
@@ -45,6 +44,7 @@ class AvatarMakerRandomWidget extends StatelessWidget {
     AvatarMakerThemeData? theme,
     this.onTap,
     this.child,
+    this.controller,
     this.splashFactory,
     this.splashColor,
     this.radius,
@@ -53,9 +53,12 @@ class AvatarMakerRandomWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Use the provided controller or fetch it from Provider if not provided
+    final avatarMakerController = controller ?? Provider.of<AvatarMakerController>(context, listen: false);
+
     return InkWell(
       onTap: () async {
-        avatarmakerController.randomizedSelectedOptions();
+        avatarMakerController.randomizedSelectedOptions();
         onTap?.call();
       },
       splashFactory: splashFactory,

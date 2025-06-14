@@ -39,6 +39,11 @@ class AvatarMakerCustomizer extends StatefulWidget {
   /// of the avatar.
   final Function(String avatarSvg)? onChange;
 
+  /// The [AvatarMakerController] to use for this widget.
+  ///
+  /// If not provided, a new controller will be created.
+  final AvatarMakerController? controller;
+
   /// Creates a widget UI to customize the AvatarMaker
   ///
   /// You may provide a [AvatarMakerThemeData] instance to adjust the appearance of this
@@ -58,7 +63,8 @@ class AvatarMakerCustomizer extends StatefulWidget {
     AvatarMakerThemeData? theme,
     this.customizedPropertyCategories,
     this.autosave = false,
-    this.onChange
+    this.onChange,
+    this.controller,
   })  : this.theme = theme ?? AvatarMakerThemeData.defaultTheme,
         super(key: key);
 
@@ -69,6 +75,7 @@ class AvatarMakerCustomizer extends StatefulWidget {
 class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     with SingleTickerProviderStateMixin {
   late AvatarMakerController avatarMakerController;
+  bool _controllerCreatedInternally = false;
 
   /// Number of displayed categories in the customizer widget.
   late int nbrDisplayedCategories;
@@ -78,9 +85,15 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   void initState() {
     super.initState();
 
-    // Create the controller
-    avatarMakerController = AvatarMakerController(
-        customizedPropertyCategories: widget.customizedPropertyCategories);
+    // Use the provided controller or create a new one
+    if (widget.controller != null) {
+      avatarMakerController = widget.controller!;
+    } else {
+      _controllerCreatedInternally = true;
+      avatarMakerController = AvatarMakerController(
+          customizedPropertyCategories: widget.customizedPropertyCategories);
+    }
+
     nbrDisplayedCategories = avatarMakerController.displayedPropertyCategories.length;
 
     tabController = TabController(
@@ -108,8 +121,10 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     // This ensures that unsaved edits are reverted
     avatarMakerController.restoreState();
 
-    // Dispose the controller
-    avatarMakerController.dispose();
+    // Only dispose the controller if we created it
+    if (_controllerCreatedInternally) {
+      avatarMakerController.dispose();
+    }
 
     super.dispose();
   }
@@ -152,17 +167,20 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return SizedBox(
-      height:
-          widget.scaffoldHeight ?? (size.height * widget.theme.heightFactor),
-      width: widget.scaffoldWidth ?? size.width,
-      child: CustomizerBody(
-        avatarMakerController: avatarMakerController,
-        tabController: tabController,
-        theme: widget.theme,
-        scaffoldHeight: widget.scaffoldHeight,
-        onTapOption: onTapOption,
-        onArrowTap: onArrowTap,
+    return ChangeNotifierProvider<AvatarMakerController>.value(
+      value: avatarMakerController,
+      child: SizedBox(
+        height:
+            widget.scaffoldHeight ?? (size.height * widget.theme.heightFactor),
+        width: widget.scaffoldWidth ?? size.width,
+        child: CustomizerBody(
+          avatarMakerController: avatarMakerController,
+          tabController: tabController,
+          theme: widget.theme,
+          scaffoldHeight: widget.scaffoldHeight,
+          onTapOption: onTapOption,
+          onArrowTap: onArrowTap,
+        ),
       ),
     );
   }
