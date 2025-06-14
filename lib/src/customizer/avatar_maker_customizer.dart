@@ -5,8 +5,7 @@ import "package:avatar_maker/src/core/models/property_item.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_body.dart";
 import "package:flutter/material.dart";
-import "package:get/get.dart";
-import "package:get/get_state_manager/src/simple/list_notifier.dart";
+import "package:provider/provider.dart";
 
 /// This widget provides the user with a UI for customizing their Avatar_Maker
 ///
@@ -75,42 +74,43 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   late int nbrDisplayedCategories;
   late TabController tabController;
 
-  /// To easily dispose of the listener on the dispose of the widget.
-  Disposer? avatarMakerControllerListenerDisposer;
-
   @override
   void initState() {
     super.initState();
 
-    Get.put(AvatarMakerController(
-        customizedPropertyCategories: widget.customizedPropertyCategories));
-    final _controller = Get.find<AvatarMakerController>();
-    nbrDisplayedCategories = _controller.displayedPropertyCategories.length;
+    // Create the controller
+    avatarMakerController = AvatarMakerController(
+        customizedPropertyCategories: widget.customizedPropertyCategories);
+    nbrDisplayedCategories = avatarMakerController.displayedPropertyCategories.length;
 
-    setState(() {
-      avatarMakerController = _controller;
-      tabController = TabController(
-        length: nbrDisplayedCategories,
-        vsync: this,
-      );
-    });
+    tabController = TabController(
+      length: nbrDisplayedCategories,
+      vsync: this,
+    );
 
     tabController.addListener(() {
       setState(() {});
     });
-    avatarMakerControllerListenerDisposer = _controller.addListener(() {
+
+    // Add listener to the controller
+    avatarMakerController.addListener(() {
       setState(() {});
     });
   }
 
   @override
   void dispose() {
-    // Dispose of the lister for the avatar maker controller.
-    if (avatarMakerControllerListenerDisposer != null) {
-      avatarMakerControllerListenerDisposer!();
-    }
+    // Remove the listener
+    avatarMakerController.removeListener(() {
+      setState(() {});
+    });
+
     // This ensures that unsaved edits are reverted
     avatarMakerController.restoreState();
+
+    // Dispose the controller
+    avatarMakerController.dispose();
+
     super.dispose();
   }
 
