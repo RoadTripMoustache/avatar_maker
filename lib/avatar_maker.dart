@@ -1,7 +1,7 @@
 library avatar_maker;
 
-// Controller
-export "src/core/controllers/avatar_maker_controller.dart";
+// Controllers
+export "src/core/controllers/controllers.dart";
 
 // Enumerations
 export "src/core/enums/property_items/accessories.dart";

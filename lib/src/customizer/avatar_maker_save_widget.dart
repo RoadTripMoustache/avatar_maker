@@ -1,7 +1,8 @@
+import "package:avatar_maker/avatar_maker.dart";
 import "package:flutter/material.dart";
-import "package:avatar_maker/src/core/controllers/avatar_maker_controller.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:provider/provider.dart";
+import "package:avatar_maker/src/core/controllers/controllers.dart";
 
 /// Renders a save button by default OR can be used as a [InkWell]
 /// wrapper for the [child] widget.
@@ -29,7 +30,7 @@ class AvatarMakerSaveWidget extends StatelessWidget {
 
   /// The [AvatarMakerController] to use for saving the avatar.
   ///
-  /// If not provided, it will be fetched from GetX.
+  /// If not provided, it will be fetched from Provider or a new controller will be created.
   final AvatarMakerController? controller;
 
   /// Defines the appearance of the splash.
@@ -55,12 +56,14 @@ class AvatarMakerSaveWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Use the provided controller or fetch it from Provider if not provided
-    final avatarMakerController = controller ?? Provider.of<AvatarMakerController>(context, listen: false);
+    final avatarController = controller ??
+        Provider.of<AvatarMakerController?>(context, listen: false) ??
+        PersistentAvatarMakerController(customizedPropertyCategories: []);
 
     return InkWell(
       onTap: () async {
-        await avatarMakerController.saveAvatarSVG();
-        if (onTap != null) onTap!(avatarMakerController.drawAvatarSVG());
+        await avatarController.saveAvatarSVG();
+        if (onTap != null) onTap!(avatarController.drawAvatarSVG());
       },
       splashFactory: splashFactory,
       radius: radius,

@@ -1,4 +1,4 @@
-import "package:avatar_maker/src/core/controllers/avatar_maker_controller.dart";
+import "package:avatar_maker/src/core/controllers/controllers.dart";
 import "package:avatar_maker/src/core/enums/property_category_ids.dart";
 import "package:avatar_maker/src/core/models/customized_property_category.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
@@ -39,9 +39,9 @@ class AvatarMakerCustomizer extends StatefulWidget {
   /// of the avatar.
   final Function(String avatarSvg)? onChange;
 
-  /// The [AvatarMakerController] to use for this widget.
+  /// The [AvatarMakerController] to use for saving the avatar.
   ///
-  /// If not provided, a new controller will be created.
+  /// If not provided, it will be fetched from Provider or a new controller will be created.
   final AvatarMakerController? controller;
 
   /// Creates a widget UI to customize the AvatarMaker
@@ -85,13 +85,13 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   void initState() {
     super.initState();
 
-    // Use the provided controller or create a new one
-    if (widget.controller != null) {
-      avatarMakerController = widget.controller!;
-    } else {
+    final AvatarMakerController? tmpController = widget.controller ??
+        Provider.of<AvatarMakerController?>(context, listen: true);
+    avatarMakerController = tmpController ?? PersistentAvatarMakerController(
+            customizedPropertyCategories: widget.customizedPropertyCategories);
+
+    if(tmpController == null) {
       _controllerCreatedInternally = true;
-      avatarMakerController = AvatarMakerController(
-          customizedPropertyCategories: widget.customizedPropertyCategories);
     }
 
     nbrDisplayedCategories = avatarMakerController.displayedPropertyCategories.length;

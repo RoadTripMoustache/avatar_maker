@@ -1,9 +1,8 @@
-import "package:avatar_maker/src/core/controllers/avatar_maker_controller.dart";
+import "package:avatar_maker/src/core/controllers/controllers.dart";
 import "package:avatar_maker/src/core/models/customized_property_category.dart";
-import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
-import "package:get/get.dart";
+import "package:provider/provider.dart";
 
 /// This widget renders the avatar of the user on screen.
 ///
@@ -20,45 +19,46 @@ class AvatarMakerAvatar extends StatelessWidget {
   final double radius;
   final Color? backgroundColor;
   final List<CustomizedPropertyCategory>? customizedPropertyCategories;
-  final Locale? locale;
+  final AvatarMakerController? controller;
+  final Widget? progressIndicator;
 
-  AvatarMakerAvatar({
-    Key? key,
-    this.radius = 75.0,
-    this.backgroundColor,
-    this.customizedPropertyCategories,
-    this.locale,
-  }) : super(key: key);
+  AvatarMakerAvatar(
+      {Key? key,
+      this.radius = 75.0,
+      this.backgroundColor,
+      this.customizedPropertyCategories,
+      this.progressIndicator,
+      this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-        radius: radius, backgroundColor: backgroundColor, child: buildGetX());
-  }
+    final avatarController = controller ??
+        Provider.of<AvatarMakerController?>(context, listen: true) ??
+        PersistentAvatarMakerController(customizedPropertyCategories: []);
+    final loader = progressIndicator ?? CircularProgressIndicator.adaptive();
 
-  /// Create the svg picture encapsulated in a [GetX] to manage dynamic updates
-  /// with the [AvatarMakerController]
-  GetX<AvatarMakerController> buildGetX() {
-    return GetX<AvatarMakerController>(
-        init: AvatarMakerController(
-          customizedPropertyCategories: this.customizedPropertyCategories,
-          locale: this.locale,
-        ),
-        autoRemove: false,
-        builder: (controller) {
-          /// Returns an activity indicator if the initialization of the
-          /// controller isn't fully done.
-          if (controller.displayedAvatarSVG.value.isEmpty) {
-            return CupertinoActivityIndicator();
-          }
-          return SvgPicture.string(
-            controller.drawAvatarSVG(),
-            height: radius * 1.6,
-            semanticsLabel: "Your avatar",
-            placeholderBuilder: (context) => Center(
-              child: CupertinoActivityIndicator(),
-            ),
-          );
-        });
+    return CircleAvatar(
+        radius: radius,
+        backgroundColor: backgroundColor,
+        child: ListenableBuilder(
+          listenable: avatarController,
+          builder: (context, child) {
+            print("Avatar update");
+            /// Returns an activity indicator if the initialization of the
+            /// controller isn't fully done.
+            if (avatarController.displayedAvatarSVG.isEmpty) {
+              return loader;
+            }
+            return SvgPicture.string(
+              avatarController.drawAvatarSVG(),
+              height: radius * 1.6,
+              semanticsLabel: "Your avatar",
+              placeholderBuilder: (context) => Center(
+                child: loader,
+              ),
+            );
+          },
+        ));
   }
 }

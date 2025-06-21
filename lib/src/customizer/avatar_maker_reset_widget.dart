@@ -1,5 +1,5 @@
 import "package:flutter/material.dart";
-import "package:avatar_maker/src/core/controllers/avatar_maker_controller.dart";
+import "package:avatar_maker/src/core/controllers/controllers.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:provider/provider.dart";
 
@@ -27,9 +27,9 @@ class AvatarMakerResetWidget extends StatelessWidget {
   /// If [null], then a default reset button is shown to the user.
   final Widget? child;
 
-  /// The [AvatarMakerController] to use for resetting the avatar.
+  /// The [AvatarMakerController] to use for saving the avatar.
   ///
-  /// If not provided, it will be fetched from Provider.
+  /// If not provided, it will be fetched from Provider or a new controller will be created.
   final AvatarMakerController? controller;
 
   /// Defines the appearance of the splash.
@@ -54,13 +54,14 @@ class AvatarMakerResetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Use the provided controller or fetch it from Provider if not provided
-    final avatarMakerController = controller ?? Provider.of<AvatarMakerController>(context, listen: false);
-    
+    final avatarController = controller ??
+        Provider.of<AvatarMakerController?>(context, listen: false) ??
+        PersistentAvatarMakerController(customizedPropertyCategories: []);
+
     return InkWell(
       onTap: () async {
-        avatarMakerController.restoreState();
-        if (onTap != null) onTap!();
+        avatarController.restoreState();
+        onTap?.call();
       },
       splashFactory: splashFactory,
       radius: radius,

@@ -5,20 +5,18 @@ import "package:avatar_maker/src/customizer/widgets/customizer_body.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_bottom_navbar.dart";
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
-import "package:get/get.dart";
 import "package:mockito/annotations.dart";
 import "package:mockito/mockito.dart";
 import "../../../helpers.dart";
+
 @GenerateNiceMocks([
-  MockSpec<AvatarMakerController>(),
-  MockSpec<InternalFinalCallback>(),
+  MockSpec<PersistentAvatarMakerController>(),
   MockSpec<TabController>(),
   MockSpec<AnimationController>(),
 ])
 import "customizer_body_test.mocks.dart";
 
-final avatarMakerControllerMock = MockAvatarMakerController();
-final internalFinalCallbackMock = MockInternalFinalCallback();
+final avatarMakerControllerMock = MockPersistentAvatarMakerController();
 final tabControllerMock = MockTabController();
 final animationControllerMock = MockAnimationController();
 
@@ -46,10 +44,6 @@ void main() {
         properties: SkinColors.values),
   ];
   setUpAll(() async {
-    when(avatarMakerControllerMock.onStart)
-        .thenAnswer((_) => internalFinalCallbackMock);
-    when(avatarMakerControllerMock.onDelete)
-        .thenAnswer((_) => internalFinalCallbackMock);
     when(avatarMakerControllerMock.displayedPropertyCategories)
         .thenReturn(propertyCategories);
     when(avatarMakerControllerMock.selectedOptions).thenReturn({
@@ -58,19 +52,14 @@ void main() {
       PropertyCategoryIds.HairStyle: HairStyles.Bald,
       PropertyCategoryIds.SkinColor: SkinColors.Black,
     });
-    when(avatarMakerControllerMock.getComponentSVG(any, any)).thenReturn(
+    when(avatarMakerControllerMock.getComponentSVG(any
+        , any)).thenReturn(
         """<svg width="20px" height="20px" viewBox="-3 -50 120 170" >
         </svg>""");
-
-    Get.put<AvatarMakerController>(avatarMakerControllerMock);
 
     when(tabControllerMock.index).thenReturn(1);
     when(tabControllerMock.length).thenReturn(propertyCategories.length);
     when(tabControllerMock.animation).thenReturn(animationControllerMock);
-  });
-
-  tearDownAll(() async {
-    Get.delete<AvatarMakerController>();
   });
 
   group("CustomizerAppbar", () {

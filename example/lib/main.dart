@@ -29,6 +29,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final AvatarMakerController _avatarMakerController =
+      NonPersistentAvatarMakerController(customizedPropertyCategories: []);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,6 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
           AvatarMakerAvatar(
             backgroundColor: Colors.grey[200],
             radius: 100,
+            controller: _avatarMakerController,
           ),
           SizedBox(
             height: 25,
@@ -81,8 +85,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: ElevatedButton.icon(
                     icon: Icon(Icons.edit),
                     label: Text("Customize"),
-                    onPressed: () => Navigator.push(context,
-                        new MaterialPageRoute(builder: (context) => NewPage())),
+                    onPressed: () => Navigator.push(
+                        context,
+                        new MaterialPageRoute(
+                            builder: (context) => NewPage(
+                                  controller: _avatarMakerController,
+                                ))),
                   ),
                 ),
               ),
@@ -99,7 +107,9 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class NewPage extends StatelessWidget {
-  const NewPage({Key? key}) : super(key: key);
+  final AvatarMakerController controller;
+
+  const NewPage({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -116,6 +126,7 @@ class NewPage extends StatelessWidget {
                 child: AvatarMakerAvatar(
                   radius: 100,
                   backgroundColor: Colors.grey[200],
+                  controller: controller,
                 ),
               ),
               SizedBox(
@@ -127,9 +138,9 @@ class NewPage extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Spacer(),
-                    AvatarMakerSaveWidget(),
-                    AvatarMakerRandomWidget(),
-                    AvatarMakerResetWidget(),
+                    AvatarMakerSaveWidget(controller: controller),
+                    AvatarMakerRandomWidget(controller: controller),
+                    AvatarMakerResetWidget(controller: controller),
                   ],
                 ),
               ),
@@ -139,6 +150,7 @@ class NewPage extends StatelessWidget {
                 child: AvatarMakerCustomizer(
                   scaffoldWidth: min(600, _width * 0.85),
                   autosave: false,
+                  controller: controller,
                   theme: AvatarMakerThemeData(
                       boxDecoration: BoxDecoration(boxShadow: [BoxShadow()])),
                 ),
