@@ -3,6 +3,9 @@ library avatar_maker;
 // Controllers
 export "src/core/controllers/controllers.dart";
 
+// Providers
+export "src/core/providers/providers.dart";
+
 // Enumerations
 export "src/core/enums/property_items/accessories.dart";
 export "src/core/enums/property_items/background_style.dart";

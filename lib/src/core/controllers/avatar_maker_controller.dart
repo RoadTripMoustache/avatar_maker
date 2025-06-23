@@ -63,7 +63,7 @@ abstract class AvatarMakerController extends ChangeNotifier {
 
   AvatarMakerController({
     List<CustomizedPropertyCategory>? customizedPropertyCategories,
-    Map<PropertyCategoryIds, PropertyItem> selectedOptions = const {},
+    Map<PropertyCategoryIds, PropertyItem>? selectedOptions,
     Locale? locale,
   }) {
     // If no locale is provided, display the english text by default.
@@ -72,12 +72,12 @@ abstract class AvatarMakerController extends ChangeNotifier {
     }
     this.l10n = lookupAppLocalizations(locale);
     this.propertyCategories = PropertyCategoryService.mergePropertyCategories(
-        customizedPropertyCategories, l10n);
+        customizedPropertyCategories ?? [], l10n);
     this.displayedPropertyCategories = this
         .propertyCategories
         .where((category) => category.toDisplay)
         .toList();
-    this.selectedOptions = selectedOptions;
+    this.selectedOptions = selectedOptions ?? {};
     // Generate the default selected options based on the
     // [CustomizedPropertyCategory] list given to the constructor.
     this.defaultSelectedOptions = {

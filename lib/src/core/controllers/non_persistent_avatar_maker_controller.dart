@@ -14,10 +14,12 @@ class NonPersistentAvatarMakerController extends AvatarMakerController {
   String _storedSVG = "";
 
   NonPersistentAvatarMakerController({
-    required List<CustomizedPropertyCategory>? customizedPropertyCategories,
+    List<CustomizedPropertyCategory>? customizedPropertyCategories,
+    Map<PropertyCategoryIds, PropertyItem>? selectedOptions,
     Locale? locale,
   }) : super(
           customizedPropertyCategories: customizedPropertyCategories,
+          selectedOptions: selectedOptions,
           locale: locale,
         );
 
@@ -57,16 +59,5 @@ class NonPersistentAvatarMakerController extends AvatarMakerController {
   void setSelectedOptionsFromList(Map<PropertyCategoryIds, PropertyItem> options) {
     selectedOptions = options;
     updatePreview();
-  }
-
-  /// Extract selected options from an SVG string
-  ///
-  /// This method allows extracting the selected options from an SVG string,
-  /// which is useful when the SVG is provided externally.
-  void extractOptionsFromSVG(String svgString) {
-    // This is a placeholder - in a real implementation, you would
-    // need to parse the SVG and extract the options
-    // For now, we just update the preview with the provided SVG
-    updatePreview(newAvatarMakerSVG: svgString);
   }
 }
