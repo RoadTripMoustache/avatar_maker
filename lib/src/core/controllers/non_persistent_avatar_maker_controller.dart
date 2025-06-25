@@ -47,7 +47,7 @@ class NonPersistentAvatarMakerController extends AvatarMakerController {
   Future<RestoredData> performRestore() async {
     // Use the stored SVG if available, otherwise generate a new one
     String svg = _storedSVG.isNotEmpty ? _storedSVG : drawAvatarSVG();
-    
+
     // Return the current options
     return RestoredData(svg: svg, options: selectedOptions);
   }
@@ -56,7 +56,8 @@ class NonPersistentAvatarMakerController extends AvatarMakerController {
   ///
   /// This method allows setting the selected options directly from a list,
   /// which is useful when the options are provided externally.
-  void setSelectedOptionsFromList(Map<PropertyCategoryIds, PropertyItem> options) {
+  void setSelectedOptionsFromList(
+      Map<PropertyCategoryIds, PropertyItem> options) {
     selectedOptions = options;
     updatePreview();
   }

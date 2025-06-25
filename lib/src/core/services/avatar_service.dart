@@ -1,3 +1,5 @@
+import 'package:avatar_maker/avatar_maker.dart';
+
 /// Contains all the methods related to avatars.
 class AvatarService {
   /// Draw the SVG of an avatar with all the selected options.
@@ -59,5 +61,82 @@ class AvatarService {
     </g>
 </svg>
 """;
+  }
+
+  /// Decode the SVG string to extract the selected options.
+  static Map<PropertyCategoryIds, PropertyItem> extractPropertiesFromSvg(
+      String svg) {
+    // Initialize with default values
+    Map<PropertyCategoryIds, PropertyItem> result = {
+      PropertyCategoryIds.Background: BackgroundStyles.Transparent,
+      PropertyCategoryIds.SkinColor: SkinColors.Brown,
+      PropertyCategoryIds.OutfitType: OutfitTypes.Hoodie,
+      PropertyCategoryIds.OutfitColor: OutfitColors.PastelBlue,
+      PropertyCategoryIds.FacialHairType: FacialHairTypes.Nothing,
+      PropertyCategoryIds.FacialHairColor: FacialHairColors.Black,
+      PropertyCategoryIds.MouthType: Mouths.Default,
+      PropertyCategoryIds.Nose: Noses.Default,
+      PropertyCategoryIds.EyeType: Eyes.Default,
+      PropertyCategoryIds.EyebrowType: Eyebrows.Default,
+      PropertyCategoryIds.Accessory: Accessories.Nothing,
+      PropertyCategoryIds.HairStyle: HairStyles.Bald,
+      PropertyCategoryIds.HairColor: HairColors.Black,
+    };
+
+    // Extract background style
+    // Check for Circle background first (more specific)
+    if (svg.contains(BackgroundStyles.Circle.value.trim())) {
+      result[PropertyCategoryIds.Background] = BackgroundStyles.Circle;
+    } else {
+      // Default to Transparent if Circle is not found
+      result[PropertyCategoryIds.Background] = BackgroundStyles.Transparent;
+    }
+
+    final Map<PropertyCategoryIds, List<PropertyItem>> properties = {
+      PropertyCategoryIds.Background: BackgroundStyles.values,
+      PropertyCategoryIds.SkinColor: SkinColors.values,
+      PropertyCategoryIds.OutfitType: OutfitTypes.values,
+      // PropertyCategoryIds.OutfitColor: OutfitColors.values,
+      PropertyCategoryIds.FacialHairType: FacialHairTypes.values,
+      // PropertyCategoryIds.FacialHairColor: FacialHairColors.values,
+      PropertyCategoryIds.MouthType: Mouths.values,
+      PropertyCategoryIds.Nose: Noses.values,
+      PropertyCategoryIds.EyeType: Eyes.values,
+      PropertyCategoryIds.EyebrowType: Eyebrows.values,
+      PropertyCategoryIds.Accessory: Accessories.values,
+      PropertyCategoryIds.HairStyle: HairStyles.values,
+      // PropertyCategoryIds.HairColor: HairColors.values,
+    };
+
+    for (final category in properties.entries) {
+      for (final item in category.value) {
+        if (item.value.isEmpty) continue; // Skip empty values
+        // Check if the SVG contains the ID of the item
+        if (svg.contains('id="${item.id}"')) {
+          result[category.key] = item;
+          break; // Stop after finding the first match
+        }
+      }
+    }
+
+    final Map<PropertyCategoryIds, List<PropertyItem>> colors = {
+      PropertyCategoryIds.OutfitColor: OutfitColors.values,
+      PropertyCategoryIds.FacialHairColor: FacialHairColors.values,
+      PropertyCategoryIds.HairColor: HairColors.values,
+    };
+
+    // Extract outfit color
+    // Check for hex codes in the SVG where outfit color would be
+    for (final item in colors.entries) {
+      for (final color in item.value) {
+        if (svg.contains(RegExp(
+            'id="${RegExp.escape(color.id)}"[^>]*fill="${color.value}"'))) {
+          result[item.key] = color;
+          break; // Stop after finding the first match
+        }
+      }
+    }
+
+    return result;
   }
 }

@@ -20,8 +20,8 @@ void main() {
 
   Widget buildTestWidget(Widget child) {
     return ChangeNotifierProvider<AvatarMakerController>.value(
-          value: mockController,
-          child: child,
+      value: mockController,
+      child: child,
     );
   }
 
@@ -48,7 +48,7 @@ void main() {
 
         verifyNever(mockController.restoreState());
       });
-      
+
       testWidgets("With radius", (WidgetTester tester) async {
         final double radius = 12.9;
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
@@ -73,7 +73,7 @@ void main() {
 
         verifyNever(mockController.restoreState());
       });
-      
+
       testWidgets("With splashColor", (WidgetTester tester) async {
         final Color splashColor = Colors.green;
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
@@ -98,7 +98,7 @@ void main() {
 
         verifyNever(mockController.restoreState());
       });
-      
+
       testWidgets("With custom theme", (WidgetTester tester) async {
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
           theme: AvatarMakerThemeData(
@@ -123,7 +123,7 @@ void main() {
 
         verifyNever(mockController.restoreState());
       });
-      
+
       testWidgets("With custom child", (WidgetTester tester) async {
         final customChild = Text("Custom Child");
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
@@ -132,12 +132,13 @@ void main() {
 
         expect(find.text("Custom Child"), findsOneWidget);
         expect(find.byType(Icon), findsNothing);
-        
+
         verifyNever(mockController.restoreState());
       });
-      
+
       testWidgets("With controller", (WidgetTester tester) async {
-        final controller = PersistentAvatarMakerController(customizedPropertyCategories: []);
+        final controller =
+            PersistentAvatarMakerController(customizedPropertyCategories: []);
         await tester.pumpMaterialApp(
           MaterialApp(
             home: Scaffold(
@@ -149,11 +150,11 @@ void main() {
         );
 
         expect(find.byType(Icon), findsOneWidget);
-        
+
         verifyNever(mockController.restoreState());
       });
     });
-    
+
     group("On tap InkWell", () {
       testWidgets("Default", (WidgetTester tester) async {
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget()));
@@ -164,7 +165,7 @@ void main() {
 
         verify(mockController.restoreState()).called(1);
       });
-      
+
       testWidgets("With onTap callback", (WidgetTester tester) async {
         bool callbackCalled = false;
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(

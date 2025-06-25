@@ -87,14 +87,16 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
 
     final AvatarMakerController? tmpController = widget.controller ??
         Provider.of<AvatarMakerController?>(context, listen: true);
-    avatarMakerController = tmpController ?? PersistentAvatarMakerController(
+    avatarMakerController = tmpController ??
+        PersistentAvatarMakerController(
             customizedPropertyCategories: widget.customizedPropertyCategories);
 
-    if(tmpController == null) {
+    if (tmpController == null) {
       _controllerCreatedInternally = true;
     }
 
-    nbrDisplayedCategories = avatarMakerController.displayedPropertyCategories.length;
+    nbrDisplayedCategories =
+        avatarMakerController.displayedPropertyCategories.length;
 
     tabController = TabController(
       length: nbrDisplayedCategories,
@@ -138,7 +140,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
         avatarMakerController.selectedOptions[categoryId] = newSelectedItem;
       });
       avatarMakerController.updatePreview();
-      if(widget.onChange != null) {
+      if (widget.onChange != null) {
         widget.onChange!(avatarMakerController.drawAvatarSVG());
       }
       if (widget.autosave) {

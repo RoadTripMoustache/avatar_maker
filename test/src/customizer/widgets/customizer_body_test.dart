@@ -52,8 +52,7 @@ void main() {
       PropertyCategoryIds.HairStyle: HairStyles.Bald,
       PropertyCategoryIds.SkinColor: SkinColors.Black,
     });
-    when(avatarMakerControllerMock.getComponentSVG(any
-        , any)).thenReturn(
+    when(avatarMakerControllerMock.getComponentSVG(any, any)).thenReturn(
         """<svg width="20px" height="20px" viewBox="-3 -50 120 170" >
         </svg>""");
 

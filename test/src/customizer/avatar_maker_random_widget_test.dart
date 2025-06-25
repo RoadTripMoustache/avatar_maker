@@ -21,15 +21,16 @@ void main() {
 
   Widget buildTestWidget(Widget child) {
     return ChangeNotifierProvider<AvatarMakerController>.value(
-          value: mockController,
-          child: child,
+      value: mockController,
+      child: child,
     );
   }
 
   group("AvatarMakerRandomWidget", () {
     group("UI", () {
       testWidgets("Default", (WidgetTester tester) async {
-        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget()));
+        await tester
+            .pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget()));
 
         final inkWellConditions = isA<InkWell>()
             .having((i) => i.radius, "Check radius", null)
@@ -138,7 +139,8 @@ void main() {
       });
 
       testWidgets("With controller", (WidgetTester tester) async {
-        final controller = PersistentAvatarMakerController(customizedPropertyCategories: []);
+        final controller =
+            PersistentAvatarMakerController(customizedPropertyCategories: []);
         await tester.pumpMaterialApp(
           MaterialApp(
             home: Scaffold(
@@ -157,7 +159,8 @@ void main() {
 
     group("On tap InkWell", () {
       testWidgets("Default", (WidgetTester tester) async {
-        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget()));
+        await tester
+            .pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget()));
 
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);

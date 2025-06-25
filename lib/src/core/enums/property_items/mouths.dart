@@ -151,7 +151,7 @@ enum Mouths implements PropertyItem {
 
   const Mouths(this.svg);
 
-  String get label => this.name;
-
-  String get value => this.svg;
+  String get label => name;
+  String get id => "Mouth/$name";
+  String get value => svg;
 }

@@ -12,7 +12,7 @@ enum HairStyles implements PropertyItem {
           <use xlink:href="#react-path-kvwd"></use>
         </mask>
         <g id="Mask"></g>
-        <g id="Top/Accesories/Eyepatch" mask="url(#react-mask-ccbdjc)">
+        <g id="HairStyles/Eyepatch" mask="url(#react-mask-ccbdjc)">
           <g transform="translate(-1.000000, 0.000000)">
 
             <path
@@ -25,8 +25,7 @@ enum HairStyles implements PropertyItem {
         </g>
       </g>
 """),
-  Hat("""
-<g id="Top" stroke-width="1" fill-rule="evenodd">
+  Hat("""<g id="Hat" stroke-width="1" fill-rule="evenodd">
 						<defs>
 							<rect id="react-path-5564" x="0" y="0" width="264" height="280"></rect>
 							<path d="M156,180.610951 C173.530782,172.282984 186.048193,155.114792 187.791419,134.867187 C193.569129,134.002364 198,129.018625 198,123 L198,110 C198,104.054007 193.675427,99.1180731 188,98.1659169 L188,92 C188,84.0546578 186.345324,76.495786 183.361772,69.6491845 C173.434911,53 89.3126235,53.8033992 80.7098777,69.4854816 C77.6811789,76.3752214 76,83.9912805 76,92 L76,98.1659169 C70.3245733,99.1180731 66,104.054007 66,110 L66,123 C66,129.018625 70.4308707,134.002364 76.2085808,134.867187 C77.9518066,155.114792 90.4692178,172.282984 108,180.610951 L108,199 L104,199 L104,199 C64.235498,199 32,231.235498 32,271 L32,280 L232,280 L232,271 C232,231.235498 199.764502,199 160,199 L156,199 L156,180.610951 Z M0,5.68434189e-14 L264,5.68434189e-14 L264,280 L0,280 L0,5.68434189e-14 Z" id="react-path-5563"></path>
@@ -43,7 +42,7 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-5564"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Accesories/Hat" mask="url(#react-mask-5561)">
+						<g id="HairStyles/Hat" mask="url(#react-mask-5561)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<g id="Hat" stroke-width="1" fill-rule="evenodd" transform="translate(1.000000, 0.000000)">
 									<mask id="react-mask-5562" fill="white">
@@ -76,7 +75,7 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-5680"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Accesories/Hijab" mask="url(#react-mask-5678)">
+						<g id="HairStyles/Hijab" mask="url(#react-mask-5678)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<mask id="react-mask-5679" fill="white">
 									<use xlink:href="#react-path-5681"></use>
@@ -102,14 +101,14 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-5731"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Long-Hair/Big-Hair" mask="url(#react-mask-5729)">
+						<g id="HairStyles/Long" mask="url(#react-mask-5729)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<g id="Hair" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(16.000000, 13.000000)">
 									<mask id="react-mask-5730" fill="white">
 										<use xlink:href="#react-path-5732"></use>
 									</mask>
 									<use fill="#314756" xlink:href="#react-path-5732"></use>
-									<g id="Hairs/Colors" mask="url(#react-mask-5730)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+									<g id="Color/Hair" mask="url(#react-mask-5730)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 										<g transform="translate(0.000000, 0.000000) " id="Color">
 											<rect x="0" y="0" width="264" height="280"></rect>
 										</g>
@@ -137,14 +136,14 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-5910"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Long-Hair/Bob" mask="url(#react-mask-5908)">
+						<g id="HairStyles/BobCut" mask="url(#react-mask-5908)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<g id="Hair" stroke-width="1" fill-rule="evenodd" transform="translate(39.000000, 19.000000)">
 									<mask id="react-mask-5909" fill="white">
 										<use xlink:href="#react-path-5911"></use>
 									</mask>
 									<use id="Combined-Shape" fill="#E6E6E6" xlink:href="#react-path-5911"></use>
-									<g id="Hairs/Colors" mask="url(#react-mask-5909)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+									<g id="Color/Hair" mask="url(#react-mask-5909)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 										<g transform="translate(0.000000, 0.000000) " id="Color">
 											<rect x="0" y="0" width="264" height="280"></rect>
 										</g>
@@ -164,13 +163,13 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-7666"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Long-Hair/Bun" mask="url(#react-mask-7664)">
+						<g id="HairStyles/Bun" mask="url(#react-mask-7664)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<mask id="react-mask-7663" fill="white">
 									<use xlink:href="#react-path-7665"></use>
 								</mask>
 								<use id="Short-Hair" stroke="none" fill="#28354B" fill-rule="evenodd" xlink:href="#react-path-7665"></use>
-								<g id="Hairs/Colors" mask="url(#react-mask-7663)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+								<g id="Color/Hair" mask="url(#react-mask-7663)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 									<g transform="translate(0.000000, 0.000000) " id="Color">
 										<rect x="0" y="0" width="264" height="280"></rect>
 									</g>
@@ -179,7 +178,7 @@ enum HairStyles implements PropertyItem {
 						</g>
 					</g>
 """),
-  Curly("""
+  LongCurly("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 						<defs>
 							<rect id="react-path-6566" x="0" y="0" width="264" height="280"></rect>
@@ -189,7 +188,7 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-6566"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Long-Hair/Curly" mask="url(#react-mask-6564)">
+						<g id="HairStyles/LongCurly" mask="url(#react-mask-6564)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<path d="M105.984735,27.7643628 C114.013215,26.6267967 122.796163,26 132,26 C142.358003,26 152.182939,26.7938545 160.999342,28.2161842 C183.451688,38.7497687 199,61.559133 199,88 L199,105.044138 C187.461887,104.672508 173.831239,90.7644306 166.449951,70.7992877 C156.312295,72.8351061 144.547256,74 132,74 C120.038684,74 108.788234,72.9413637 98.9808476,71.0787685 C91.6758772,90.6271291 78.3831001,104.301811 67,105.021902 L67,88 L67,88 C67,61.1745453 83.0039076,38.0870034 105.984735,27.7643628 Z" id="Shadow" fill-opacity="0.16" fill="#000000" fill-rule="evenodd"></path>
 								<g id="Hair" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(25.000000, 10.000000)">
@@ -197,7 +196,7 @@ enum HairStyles implements PropertyItem {
 										<use xlink:href="#react-path-6567"></use>
 									</mask>
 									<use id="Curly!" fill="#314756" xlink:href="#react-path-6567"></use>
-									<g id="Hairs/Colors" mask="url(#react-mask-6565)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+									<g id="Color/Hair" mask="url(#react-mask-6565)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 										<g transform="translate(0.000000, 0.000000) " id="Color">
 											<rect x="0" y="0" width="264" height="280"></rect>
 										</g>
@@ -207,7 +206,7 @@ enum HairStyles implements PropertyItem {
 						</g>
 					</g>
 """),
-  Curvy("""
+  LongCurvy("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 						<defs>
 							<rect id="react-path-6862" x="0" y="0" width="264" height="280"></rect>
@@ -217,7 +216,7 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-6862"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Long-Hair/Curvy" mask="url(#react-mask-6860)">
+						<g id="HairStyles/LongCurvy" mask="url(#react-mask-6860)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<path d="M100.899906,42.4648024 C91.1016204,48.4721303 82.3855283,56.3273858 76.5871222,65.36024 C73.8252914,69.662826 71.5532049,74.1995784 69.4361743,78.7575668 C68.3739624,81.0447336 67.4048638,83.3600237 66.475928,85.6893613 C65.8894735,87.1594817 64.9889112,88.7449062 65.8359233,90.2878445 C66.3526427,89.9857996 66.5492598,90.0943892 66.224362,90.6353417 C68.9162579,91.3693254 72.6583769,89.3003017 74.9906073,88.5362205 C79.7539763,86.9753339 84.5203425,85.5025753 89.3986046,84.2045441 C93.8552588,83.0189378 103.79801,81.0907786 107.68879,80.1941723 L110.425245,77.215348 L111.487657,79.1702128 C113.645649,79.0042337 125.56636,77.212708 125.56636,77.212708 L126.896323,73.9898699 C128.612526,75.7530625 129.834989,76.668872 129.834989,76.668872 C132.391211,76.460454 143.488488,76.2113208 146.119841,76.2427023 C146.119841,76.2427023 153.460212,76.5012269 155.240756,76.5714137 L156.907605,75.9328981 L157.456495,77.0098503 C158.910143,77.601117 167.699367,80.6008734 169.434153,81.138079 L171.980784,80.2323702 C173.100342,82.9256202 175.920119,82.586016 178.257345,84.7132858 C181.34867,87.5271086 187.825645,89.5285179 190.917768,91.9756241 C192.024938,92.8519441 193.059576,93.7675012 194.100208,94.7015404 C195.255933,95.7385867 195.085291,95.890424 195.460742,97.0802141 C195.573237,97.4361731 196.715775,99.2788807 197.202722,99.4296139 C198.935909,99.9660566 187.048767,68.9435732 183.785603,64.9771662 C180.417736,60.8830307 158.574915,33.3231248 129.612057,34.2254634" id="Top-Shadow" fill-opacity="0.16" fill="#000000" fill-rule="evenodd"></path>
 								<g id="Hair" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(26.000000, 16.000000)">
@@ -225,7 +224,7 @@ enum HairStyles implements PropertyItem {
 										<use xlink:href="#react-path-6863"></use>
 									</mask>
 									<use id="Hair-Mask" fill="#361A0A" xlink:href="#react-path-6863"></use>
-									<g id="Hairs/Colors" mask="url(#react-mask-6861)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+									<g id="Color/Hair" mask="url(#react-mask-6861)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 										<g transform="translate(0.000000, 0.000000) " id="Color">
 											<rect x="0" y="0" width="264" height="280"></rect>
 										</g>
@@ -237,7 +236,7 @@ enum HairStyles implements PropertyItem {
 						</g>
 					</g>
 """),
-  LongWithDreads("""
+  LongDreads("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 						<defs>
 							<rect id="react-path-8810" x="0" y="0" width="264" height="280"></rect>
@@ -247,7 +246,7 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-8810"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Long-Hair/Dreads" mask="url(#react-mask-8809)">
+						<g id="HairStyles/LongDreads" mask="url(#react-mask-8809)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<g id="template-for-hairstyles" stroke-width="1" fill-rule="evenodd" transform="translate(63.000000, 87.000000)"></g>
 								<g id="Hair" stroke-width="1" fill-rule="evenodd" transform="translate(16.000000, 14.000000)">
@@ -255,7 +254,7 @@ enum HairStyles implements PropertyItem {
 										<use xlink:href="#react-path-8811"></use>
 									</mask>
 									<use id="No-Woman" fill="#8D5A5A" xlink:href="#react-path-8811"></use>
-									<g id="Hairs/Colors" mask="url(#react-mask-8808)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+									<g id="Color/Hair" mask="url(#react-mask-8808)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 										<g transform="translate(0.000000, 0.000000) " id="Color">
 											<rect x="0" y="0" width="264" height="280"></rect>
 										</g>
@@ -334,7 +333,7 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-8794"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Long-Hair/Frida" mask="url(#react-mask-8792)">
+						<g id="HairStyles/Frida" mask="url(#react-mask-8792)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<g id="Cabello" stroke-width="1" fill-rule="evenodd" transform="translate(57.000000, 12.000000)">
 									<path d="M132,85.9365741 L132,86.1659169 C137.155374,87.0308248 141.196116,91.1828748 141.893354,96.3931952 C144.449672,93.4871212 146,89.6746099 146,85.5 C146,83.370043 145.596416,81.3343479 144.861548,79.4652142 C148.026608,76.4588698 150,72.2098901 150,67.5 C150,61.6639649 146.970105,56.5355997 142.397534,53.6021248 C143.424844,51.4510861 144,49.0427105 144,46.5 C144,38.865183 138.814518,32.4415002 131.77335,30.5587463 C131.922635,29.560863 132,28.5394662 132,27.5 C132,16.1781626 122.821837,7 111.5,7 C108.870853,7 106.357304,7.49493913 104.047446,8.3967274 C100.317449,3.30576666 94.2947759,0 87.5,0 C83.2377504,0 79.2793114,1.30076749 76,3.52698535 C72.7206886,1.30076749 68.7622496,0 64.5,0 C57.7052241,0 51.6825514,3.30576666 47.9525545,8.3967274 C45.6426956,7.49493913 43.1291474,7 40.5,7 C29.1781626,7 20,16.1781626 20,27.5 C20,28.5394662 20.0773647,29.560863 20.2266501,30.5587463 C13.1854816,32.4415002 8,38.865183 8,46.5 C8,48.6917361 8.4273349,50.7836628 9.20323008,52.6970055 C3.75045759,55.3899422 0,61.0069879 0,67.5 C0,72.9379417 2.63063706,77.7614652 6.68874609,80.7674054 C6.2406808,82.2665254 6,83.8551557 6,85.5 C6,89.6746099 7.55032816,93.4871212 10.1066457,96.3931952 C10.8038839,91.1828748 14.8446259,87.0308248 20,86.1659169 L20,85.9365741 C20.0276665,85.957925 20.0554443,85.9790669 20.0833333,86 C22.985911,38.8525302 68.5527463,55.7423492 76.000002,29.3361688 C83.4472619,55.7423461 129.014089,38.8525344 131.916667,86 C131.944556,85.9790669 131.972333,85.957925 132,85.9365741 Z M52,168.610951 L52,172.811832 C51.1847358,172.935746 50.3498715,173 49.5,173 C42.6790709,173 36.8248202,168.861157 34.3116389,162.957863 C25.7536314,162.348807 19,155.213101 19,146.5 C19,145.029028 19.1924867,143.603013 19.5536459,142.245771 C12.8575367,140.144362 8,133.88945 8,126.5 C8,122.755519 9.24731211,119.302363 11.3491137,116.533355 C13.0865598,119.870864 16.346706,122.289132 20.2085808,122.867187 C21.9518066,143.114792 34.4692178,160.282984 52,168.610951 Z M100,168.610951 L100,172.811832 C100.815264,172.935746 101.650128,173 102.5,173 C109.320929,173 115.17518,168.861157 117.688361,162.957863 C126.246369,162.348807 133,155.213101 133,146.5 C133,145.029028 132.807513,143.603013 132.446354,142.245771 C139.142463,140.144362 144,133.88945 144,126.5 C144,122.755519 142.752688,119.302363 140.650886,116.533355 C138.91344,119.870864 135.653294,122.289132 131.791419,122.867187 C130.048193,143.114792 117.530782,160.282984 100,168.610951 Z" fill="#1F3540"></path>
@@ -388,7 +387,7 @@ enum HairStyles implements PropertyItem {
 							<use xlink:href="#react-path-10404"></use>
 						</mask>
 						<g id="Mask"></g>
-						<g id="Top/Long-Hair/Fro" mask="url(#react-mask-10402)">
+						<g id="HairStyles/Fro" mask="url(#react-mask-10402)">
 							<g transform="translate(-1.000000, 0.000000)">
 								<path d="M67,109.777572 C76.0375502,108.717226 88.9217814,89.3309188 94.3694073,69.3345491 C105.486404,71.0717584 118.905207,72.0867832 133.353789,72.0867832 C147.513023,72.0867832 160.683308,71.1120054 171.66752,69.4380466 C177.129582,89.3913728 189.978479,108.706688 199,109.77655 L199,89 C199,66.1159733 187.353465,45.9521405 169.664405,34.1125124 C169.136033,36.5946509 168.784517,39.3353373 168.624132,42.297284 C158.284896,40.892676 146.228147,40.0867832 133.353789,40.0867832 C120.190372,40.0867832 107.88169,40.9292706 97.3896338,42.392803 C97.2315704,39.3922173 96.8778294,36.6175705 96.3431783,34.1074375 C78.6498638,45.9463781 67,66.1127033 67,89 L67,89 L67,109.777572 Z" id="Shadow" fill-opacity="0.16" fill="#000000" fill-rule="evenodd"></path>
 								<g id="Hair" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(17.000000, 0.000000)">
@@ -396,7 +395,7 @@ enum HairStyles implements PropertyItem {
 										<use xlink:href="#react-path-10405"></use>
 									</mask>
 									<use fill="#314756" xlink:href="#react-path-10405"></use>
-									<g id="Hairs/Colors" mask="url(#react-mask-10403)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+									<g id="Color/Hair" mask="url(#react-mask-10403)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 										<g transform="translate(0.000000, 0.000000) " id="Color">
 											<rect x="0" y="0" width="264" height="280"></rect>
 										</g>
@@ -416,13 +415,13 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-84876"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Long-Hair/Fro-+-Band" mask="url(#react-mask-84874)">
+<g id="HairStyles/FroWithBand" mask="url(#react-mask-84874)">
 <g transform="translate(-1.000000, 0.000000)">
 <mask id="react-mask-84875" fill="white">
 <use xlink:href="#react-path-84877"></use>
 </mask>
 <use id="Hair" stroke="none" fill="#314756" fill-rule="evenodd" xlink:href="#react-path-84877"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-84875)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-84875)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -443,7 +442,7 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-84833"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Long-Hair/Mia-Wallace" mask="url(#react-mask-84831)">
+<g id="HairStyles/MiaWallace" mask="url(#react-mask-84831)">
 <g transform="translate(-1.000000, 0.000000)">
 <path d="M69.0330562,76.212888 C81.9708809,43.1292208 95.6458945,26.5873873 110.058097,26.5873873 C110.596882,26.5873873 139.311316,26.3494141 158.112657,26.226792 C178.767149,35.5853581 193,55.3036503 193,78.114622 L193,93 L110.058097,93 L107.252975,69.820435 L103.373552,93 L69,93 L69,78.114622 C69,77.478246 69.0110772,76.844277 69.0330621,76.2128728 L69.0330562,76.212888 Z" id="Shadow" fill-opacity="0.16" fill="#000000" fill-rule="evenodd"></path>
 <g id="Hair" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(40.000000, 19.000000)">
@@ -451,7 +450,7 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-84834"></use>
 </mask>
 <use id="Combined-Shape" fill="#E6E6E6" xlink:href="#react-path-84834"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-84832)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-84832)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -471,14 +470,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-85463"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Long-Hair/Long-but-not-too-long" mask="url(#react-mask-85461)">
+<g id="HairStyles/ItsNotShort" mask="url(#react-mask-85461)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Behind" stroke-width="1" fill-rule="evenodd">
 <mask id="react-mask-85462" fill="white">
 <use xlink:href="#react-path-85464"></use>
 </mask>
 <use id="Combined-Shape" fill="#944F23" xlink:href="#react-path-85464"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-85462)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-85462)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -491,7 +490,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  LongWithShavedSides("""
+  LongShavedSides("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-85683" x="0" y="0" width="264" height="280"></rect>
@@ -503,14 +502,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-85683"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Long-Hair/Shaved-Sides" mask="url(#react-mask-85680)">
+<g id="HairStyles/LongShavedSides" mask="url(#react-mask-85680)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Behind" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(1.000000, 0.000000)">
 <mask id="react-mask-85681" fill="white">
 <use xlink:href="#react-path-85684"></use>
 </mask>
 <g id="Mask-Hair"></g>
-<path d="M116.179148,40 L146,40 C171.405098,40 192,60.5949015 192,86 L192,154.108712 C192,180.650314 210.758775,204.349179 222.609956,226.05167 C234.461138,247.754161 215.254522,268.242596 195.770735,276.769484 C190.902336,278.900091 185.645645,280 180.331438,280 L135.26309,280 C78.9108161,280 70.2166412,216.309596 67.6972794,146.504423 L70.2166412,84.1431398 C71.212998,59.4805095 91.4964003,40 116.179148,40 Z" id="Hair" fill="$TO_REPLACE_WITH_HAIRS_COLOR" mask="url(#react-mask-85681)"></path>
+<path d="M116.179148,40 L146,40 C171.405098,40 192,60.5949015 192,86 L192,154.108712 C192,180.650314 210.758775,204.349179 222.609956,226.05167 C234.461138,247.754161 215.254522,268.242596 195.770735,276.769484 C190.902336,278.900091 185.645645,280 180.331438,280 L135.26309,280 C78.9108161,280 70.2166412,216.309596 67.6972794,146.504423 L70.2166412,84.1431398 C71.212998,59.4805095 91.4964003,40 116.179148,40 Z" id="Color/Hair" fill="$TO_REPLACE_WITH_HAIRS_COLOR" mask="url(#react-mask-85681)"></path>
 </g>
 <g id="Top" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(77.000000, 36.000000)">
 <mask id="react-mask-85679" fill="white">
@@ -524,7 +523,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  LongHairStraight("""
+  LongStraight("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-85497" x="0" y="0" width="264" height="280"></rect>
@@ -534,14 +533,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-85497"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Long-Hair/Straight" mask="url(#react-mask-85495)">
+<g id="HairStyles/LongStraight" mask="url(#react-mask-85495)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Hair" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(59.000000, 18.000000)">
 <mask id="react-mask-85496" fill="white">
 <use xlink:href="#react-path-85498"></use>
 </mask>
 <use id="Mask-Hair" fill="#944F23" xlink:href="#react-path-85498"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-85496)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-85496)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -553,7 +552,7 @@ enum HairStyles implements PropertyItem {
 </g>
 
 """),
-  LongHairStraight2("""
+  LongStraight2("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-85531" x="0" y="0" width="264" height="280"></rect>
@@ -564,14 +563,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-85531"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Long-Hair/Straight" mask="url(#react-mask-85529)">
+<g id=" HairStyles/LongStraight2" mask="url(#react-mask-85529)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Hair" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(40.000000, 15.000000)">
 <mask id="react-mask-85530" fill="white">
 <use xlink:href="#react-path-85532"></use>
 </mask>
 <use fill="#272C2E" xlink:href="#react-path-85532"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-85530)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-85530)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -583,7 +582,7 @@ enum HairStyles implements PropertyItem {
 </g>
 
 """),
-  LongHairStraightStrand("""
+  LongStraightStrand("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-85653" x="0" y="0" width="264" height="280"></rect>
@@ -594,14 +593,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-85653"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Long-Hair/Straight-+-Strand" mask="url(#react-mask-85651)">
+<g id="HairStyles/LongStraightStrand" mask="url(#react-mask-85651)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Hair" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(59.000000, 18.000000)">
 <mask id="react-mask-85652" fill="white">
 <use xlink:href="#react-path-85654"></use>
 </mask>
 <use fill="#ECC797" xlink:href="#react-path-85654"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-85652)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-85652)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -612,7 +611,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  ShortWithDreads("""
+  ShortDreads("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-90661" x="0" y="0" width="264" height="280"></rect>
@@ -623,14 +622,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-90661"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Dreads-01" mask="url(#react-mask-90660)">
+<g id="HairStyles/ShortDreads" mask="url(#react-mask-90660)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Hair" stroke-width="1" fill-rule="evenodd" transform="translate(1.000000, 0.000000)">
 <mask id="react-mask-90659" fill="white">
 <use xlink:href="#react-path-90663"></use>
 </mask>
 <use id="Dreads-With-Cut" fill="#2E3257" xlink:href="#react-path-90663"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-90659)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-90659)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -640,7 +639,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  ShortWLotsOfDreads("""
+  ShortDreads2("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-1827" x="0" y="0" width="264" height="280"></rect>
@@ -651,14 +650,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-1827"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Dreads-02" mask="url(#react-mask-1826)">
+<g id="HairStyles/ShortDreads2" mask="url(#react-mask-1826)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Hair" stroke-width="1" fill-rule="evenodd" transform="translate(36.000000, 0.000000)">
 <mask id="react-mask-1825" fill="white">
 <use xlink:href="#react-path-1829"></use>
 </mask>
 <use id="Dreads" fill="#2E3257" xlink:href="#react-path-1829"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-1825)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-1825)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -668,7 +667,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  ShortWFrizzle("""
+  ShortFrizzle("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-2148" x="0" y="0" width="264" height="280"></rect>
@@ -686,13 +685,13 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-2148"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Frizzle" mask="url(#react-mask-2146)">
+<g id="HairStyles/ShortFrizzle" mask="url(#react-mask-2146)">
 <g transform="translate(-1.000000, 0.000000)">
 <mask id="react-mask-2145" fill="white">
 <use xlink:href="#react-path-2147"></use>
 </mask>
 <use id="Hair-Maks" stroke="none" fill="#252E32" fill-rule="evenodd" xlink:href="#react-path-2147"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-2145)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-2145)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -701,7 +700,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  Shaggy("""
+  ShortShaggy("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-2513" x="0" y="0" width="264" height="280"></rect>
@@ -712,13 +711,13 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-2513"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Shaggy-Mullet" mask="url(#react-mask-2511)">
+<g id="HairStyles/ShortShaggy" mask="url(#react-mask-2511)">
 <g transform="translate(-1.000000, 0.000000)">
 <mask id="react-mask-2512" fill="white">
 <use xlink:href="#react-path-2514"></use>
 </mask>
 <use id="Hair" stroke="none" fill="#1D2633" fill-rule="evenodd" xlink:href="#react-path-2514"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-2512)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-2512)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -728,7 +727,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  ShortNCurly("""
+  ShortCurly("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-2756" x="0" y="0" width="264" height="280"></rect>
@@ -746,13 +745,13 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-2756"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Short-Curly" mask="url(#react-mask-2754)">
+<g id="HairStyles/ShortCurly" mask="url(#react-mask-2754)">
 <g transform="translate(-1.000000, 0.000000)">
 <mask id="react-mask-2753" fill="white">
 <use xlink:href="#react-path-2755"></use>
 </mask>
 <use id="Short-Hair" stroke="none" fill="#28354B" fill-rule="evenodd" xlink:href="#react-path-2755"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-2753)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-2753)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -761,7 +760,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  Flat("""
+  ShortFlat("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-92009" x="0" y="0" width="264" height="280"></rect>
@@ -779,13 +778,13 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-92009"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Short-Flat" mask="url(#react-mask-92007)">
+<g id="HairStyles/ShortFlat" mask="url(#react-mask-92007)">
 <g transform="translate(-1.000000, 0.000000)">
 <mask id="react-mask-92006" fill="white">
 <use xlink:href="#react-path-92008"></use>
 </mask>
 <use id="Short-Hair" stroke="none" fill="#1F3140" fill-rule="evenodd" xlink:href="#react-path-92008"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-92006)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-92006)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -794,7 +793,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  FromSchool("""
+  ShortRound("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-3193" x="0" y="0" width="264" height="280"></rect>
@@ -812,13 +811,13 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-3193"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Short-Round" mask="url(#react-mask-3191)">
+<g id="HairStyles/ShortRound" mask="url(#react-mask-3191)">
 <g transform="translate(-1.000000, 0.000000)">
 <mask id="react-mask-3190" fill="white">
 <use xlink:href="#react-path-3192"></use>
 </mask>
 <use id="Short-Hair" stroke="none" fill="#28354B" fill-rule="evenodd" xlink:href="#react-path-3192"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-3190)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-3190)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -827,7 +826,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  ShortNWaved("""
+  ShortWaved("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-92420" x="0" y="0" width="264" height="280"></rect>
@@ -845,13 +844,13 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-92420"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Short-Waved" mask="url(#react-mask-92418)">
+<g id="HairStyles/ShortWaved" mask="url(#react-mask-92418)">
 <g transform="translate(-1.000000, 0.000000)">
 <mask id="react-mask-92417" fill="white">
 <use xlink:href="#react-path-92419"></use>
 </mask>
 <use id="Short-Hair" stroke="none" fill="#28354B" fill-rule="evenodd" xlink:href="#react-path-92419"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-92417)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-92417)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -860,7 +859,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  ImNotBald("""
+  ShortSides("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-3286" x="0" y="0" width="264" height="280"></rect>
@@ -871,14 +870,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-3286"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/Sides" mask="url(#react-mask-3285)">
+<g id="HairStyles/ShortSides" mask="url(#react-mask-3285)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Hair" stroke-width="1" fill-rule="evenodd" transform="translate(70.000000, 74.000000)">
 <mask id="react-mask-3284" fill="white">
 <use xlink:href="#react-path-3288"></use>
 </mask>
 <use id="Sides" fill="#9E7A7A" xlink:href="#react-path-3288"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-3284)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-3284)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -888,7 +887,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  TheCaesar("""
+  ShortCaesar("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-92544" x="0" y="0" width="264" height="280"></rect>
@@ -906,14 +905,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-92544"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/The-Caesar" mask="url(#react-mask-92542)">
+<g id=" HairStyles/ShortCaesar" mask="url(#react-mask-92542)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Hair" stroke-width="1" fill-rule="evenodd" transform="translate(75.000000, 34.000000)">
 <mask id="react-mask-92543" fill="white">
 <use xlink:href="#react-path-92545"></use>
 </mask>
 <use id="Caesar" fill="#28354B" xlink:href="#react-path-92545"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-92543)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-92543)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -923,7 +922,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  AnotherCaesar("""
+  ShortCaesarSides("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
 <rect id="react-path-93178" x="0" y="0" width="264" height="280"></rect>
@@ -941,14 +940,14 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-93178"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Short-Hair/The-Caesar-+-Side-Part" mask="url(#react-mask-93176)">
+<g id=" HairStyles/ShortCaesarSides" mask="url(#react-mask-93176)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Hair" stroke-width="1" fill-rule="evenodd" transform="translate(75.000000, 34.000000)">
 <mask id="react-mask-93177" fill="white">
 <use xlink:href="#react-path-93179"></use>
 </mask>
 <use id="Caesar" fill="#28354B" xlink:href="#react-path-93179"></use>
-<g id="Hairs/Colors" mask="url(#react-mask-93177)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g id="Color/Hair" mask="url(#react-mask-93177)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
 <g transform="translate(0.000000, 0.000000) " id="Color">
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
@@ -977,7 +976,7 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-93449"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Accesories/Turban" mask="url(#react-mask-93446)">
+<g id=" HairStyles/Turban" mask="url(#react-mask-93446)">
 <g transform="translate(-1.000000, 0.000000)">
 <g id="Behind" stroke-width="1" fill-rule="evenodd" transform="translate(1.000000, 0.000000)">
 <mask id="react-mask-93447" fill="white">
@@ -1017,7 +1016,7 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-94408"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Accessories/Winter-Hat-1" transform="translate(-1.000000, 0.000000)">
+<g id=" HairStyles/WinterHat1" transform="translate(-1.000000, 0.000000)">
 <g id="hat" stroke-width="1" fill-rule="evenodd" transform="translate(63.000000, 20.000000)">
 <path d="M1,48 L23.6714286,48 L23.6714286,153.664286 C23.6714286,159.924828 18.5962564,165 12.3357143,165 C6.07517216,165 1,159.924828 1,153.664286 L1,48 Z M116.328571,48 L139,48 L139,153.664286 C139,159.924828 133.924828,165 127.664286,165 C121.403744,165 116.328571,159.924828 116.328571,153.664286 L116.328571,48 Z" id="inside" fill="#F4F4F4"></path>
 <mask id="react-mask-94405" fill="white">
@@ -1046,7 +1045,7 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-5266"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Accessories/Winter-Hat-2" transform="translate(-1.000000, 0.000000)">
+<g id=" HairStyles/WinterHat2" transform="translate(-1.000000, 0.000000)">
 <g id="hat" stroke-width="1" fill-rule="evenodd" transform="translate(61.000000, 0.000000)">
 <g id="string" transform="translate(0.000000, 176.000000)" fill="#F4F4F4">
 <circle id="puff" cx="9" cy="65" r="9"></circle>
@@ -1080,7 +1079,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  SantaHat("""
+  WinterHat3("""
 <g id="Top">
 <defs>
 <rect id="react-path-95074" x="0" y="0" width="264" height="280"></rect>
@@ -1095,7 +1094,7 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-95074"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Accessories/Winter-Hat-3" transform="translate(-1.000000, 0.000000)">
+<g id=" HairStyles/WinterHat3" transform="translate(-1.000000, 0.000000)">
 <g id="hat" stroke-width="1" fill-rule="evenodd" transform="translate(67.000000, 12.000000)">
 <circle id="puff" fill="#F4F4F4" cx="66" cy="8" r="20"></circle>
 <mask id="react-mask-95071" fill="white">
@@ -1113,7 +1112,7 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 """),
-  SantaHatWithEars("""
+  WinterHat4("""
 <g id="Top">
 <defs>
 <rect id="react-path-95349" x="0" y="0" width="264" height="280"></rect>
@@ -1130,7 +1129,7 @@ enum HairStyles implements PropertyItem {
 <use xlink:href="#react-path-95349"></use>
 </mask>
 <g id="Mask"></g>
-<g id="Top/Accessories/Winter-Hat-4" transform="translate(-1.000000, 0.000000)">
+<g id=" HairStyles/WinterHat4" transform="translate(-1.000000, 0.000000)">
 <g id="hat" stroke-width="1" fill-rule="evenodd" transform="translate(65.000000, 4.000000)">
 <mask id="react-mask-95342" fill="white">
 <use xlink:href="#react-path-95345"></use>
@@ -1160,7 +1159,7 @@ enum HairStyles implements PropertyItem {
 
   const HairStyles(this.svg);
 
-  String get label => this.name;
-
-  String get value => this.svg;
+  String get label => name;
+  String get id => "HairStyles/${name}";
+  String get value => svg;
 }

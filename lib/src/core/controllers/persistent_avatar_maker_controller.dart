@@ -99,9 +99,10 @@ class PersistentAvatarMakerController extends AvatarMakerController {
   /// Import the given options in a JSON format to the controller.
   ///
   /// Method made to simplify actions from library users.
-  /// 
+  ///
   /// [controller] - The AvatarMakerController instance to use
-  static void setJsonOptions(String jsonAvatarOptions, {required PersistentAvatarMakerController controller}) {
+  static void setJsonOptions(String jsonAvatarOptions,
+      {required PersistentAvatarMakerController controller}) {
     controller.saveAvatarSVG(jsonAvatarOptions: jsonAvatarOptions);
   }
 

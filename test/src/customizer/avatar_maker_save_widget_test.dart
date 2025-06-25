@@ -52,7 +52,7 @@ void main() {
 
         verifyNever(mockController.saveAvatarSVG());
       });
-      
+
       testWidgets("With radius", (WidgetTester tester) async {
         final double radius = 12.9;
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
@@ -77,7 +77,7 @@ void main() {
 
         verifyNever(mockController.saveAvatarSVG());
       });
-      
+
       testWidgets("With splashColor", (WidgetTester tester) async {
         final Color splashColor = Colors.green;
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
@@ -102,7 +102,7 @@ void main() {
 
         verifyNever(mockController.saveAvatarSVG());
       });
-      
+
       testWidgets("With custom theme", (WidgetTester tester) async {
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
           theme: AvatarMakerThemeData(
@@ -127,7 +127,7 @@ void main() {
 
         verifyNever(mockController.saveAvatarSVG());
       });
-      
+
       testWidgets("With custom child", (WidgetTester tester) async {
         final customChild = Text("Custom Child");
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
@@ -136,12 +136,13 @@ void main() {
 
         expect(find.text("Custom Child"), findsOneWidget);
         expect(find.byType(Icon), findsNothing);
-        
+
         verifyNever(mockController.saveAvatarSVG());
       });
-      
+
       testWidgets("With controller", (WidgetTester tester) async {
-        final controller = PersistentAvatarMakerController(customizedPropertyCategories: []);
+        final controller =
+            PersistentAvatarMakerController(customizedPropertyCategories: []);
         await tester.pumpWidget(
           MaterialApp(
             home: Scaffold(
@@ -153,11 +154,11 @@ void main() {
         );
 
         expect(find.byType(Icon), findsOneWidget);
-        
+
         verifyNever(mockController.saveAvatarSVG());
       });
     });
-    
+
     group("On tap InkWell", () {
       testWidgets("Default", (WidgetTester tester) async {
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget()));
@@ -169,7 +170,7 @@ void main() {
 
         verify(mockController.saveAvatarSVG()).called(1);
       });
-      
+
       testWidgets("With onTap callback", (WidgetTester tester) async {
         String? savedAvatarSvg;
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
@@ -187,10 +188,11 @@ void main() {
         verify(mockController.drawAvatarSVG()).called(1);
         expect(savedAvatarSvg, "test-svg");
       });
-      
+
       testWidgets("With provided controller", (WidgetTester tester) async {
         final customController = MockPersistentAvatarMakerController();
-        when(customController.saveAvatarSVG()).thenAnswer((_) => Future.value());
+        when(customController.saveAvatarSVG())
+            .thenAnswer((_) => Future.value());
         when(customController.drawAvatarSVG()).thenReturn("custom-svg");
 
         await tester.pumpWidget(

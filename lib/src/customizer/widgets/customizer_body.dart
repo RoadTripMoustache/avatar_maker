@@ -55,9 +55,10 @@ class CustomizerBody extends StatelessWidget {
           onTap: () => onTapOption(
               propertyCategory.properties![index], propertyCategory.id),
           child: Container(
-            decoration: index == propertyCategory.properties!.indexOf(selectedItem)
-                ? theme.selectedTileDecoration
-                : theme.unselectedTileDecoration,
+            decoration:
+                index == propertyCategory.properties!.indexOf(selectedItem)
+                    ? theme.selectedTileDecoration
+                    : theme.unselectedTileDecoration,
             margin: theme.tileMargin,
             padding: theme.tilePadding,
             child: SvgPicture.string(

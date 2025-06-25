@@ -145,10 +145,10 @@ abstract class AvatarMakerController extends ChangeNotifier {
   Future<void> restoreState() async {
     // Get the SVG and options (implemented by subclasses)
     final restoredData = await performRestore();
-    
+
     // Update the preview with the restored SVG or generate a new one
     updatePreview(newAvatarMakerSVG: restoredData.svg);
-    
+
     // Update selected options
     selectedOptions = restoredData.options;
     notifyListeners();
@@ -223,7 +223,8 @@ abstract class AvatarMakerController extends ChangeNotifier {
 
       case PropertyCategoryIds.HairStyle:
         return HairService.drawSVG(
-          color: (selectedOptions[PropertyCategoryIds.HairColor] ?? HairColors.values.first) as HairColors,
+          color: (selectedOptions[PropertyCategoryIds.HairColor] ??
+              HairColors.values.first) as HairColors,
           style: item as HairStyles,
         );
 
