@@ -23,6 +23,15 @@ class NonPersistentAvatarMakerController extends AvatarMakerController {
           locale: locale,
         );
 
+  NonPersistentAvatarMakerController.fromSvg(
+      {required String svg,
+      List<CustomizedPropertyCategory>? customizedPropertyCategories,
+      Locale? locale})
+      : super.fromSvg(
+            svg: svg,
+            customizedPropertyCategories: customizedPropertyCategories,
+            locale: locale);
+
   /// Get the selected options from memory or use defaults
   @override
   Future<Map<PropertyCategoryIds, PropertyItem>> getSelectedOptions() async {

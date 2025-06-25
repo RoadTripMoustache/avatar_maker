@@ -89,6 +89,15 @@ abstract class AvatarMakerController extends ChangeNotifier {
     initController();
   }
 
+  AvatarMakerController.fromSvg(
+      {required String svg,
+      List<CustomizedPropertyCategory>? customizedPropertyCategories,
+      Locale? locale})
+      : this(
+            customizedPropertyCategories: customizedPropertyCategories,
+            selectedOptions: AvatarService.extractPropertiesFromSvg(svg),
+            locale: locale);
+
   /// Initialize the controller by loading options and updating the preview
   Future<void> initController() async {
     selectedOptions = await getSelectedOptions();
