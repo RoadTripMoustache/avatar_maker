@@ -139,7 +139,7 @@ abstract class AvatarMakerController extends ChangeNotifier {
     }
 
     // Perform the save operation (implemented by subclasses)
-    await performSave();
+    await save();
 
     // Update the preview
     updatePreview(newAvatarMakerSVG: drawAvatarSVG());
@@ -147,7 +147,7 @@ abstract class AvatarMakerController extends ChangeNotifier {
 
   /// Perform the save operation. This method should be implemented by subclasses
   /// to provide the appropriate save strategy.
-  Future<void> performSave();
+  Future<String> save();
 
   /// Restore controller state with the latest version of
   /// [displayedAvatarSVG] and [selectedOptions]

@@ -45,9 +45,9 @@ class NonPersistentAvatarMakerController extends AvatarMakerController {
   /// Perform the save operation without persistence
   /// This implementation just updates the in-memory SVG
   @override
-  Future<void> performSave() async {
+  Future<String> save() async {
     // Store the SVG in memory only
-    _storedSVG = drawAvatarSVG();
+    return Future.value(drawAvatarSVG());
   }
 
   /// Perform the restore operation without persistence
@@ -59,15 +59,5 @@ class NonPersistentAvatarMakerController extends AvatarMakerController {
 
     // Return the current options
     return RestoredData(svg: svg, options: selectedOptions);
-  }
-
-  /// Set selected options from a list
-  ///
-  /// This method allows setting the selected options directly from a list,
-  /// which is useful when the options are provided externally.
-  void setSelectedOptionsFromList(
-      Map<PropertyCategoryIds, PropertyItem> options) {
-    selectedOptions = options;
-    updatePreview();
   }
 }

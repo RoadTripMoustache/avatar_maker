@@ -60,7 +60,7 @@ class PersistentAvatarMakerController extends AvatarMakerController {
 
   /// Perform the save operation by storing data in SharedPreferences
   @override
-  Future<void> performSave() async {
+  Future<String> save() async {
     // Update selectedOptions stored
     SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString(
@@ -71,6 +71,7 @@ class PersistentAvatarMakerController extends AvatarMakerController {
     // Get the SVG to display and store
     final String avatarSVG = drawAvatarSVG();
     await pref.setString(PreferencesLabel.avatarMakerSVG.name, avatarSVG);
+    return avatarSVG;
   }
 
   /// Perform the restore operation by retrieving data from SharedPreferences

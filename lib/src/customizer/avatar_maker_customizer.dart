@@ -120,9 +120,6 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       setState(() {});
     });
 
-    // This ensures that unsaved edits are reverted
-    avatarMakerController.restoreState();
-
     // Only dispose the controller if we created it
     if (_controllerCreatedInternally) {
       avatarMakerController.dispose();
