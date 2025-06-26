@@ -1,4 +1,3 @@
-import "package:avatar_maker/avatar_maker.dart";
 import "package:flutter/material.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:provider/provider.dart";

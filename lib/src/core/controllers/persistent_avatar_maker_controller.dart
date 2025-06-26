@@ -22,12 +22,12 @@ class PersistentAvatarMakerController extends AvatarMakerController {
 
   PersistentAvatarMakerController.fromSvg(
       {required String svg,
-        List<CustomizedPropertyCategory>? customizedPropertyCategories,
-        Locale? locale})
+      List<CustomizedPropertyCategory>? customizedPropertyCategories,
+      Locale? locale})
       : super.fromSvg(
-      svg: svg,
-      customizedPropertyCategories: customizedPropertyCategories,
-      locale: locale);
+            svg: svg,
+            customizedPropertyCategories: customizedPropertyCategories,
+            locale: locale);
 
   /// Get the current stored options from the shared preferences, or set the
   /// options with the default values if no options where stored.

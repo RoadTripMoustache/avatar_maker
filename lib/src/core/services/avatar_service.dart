@@ -1,4 +1,6 @@
-import 'package:avatar_maker/avatar_maker.dart';
+import 'package:avatar_maker/src/core/enums/property_items/property_items.dart';
+import 'package:avatar_maker/src/core/enums/property_category_ids.dart';
+import 'package:avatar_maker/src/core/models/property_item.dart';
 
 /// Contains all the methods related to avatars.
 class AvatarService {
