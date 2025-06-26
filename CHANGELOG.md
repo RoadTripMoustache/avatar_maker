@@ -1,4 +1,16 @@
 ## Unreleased
+### Breaking Changes
+- feat: move away from `getX` to `provider` for state management, introducing `AvatarMakerControllerProvider`. You will need to wrap your app with `AvatarMakerControllerProvider` to use the new architecture.
+- refactor: update the IDs of each SVG part to allow faster parsing. Existing avatar will be discarded.
+
+### Added
+- feat: introduce `AvatarMakerController` to allow creating your own controller
+- feat: introduce `NonPersistentAvatarMakerController` for cases where you don't need the package to persist the avatar
+- test: improve tests
+
+### Updated
+- feat: update the architecture of each widget to allow injecting a custom controller
+- refactor: rename `AvatarMakerController` to `PersistentAvatarMakerController`
 
 ## [0.3.0] - 26/05/2025
 ### Added
