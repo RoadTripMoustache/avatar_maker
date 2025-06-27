@@ -114,12 +114,10 @@ abstract class AvatarMakerController extends ChangeNotifier {
   void updatePreview({
     String newAvatarMakerSVG = "",
   }) {
-    print("Update? -> ${newAvatarMakerSVG.isEmpty}");
     if (newAvatarMakerSVG.isEmpty) {
       newAvatarMakerSVG = drawAvatarSVG();
     }
     _displayedAvatarSVG = newAvatarMakerSVG;
-    print("Update finished -> ${newAvatarMakerSVG.isEmpty}");
     notifyListeners();
   }
 
@@ -169,7 +167,6 @@ abstract class AvatarMakerController extends ChangeNotifier {
 
   /// Generates a [String] SVG from the [selectedOptions] stored.
   String drawAvatarSVG() {
-    print("Drawing avatar SVG with selected options: $selectedOptions");
     return AvatarService.drawSVG(
       accessory: selectedOptions[PropertyCategoryIds.Accessory]!.value,
       backgroundStyle: selectedOptions[PropertyCategoryIds.Background]!.value,

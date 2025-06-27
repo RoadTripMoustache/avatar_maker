@@ -44,7 +44,6 @@ class AvatarMakerAvatar extends StatelessWidget {
         child: ListenableBuilder(
           listenable: avatarController,
           builder: (context, child) {
-            print("Avatar update");
 
             /// Returns an activity indicator if the initialization of the
             /// controller isn't fully done.
