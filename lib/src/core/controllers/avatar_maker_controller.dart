@@ -2,7 +2,6 @@ import "dart:math";
 
 import "package:avatar_maker/l10n/app_localizations.dart";
 import "package:avatar_maker/src/core/enums/placeholders.dart";
-import "package:avatar_maker/src/core/enums/preferences_label.dart";
 import "package:avatar_maker/src/core/enums/property_category_ids.dart";
 import "package:avatar_maker/src/core/enums/property_items/facial_hair_colors.dart";
 import "package:avatar_maker/src/core/enums/property_items/facial_hair_types.dart";
@@ -27,16 +26,17 @@ import "package:avatar_maker/src/core/services/hair_service.dart";
 import "package:avatar_maker/src/core/services/property_category_service.dart";
 import "package:avatar_maker/src/core/services/skin_service.dart";
 import "package:flutter/material.dart";
-import "package:get/get.dart";
-import "package:shared_preferences/shared_preferences.dart";
 
-/// Brains of the Avatar_Maker package
+/// Abstract base class for Avatar Maker controllers
 ///
-/// Built using the getX architecture to allow the two widgets to easily
-/// communicate with each other
-class AvatarMakerController extends GetxController {
-  /// Observable value which contains the svg code of the avatar to display
-  var displayedAvatarSVG = "".obs;
+/// This class provides the core functionality for avatar customization
+/// without any persistence logic. Subclasses should implement the
+/// persistence strategy as needed.
+abstract class AvatarMakerController extends ChangeNotifier {
+  /// Value which contains the svg code of the avatar to display
+  String _displayedAvatarSVG = "";
+
+  String get displayedAvatarSVG => _displayedAvatarSVG;
 
   /// List of all the property categories merged (the one given by the user with
   /// the default one stored in the code). Useful to get the default value from
@@ -59,11 +59,11 @@ class AvatarMakerController extends GetxController {
   ///
   /// Eg: selectedOptions["eyes"] gives the index of
   /// the kind of eyes picked by the user
-  Map<PropertyCategoryIds, PropertyItem> selectedOptions =
-      <PropertyCategoryIds, PropertyItem>{};
+  late Map<PropertyCategoryIds, PropertyItem> selectedOptions;
 
   AvatarMakerController({
-    required List<CustomizedPropertyCategory>? customizedPropertyCategories,
+    List<CustomizedPropertyCategory>? customizedPropertyCategories,
+    Map<PropertyCategoryIds, PropertyItem>? selectedOptions,
     Locale? locale,
   }) {
     // If no locale is provided, display the english text by default.
@@ -72,32 +72,42 @@ class AvatarMakerController extends GetxController {
     }
     this.l10n = lookupAppLocalizations(locale);
     this.propertyCategories = PropertyCategoryService.mergePropertyCategories(
-        customizedPropertyCategories, l10n);
+        customizedPropertyCategories ?? [], l10n);
     this.displayedPropertyCategories = this
         .propertyCategories
         .where((category) => category.toDisplay)
         .toList();
+    this.selectedOptions = selectedOptions ?? {};
     // Generate the default selected options based on the
     // [CustomizedPropertyCategory] list given to the constructor.
     this.defaultSelectedOptions = {
       for (var category in this.propertyCategories)
         category.id: category.defaultValue!
     };
+
+    // Initialize the controller
+    initController();
   }
 
-  @override
-  void onInit() async {
-    // called immediately after the widget is allocated memory
-    selectedOptions = await getStoredOptions();
-    displayedAvatarSVG.value = drawAvatarSVG();
-    update();
-    super.onInit();
+  AvatarMakerController.fromSvg(
+      {required String svg,
+      List<CustomizedPropertyCategory>? customizedPropertyCategories,
+      Locale? locale})
+      : this(
+            customizedPropertyCategories: customizedPropertyCategories,
+            selectedOptions: AvatarService.extractPropertiesFromSvg(svg),
+            locale: locale);
+
+  /// Initialize the controller by loading options and updating the preview
+  Future<void> initController() async {
+    selectedOptions = await getSelectedOptions();
+    _displayedAvatarSVG = drawAvatarSVG();
+    notifyListeners();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
+  /// Get the selected options. This method should be implemented by subclasses
+  /// to provide the appropriate options retrieval strategy.
+  Future<Map<PropertyCategoryIds, PropertyItem>> getSelectedOptions();
 
   /// Update the displayed SVG with the new SVG given in parameter, or the one
   /// draw based on the selected options.
@@ -107,30 +117,13 @@ class AvatarMakerController extends GetxController {
     if (newAvatarMakerSVG.isEmpty) {
       newAvatarMakerSVG = drawAvatarSVG();
     }
-    displayedAvatarSVG.value = newAvatarMakerSVG;
-    update();
+    _displayedAvatarSVG = newAvatarMakerSVG;
+    notifyListeners();
   }
 
-  /// Restore controller state with the latest SAVED version of
-  /// [displayedAvatarSVG] and [selectedOptions]
-  void restoreState() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-
-    // Replace observable value with latest saved version or use default
-    // attributes if null
-    updatePreview(
-        newAvatarMakerSVG: pref
-                .getString(PreferencesLabel.avatarMakerSVG.name) ??
-            OptionsService.jsonEncodeSelectedOptions(defaultSelectedOptions));
-
-    selectedOptions = await getStoredOptions();
-    update();
-  }
-
-  /// Save the selected options and the current SVG in the Shared Preferences,
-  /// then update the preview.
+  /// Save the selected options and update the preview.
   ///
-  /// If avatar options are given in parameter, they will be saved and loaded in
+  /// If avatar options are given in parameter, they will be loaded in
   /// the preview instead of the current ones.
   ///
   /// parameters :
@@ -143,20 +136,34 @@ class AvatarMakerController extends GetxController {
           this.propertyCategories, jsonAvatarOptions);
     }
 
-    // Update selectedOptions stored
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    await pref.setString(
-      PreferencesLabel.avatarMakerSelectedOptions.name,
-      OptionsService.jsonEncodeSelectedOptions(selectedOptions),
-    );
-
-    // Get the SVG to display and store
-    final String avatarSVG = drawAvatarSVG();
-    await pref.setString(PreferencesLabel.avatarMakerSVG.name, avatarSVG);
+    // Perform the save operation (implemented by subclasses)
+    await save();
 
     // Update the preview
-    updatePreview(newAvatarMakerSVG: avatarSVG);
+    updatePreview(newAvatarMakerSVG: drawAvatarSVG());
   }
+
+  /// Perform the save operation. This method should be implemented by subclasses
+  /// to provide the appropriate save strategy.
+  Future<String> save();
+
+  /// Restore controller state with the latest version of
+  /// [displayedAvatarSVG] and [selectedOptions]
+  Future<void> restoreState() async {
+    // Get the SVG and options (implemented by subclasses)
+    final restoredData = await performRestore();
+
+    // Update the preview with the restored SVG or generate a new one
+    updatePreview(newAvatarMakerSVG: restoredData.svg);
+
+    // Update selected options
+    selectedOptions = restoredData.options;
+    notifyListeners();
+  }
+
+  /// Perform the restore operation. This method should be implemented by subclasses
+  /// to provide the appropriate restore strategy.
+  Future<RestoredData> performRestore();
 
   /// Generates a [String] SVG from the [selectedOptions] stored.
   String drawAvatarSVG() {
@@ -183,28 +190,6 @@ class AvatarMakerController extends GetxController {
       ),
       skin: selectedOptions[PropertyCategoryIds.SkinColor]!.value,
     );
-  }
-
-  /// Get the current stored options from the shared preferences, or set the
-  /// options with the default values if no options where stored.
-  Future<Map<PropertyCategoryIds, PropertyItem>> getStoredOptions() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    String? _avatarMakerOptions =
-        pref.getString(PreferencesLabel.avatarMakerSelectedOptions.name);
-
-    if (_avatarMakerOptions == null || _avatarMakerOptions.isEmpty) {
-      Map<PropertyCategoryIds, PropertyItem> _avatarMakerOptionsMap = {};
-      _avatarMakerOptionsMap.addAll(defaultSelectedOptions);
-
-      await pref.setString(PreferencesLabel.avatarMakerSelectedOptions.name,
-          OptionsService.jsonEncodeSelectedOptions(_avatarMakerOptionsMap));
-      selectedOptions = _avatarMakerOptionsMap;
-    } else {
-      selectedOptions = OptionsService.jsonDecodeSelectedOptions(
-          this.propertyCategories, _avatarMakerOptions);
-    }
-    update();
-    return selectedOptions;
   }
 
   /// Generates component SVG string for an individual component
@@ -244,7 +229,8 @@ class AvatarMakerController extends GetxController {
 
       case PropertyCategoryIds.HairStyle:
         return HairService.drawSVG(
-          color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
+          color: (selectedOptions[PropertyCategoryIds.HairColor] ??
+              HairColors.values.first) as HairColors,
           style: item as HairStyles,
         );
 
@@ -286,36 +272,21 @@ class AvatarMakerController extends GetxController {
     updatePreview();
   }
 
-  /// Erase AvatarMaker user's preferences from local storage
-  static Future<List<bool>> clearAvatarMaker() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    return Future.wait([
-      pref.remove(PreferencesLabel.avatarMakerSelectedOptions.name),
-      pref.remove(PreferencesLabel.avatarMakerSVG.name),
-    ]);
-  }
-
   /// Extract the selected options to JSON for an external save.
-  ///
-  /// Method made to simplify actions from library users.
-  static Future<String> getJsonOptions() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    return pref.get(PreferencesLabel.avatarMakerSelectedOptions.name) as String;
-  }
-
-  /// Import the given options in a JSON format to the controller.
-  ///
-  /// Method made to simplify actions from library users.
-  static void setJsonOptions(String jsonAvatarOptions) {
-    final avatarMakerController = Get.find<AvatarMakerController>();
-    avatarMakerController.saveAvatarSVG(jsonAvatarOptions: jsonAvatarOptions);
+  String getJsonOptionsSync() {
+    return OptionsService.jsonEncodeSelectedOptions(selectedOptions);
   }
 
   /// Extract the current avatar SVG for an external save.
-  ///
-  /// Method made to simplify actions from library users.
-  static Future<String> getAvatarSVG() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    return pref.get(PreferencesLabel.avatarMakerSVG.name) as String;
+  String getAvatarSVGSync() {
+    return drawAvatarSVG();
   }
+}
+
+/// Class to hold restored data from persistence
+class RestoredData {
+  final String svg;
+  final Map<PropertyCategoryIds, PropertyItem> options;
+
+  RestoredData({required this.svg, required this.options});
 }

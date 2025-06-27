@@ -23,13 +23,13 @@ This package provides you three easy-to-use widgets -
 
 ### Theme
 
-The appearance of the widgets can be tweaked with `AvatarMakerThemeData`. It let's you change things
-like the customizer's background colours, the box decoration etc.
+The appearance of the widgets can be tweaked with `AvatarMakerThemeData`. It lets you change things
+like the customizer's background colours, the box decoration, etc.
 
 ### Categories and properties
 
 **All the categories** *(like outfits or hairs)* **and all the properties** *(like all the colors
-available for hairs or facial hairs)* are also fully customizable ! You want to change a title? hide
+available for hairs or facial hairs)* are also fully customizable! You want to change a title? hide
 a category? or add some custom properties? AvatarMaker is fully customizable to fulfill all your
 needs. Check [this documentation](./docs/how-to/define_custom_theme.md) to know how to do it easily.
 
@@ -47,12 +47,12 @@ By defining a locale, you can change the language of the displayed titles !
 Use the given utility functions to send and receive Avatar_Maker data from your server/DB
 efficiently.
 
-| Function Prototype                            | Description                                                  | 
-|-----------------------------------------------|--------------------------------------------------------------|
-| `Future<String> getJsonOptions()`               | Extract the selected options to JSON for an external save.   | 
-| `void setJsonOptions(String jsonAvatarOptions)` | Import the given options in a JSON format to the controller. | 
-| `Future<String> getAvatarSVG()`                 | Import the given options in a JSON format to the controller. | 
-| `Future<List<bool>> clearAvatarMaker()`         | Extract the current avatar SVG for an external save.         |
+| Function Prototype                                                | Description                                                  | 
+|-------------------------------------------------------------------|--------------------------------------------------------------|
+| `AvatarMakerController.fromSvg(String svg)`                       | Import the avatar to the controller.                         | 
+| `Future<String> PersistentAvatarMakerController.getJsonOptions()` | Extract the selected options to JSON for an external save.   | 
+| `Future<String> PersistentAvatarMakerController.getAvatarSVG()`   | Import the given options in a JSON format to the controller. | 
+| `Future<void> PersistentAvatarMakerController.clearAvatarMaker()` | Delete the saved avatar                                      |
 
 SVG Assets used are derived from [getavataaars.com](https://getavataaars.com/) .
 
@@ -82,22 +82,32 @@ SVG Assets used are derived from [getavataaars.com](https://getavataaars.com/) .
    ```dart
    import "package:avatar_maker/avatar_maker.dart";
    ```
-3. Add the AvatarMakerAvatar widget to display your avatar where needed.
+3. Add the `AvatarMakerProvider` widget to your widget tree, preferably at the top level
+   of your app. This widget provides the necessary context for the other widgets to function
+   correctly.
+   ```dart
+   AvatarMakerProvider(
+     child: MaterialApp(
+       home: MyHomePage(),
+     ),
+   );
+   ```
+4. Add the AvatarMakerAvatar widget to display your avatar where needed.
    ```dart
    AvatarMakerAvatar();
    ```
-4. To allow your users to personalize their avatar, add the following widget and pair it with
-   the above one in your page.
+5. To allow your users to personalize their avatar, add the following widget and pair it with
+   the above one on your page.
    ```dart
    AvatarMakerCustomizer();
    ```
 
-That's all it takes, simple right ? The two widgets communicate with each other and update in
+That's all it takes, simple, right? The two widgets communicate with each other and update in
 real-time throughout your widget tree.
 
 ## Usage Guidelines
 
-The package offers a ton of features in the simplest way possible, however there are some points
+The package offers a ton of features in the simplest way possible; however, there are some points
 worth noting.
 
 - `AvatarMakerAvatar` only renders the local user's avatar. To display the avatar of other

@@ -1,12 +1,11 @@
-import "package:avatar_maker/src/core/controllers/avatar_maker_controller.dart";
+import "package:avatar_maker/src/core/controllers/controllers.dart";
 import "package:avatar_maker/src/core/enums/property_category_ids.dart";
 import "package:avatar_maker/src/core/models/customized_property_category.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_body.dart";
 import "package:flutter/material.dart";
-import "package:get/get.dart";
-import "package:get/get_state_manager/src/simple/list_notifier.dart";
+import "package:provider/provider.dart";
 
 /// This widget provides the user with a UI for customizing their Avatar_Maker
 ///
@@ -36,6 +35,15 @@ class AvatarMakerCustomizer extends StatefulWidget {
   /// in your app to let users save their selection manually.
   final bool autosave;
 
+  /// Called every time the user selects a new option and returns the SVG string
+  /// of the avatar.
+  final Function(String avatarSvg)? onChange;
+
+  /// The [AvatarMakerController] to use for saving the avatar.
+  ///
+  /// If not provided, it will be fetched from Provider or a new controller will be created.
+  final AvatarMakerController? controller;
+
   /// Creates a widget UI to customize the AvatarMaker
   ///
   /// You may provide a [AvatarMakerThemeData] instance to adjust the appearance of this
@@ -55,6 +63,8 @@ class AvatarMakerCustomizer extends StatefulWidget {
     AvatarMakerThemeData? theme,
     this.customizedPropertyCategories,
     this.autosave = false,
+    this.onChange,
+    this.controller,
   })  : this.theme = theme ?? AvatarMakerThemeData.defaultTheme,
         super(key: key);
 
@@ -65,47 +75,56 @@ class AvatarMakerCustomizer extends StatefulWidget {
 class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     with SingleTickerProviderStateMixin {
   late AvatarMakerController avatarMakerController;
+  bool _controllerCreatedInternally = false;
 
   /// Number of displayed categories in the customizer widget.
   late int nbrDisplayedCategories;
   late TabController tabController;
 
-  /// To easily dispose of the listener on the dispose of the widget.
-  Disposer? avatarMakerControllerListenerDisposer;
-
   @override
   void initState() {
     super.initState();
 
-    Get.put(AvatarMakerController(
-        customizedPropertyCategories: widget.customizedPropertyCategories));
-    final _controller = Get.find<AvatarMakerController>();
-    nbrDisplayedCategories = _controller.displayedPropertyCategories.length;
+    final AvatarMakerController? tmpController = widget.controller ??
+        Provider.of<AvatarMakerController?>(context, listen: true);
+    avatarMakerController = tmpController ??
+        PersistentAvatarMakerController(
+            customizedPropertyCategories: widget.customizedPropertyCategories);
 
-    setState(() {
-      avatarMakerController = _controller;
-      tabController = TabController(
-        length: nbrDisplayedCategories,
-        vsync: this,
-      );
-    });
+    if (tmpController == null) {
+      _controllerCreatedInternally = true;
+    }
+
+    nbrDisplayedCategories =
+        avatarMakerController.displayedPropertyCategories.length;
+
+    tabController = TabController(
+      length: nbrDisplayedCategories,
+      vsync: this,
+    );
 
     tabController.addListener(() {
       setState(() {});
     });
-    avatarMakerControllerListenerDisposer = _controller.addListener(() {
+
+    // Add listener to the controller
+    avatarMakerController.addListener(() {
       setState(() {});
     });
   }
 
   @override
   void dispose() {
-    // Dispose of the lister for the avatar maker controller.
-    if (avatarMakerControllerListenerDisposer != null) {
-      avatarMakerControllerListenerDisposer!();
+    // Remove the listener
+    avatarMakerController.removeListener(() {
+      setState(() {});
+    });
+
+    // Only dispose the controller if we created it
+    if (_controllerCreatedInternally) {
+      avatarMakerController.dispose();
     }
-    // This ensures that unsaved edits are reverted
-    avatarMakerController.restoreState();
+
     super.dispose();
   }
 
@@ -118,6 +137,9 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
         avatarMakerController.selectedOptions[categoryId] = newSelectedItem;
       });
       avatarMakerController.updatePreview();
+      if (widget.onChange != null) {
+        widget.onChange!(avatarMakerController.drawAvatarSVG());
+      }
       if (widget.autosave) {
         avatarMakerController.saveAvatarSVG();
       }
@@ -144,17 +166,20 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return SizedBox(
-      height:
-          widget.scaffoldHeight ?? (size.height * widget.theme.heightFactor),
-      width: widget.scaffoldWidth ?? size.width,
-      child: CustomizerBody(
-        avatarMakerController: avatarMakerController,
-        tabController: tabController,
-        theme: widget.theme,
-        scaffoldHeight: widget.scaffoldHeight,
-        onTapOption: onTapOption,
-        onArrowTap: onArrowTap,
+    return ChangeNotifierProvider<AvatarMakerController>.value(
+      value: avatarMakerController,
+      child: SizedBox(
+        height:
+            widget.scaffoldHeight ?? (size.height * widget.theme.heightFactor),
+        width: widget.scaffoldWidth ?? size.width,
+        child: CustomizerBody(
+          avatarMakerController: avatarMakerController,
+          tabController: tabController,
+          theme: widget.theme,
+          scaffoldHeight: widget.scaffoldHeight,
+          onTapOption: onTapOption,
+          onArrowTap: onArrowTap,
+        ),
       ),
     );
   }

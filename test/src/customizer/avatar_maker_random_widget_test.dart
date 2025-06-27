@@ -1,38 +1,36 @@
 import "package:avatar_maker/avatar_maker.dart";
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
-import "package:get/get.dart";
 import "package:mockito/annotations.dart";
 import "package:mockito/mockito.dart";
+import "package:provider/provider.dart";
 
 import "../../helpers.dart";
-@GenerateNiceMocks(
-    [MockSpec<AvatarMakerController>(), MockSpec<InternalFinalCallback>()])
+
+// Generate mocks for the controller
+@GenerateNiceMocks([MockSpec<PersistentAvatarMakerController>()])
 import "avatar_maker_random_widget_test.mocks.dart";
 
-final avatarMakerControllerMock = MockAvatarMakerController();
-final internalFinalCallbackMock = MockInternalFinalCallback();
-
 void main() {
-  setUpAll(() async {
-    when(avatarMakerControllerMock.onStart)
-        .thenAnswer((_) => internalFinalCallbackMock);
-    when(avatarMakerControllerMock.onDelete)
-        .thenAnswer((_) => internalFinalCallbackMock);
-    when(avatarMakerControllerMock.randomizedSelectedOptions())
-        .thenAnswer((_) => null);
+  late MockPersistentAvatarMakerController mockController;
 
-    Get.put<AvatarMakerController>(avatarMakerControllerMock);
+  setUp(() {
+    mockController = MockPersistentAvatarMakerController();
+    when(mockController.randomizedSelectedOptions()).thenAnswer((_) => null);
   });
 
-  tearDownAll(() async {
-    Get.delete<AvatarMakerController>();
-  });
+  Widget buildTestWidget(Widget child) {
+    return ChangeNotifierProvider<AvatarMakerController>.value(
+      value: mockController,
+      child: child,
+    );
+  }
 
   group("AvatarMakerRandomWidget", () {
     group("UI", () {
       testWidgets("Default", (WidgetTester tester) async {
-        await tester.pumpMaterialApp(AvatarMakerRandomWidget());
+        await tester
+            .pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget()));
 
         final inkWellConditions = isA<InkWell>()
             .having((i) => i.radius, "Check radius", null)
@@ -50,13 +48,14 @@ void main() {
         expect(icon, findsOneWidget);
         expect(icon.evaluate().first.widget, iconConditions);
 
-        verifyNever(avatarMakerControllerMock.randomizedSelectedOptions());
+        verifyNever(mockController.randomizedSelectedOptions());
       });
+
       testWidgets("With radius", (WidgetTester tester) async {
         final double radius = 12.9;
-        await tester.pumpMaterialApp(AvatarMakerRandomWidget(
+        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget(
           radius: radius,
-        ));
+        )));
 
         final inkWellConditions = isA<InkWell>()
             .having((i) => i.radius, "Check radius", radius)
@@ -74,13 +73,14 @@ void main() {
         expect(icon, findsOneWidget);
         expect(icon.evaluate().first.widget, iconConditions);
 
-        verifyNever(avatarMakerControllerMock.randomizedSelectedOptions());
+        verifyNever(mockController.randomizedSelectedOptions());
       });
+
       testWidgets("With splashColor", (WidgetTester tester) async {
         final Color splashColor = Colors.green;
-        await tester.pumpMaterialApp(AvatarMakerRandomWidget(
+        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget(
           splashColor: splashColor,
-        ));
+        )));
 
         final inkWellConditions = isA<InkWell>()
             .having((i) => i.radius, "Check radius", null)
@@ -98,14 +98,15 @@ void main() {
         expect(icon, findsOneWidget);
         expect(icon.evaluate().first.widget, iconConditions);
 
-        verifyNever(avatarMakerControllerMock.randomizedSelectedOptions());
+        verifyNever(mockController.randomizedSelectedOptions());
       });
+
       testWidgets("With custom theme", (WidgetTester tester) async {
-        await tester.pumpMaterialApp(AvatarMakerRandomWidget(
+        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget(
           theme: AvatarMakerThemeData(
             iconColor: Colors.pink,
           ),
-        ));
+        )));
 
         final inkWellConditions = isA<InkWell>()
             .having((i) => i.radius, "Check radius", null)
@@ -122,18 +123,66 @@ void main() {
         expect(icon, findsOneWidget);
         expect(icon.evaluate().first.widget, iconConditions);
 
-        verifyNever(avatarMakerControllerMock.randomizedSelectedOptions());
+        verifyNever(mockController.randomizedSelectedOptions());
+      });
+
+      testWidgets("With custom child", (WidgetTester tester) async {
+        final customChild = Text("Custom Child");
+        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget(
+          child: customChild,
+        )));
+
+        expect(find.text("Custom Child"), findsOneWidget);
+        expect(find.byType(Icon), findsNothing);
+
+        verifyNever(mockController.randomizedSelectedOptions());
+      });
+
+      testWidgets("With controller", (WidgetTester tester) async {
+        final controller =
+            PersistentAvatarMakerController(customizedPropertyCategories: []);
+        await tester.pumpMaterialApp(
+          MaterialApp(
+            home: Scaffold(
+              body: AvatarMakerRandomWidget(
+                controller: controller,
+              ),
+            ),
+          ),
+        );
+
+        expect(find.byType(Icon), findsOneWidget);
+
+        verifyNever(mockController.randomizedSelectedOptions());
       });
     });
+
     group("On tap InkWell", () {
       testWidgets("Default", (WidgetTester tester) async {
-        await tester.pumpMaterialApp(AvatarMakerRandomWidget());
+        await tester
+            .pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget()));
 
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);
         await tester.tap(inkwell);
 
-        verify(avatarMakerControllerMock.randomizedSelectedOptions()).called(1);
+        verify(mockController.randomizedSelectedOptions()).called(1);
+      });
+
+      testWidgets("With onTap callback", (WidgetTester tester) async {
+        bool callbackCalled = false;
+        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerRandomWidget(
+          onTap: () {
+            callbackCalled = true;
+          },
+        )));
+
+        final inkwell = find.byType(InkWell);
+        expect(inkwell, findsOneWidget);
+        await tester.tap(inkwell);
+
+        verify(mockController.randomizedSelectedOptions()).called(1);
+        expect(callbackCalled, isTrue);
       });
     });
   });

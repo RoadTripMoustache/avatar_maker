@@ -24,6 +24,6 @@ enum HairColors implements PropertyItem {
   const HairColors(this.hexCode);
 
   String get label => this.name;
-
+  String get id => "Color/Hair";
   String get value => this.hexCode;
 }

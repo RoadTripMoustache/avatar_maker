@@ -2,7 +2,7 @@ import "package:avatar_maker/avatar_maker.dart";
 import "package:avatar_maker/l10n/app_localizations.dart";
 import "package:avatar_maker/src/core/enums/property_categories.dart";
 import "package:avatar_maker/src/core/models/property_category.dart";
-import "package:get/get.dart";
+import "package:collection/collection.dart";
 
 /// Contains all the methods related to property categories.
 class PropertyCategoryService {

@@ -1,7 +1,6 @@
 import "package:avatar_maker/avatar_maker.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_appbar.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_bottom_navbar.dart";
-import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 import "package:flutter_svg/flutter_svg.dart";
 
@@ -40,7 +39,8 @@ class CustomizerBody extends StatelessWidget {
       var attributeListLength = propertyCategory.properties!.length;
 
       PropertyItem selectedItem =
-          avatarMakerController.selectedOptions[propertyCategory.id]!;
+          avatarMakerController.selectedOptions[propertyCategory.id] ??
+              propertyCategory.properties!.first;
 
       /// Build the main Tile Grid with all the options from the attribute
       var _tileGrid = GridView.builder(
@@ -66,7 +66,7 @@ class CustomizerBody extends StatelessWidget {
               height: 20,
               semanticsLabel: 'Your AvatarMaker',
               placeholderBuilder: (context) => Center(
-                child: CupertinoActivityIndicator(),
+                child: CircularProgressIndicator.adaptive(),
               ),
             ),
           ),

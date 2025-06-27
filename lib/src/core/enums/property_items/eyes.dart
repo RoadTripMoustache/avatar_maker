@@ -2,9 +2,9 @@ import "package:avatar_maker/src/core/models/property_item.dart";
 
 /// List of all the eyes displayed by default.
 enum Eyes implements PropertyItem {
-  Close("""
+  Closed("""
   <g
-        id="Eyes/Closed-😌"
+        id="Eyes/Closed"
         transform="translate(0.000000, 8.000000)"
         fillOpacity="0.599999964">
         <path
@@ -20,7 +20,7 @@ enum Eyes implements PropertyItem {
       </g>
   """),
   Cry("""
-  <g id="Eyes/Cry-😢" transform="translate(0.000000, 8.000000)">
+  <g id="Eyes/Cry" transform="translate(0.000000, 8.000000)">
         <circle
           id="Eye"
           fillOpacity="0.599999964"
@@ -49,7 +49,7 @@ enum Eyes implements PropertyItem {
   """),
   Default("""
   <g
-        id="Eyes/Default-😀"
+        id="Eyes/Default"
         transform="translate(0.000000, 8.000000)"
         fillOpacity="0.599999964">
         <circle id="Eye" cx="30" cy="22" r="6" />
@@ -58,7 +58,7 @@ enum Eyes implements PropertyItem {
   """),
   Dizzy("""
   <g
-        id="Eyes/X-Dizzy-😵"
+        id="Eyes/Dizzy"
         transform="translate(0.000000, 8.000000)"
         fillOpacity="0.599999964"
         fillRule="nonzero">
@@ -73,7 +73,7 @@ enum Eyes implements PropertyItem {
       </g>
   """),
   EyeRoll("""
-  <g id="Eyes/Eye-Roll-🙄" transform="translate(0.000000, 8.000000)">
+  <g id="Eyes/EyeRoll" transform="translate(0.000000, 8.000000)">
         <circle id="Eyeball" fill="#FFFFFF" cx="30" cy="22" r="14" />
         <circle id="The-white-stuff" fill="#FFFFFF" cx="82" cy="22" r="14" />
         <circle
@@ -96,7 +96,7 @@ enum Eyes implements PropertyItem {
       """),
   Happy("""
     <g
-        id="Eyes/Happy-😁"
+        id="Eyes/Happy"
         transform="translate(0.000000, 8.000000)"
         fillOpacity="0.599999964">
         <path
@@ -111,7 +111,7 @@ enum Eyes implements PropertyItem {
     """),
   Hearts("""
   <g
-        id="Eyes/Hearts-😍"
+        id="Eyes/Hearts"
         transform="translate(0.000000, 8.000000)"
         fillOpacity="0.8"
         fillRule="nonzero"
@@ -128,7 +128,7 @@ enum Eyes implements PropertyItem {
   """),
   Side("""
   <g
-        id="Eyes/Side-😒"
+        id="Eyes/Side"
         transform="translate(0.000000, 8.000000)"
         fillOpacity="0.599999964">
         <path
@@ -142,7 +142,7 @@ enum Eyes implements PropertyItem {
       </g>
   """),
   Surprised("""
-  <g id="Eyes/Surprised-😳" transform="translate(0.000000, 8.000000)">
+  <g id="Eyes/Surprised" transform="translate(0.000000, 8.000000)">
         <circle id="The-White-Stuff" fill="#FFFFFF" cx="30" cy="22" r="14" />
         <circle id="Eye-Ball" fill="#FFFFFF" cx="82" cy="22" r="14" />
         <circle
@@ -165,7 +165,7 @@ enum Eyes implements PropertyItem {
   """),
   Wink("""
   <g
-        id="Eyes/Wink-😉"
+        id="Eyes/Wink"
         transform="translate(0.000000, 8.000000)"
         fillOpacity="0.599999964">
         <circle id="Eye" cx="30" cy="22" r="6" />
@@ -177,7 +177,7 @@ enum Eyes implements PropertyItem {
       </g>
   """),
   WinkWacky("""
-<g id="Eyes/Wink-Wacky-😜" transform="translate(0.000000, 8.000000)">
+<g id="Eyes/WinkWacky" transform="translate(0.000000, 8.000000)">
         <circle
           id="Cornea?-I-don&#39;t-know"
           fill="#FFFFFF"
@@ -202,7 +202,7 @@ enum Eyes implements PropertyItem {
       </g>
   """),
   Squint("""
-  	<g id="Eyes/Squint-😊" transform="translate(0.000000, 8.000000)">
+  	<g id="Eyes/Squint" transform="translate(0.000000, 8.000000)">
 							<defs>
 								<path d="M14,14.0481187 C23.6099827,14.0481187 28,18.4994466 28,11.5617716 C28,4.62409673 21.7319865,0 14,0 C6.2680135,0 0,4.62409673 0,11.5617716 C0,18.4994466 4.39001726,14.0481187 14,14.0481187 Z" id="react-path-55832"></path>
 								<path d="M14,14.0481187 C23.6099827,14.0481187 28,18.4994466 28,11.5617716 C28,4.62409673 21.7319865,0 14,0 C6.2680135,0 0,4.62409673 0,11.5617716 C0,18.4994466 4.39001726,14.0481187 14,14.0481187 Z" id="react-path-55833"></path>
@@ -227,7 +227,7 @@ enum Eyes implements PropertyItem {
 
   const Eyes(this.svg);
 
-  String get label => this.name;
-
-  String get value => this.svg;
+  String get label => name;
+  String get id => "Eyes/$name";
+  String get value => svg;
 }

@@ -12,6 +12,7 @@ enum Noses implements PropertyItem {
 
   const Noses(this.svg);
 
-  String get label => this.name;
-  String get value => this.svg;
+  String get label => name;
+  String get id => "Nose/${name}";
+  String get value => svg;
 }
