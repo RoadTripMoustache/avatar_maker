@@ -1,4 +1,7 @@
 ## Unreleased
+
+
+## [0.4.0] - 27/06/2025
 ### Breaking Changes
 - feat: move away from `getX` to `provider` for state management, introducing `AvatarMakerControllerProvider`. You will need to wrap your app with `AvatarMakerControllerProvider` to use the new architecture.
 - refactor: update the IDs of each SVG part to allow faster parsing. Existing avatar will be discarded.
