@@ -1,4 +1,6 @@
 ## Unreleased
+### Added
+- doc: Update documentation about property categories
 ### Updated
 - chore: Update example bootstrapping to a not deprecated solution
 
