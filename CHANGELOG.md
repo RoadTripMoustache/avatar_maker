@@ -1,5 +1,6 @@
 ## Unreleased
-
+### Updated
+- chore: Update example bootstrapping to a not deprecated solution
 
 ## [1.1.0] - 27/06/2025
 ### Breaking Changes
