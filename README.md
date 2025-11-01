@@ -110,6 +110,9 @@ real-time throughout your widget tree.
 The package offers a ton of features in the simplest way possible; however, there are some points
 worth noting.
 
+- If you create a controller instance with no `customizedPropertyCategories`, it will take all the values in `defaultPropertyCategories` instead. 
+- If you create a controller instance with some items in `customizedPropertyCategories`, the customized property categories will **replace the categories 
+  with the same id in `defaultPropertyCategories`. It won't remove all other default categories.**
 - `AvatarMakerAvatar` only renders the local user's avatar. To display the avatar of other
   users', you'll have to use the `SvgPicture.string()` method from `flutter_svg` .
 - `AvatarMakerAvatar` would render a default avatar until customized and saved by the local
@@ -132,6 +135,7 @@ More details can be found in the widgets documentations or in the how-to :
 - How-to
     - [define a custom theme ?](./docs/how-to/define_custom_theme.md)
     - [customize property category ?](./docs/how-to/define_customized_property_category.md)
+    - [support a new language ?](./docs/how-to/support_new_language.md)
 
 ## Attributions
 
