@@ -33,6 +33,7 @@ class AvatarMakerCustomizer extends StatefulWidget {
   ///
   /// If set to `false` you may want to implement a [AvatarMakerSaveWidget]
   /// in your app to let users save their selection manually.
+  /// /!\ Work only with a persistant controller.
   final bool autosave;
 
   /// Called every time the user selects a new option and returns the SVG string
