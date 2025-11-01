@@ -2,7 +2,7 @@ name: avatar_maker
 description: A light-weight and highly customizable SVG avatar library for
   Flutter apps. Provides a Customizer Widget, CircleAvatar and other utility
   functions that are ready-to-use.
-version: 0.3.0
+version: 1.1.0
 homepage: https://github.com/RoadTripMoustache/avatar_maker
 
 environment:
