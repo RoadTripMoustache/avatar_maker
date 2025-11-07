@@ -1,6 +1,8 @@
 ## Unreleased
 ### Added
+- chore: Update lib versions
 - doc: Update documentation about property categories
+
 ### Updated
 - chore: Update example bootstrapping to a not deprecated solution
 
