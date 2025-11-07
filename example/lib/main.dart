@@ -138,9 +138,11 @@ class NewPage extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Spacer(),
-                    AvatarMakerSaveWidget(controller: controller),
+                    if (controller.isPersistentController())
+                      AvatarMakerSaveWidget(controller: controller),
                     AvatarMakerRandomWidget(controller: controller),
-                    AvatarMakerResetWidget(controller: controller),
+                    if (controller.isPersistentController())
+                      AvatarMakerResetWidget(controller: controller),
                   ],
                 ),
               ),

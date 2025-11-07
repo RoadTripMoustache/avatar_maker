@@ -281,6 +281,11 @@ abstract class AvatarMakerController extends ChangeNotifier {
   String getAvatarSVGSync() {
     return drawAvatarSVG();
   }
+
+  /// Flag to know if the controller used is a persistant one or not.
+  /// Useful for some widgets like the "Reset" or "Save" button to know if it's
+  /// useful to be displayed.
+  bool isPersistentController();
 }
 
 /// Class to hold restored data from persistence
