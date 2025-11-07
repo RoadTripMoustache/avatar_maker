@@ -7,15 +7,15 @@ Customizer and other utility widgets/functions.
 
 ## Available widgets
 
-This package provides you three easy-to-use widgets -
+This package provides you three easy-to-use widgets
 
-| Name                                                  | Description                                                                                                                                                                                 | Screenshot                                                                                                                       | 
-|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| [AvatarMakerAvatar](./docs/widgets/avatar.md)         | Use your avatar anywhere in your Flutter app with a simple customizable widget. Supports material dark theme too.                                                                           | ![1608830483994](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif)          |
-| [AvatarMakerCustomizer](./docs/widgets/customizer.md) | A comprehensize UI to customize the user's avatar. Offers previews of each individual component and whose looks can be tweaked with a `AvatarMakerThemeData`                                | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008536-a687828c-dc9d-4a62-aa11-b800d4fb7763.jpg)          |
-| [AvatarMakerRandomWidget](./docs/widgets/random.md)   | Renders a randomizer button by default OR can be used as an [InkWell] wrapper for the [child] widget. It changes the avatar with random properties for every displayed property categories. | ![AvatarMakerRandomWidget](https://github.com/RoadTripMoustache/avatar_maker/assets/36586573/2f81c840-9c16-40db-852b-f1da1aad8811)                                                                                                     |
-| [AvatarMakerResetWidget](./docs/widgets/reset.md)     | Renders a reset button by default OR can be used as an [InkWell] wrapper for the [child] widget. It resets the avatar to the last avatar saved state.                                       | ![AvatarMakerResetWidget](https://github.com/RoadTripMoustache/avatar_maker/assets/36586573/ef052b05-1b23-4f77-8a47-1d08fc734958) |
-| [AvatarMakerSaveWidget](./docs/widgets/save.md)       | Renders a save button by default OR can be used as an [InkWell] wrapper for the [child] widget.                                                                                             | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008545-8325af7b-58a2-4419-8544-929ffbdbb9ff.jpg)          |
+| Name                                                  | Description                                                                                                                                                                                        | Screenshot                                                                                                                         | 
+|-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [AvatarMakerAvatar](./docs/widgets/avatar.md)         | Use your avatar anywhere in your Flutter app with a simple customizable widget. Supports material dark theme too.                                                                                  | ![1608830483994](https://user-images.githubusercontent.com/37346450/103071632-009ec100-45ea-11eb-97c4-96c9ec67e204.gif)            |
+| [AvatarMakerCustomizer](./docs/widgets/customizer.md) | A comprehensize UI to customize the user's avatar. Offers previews of each individual component and whose looks can be tweaked with a `AvatarMakerThemeData`                                       | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008536-a687828c-dc9d-4a62-aa11-b800d4fb7763.jpg)            |
+| [AvatarMakerRandomWidget](./docs/widgets/random.md)   | Renders a randomizer button by default OR can be used as an [InkWell] wrapper for the [child] widget. It changes the avatar with random properties for every displayed property categories.        | ![AvatarMakerRandomWidget](https://github.com/RoadTripMoustache/avatar_maker/assets/36586573/2f81c840-9c16-40db-852b-f1da1aad8811) |
+| [AvatarMakerResetWidget](./docs/widgets/reset.md)     | Renders a reset button by default OR can be used as an [InkWell] wrapper for the [child] widget. It resets the avatar to the last avatar saved state.  ⚠ Useless with a non persistant controller. | ![AvatarMakerResetWidget](https://github.com/RoadTripMoustache/avatar_maker/assets/36586573/ef052b05-1b23-4f77-8a47-1d08fc734958)  |
+| [AvatarMakerSaveWidget](./docs/widgets/save.md)       | Renders a save button by default OR can be used as an [InkWell] wrapper for the [child] widget. ⚠ Useless with a non persistant controller.                                                        | ![1608827561239](https://user-images.githubusercontent.com/37346450/154008545-8325af7b-58a2-4419-8544-929ffbdbb9ff.jpg)            |
 
 ******
 
@@ -60,7 +60,7 @@ SVG Assets used are derived from [getavataaars.com](https://getavataaars.com/) .
 
 ### Example app
 
-<a href="https://psk907.github.io/fluttermoji" >Try out the demo on your browser now</a>
+<a href="https://roadtripmoustache.github.io/avatar_maker/" >Try out the demo on your browser now</a> <i>(The demo is with a Non Persistant controller)</i>
 <br />
 <br />
 <img src="https://user-images.githubusercontent.com/37346450/103443014-fd0dd880-4c80-11eb-8955-309bfb66fb4c.jpg" height ="400" />

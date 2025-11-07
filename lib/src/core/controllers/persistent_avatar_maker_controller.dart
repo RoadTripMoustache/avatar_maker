@@ -123,4 +123,12 @@ class PersistentAvatarMakerController extends AvatarMakerController {
     SharedPreferences pref = await SharedPreferences.getInstance();
     return pref.get(PreferencesLabel.avatarMakerSVG.name) as String;
   }
+
+  /// Flag to know if the controller used is a persistant one or not.
+  /// Useful for some widgets like the "Reset" or "Save" button to know if it's
+  /// useful to be displayed.
+  @override
+  bool isPersistentController() {
+    return true;
+  }
 }

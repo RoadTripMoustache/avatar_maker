@@ -60,4 +60,12 @@ class NonPersistentAvatarMakerController extends AvatarMakerController {
     // Return the current options
     return RestoredData(svg: svg, options: selectedOptions);
   }
+
+  /// Flag to know if the controller used is a persistant one or not.
+  /// Useful for some widgets like the "Reset" or "Save" button to know if it's
+  /// useful to be displayed.
+  @override
+  bool isPersistentController() {
+    return false;
+  }
 }
