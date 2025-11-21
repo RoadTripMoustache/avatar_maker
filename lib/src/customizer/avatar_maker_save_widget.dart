@@ -59,6 +59,10 @@ class AvatarMakerSaveWidget extends StatelessWidget {
         Provider.of<AvatarMakerController?>(context, listen: false) ??
         PersistentAvatarMakerController(customizedPropertyCategories: []);
 
+    if (!(controller?.isPersistentController() ?? false)) {
+      return SizedBox.shrink();
+    }
+
     return InkWell(
       onTap: () async {
         await avatarController.saveAvatarSVG();

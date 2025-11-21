@@ -258,6 +258,16 @@ class MockPersistentAvatarMakerController extends _i1.Mock
       ) as _i9.Future<_i3.RestoredData>);
 
   @override
+  bool isPersistentController() => (super.noSuchMethod(
+        Invocation.method(
+          #isPersistentController,
+          [],
+        ),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
   _i9.Future<void> initController() => (super.noSuchMethod(
         Invocation.method(
           #initController,

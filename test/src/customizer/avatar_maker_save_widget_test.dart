@@ -16,6 +16,7 @@ void main() {
     mockController = MockPersistentAvatarMakerController();
     when(mockController.saveAvatarSVG()).thenAnswer((_) => Future.value());
     when(mockController.drawAvatarSVG()).thenReturn("test-svg");
+    when(mockController.isPersistentController()).thenReturn(true);
   });
 
   Widget buildTestWidget(Widget child) {
@@ -32,7 +33,9 @@ void main() {
   group("AvatarMakerSaveWidget", () {
     group("UI", () {
       testWidgets("Default", (WidgetTester tester) async {
-        await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget()));
+        await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
+          controller: mockController,
+        )));
 
         final inkWellConditions = isA<InkWell>()
             .having((i) => i.radius, "Check radius", null)
@@ -57,6 +60,7 @@ void main() {
         final double radius = 12.9;
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
           radius: radius,
+          controller: mockController,
         )));
 
         final inkWellConditions = isA<InkWell>()
@@ -82,6 +86,7 @@ void main() {
         final Color splashColor = Colors.green;
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
           splashColor: splashColor,
+          controller: mockController,
         )));
 
         final inkWellConditions = isA<InkWell>()
@@ -105,6 +110,7 @@ void main() {
 
       testWidgets("With custom theme", (WidgetTester tester) async {
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
+          controller: mockController,
           theme: AvatarMakerThemeData(
             iconColor: Colors.pink,
           ),
@@ -132,6 +138,7 @@ void main() {
         final customChild = Text("Custom Child");
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
           child: customChild,
+          controller: mockController,
         )));
 
         expect(find.text("Custom Child"), findsOneWidget);
@@ -140,7 +147,7 @@ void main() {
         verifyNever(mockController.saveAvatarSVG());
       });
 
-      testWidgets("With controller", (WidgetTester tester) async {
+      testWidgets("With persistant controller", (WidgetTester tester) async {
         final controller =
             PersistentAvatarMakerController(customizedPropertyCategories: []);
         await tester.pumpWidget(
@@ -157,11 +164,32 @@ void main() {
 
         verifyNever(mockController.saveAvatarSVG());
       });
+
+      testWidgets("With non persistant controller",
+          (WidgetTester tester) async {
+        final controller = NonPersistentAvatarMakerController(
+            customizedPropertyCategories: []);
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: AvatarMakerSaveWidget(
+                controller: controller,
+              ),
+            ),
+          ),
+        );
+
+        expect(find.byType(Icon), findsNothing);
+
+        verifyNever(mockController.saveAvatarSVG());
+      });
     });
 
     group("On tap InkWell", () {
       testWidgets("Default", (WidgetTester tester) async {
-        await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget()));
+        await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
+          controller: mockController,
+        )));
 
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);
@@ -174,6 +202,7 @@ void main() {
       testWidgets("With onTap callback", (WidgetTester tester) async {
         String? savedAvatarSvg;
         await tester.pumpWidget(buildTestWidget(AvatarMakerSaveWidget(
+          controller: mockController,
           onTap: (svg) {
             savedAvatarSvg = svg;
           },
@@ -194,6 +223,7 @@ void main() {
         when(customController.saveAvatarSVG())
             .thenAnswer((_) => Future.value());
         when(customController.drawAvatarSVG()).thenReturn("custom-svg");
+        when(customController.isPersistentController()).thenReturn(true);
 
         await tester.pumpWidget(
           MaterialApp(

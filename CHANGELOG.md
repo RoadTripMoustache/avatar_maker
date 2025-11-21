@@ -2,9 +2,11 @@
 ### Added
 - chore: Update lib versions
 - doc: Update documentation about property categories
+- feat: Add `isPersistentController` method in the controller to let some widgets know if they must be displayed or not. (Like save or reset button in with a non persistant controller)
 
 ### Updated
 - chore: Update example bootstrapping to a not deprecated solution
+
 
 ## [1.1.0] - 27/06/2025
 ### Breaking Changes

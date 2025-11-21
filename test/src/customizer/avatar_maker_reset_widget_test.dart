@@ -16,6 +16,7 @@ void main() {
 
   setUp(() {
     mockController = MockPersistentAvatarMakerController();
+    when(mockController.isPersistentController()).thenReturn(true);
   });
 
   Widget buildTestWidget(Widget child) {
@@ -28,7 +29,9 @@ void main() {
   group("AvatarMakerResetWidget", () {
     group("UI", () {
       testWidgets("Default", (WidgetTester tester) async {
-        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget()));
+        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
+          controller: mockController,
+        )));
 
         final inkWellConditions = isA<InkWell>()
             .having((i) => i.radius, "Check radius", null)
@@ -52,6 +55,7 @@ void main() {
       testWidgets("With radius", (WidgetTester tester) async {
         final double radius = 12.9;
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
+          controller: mockController,
           radius: radius,
         )));
 
@@ -77,6 +81,7 @@ void main() {
       testWidgets("With splashColor", (WidgetTester tester) async {
         final Color splashColor = Colors.green;
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
+          controller: mockController,
           splashColor: splashColor,
         )));
 
@@ -101,6 +106,7 @@ void main() {
 
       testWidgets("With custom theme", (WidgetTester tester) async {
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
+          controller: mockController,
           theme: AvatarMakerThemeData(
             iconColor: Colors.pink,
           ),
@@ -127,6 +133,7 @@ void main() {
       testWidgets("With custom child", (WidgetTester tester) async {
         final customChild = Text("Custom Child");
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
+          controller: mockController,
           child: customChild,
         )));
 
@@ -136,7 +143,7 @@ void main() {
         verifyNever(mockController.restoreState());
       });
 
-      testWidgets("With controller", (WidgetTester tester) async {
+      testWidgets("With persistant controller", (WidgetTester tester) async {
         final controller =
             PersistentAvatarMakerController(customizedPropertyCategories: []);
         await tester.pumpMaterialApp(
@@ -153,11 +160,32 @@ void main() {
 
         verifyNever(mockController.restoreState());
       });
+
+      testWidgets("With non persistant controller",
+          (WidgetTester tester) async {
+        final controller = NonPersistentAvatarMakerController(
+            customizedPropertyCategories: []);
+        await tester.pumpMaterialApp(
+          MaterialApp(
+            home: Scaffold(
+              body: AvatarMakerResetWidget(
+                controller: controller,
+              ),
+            ),
+          ),
+        );
+
+        expect(find.byType(Icon), findsNothing);
+
+        verifyNever(mockController.restoreState());
+      });
     });
 
     group("On tap InkWell", () {
       testWidgets("Default", (WidgetTester tester) async {
-        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget()));
+        await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
+          controller: mockController,
+        )));
 
         final inkwell = find.byType(InkWell);
         expect(inkwell, findsOneWidget);
@@ -169,6 +197,7 @@ void main() {
       testWidgets("With onTap callback", (WidgetTester tester) async {
         bool callbackCalled = false;
         await tester.pumpMaterialApp(buildTestWidget(AvatarMakerResetWidget(
+          controller: mockController,
           onTap: () {
             callbackCalled = true;
           },
