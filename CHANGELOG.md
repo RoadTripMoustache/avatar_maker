@@ -1,4 +1,7 @@
 ## Unreleased
+
+
+## [1.2.0] - 21/11/2025
 ### Added
 - chore: Update lib versions
 - doc: Update documentation about property categories
