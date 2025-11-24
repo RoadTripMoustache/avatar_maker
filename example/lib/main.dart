@@ -106,10 +106,17 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class NewPage extends StatelessWidget {
+class NewPage extends StatefulWidget {
   final AvatarMakerController controller;
 
   const NewPage({Key? key, required this.controller}) : super(key: key);
+
+  @override
+  State<NewPage> createState() => _NewPageState();
+}
+
+class _NewPageState extends State<NewPage> {
+  double _userLevel = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +133,33 @@ class NewPage extends StatelessWidget {
                 child: AvatarMakerAvatar(
                   radius: 100,
                   backgroundColor: Colors.grey[200],
-                  controller: controller,
+                  controller: widget.controller,
+                ),
+              ),
+              // Level Slider
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "User Level: ${_userLevel.toInt()}",
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    ),
+                    Text("Reach Level 5 to unlock Glasses!"),
+                    Slider(
+                      value: _userLevel,
+                      min: 0,
+                      max: 10,
+                      divisions: 10,
+                      label: _userLevel.round().toString(),
+                      onChanged: (double value) {
+                        setState(() {
+                          _userLevel = value;
+                        });
+                      },
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
@@ -138,9 +171,9 @@ class NewPage extends StatelessWidget {
                       style: Theme.of(context).textTheme.titleLarge,
                     ),
                     Spacer(),
-                    AvatarMakerSaveWidget(controller: controller),
-                    AvatarMakerRandomWidget(controller: controller),
-                    AvatarMakerResetWidget(controller: controller),
+                    AvatarMakerSaveWidget(controller: widget.controller),
+                    AvatarMakerRandomWidget(controller: widget.controller),
+                    AvatarMakerResetWidget(controller: widget.controller),
                   ],
                 ),
               ),
@@ -150,9 +183,18 @@ class NewPage extends StatelessWidget {
                 child: AvatarMakerCustomizer(
                   scaffoldWidth: min(600, _width * 0.85),
                   autosave: false,
-                  controller: controller,
+                  controller: widget.controller,
                   theme: AvatarMakerThemeData(
                       boxDecoration: BoxDecoration(boxShadow: [BoxShadow()])),
+                  isItemLocked: (category, item) {
+                    // Example Logic: Lock "Glasses" if level < 5
+                    // Note: In a real app, you'd check item IDs more robustly
+                    if (category == PropertyCategoryIds.Accessory &&
+                        item.contains("Glasses")) {
+                      return _userLevel < 5;
+                    }
+                    return false;
+                  },
                 ),
               ),
             ],

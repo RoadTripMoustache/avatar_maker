@@ -40,6 +40,11 @@ class AvatarMakerCustomizer extends StatefulWidget {
   /// of the avatar.
   final Function(String avatarSvg)? onChange;
 
+  /// Callback to check if an item is locked.
+  /// Returns true if the item is locked, false otherwise.
+  final bool Function(PropertyCategoryIds categoryId, String itemId)?
+      isItemLocked;
+
   /// The [AvatarMakerController] to use for saving the avatar.
   ///
   /// If not provided, it will be fetched from Provider or a new controller will be created.
@@ -65,6 +70,7 @@ class AvatarMakerCustomizer extends StatefulWidget {
     this.customizedPropertyCategories,
     this.autosave = false,
     this.onChange,
+    this.isItemLocked,
     this.controller,
   })  : this.theme = theme ?? AvatarMakerThemeData.defaultTheme,
         super(key: key);
@@ -180,6 +186,7 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
           scaffoldHeight: widget.scaffoldHeight,
           onTapOption: onTapOption,
           onArrowTap: onArrowTap,
+          isItemLocked: widget.isItemLocked,
         ),
       ),
     );
