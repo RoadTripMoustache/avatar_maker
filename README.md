@@ -127,16 +127,16 @@ worth noting.
 More details can be found in the widgets documentations or in the how-to :
 
 - Widgets
-    - [AvatarMakerAvatar](./docs/widgets/avatar.md)
-    - [AvatarMakerCustomizer](./docs/widgets/customizer.md)
-    - [AvatarMakerRandomWidget](./docs/widgets/random.md)
-    - [AvatarMakerResetWidget](./docs/widgets/reset.md)
-    - [AvatarMakerSaveWidget](./docs/widgets/save.md)
+    - [AvatarMakerAvatar](./doc/widgets/avatar.md)
+    - [AvatarMakerCustomizer](./doc/widgets/customizer.md)
+    - [AvatarMakerRandomWidget](./doc/widgets/random.md)
+    - [AvatarMakerResetWidget](./doc/widgets/reset.md)
+    - [AvatarMakerSaveWidget](./doc/widgets/save.md)
 - How-to
-    - [define a custom theme ?](./docs/how-to/define_custom_theme.md)
-    - [customize property category ?](./docs/how-to/define_customized_property_category.md)
-    - [support a new language ?](./docs/how-to/support_new_language.md)
-    - [lock items?](./docs/how-to/locked_items_summary.md)
+    - [define a custom theme ?](./doc/how-to/define_custom_theme.md)
+    - [customize property category ?](./doc/how-to/define_customized_property_category.md)
+    - [support a new language ?](./doc/how-to/support_new_language.md)
+    - [lock items?](./doc/how-to/locked_items_summary.md)
 
 ## Attributions
 
