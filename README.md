@@ -136,6 +136,7 @@ More details can be found in the widgets documentations or in the how-to :
     - [define a custom theme ?](./docs/how-to/define_custom_theme.md)
     - [customize property category ?](./docs/how-to/define_customized_property_category.md)
     - [support a new language ?](./docs/how-to/support_new_language.md)
+    - [lock items?](./docs/how-to/locked_items_summary.md)
 
 ## Attributions
 
