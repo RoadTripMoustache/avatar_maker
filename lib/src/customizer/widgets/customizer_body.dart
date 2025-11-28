@@ -85,7 +85,7 @@ class CustomizerBody extends StatelessWidget {
                 if (isLocked)
                   Container(
                     decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.3),
+                      color: Colors.black.withValues(alpha: 0.3),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Center(
