@@ -9,12 +9,12 @@ import 'dart:ui' as _i9;
 import 'package:avatar_maker/l10n/app_localizations.dart' as _i2;
 import 'package:avatar_maker/src/core/controllers/avatar_maker_controller.dart'
     as _i3;
-import 'package:avatar_maker/src/core/enums/property_category_ids.dart' as _i5;
+import 'package:avatar_maker/src/core/enums/property_category_ids.dart' as _i6;
 import 'package:avatar_maker/src/core/models/customized_property_category.dart'
-    as _i4;
-import 'package:avatar_maker/src/core/models/property_item.dart' as _i6;
+    as _i5;
+import 'package:avatar_maker/src/core/models/property_item.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:mockito/src/dummies.dart' as _i7;
+import 'package:mockito/src/dummies.dart' as _i4;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -29,6 +29,7 @@ import 'package:mockito/src/dummies.dart' as _i7;
 // ignore_for_file: unnecessary_parenthesis
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
+// ignore_for_file: invalid_use_of_internal_member
 
 class _FakeAppLocalizations_0 extends _i1.SmartFake
     implements _i2.AppLocalizations {
@@ -57,29 +58,42 @@ class _FakeRestoredData_1 extends _i1.SmartFake implements _i3.RestoredData {
 class MockAvatarMakerController extends _i1.Mock
     implements _i3.AvatarMakerController {
   @override
-  List<_i4.CustomizedPropertyCategory> get propertyCategories =>
+  String get displayedAvatarSVG => (super.noSuchMethod(
+        Invocation.getter(#displayedAvatarSVG),
+        returnValue: _i4.dummyValue<String>(
+          this,
+          Invocation.getter(#displayedAvatarSVG),
+        ),
+        returnValueForMissingStub: _i4.dummyValue<String>(
+          this,
+          Invocation.getter(#displayedAvatarSVG),
+        ),
+      ) as String);
+
+  @override
+  List<_i5.CustomizedPropertyCategory> get propertyCategories =>
       (super.noSuchMethod(
         Invocation.getter(#propertyCategories),
-        returnValue: <_i4.CustomizedPropertyCategory>[],
-        returnValueForMissingStub: <_i4.CustomizedPropertyCategory>[],
-      ) as List<_i4.CustomizedPropertyCategory>);
+        returnValue: <_i5.CustomizedPropertyCategory>[],
+        returnValueForMissingStub: <_i5.CustomizedPropertyCategory>[],
+      ) as List<_i5.CustomizedPropertyCategory>);
 
   @override
-  List<_i4.CustomizedPropertyCategory> get displayedPropertyCategories =>
+  List<_i5.CustomizedPropertyCategory> get displayedPropertyCategories =>
       (super.noSuchMethod(
         Invocation.getter(#displayedPropertyCategories),
-        returnValue: <_i4.CustomizedPropertyCategory>[],
-        returnValueForMissingStub: <_i4.CustomizedPropertyCategory>[],
-      ) as List<_i4.CustomizedPropertyCategory>);
+        returnValue: <_i5.CustomizedPropertyCategory>[],
+        returnValueForMissingStub: <_i5.CustomizedPropertyCategory>[],
+      ) as List<_i5.CustomizedPropertyCategory>);
 
   @override
-  Map<_i5.PropertyCategoryIds, _i6.PropertyItem> get defaultSelectedOptions =>
+  Map<_i6.PropertyCategoryIds, _i7.PropertyItem> get defaultSelectedOptions =>
       (super.noSuchMethod(
         Invocation.getter(#defaultSelectedOptions),
-        returnValue: <_i5.PropertyCategoryIds, _i6.PropertyItem>{},
-        returnValueForMissingStub: <_i5.PropertyCategoryIds,
-            _i6.PropertyItem>{},
-      ) as Map<_i5.PropertyCategoryIds, _i6.PropertyItem>);
+        returnValue: <_i6.PropertyCategoryIds, _i7.PropertyItem>{},
+        returnValueForMissingStub: <_i6.PropertyCategoryIds,
+            _i7.PropertyItem>{},
+      ) as Map<_i6.PropertyCategoryIds, _i7.PropertyItem>);
 
   @override
   _i2.AppLocalizations get l10n => (super.noSuchMethod(
@@ -95,77 +109,61 @@ class MockAvatarMakerController extends _i1.Mock
       ) as _i2.AppLocalizations);
 
   @override
-  Map<_i5.PropertyCategoryIds, _i6.PropertyItem> get selectedOptions =>
+  Map<_i6.PropertyCategoryIds, _i7.PropertyItem> get selectedOptions =>
       (super.noSuchMethod(
         Invocation.getter(#selectedOptions),
-        returnValue: <_i5.PropertyCategoryIds, _i6.PropertyItem>{},
-        returnValueForMissingStub: <_i5.PropertyCategoryIds,
-            _i6.PropertyItem>{},
-      ) as Map<_i5.PropertyCategoryIds, _i6.PropertyItem>);
+        returnValue: <_i6.PropertyCategoryIds, _i7.PropertyItem>{},
+        returnValueForMissingStub: <_i6.PropertyCategoryIds,
+            _i7.PropertyItem>{},
+      ) as Map<_i6.PropertyCategoryIds, _i7.PropertyItem>);
 
   @override
-  String get displayedAvatarSVG => (super.noSuchMethod(
-        Invocation.getter(#displayedAvatarSVG),
-        returnValue: _i7.dummyValue<String>(
-          this,
-          Invocation.getter(#displayedAvatarSVG),
-        ),
-        returnValueForMissingStub: _i7.dummyValue<String>(
-          this,
-          Invocation.getter(#displayedAvatarSVG),
-        ),
-      ) as String);
-
-  @override
-  set propertyCategories(
-          List<_i4.CustomizedPropertyCategory>? _propertyCategories) =>
+  set propertyCategories(List<_i5.CustomizedPropertyCategory>? value) =>
       super.noSuchMethod(
         Invocation.setter(
           #propertyCategories,
-          _propertyCategories,
+          value,
         ),
         returnValueForMissingStub: null,
       );
 
   @override
   set displayedPropertyCategories(
-          List<_i4.CustomizedPropertyCategory>? _displayedPropertyCategories) =>
+          List<_i5.CustomizedPropertyCategory>? value) =>
       super.noSuchMethod(
         Invocation.setter(
           #displayedPropertyCategories,
-          _displayedPropertyCategories,
+          value,
         ),
         returnValueForMissingStub: null,
       );
 
   @override
   set defaultSelectedOptions(
-          Map<_i5.PropertyCategoryIds, _i6.PropertyItem>?
-              _defaultSelectedOptions) =>
+          Map<_i6.PropertyCategoryIds, _i7.PropertyItem>? value) =>
       super.noSuchMethod(
         Invocation.setter(
           #defaultSelectedOptions,
-          _defaultSelectedOptions,
+          value,
         ),
         returnValueForMissingStub: null,
       );
 
   @override
-  set l10n(_i2.AppLocalizations? _l10n) => super.noSuchMethod(
+  set l10n(_i2.AppLocalizations? value) => super.noSuchMethod(
         Invocation.setter(
           #l10n,
-          _l10n,
+          value,
         ),
         returnValueForMissingStub: null,
       );
 
   @override
-  set selectedOptions(
-          Map<_i5.PropertyCategoryIds, _i6.PropertyItem>? _selectedOptions) =>
+  set selectedOptions(Map<_i6.PropertyCategoryIds, _i7.PropertyItem>? value) =>
       super.noSuchMethod(
         Invocation.setter(
           #selectedOptions,
-          _selectedOptions,
+          value,
         ),
         returnValueForMissingStub: null,
       );
@@ -189,19 +187,19 @@ class MockAvatarMakerController extends _i1.Mock
 
   @override
   _i8.Future<
-      Map<_i5.PropertyCategoryIds,
-          _i6.PropertyItem>> getSelectedOptions() => (super.noSuchMethod(
+      Map<_i6.PropertyCategoryIds,
+          _i7.PropertyItem>> getSelectedOptions() => (super.noSuchMethod(
         Invocation.method(
           #getSelectedOptions,
           [],
         ),
         returnValue:
-            _i8.Future<Map<_i5.PropertyCategoryIds, _i6.PropertyItem>>.value(
-                <_i5.PropertyCategoryIds, _i6.PropertyItem>{}),
+            _i8.Future<Map<_i6.PropertyCategoryIds, _i7.PropertyItem>>.value(
+                <_i6.PropertyCategoryIds, _i7.PropertyItem>{}),
         returnValueForMissingStub:
-            _i8.Future<Map<_i5.PropertyCategoryIds, _i6.PropertyItem>>.value(
-                <_i5.PropertyCategoryIds, _i6.PropertyItem>{}),
-      ) as _i8.Future<Map<_i5.PropertyCategoryIds, _i6.PropertyItem>>);
+            _i8.Future<Map<_i6.PropertyCategoryIds, _i7.PropertyItem>>.value(
+                <_i6.PropertyCategoryIds, _i7.PropertyItem>{}),
+      ) as _i8.Future<Map<_i6.PropertyCategoryIds, _i7.PropertyItem>>);
 
   @override
   void updatePreview({String? newAvatarMakerSVG = ''}) => super.noSuchMethod(
@@ -231,7 +229,7 @@ class MockAvatarMakerController extends _i1.Mock
           #save,
           [],
         ),
-        returnValue: _i8.Future<String>.value(_i7.dummyValue<String>(
+        returnValue: _i8.Future<String>.value(_i4.dummyValue<String>(
           this,
           Invocation.method(
             #save,
@@ -239,7 +237,7 @@ class MockAvatarMakerController extends _i1.Mock
           ),
         )),
         returnValueForMissingStub:
-            _i8.Future<String>.value(_i7.dummyValue<String>(
+            _i8.Future<String>.value(_i4.dummyValue<String>(
           this,
           Invocation.method(
             #save,
@@ -287,14 +285,14 @@ class MockAvatarMakerController extends _i1.Mock
           #drawAvatarSVG,
           [],
         ),
-        returnValue: _i7.dummyValue<String>(
+        returnValue: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #drawAvatarSVG,
             [],
           ),
         ),
-        returnValueForMissingStub: _i7.dummyValue<String>(
+        returnValueForMissingStub: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #drawAvatarSVG,
@@ -305,7 +303,7 @@ class MockAvatarMakerController extends _i1.Mock
 
   @override
   String getComponentSVG(
-    _i5.PropertyCategoryIds? categoryId,
+    _i6.PropertyCategoryIds? categoryId,
     int? index,
   ) =>
       (super.noSuchMethod(
@@ -316,7 +314,7 @@ class MockAvatarMakerController extends _i1.Mock
             index,
           ],
         ),
-        returnValue: _i7.dummyValue<String>(
+        returnValue: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #getComponentSVG,
@@ -326,7 +324,7 @@ class MockAvatarMakerController extends _i1.Mock
             ],
           ),
         ),
-        returnValueForMissingStub: _i7.dummyValue<String>(
+        returnValueForMissingStub: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #getComponentSVG,
@@ -353,14 +351,14 @@ class MockAvatarMakerController extends _i1.Mock
           #getJsonOptionsSync,
           [],
         ),
-        returnValue: _i7.dummyValue<String>(
+        returnValue: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #getJsonOptionsSync,
             [],
           ),
         ),
-        returnValueForMissingStub: _i7.dummyValue<String>(
+        returnValueForMissingStub: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #getJsonOptionsSync,
@@ -375,14 +373,14 @@ class MockAvatarMakerController extends _i1.Mock
           #getAvatarSVGSync,
           [],
         ),
-        returnValue: _i7.dummyValue<String>(
+        returnValue: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #getAvatarSVGSync,
             [],
           ),
         ),
-        returnValueForMissingStub: _i7.dummyValue<String>(
+        returnValueForMissingStub: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #getAvatarSVGSync,

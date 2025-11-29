@@ -14,6 +14,8 @@ class CustomizerBody extends StatelessWidget {
     PropertyCategoryIds categoryId,
   ) onTapOption;
   final void Function(bool isLeft) onArrowTap;
+  final bool Function(PropertyCategoryIds categoryId, String itemId)?
+      isItemLocked;
 
   const CustomizerBody({
     required this.avatarMakerController,
@@ -22,6 +24,7 @@ class CustomizerBody extends StatelessWidget {
     required this.scaffoldHeight,
     required this.onTapOption,
     required this.onArrowTap,
+    this.isItemLocked,
   });
 
   @override
@@ -51,26 +54,52 @@ class CustomizerBody extends StatelessWidget {
           crossAxisSpacing: 4.0,
           mainAxisSpacing: 4.0,
         ),
-        itemBuilder: (BuildContext context, int index) => InkWell(
-          onTap: () => onTapOption(
-              propertyCategory.properties![index], propertyCategory.id),
-          child: Container(
-            decoration:
-                index == propertyCategory.properties!.indexOf(selectedItem)
-                    ? theme.selectedTileDecoration
-                    : theme.unselectedTileDecoration,
-            margin: theme.tileMargin,
-            padding: theme.tilePadding,
-            child: SvgPicture.string(
-              avatarMakerController.getComponentSVG(propertyCategory.id, index),
-              height: 20,
-              semanticsLabel: 'Your AvatarMaker',
-              placeholderBuilder: (context) => Center(
-                child: CircularProgressIndicator.adaptive(),
-              ),
+        itemBuilder: (BuildContext context, int index) {
+          final item = propertyCategory.properties![index];
+          final isLocked =
+              isItemLocked?.call(propertyCategory.id, item.id) ?? false;
+
+          return InkWell(
+            onTap:
+                isLocked ? null : () => onTapOption(item, propertyCategory.id),
+            child: Stack(
+              children: [
+                Container(
+                  alignment: Alignment.center,
+                  decoration: index ==
+                          propertyCategory.properties!.indexOf(selectedItem)
+                      ? theme.selectedTileDecoration
+                      : theme.unselectedTileDecoration,
+                  margin: theme.tileMargin,
+                  padding: theme.tilePadding,
+                  child: SvgPicture.string(
+                    avatarMakerController.getComponentSVG(
+                        propertyCategory.id, index),
+                    height: 20,
+                    semanticsLabel: 'Your AvatarMaker',
+                    placeholderBuilder: (context) => Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    ),
+                  ),
+                ),
+                if (isLocked)
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Colors.black.withValues(alpha: 0.3),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.lock,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                  ),
+              ],
             ),
-          ),
-        ),
+          );
+        },
       );
 
       /// Builds the icon for the attribute to be placed in the bottom row

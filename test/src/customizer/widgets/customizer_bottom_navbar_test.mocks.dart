@@ -24,6 +24,7 @@ import 'package:mockito/src/dummies.dart' as _i6;
 // ignore_for_file: unnecessary_parenthesis
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
+// ignore_for_file: invalid_use_of_internal_member
 
 class _FakeDuration_0 extends _i1.SmartFake implements Duration {
   _FakeDuration_0(
@@ -60,13 +61,6 @@ class _FakeTickerFuture_2 extends _i1.SmartFake implements _i2.TickerFuture {
 /// See the documentation for Mockito's code generation for more information.
 class MockTabController extends _i1.Mock implements _i3.TabController {
   @override
-  int get length => (super.noSuchMethod(
-        Invocation.getter(#length),
-        returnValue: 0,
-        returnValueForMissingStub: 0,
-      ) as int);
-
-  @override
   Duration get animationDuration => (super.noSuchMethod(
         Invocation.getter(#animationDuration),
         returnValue: _FakeDuration_0(
@@ -78,6 +72,13 @@ class MockTabController extends _i1.Mock implements _i3.TabController {
           Invocation.getter(#animationDuration),
         ),
       ) as Duration);
+
+  @override
+  int get length => (super.noSuchMethod(
+        Invocation.getter(#length),
+        returnValue: 0,
+        returnValueForMissingStub: 0,
+      ) as int);
 
   @override
   int get index => (super.noSuchMethod(
@@ -255,19 +256,19 @@ class MockAnimationController extends _i1.Mock
       ) as _i2.AnimationStatus);
 
   @override
-  set duration(Duration? _duration) => super.noSuchMethod(
+  set duration(Duration? value) => super.noSuchMethod(
         Invocation.setter(
           #duration,
-          _duration,
+          value,
         ),
         returnValueForMissingStub: null,
       );
 
   @override
-  set reverseDuration(Duration? _reverseDuration) => super.noSuchMethod(
+  set reverseDuration(Duration? value) => super.noSuchMethod(
         Invocation.setter(
           #reverseDuration,
-          _reverseDuration,
+          value,
         ),
         returnValueForMissingStub: null,
       );
