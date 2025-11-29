@@ -1,5 +1,10 @@
 ## Unreleased
 
+## [1.3.1] - 29/11/2025
+### Fixed
+- fix: Example application
+- fix: Components size
+
 
 ## [1.3.0] - 29/11/2025
 ### Added
@@ -8,10 +13,6 @@
 
 ### Updated
 - refactor: Remove deprecated `withOpacity` method calls
-
-### Fixed
-- fix: Example application
-
 
 ## [1.2.0] - 21/11/2025
 ### Added
