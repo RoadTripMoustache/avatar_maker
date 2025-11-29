@@ -37182,7 +37182,7 @@ if(l==null)l=!1
 o=l?q:new A.UM(p,m,n)
 s=m.e
 r=b===B.b.dv(p.a.d,this.c)?s.d:s.e
-s=A.c([A.po(B.ag,A.aoD(m.c.QH(p.a.a,b),20,new A.UN(),"Your AvatarMaker"),B.J,q,q,r,q,q,s.Q,s.z,q,q,q)],t.F)
+s=A.c([A.po(B.ag,A.aoD(m.c.QH(p.a.a,b),40,new A.UN(),"Your AvatarMaker"),B.J,q,q,r,q,q,s.Q,s.z,q,q,q)],t.F)
 if(l){p=B.k.DC(0.3)
 m=A.u8(10)
 s.push(A.po(q,A.kD(A.FS(B.Gd,B.j,q,20),q,q),B.J,q,q,new A.eV(p,q,q,m,q,q,B.aH),q,q,q,q,q,q,q))}return A.Ys(!1,q,!0,A.a6K(B.dQ,s,B.fi),q,!0,q,q,q,q,q,q,o,q,q,q,q,q)},
