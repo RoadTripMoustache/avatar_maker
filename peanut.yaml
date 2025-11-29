@@ -2,6 +2,5 @@
 directories:
   - example/lib
 
-web-renderer: canvaskit
 
 # About how to use it, please check `/docs/tooling/peanut.md`

@@ -75,7 +75,7 @@ class CustomizerBody extends StatelessWidget {
                   child: SvgPicture.string(
                     avatarMakerController.getComponentSVG(
                         propertyCategory.id, index),
-                    height: 20,
+                    height: 80,
                     semanticsLabel: 'Your AvatarMaker',
                     placeholderBuilder: (context) => Center(
                       child: CircularProgressIndicator.adaptive(),
@@ -92,7 +92,7 @@ class CustomizerBody extends StatelessWidget {
                       child: Icon(
                         Icons.lock,
                         color: Colors.white,
-                        size: 20,
+                        size: 60,
                       ),
                     ),
                   ),

@@ -1,10 +1,17 @@
 ## Unreleased
+
+
+## [1.3.0] - 29/11/2025
 ### Added
 - feat: Added locked items support. This feature introduces the ability to lock avatar customization items based on specific conditions (e.g., user level, premium membership, etc)
 - docs: Update documentation about locked items
 
 ### Updated
 - refactor: Remove deprecated `withOpacity` method calls
+
+### Fixed
+- fix: Example application
+
 
 ## [1.2.0] - 21/11/2025
 ### Added
