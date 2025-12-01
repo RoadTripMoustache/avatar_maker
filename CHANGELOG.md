@@ -1,4 +1,7 @@
 ## Unreleased
+
+
+## [1.4.0] - 01/12/2025
 ### Added
 - feat: Added `lockWidget` to `AvatarMakerCustomizer` to allow custom widgets for locked items.
 - feat: Added `onTapLockedItem` callback to `AvatarMakerCustomizer` to handle taps on locked items.
