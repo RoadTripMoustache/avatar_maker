@@ -145,4 +145,75 @@ void main() {
       );
     });
   });
+
+  group('Custom Lock Widget and Callback', () {
+    testWidgets('lockWidget should be displayed for locked items',
+        (WidgetTester tester) async {
+      final controller = NonPersistentAvatarMakerController();
+
+      // Lock everything
+      bool isLocked(PropertyCategoryIds category, String itemId) => true;
+
+      final customLockIcon = Key('customLockIcon');
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: AvatarMakerCustomizer(
+              controller: controller,
+              isItemLocked: isLocked,
+              lockWidget: Container(
+                key: customLockIcon,
+                child: Icon(Icons.lock_clock),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      // Should find our custom widget
+      expect(find.byKey(customLockIcon), findsWidgets);
+      // Should NOT find the default lock icon (unless it's the same icon, but we used lock_clock)
+      expect(find.byIcon(Icons.lock), findsNothing);
+    });
+
+    testWidgets('onTapLockedItem should be called when tapping a locked item',
+        (WidgetTester tester) async {
+      final controller = NonPersistentAvatarMakerController();
+
+      // Lock everything
+      bool isLocked(PropertyCategoryIds category, String itemId) => true;
+
+      bool tapCallbackCalled = false;
+      void onTapLocked(PropertyCategoryIds category, String itemId) {
+        tapCallbackCalled = true;
+      }
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: AvatarMakerCustomizer(
+              controller: controller,
+              isItemLocked: isLocked,
+              onTapLockedItem: onTapLocked,
+            ),
+          ),
+        ),
+      );
+
+      await tester.pumpAndSettle();
+
+      // Find any locked item (they are all locked) and tap it
+      // We need to find a tappable area. The InkWell is inside the GridView.
+      // Let's find the first item in the grid.
+      final firstItem = find.byType(InkWell).first;
+      await tester.tap(firstItem);
+      await tester.pump();
+
+      expect(tapCallbackCalled, isTrue,
+          reason: "onTapLockedItem should be called");
+    });
+  });
 }

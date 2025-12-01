@@ -45,6 +45,15 @@ class AvatarMakerCustomizer extends StatefulWidget {
   final bool Function(PropertyCategoryIds categoryId, String itemId)?
       isItemLocked;
 
+  /// Widget to display when an item is locked.
+  /// If not provided, a default lock icon will be shown.
+  final Widget? lockWidget;
+
+  /// Callback to be called when a locked item is tapped.
+  /// This can be used to show a dialog to unlock the item, etc.
+  final void Function(PropertyCategoryIds categoryId, String itemId)?
+      onTapLockedItem;
+
   /// The [AvatarMakerController] to use for saving the avatar.
   ///
   /// If not provided, it will be fetched from Provider or a new controller will be created.
@@ -71,6 +80,8 @@ class AvatarMakerCustomizer extends StatefulWidget {
     this.autosave = false,
     this.onChange,
     this.isItemLocked,
+    this.lockWidget,
+    this.onTapLockedItem,
     this.controller,
   })  : this.theme = theme ?? AvatarMakerThemeData.defaultTheme,
         super(key: key);
@@ -187,6 +198,8 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
           onTapOption: onTapOption,
           onArrowTap: onArrowTap,
           isItemLocked: widget.isItemLocked,
+          lockWidget: widget.lockWidget,
+          onTapLockedItem: widget.onTapLockedItem,
         ),
       ),
     );

@@ -16,6 +16,9 @@ class CustomizerBody extends StatelessWidget {
   final void Function(bool isLeft) onArrowTap;
   final bool Function(PropertyCategoryIds categoryId, String itemId)?
       isItemLocked;
+  final Widget? lockWidget;
+  final void Function(PropertyCategoryIds categoryId, String itemId)?
+      onTapLockedItem;
 
   const CustomizerBody({
     required this.avatarMakerController,
@@ -25,6 +28,8 @@ class CustomizerBody extends StatelessWidget {
     required this.onTapOption,
     required this.onArrowTap,
     this.isItemLocked,
+    this.lockWidget,
+    this.onTapLockedItem,
   });
 
   @override
@@ -60,8 +65,9 @@ class CustomizerBody extends StatelessWidget {
               isItemLocked?.call(propertyCategory.id, item.id) ?? false;
 
           return InkWell(
-            onTap:
-                isLocked ? null : () => onTapOption(item, propertyCategory.id),
+            onTap: isLocked
+                ? () => onTapLockedItem?.call(propertyCategory.id, item.id)
+                : () => onTapOption(item, propertyCategory.id),
             child: Stack(
               children: [
                 Container(
@@ -83,19 +89,20 @@ class CustomizerBody extends StatelessWidget {
                   ),
                 ),
                 if (isLocked)
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.3),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: Icon(
-                        Icons.lock,
-                        color: Colors.white,
-                        size: 60,
+                  lockWidget ??
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Colors.black.withValues(alpha: 0.3),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.lock,
+                            color: Colors.white,
+                            size: 60,
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
               ],
             ),
           );

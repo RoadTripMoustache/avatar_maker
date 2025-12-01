@@ -1,30 +1,60 @@
 # How to lock items ?
 
-**Summary:**
-This commit introduces the ability to lock avatar customization items based on specific conditions (e.g., user level, premium membership, etc.).
+## Overview
 
-**Changes Made:**
+This update adds a flexible system for locking avatar customization items based on any conditions you define (e.g., user level, premium status, achievements). The locking logic is fully externalized so you can control it without modifying the core package.
 
-1.  **`AvatarMakerCustomizer` Update (`lib/src/customizer/avatar_maker_customizer.dart`):**
-    *   A new optional parameter named `isItemLocked` was added to the `AvatarMakerCustomizer` widget.
-    *   **Signature:** `bool Function(PropertyCategoryIds categoryId, String itemId)? isItemLocked`
-    *   **Functionality:** This callback function is invoked for each customization item. If it returns `true`, the item is considered locked; if `false`, it is unlocked.
-    *   This parameter is passed down to the `CustomizerBody` widget to handle locked items in the UI.
+## How it works
 
-2.  **Example Application (`example/lib/main.dart`):**
-    *   A "User Level" slider was added to the example application.
-    *   The `AvatarMakerCustomizer` usage was updated to demonstrate the `isItemLocked` logic:
-        *   If the category is `Accessory` and the item name contains "Glasses":
-        *   If the user level is less than 5, these items are marked as **locked** (`true`).
-        *   If the level is 5 or higher, the items become **unlocked** (`false`).
+### `AvatarMakerCustomizer` Enhancements
 
-This structure allows for a dynamic locking mechanism to be established via an externally provided function, without embedding specific business logic into the core package.
+File: `lib/src/customizer/avatar_maker_customizer.dart`
+
+A new optional callback lets you decide whether any item should be locked:
+
+```dart
+bool Function(PropertyCategoryIds categoryId, String itemId)? isItemLocked;
+```
+
+**How it works:**
+
+* The function is called for each customization item.
+* Return `true` → item is locked
+* Return `false` → item is unlocked
+
+**Additional parameters:**
+
+* **`lockWidget`**:
+  A customizable widget displayed over locked items.
+  When not provided, a default semi-transparent overlay with a lock icon is used.
+* **`onTapLockedItem`**:
+  A callback triggered when the user taps a locked item—perfect for showing upgrade prompts, unlock conditions, or paywalls.
+
+### Key Points:
+- The `isItemLocked` callback receives two parameters:
+    - `category`: The `PropertyCategoryIds` enum value (e.g., `Accessory`, `Hair`, `Clothes`)
+    - `item`: The item identifier string (e.g., "Glasses", "Hat")
+- Return `true` to lock the item, `false` to unlock it
+- You can implement any business logic: level checks, premium status, achievements, etc.
+- The UI will automatically display locked items with appropriate visual indicators
 
 ---
 
-## Usage Example
+## Example
 
-Here's how to implement the `isItemLocked` feature in your application:
+File: `example/lib/main.dart`
+
+The example now demonstrates how to use the locking system dynamically:
+
+* A **User Level slider** was added.
+* Items in the **Accessory** category containing “Glasses” become locked when the user level is **below 5**.
+* At level **5 or higher**, these items automatically unlock.
+
+**Custom lock behavior:**
+
+* A red lock overlay is supplied through `lockWidget`.
+* Tapping a locked item opens a dialog explaining the lock and simulating an "Unlock" action.
+
 
 ```dart
 class _MyPageState extends State<MyPage> {
@@ -69,11 +99,3 @@ class _MyPageState extends State<MyPage> {
   }
 }
 ```
-
-### Key Points:
-- The `isItemLocked` callback receives two parameters:
-    - `category`: The `PropertyCategoryIds` enum value (e.g., `Accessory`, `Hair`, `Clothes`)
-    - `item`: The item identifier string (e.g., "Glasses", "Hat")
-- Return `true` to lock the item, `false` to unlock it
-- You can implement any business logic: level checks, premium status, achievements, etc.
-- The UI will automatically display locked items with appropriate visual indicators
