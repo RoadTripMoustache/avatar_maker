@@ -195,6 +195,46 @@ class _NewPageState extends State<NewPage> {
                     }
                     return false;
                   },
+                  lockWidget: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.red.withValues(alpha: 0.5),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.lock_outline,
+                        color: Colors.white,
+                        size: 40,
+                      ),
+                    ),
+                  ),
+                  onTapLockedItem: (category, item) {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text("Item Locked"),
+                        content: Text(
+                            "You need to reach Level 5 to unlock this item!"),
+                        actions: [
+                          TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: Text("OK"),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                              // Simulate unlocking or buying
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text("Unlock logic goes here...")),
+                              );
+                            },
+                            child: Text("Unlock Now (50 Gold)"),
+                          ),
+                        ],
+                      ),
+                    );
+                  },
                 ),
               ),
             ],

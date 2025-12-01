@@ -2,6 +2,7 @@ import "package:avatar_maker/avatar_maker.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_arrow_button.dart";
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
+import "package:material_symbols_icons/material_symbols_icons.dart";
 import "../../../helpers.dart";
 
 void main() {
@@ -75,8 +76,8 @@ void main() {
                     (i) => i.icon,
                     "Check icon",
                     groupTestCases["isLeft"]
-                        ? Icons.arrow_back_ios_new_rounded
-                        : Icons.arrow_forward_ios_rounded);
+                        ? Symbols.arrow_back_rounded
+                        : Symbols.arrow_forward_rounded);
                 final icon = find.byType(Icon);
                 expect(icon, findsOneWidget);
                 expect(icon.evaluate().first.widget, iconConditions);
