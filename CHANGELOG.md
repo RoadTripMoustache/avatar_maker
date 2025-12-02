@@ -1,5 +1,11 @@
 ## Unreleased
 
+## [1.4.1] - 02/12/2025
+### Changed
+- Updated color enums (`facial_hair_colors.dart`, `hair_colors.dart`, `outfit_colors.dart`, `skin_colors.dart`) to use unique `itemId` patterns (e.g., `FacialHairColor/Auburn`) instead of shared IDs for improved `isItemLocked` filtering/logging.
+### Added
+- docs: Added [`doc/info/property_categories_items.md`](doc/property_categories_items.md) with complete reference of all `PropertyCategoryIds` and unique `itemId` values.
+
 
 ## [1.4.0] - 01/12/2025
 ### Added
@@ -8,7 +14,7 @@
 - docs: Updated documentation for item locking.
 - example: Updated example app to demonstrate custom lock UI and interaction.
 
-
+  
 ## [1.3.1] - 29/11/2025
 ### Fixed
 - fix: Example application
