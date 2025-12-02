@@ -28,6 +28,6 @@ enum OutfitColors implements PropertyItem {
   const OutfitColors(this.hexCode);
 
   String get label => this.name;
-  String get id => "Color/Outfit";
+  String get id => "OutfitColor/$name";
   String get value => this.hexCode;
 }
