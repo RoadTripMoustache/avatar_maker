@@ -1,4 +1,7 @@
 ## Unreleased
+
+
+## [1.5.0] - 06/12/2025
 ### Added
 - chore: Unit tests for services
 
