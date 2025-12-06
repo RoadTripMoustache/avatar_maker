@@ -13,7 +13,7 @@ enum FacialHairTypes implements PropertyItem {
 										<use xlink:href="#react-path-20508"></use>
 									</mask>
 									<use id="Beardness" fill="#252E32" fill-rule="evenodd" xlink:href="#react-path-20508"></use>
-									<g id="Color/FacialHair" mask="url(#react-mask-20507)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#react-mask-20507)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
 										<g transform="translate(-32.000000, 0.000000)" id="Color">
 											<rect x="0" y="0" width="264" height="244"></rect>
 										</g>
@@ -29,7 +29,7 @@ enum FacialHairTypes implements PropertyItem {
 										<use xlink:href="#react-path-22754"></use>
 									</mask>
 									<use id="Lite-Beard" fill="#331B0C" fill-rule="evenodd" xlink:href="#react-path-22754"></use>
-									<g id="Color/FacialHair" mask="url(#react-mask-22753)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#react-mask-22753)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
 										<g transform="translate(-32.000000, 0.000000)" id="Color">
 											<rect x="0" y="0" width="264" height="244"></rect>
 										</g>
@@ -45,7 +45,7 @@ enum FacialHairTypes implements PropertyItem {
 										<use xlink:href="#react-path-23349"></use>
 									</mask>
 									<use id="Moustache-U-a-Question" fill="#28354B" fill-rule="evenodd" xlink:href="#react-path-23349"></use>
-									<g id="Color/FacialHair" mask="url(#react-mask-23348)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#react-mask-23348)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
 										<g transform="translate(-32.000000, 0.000000)" id="Color">
 											<rect x="0" y="0" width="264" height="244"></rect>
 										</g>
@@ -61,7 +61,7 @@ enum FacialHairTypes implements PropertyItem {
 										<use xlink:href="#react-path-23820"></use>
 									</mask>
 									<use id="Hey..." fill="#28354B" fill-rule="evenodd" xlink:href="#react-path-23820"></use>
-									<g id="Color/FacialHair" mask="url(#react-mask-23819)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#react-mask-23819)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
 										<g transform="translate(-32.000000, 0.000000)" id="Color">
 											<rect x="0" y="0" width="264" height="244"></rect>
 										</g>

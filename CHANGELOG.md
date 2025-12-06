@@ -1,4 +1,6 @@
 ## Unreleased
+### Update
+- refactor: Update color enums (`facial_hair_colors.dart`, `hair_colors.dart`, `outfit_colors.dart`, `skin_colors.dart`) to use unique `itemId` patterns (e.g., `FacialHairColor/Auburn`) instead of shared IDs for improved `isItemLocked` filtering/logging.
 
 
 ## [1.4.0] - 01/12/2025

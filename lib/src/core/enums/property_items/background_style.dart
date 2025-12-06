@@ -20,6 +20,6 @@ enum BackgroundStyles implements PropertyItem {
   const BackgroundStyles(this.svg);
 
   String get label => this.name;
-  String get id => this.name.toLowerCase();
+  String get id => "Background/$name";
   String get value => this.svg;
 }

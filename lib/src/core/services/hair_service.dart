@@ -10,7 +10,7 @@ class HairService {
     HairStyles style = HairStyles.Eyepatch,
     HairColors color = HairColors.Black,
   }) {
-    return style.svg.replaceAll(TO_REPLACE_WITH_HAIRS_COLOR, color.hexCode);
+    return style.svg.replaceAll(TO_REPLACE_WITH_HAIRS_COLOR_NAME, color.id).replaceAll(TO_REPLACE_WITH_HAIRS_COLOR, color.hexCode);
   }
 
   /// Draw the SVG of an hair with the type and the color given in
