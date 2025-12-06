@@ -37,7 +37,7 @@ class PropertyCategoryService {
           .toList();
     }
 
-    List<CustomizedPropertyCategory> mergedCategoriesList = List.empty();
+    List<CustomizedPropertyCategory> mergedCategoriesList = List.empty(growable: true);
 
     defaultPropertyCategories.forEach((propertyCategory) {
       // Search if is there a customization for the category.
