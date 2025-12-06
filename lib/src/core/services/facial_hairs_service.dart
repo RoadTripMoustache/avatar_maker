@@ -11,6 +11,7 @@ class FacialHairsService {
     FacialHairColors color = FacialHairColors.Black,
   }) {
     return type.svg
+        .replaceAll(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME, color.id)
         .replaceAll(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR, color.hexCode);
   }
 

@@ -10,7 +10,9 @@ class OutfitService {
     OutfitTypes type = OutfitTypes.Hoodie,
     OutfitColors color = OutfitColors.Black,
   }) {
-    return type.svg.replaceAll(TO_REPLACE_WITH_OUTFIT_COLOR, color.hexCode);
+    return type.svg
+        .replaceAll(TO_REPLACE_WITH_OUTFIT_COLOR_NAME, color.id)
+        .replaceAll(TO_REPLACE_WITH_OUTFIT_COLOR, color.hexCode);
   }
 
   /// Draw the SVG of an outfit with the type and the color given in

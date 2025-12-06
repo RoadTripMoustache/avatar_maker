@@ -1,15 +1,21 @@
-/// Placeholder to use for a SVG which will be use for an outfit which can
+/// Placeholders to use for a SVG which will be use for an outfit which can
 /// change color.
 const String TO_REPLACE_WITH_OUTFIT_COLOR = "TO_REPLACE_WITH_OUTFIT_COLOR";
+const String TO_REPLACE_WITH_OUTFIT_COLOR_NAME =
+    "TO_REPLACE_WITH_OUTFIT_COLOR_NAME";
 
-/// Placeholder to use for a SVG which will be use for facial hairs which can
+/// Placeholders to use for a SVG which will be use for facial hairs which can
 /// change color.
 const String TO_REPLACE_WITH_FACIAL_HAIRS_COLOR =
     "TO_REPLACE_WITH_FACIAL_HAIRS_COLOR";
+const String TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME =
+    "TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME";
 
-/// Placeholder to use for a SVG which will be use for hairs which can
+/// Placeholders to use for a SVG which will be use for hairs which can
 /// change color.
 const String TO_REPLACE_WITH_HAIRS_COLOR = "TO_REPLACE_WITH_HAIRS_COLOR";
+const String TO_REPLACE_WITH_HAIRS_COLOR_NAME =
+    "TO_REPLACE_WITH_HAIRS_COLOR_NAME";
 
 /// Icon to use for a property option which doesn't have anything to display.
 const String emptySVGIcon = """
