@@ -4,13 +4,16 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('EyeService', () {
     group('drawSVG', () {
-
-      const String svgTemplateStart = '<svg width="20px" height="20px" viewBox="-3 -30 120 120">';
+      const String svgTemplateStart =
+          '<svg width="20px" height="20px" viewBox="-3 -30 120 120">';
       const String svgTemplateEnd = '</svg>';
 
-      test('should wrap the provided eye string inside the standard SVG template', () {
+      test(
+          'should wrap the provided eye string inside the standard SVG template',
+          () {
         // Arrange
-        const String tEyeContent = '<circle cx="50" cy="50" r="10" fill="blue"/>';
+        const String tEyeContent =
+            '<circle cx="50" cy="50" r="10" fill="blue"/>';
 
         // Act
         final String result = EyeService.drawSVG(eye: tEyeContent);
@@ -29,7 +32,9 @@ void main() {
         expect(result.trim(), equals(expectedSVG.trim()));
       });
 
-      test('should return the standard SVG template when an empty eye string is provided', () {
+      test(
+          'should return the standard SVG template when an empty eye string is provided',
+          () {
         // Arrange
         const String tEmptyContent = '';
 

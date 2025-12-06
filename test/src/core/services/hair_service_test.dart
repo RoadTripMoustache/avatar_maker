@@ -14,7 +14,9 @@ void main() {
 
   group('HairService', () {
     group('generateHairStyle', () {
-      test('should correctly replace both placeholders for LongHair and Blue color', () {
+      test(
+          'should correctly replace both placeholders for LongHair and Blue color',
+          () {
         // Act
         final String result = HairService.generateHairStyle(
           style: tStyle,
@@ -22,7 +24,9 @@ void main() {
         );
 
         // Assert
-        expect(result.trim(), equals("""
+        expect(
+            result.trim(),
+            equals("""
         <g id="Top" stroke-width="1" fill-rule="evenodd">
 						<defs>
 							<rect id="react-path-5910" x="0" y="0" width="264" height="280"></rect>
@@ -48,7 +52,8 @@ void main() {
 							</g>
 						</g>
 					</g>
-        """.trim()));
+        """
+                .trim()));
 
         expect(result, isNot(contains(TO_REPLACE_WITH_HAIRS_COLOR_NAME)));
         expect(result, contains('id="$tColorId"')); // Ex: id="Blue"
@@ -90,11 +95,13 @@ void main() {
     });
 
     group('drawSVG', () {
-
-      const String svgTemplateStart = '<svg width="100px" height="100px" viewBox="10 0 250 250">';
+      const String svgTemplateStart =
+          '<svg width="100px" height="100px" viewBox="10 0 250 250">';
       const String svgTemplateEnd = '</svg>';
 
-      test('should wrap the generated content (BobCut/Blue) inside the standard SVG template', () {
+      test(
+          'should wrap the generated content (BobCut/Blue) inside the standard SVG template',
+          () {
         // Arrange
         final HairStyles tType = HairStyles.BobCut;
         final HairColors tColor = HairColors.Blue;

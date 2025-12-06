@@ -4,11 +4,13 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('EyebrowService', () {
     group('drawSVG', () {
-
-      const String svgTemplateStart = '<svg width="20px" height="20px" viewBox="-3 -50 120 120">';
+      const String svgTemplateStart =
+          '<svg width="20px" height="20px" viewBox="-3 -50 120 120">';
       const String svgTemplateEnd = '</svg>';
 
-      test('should wrap the provided eyebrow string inside the standard SVG template', () {
+      test(
+          'should wrap the provided eyebrow string inside the standard SVG template',
+          () {
         // Arrange
         const String tEyebrowContent = '<path d="M0,0 L100,0" stroke="black"/>';
 
@@ -29,7 +31,9 @@ void main() {
         expect(result.trim(), equals(expectedSVG.trim()));
       });
 
-      test('should return the standard SVG template when an empty eyebrow string is provided', () {
+      test(
+          'should return the standard SVG template when an empty eyebrow string is provided',
+          () {
         // Arrange
         const String tEmptyContent = '';
 

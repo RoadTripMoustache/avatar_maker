@@ -18,7 +18,8 @@ const String tAccessoryLabel = 'sunglasses';
 const String tBackgroundLabel = 'gradient';
 const PropertyCategoryIds tAccessoryId = PropertyCategoryIds.Accessory;
 const PropertyCategoryIds tBackgroundId = PropertyCategoryIds.Background;
-const String tEncodedJson = '{"Accessory":"sunglasses","Background":"gradient"}';
+const String tEncodedJson =
+    '{"Accessory":"sunglasses","Background":"gradient"}';
 
 void main() {
   late MockPropertyItem mockAccessoryItem;
@@ -53,7 +54,7 @@ void main() {
 
         // Act
         final String encodedResult =
-        OptionsService.jsonEncodeSelectedOptions(selectedOptions);
+            OptionsService.jsonEncodeSelectedOptions(selectedOptions);
 
         // Assert
         expect(encodedResult, equals(tEncodedJson));
@@ -65,7 +66,7 @@ void main() {
 
         // Act
         final String encodedResult =
-        OptionsService.jsonEncodeSelectedOptions(selectedOptions);
+            OptionsService.jsonEncodeSelectedOptions(selectedOptions);
 
         // Assert
         expect(encodedResult, equals("{}"));
@@ -73,7 +74,9 @@ void main() {
     });
 
     group('jsonDecodeSelectedOptions', () {
-      test('should correctly decode JSON string back to Map<PropertyCategoryIds, PropertyItem>', () {
+      test(
+          'should correctly decode JSON string back to Map<PropertyCategoryIds, PropertyItem>',
+          () {
         // Arrange
         final List<CustomizedPropertyCategory> propertyCategories = [
           mockAccessoryCategory,
@@ -82,7 +85,7 @@ void main() {
 
         // Act
         final Map<PropertyCategoryIds, PropertyItem> decodedResult =
-        OptionsService.jsonDecodeSelectedOptions(
+            OptionsService.jsonDecodeSelectedOptions(
           propertyCategories,
           tEncodedJson,
         );
@@ -104,7 +107,7 @@ void main() {
 
         // Act
         final Map<PropertyCategoryIds, PropertyItem> decodedResult =
-        OptionsService.jsonDecodeSelectedOptions(
+            OptionsService.jsonDecodeSelectedOptions(
           propertyCategories,
           tEmptyJson,
         );
@@ -120,10 +123,8 @@ void main() {
 
         // Act & Assert
         expect(
-              () => OptionsService.jsonDecodeSelectedOptions(
-              propertyCategories,
-              tInvalidJson
-          ),
+          () => OptionsService.jsonDecodeSelectedOptions(
+              propertyCategories, tInvalidJson),
           throwsA(isA<StateError>()),
         );
       });

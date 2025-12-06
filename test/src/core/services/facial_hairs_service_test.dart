@@ -30,13 +30,13 @@ void main() {
       .replaceAll(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR, tHexCode);
 
   group('FacialHairsService - FIX', () {
-
     // -------------------------------------------------------------------------
     // generateFacialHair TESTS
     // -------------------------------------------------------------------------
     group('generateFacialHair', () {
-
-      test('should correctly replace both placeholders for BeardLight and Auburn color', () {
+      test(
+          'should correctly replace both placeholders for BeardLight and Auburn color',
+          () {
         // Arrange
         final FacialHairColors tColor = FacialHairColors.Auburn;
 
@@ -50,7 +50,8 @@ void main() {
         // ASSERT
         expect(result, equals(tExpectedGeneratedContent));
 
-        expect(result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME)));
+        expect(
+            result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME)));
         expect(result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR)));
 
         expect(result, contains('id="$tColorId"')); // Ex: id="Auburn"
@@ -67,7 +68,8 @@ void main() {
         );
 
         // ASSERT
-        expect(result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME)));
+        expect(
+            result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME)));
         expect(result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR)));
 
         expect(result, contains(tDefaultColor.id));
@@ -76,11 +78,11 @@ void main() {
 
       test('should use default type value', () {
         // Act
-        final String result = FacialHairsService.generateFacialHair(
-        );
+        final String result = FacialHairsService.generateFacialHair();
 
         // ASSERT
-        expect(result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME)));
+        expect(
+            result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME)));
         expect(result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR)));
 
         expect(result, "");
@@ -91,11 +93,13 @@ void main() {
     // drawSVG TESTS
     // -------------------------------------------------------------------------
     group('drawSVG', () {
-
-      const String svgTemplateStart = '<svg width="20px" height="20px" viewBox="0 -40 112 180" >';
+      const String svgTemplateStart =
+          '<svg width="20px" height="20px" viewBox="0 -40 112 180" >';
       const String svgTemplateEnd = '</svg>';
 
-      test('should wrap the generated content (BeardLight/Auburn) inside the standard SVG template', () {
+      test(
+          'should wrap the generated content (BeardLight/Auburn) inside the standard SVG template',
+          () {
         // Arrange
         final FacialHairTypes tType = FacialHairTypes.BeardLight;
         final FacialHairColors tColor = FacialHairColors.Auburn;
@@ -113,7 +117,8 @@ void main() {
         expect(result, contains('id="$tColorId"'));
         expect(result, contains('fill="$tHexCode"'));
 
-        expect(result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME)));
+        expect(
+            result, isNot(contains(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME)));
       });
     });
   });

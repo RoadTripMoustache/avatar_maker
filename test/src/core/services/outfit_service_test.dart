@@ -26,13 +26,13 @@ void main() {
   final OutfitTypes tTypeHoodie = OutfitTypes.Hoodie;
 
   group('OutfitService', () {
-
     // -------------------------------------------------------------------------
     // generateOutfit TESTS
     // -------------------------------------------------------------------------
     group('generateOutfit', () {
-
-      test('should correctly replace both placeholders for Hoodie and LightBlue color', () {
+      test(
+          'should correctly replace both placeholders for Hoodie and LightBlue color',
+          () {
         // Arrange
         final String tColorId = tColorLightBlue.id;
         final String tHexCode = tColorLightBlue.hexCode;
@@ -51,7 +51,9 @@ void main() {
         expect(result, contains('fill="$tHexCode"'));
       });
 
-      test('should use default values (Hoodie, Black) if no parameters are provided', () {
+      test(
+          'should use default values (Hoodie, Black) if no parameters are provided',
+          () {
         // Arrange
         final OutfitTypes tDefaultType = OutfitTypes.Hoodie;
         final OutfitColors tDefaultColor = OutfitColors.Black;
@@ -75,11 +77,13 @@ void main() {
     });
 
     group('drawSVG', () {
-
-      const String svgTemplateStart = '<svg width="100px" height="120px" viewBox="30 100 200 250" >';
+      const String svgTemplateStart =
+          '<svg width="100px" height="120px" viewBox="30 100 200 250" >';
       const String svgTemplateEnd = '</svg>';
 
-      test('should wrap the generated content (Hoodie/Black) inside the standard SVG template', () {
+      test(
+          'should wrap the generated content (Hoodie/Black) inside the standard SVG template',
+          () {
         // Arrange
         final OutfitTypes tType = OutfitTypes.Hoodie;
         final OutfitColors tColor = OutfitColors.Black;

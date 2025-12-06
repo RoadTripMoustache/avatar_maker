@@ -4,8 +4,9 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('ColorService', () {
     group('drawSVG', () {
-
-      test('should correctly embed the provided hex color code into the SVG circle fill attribute', () {
+      test(
+          'should correctly embed the provided hex color code into the SVG circle fill attribute',
+          () {
         // Arrange
         const String tHexColorCode = '#FF0000'; // Rouge
 
@@ -13,7 +14,8 @@ void main() {
         final String result = ColorService.drawSVG(hexColorCode: tHexColorCode);
 
         // Assert
-        expect(result.trim(), startsWith('<svg width="120px" height="120px" >'));
+        expect(
+            result.trim(), startsWith('<svg width="120px" height="120px" >'));
         expect(result.trim(), contains('fill="${tHexColorCode}"'));
 
         const String expectedSVG = """
@@ -24,7 +26,9 @@ void main() {
         expect(result.trim(), equals(expectedSVG.trim()));
       });
 
-      test('should correctly embed a different hex color code (e.g., Green) into the SVG', () {
+      test(
+          'should correctly embed a different hex color code (e.g., Green) into the SVG',
+          () {
         // Arrange
         const String tHexColorCode = '#00FF00'; // Vert
 
@@ -35,7 +39,9 @@ void main() {
         expect(result.trim(), contains('fill="#00FF00"'));
       });
 
-      test('should handle empty or malformed input by embedding it directly as fill attribute value', () {
+      test(
+          'should handle empty or malformed input by embedding it directly as fill attribute value',
+          () {
         // Arrange
         const String tInvalidInput = 'notAColor';
 

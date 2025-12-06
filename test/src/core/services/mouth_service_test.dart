@@ -4,13 +4,16 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   group('MouthService', () {
     group('drawSVG', () {
-
-      const String svgTemplateStart = '<svg width="20px" height="20px" viewBox="0 10 120 120">';
+      const String svgTemplateStart =
+          '<svg width="20px" height="20px" viewBox="0 10 120 120">';
       const String svgTemplateEnd = '</svg>';
 
-      test('should wrap the provided mouth string inside the standard SVG template', () {
+      test(
+          'should wrap the provided mouth string inside the standard SVG template',
+          () {
         // Arrange
-        const String tMouthContent = '<path d="M10,60 C40,90 80,90 110,60" stroke="red"/>';
+        const String tMouthContent =
+            '<path d="M10,60 C40,90 80,90 110,60" stroke="red"/>';
 
         // Act
         final String result = MouthService.drawSVG(mouth: tMouthContent);
@@ -28,7 +31,9 @@ void main() {
         expect(result.trim(), equals(expectedSVG.trim()));
       });
 
-      test('should return the standard SVG template when an empty mouth string is provided', () {
+      test(
+          'should return the standard SVG template when an empty mouth string is provided',
+          () {
         // Arrange
         const String tEmptyContent = '';
 
