@@ -1,4 +1,3 @@
-import 'package:avatar_maker/src/core/enums/property_categories.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:avatar_maker/src/core/enums/placeholders.dart';
 import 'package:avatar_maker/src/core/enums/property_items/hair_colors.dart';
