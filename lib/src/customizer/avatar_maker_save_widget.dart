@@ -84,7 +84,8 @@ class AvatarMakerSaveWidget extends StatelessWidget {
                   ? null
                   : () async {
                       await avatarController.saveAvatarSVG();
-                      if (onTap != null) onTap!(avatarController.drawAvatarSVG());
+                      if (onTap != null)
+                        onTap!(avatarController.drawAvatarSVG());
                     },
               splashFactory: splashFactory,
               radius: radius,

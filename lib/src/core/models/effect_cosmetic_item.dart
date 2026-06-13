@@ -88,13 +88,10 @@ class EffectCosmeticItem extends CosmeticPropertyItem {
     final displayColors = colors.isEmpty
         ? <Color>[Colors.white]
         : colors
-            .map((c) => c.computeLuminance() > 0.7
-                ? Colors.black87
-                : c)
+            .map((c) => c.computeLuminance() > 0.7 ? Colors.black87 : c)
             .toList();
-    final borderColor = displayColors.isNotEmpty
-        ? displayColors.first
-        : Colors.black87;
+    final borderColor =
+        displayColors.isNotEmpty ? displayColors.first : Colors.black87;
     return Container(
       width: size,
       height: size,

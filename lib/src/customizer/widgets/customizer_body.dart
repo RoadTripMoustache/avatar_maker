@@ -70,8 +70,7 @@ class CustomizerBody extends StatelessWidget {
 
           // For cosmetic items, compare by id against the selectedOptions
           // (which is updated when selectCosmetic is called).
-          final isCosmeticSelected = isCosmetic &&
-              item.id == selectedItem.id;
+          final isCosmeticSelected = isCosmetic && item.id == selectedItem.id;
 
           // For regular items, check selection by index
           final isRegularSelected = !isCosmetic &&
@@ -85,9 +84,10 @@ class CustomizerBody extends StatelessWidget {
               children: [
                 Container(
                   alignment: Alignment.center,
-                  decoration: (isCosmetic ? isCosmeticSelected : isRegularSelected)
-                      ? theme.selectedTileDecoration
-                      : theme.unselectedTileDecoration,
+                  decoration:
+                      (isCosmetic ? isCosmeticSelected : isRegularSelected)
+                          ? theme.selectedTileDecoration
+                          : theme.unselectedTileDecoration,
                   margin: theme.tileMargin,
                   padding: theme.tilePadding,
                   child: isCosmetic

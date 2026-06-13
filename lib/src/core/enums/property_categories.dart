@@ -165,10 +165,12 @@ class NoBackgroundItem extends CosmeticPropertyItem {
   final bool locked = false;
 
   @override
-  Widget buildWidget(BuildContext context, double size) => const SizedBox.shrink();
+  Widget buildWidget(BuildContext context, double size) =>
+      const SizedBox.shrink();
 
   @override
-  Widget buildThumbnail(BuildContext context, double size) => const SizedBox.shrink();
+  Widget buildThumbnail(BuildContext context, double size) =>
+      const SizedBox.shrink();
 
   @override
   String localizedLabel(AppLocalizations l10n) => l10n.item_none;
@@ -190,10 +192,12 @@ class NoEffectItem extends CosmeticPropertyItem {
   final bool locked = false;
 
   @override
-  Widget buildWidget(BuildContext context, double size) => const SizedBox.shrink();
+  Widget buildWidget(BuildContext context, double size) =>
+      const SizedBox.shrink();
 
   @override
-  Widget buildThumbnail(BuildContext context, double size) => const SizedBox.shrink();
+  Widget buildThumbnail(BuildContext context, double size) =>
+      const SizedBox.shrink();
 
   @override
   String localizedLabel(AppLocalizations l10n) => l10n.item_none;
@@ -215,10 +219,12 @@ class NoEffectColorItem extends CosmeticPropertyItem {
   final bool locked = false;
 
   @override
-  Widget buildWidget(BuildContext context, double size) => const SizedBox.shrink();
+  Widget buildWidget(BuildContext context, double size) =>
+      const SizedBox.shrink();
 
   @override
-  Widget buildThumbnail(BuildContext context, double size) => const SizedBox.shrink();
+  Widget buildThumbnail(BuildContext context, double size) =>
+      const SizedBox.shrink();
 
   @override
   String localizedLabel(AppLocalizations l10n) => l10n.item_none;

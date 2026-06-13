@@ -436,8 +436,7 @@ class EffectThumbnailPainter extends CustomPainter {
       ..style = PaintingStyle.fill;
     drawDiamond(canvas, center.translate(-radius * 0.5, 0), 3, paint,
         rotation: pi / 4);
-    drawTriangle(canvas, center.translate(0, 0), 3, paint,
-        rotation: pi / 6);
+    drawTriangle(canvas, center.translate(0, 0), 3, paint, rotation: pi / 6);
     drawCircleOutline(
       canvas,
       center.translate(radius * 0.5, 0),
@@ -453,9 +452,13 @@ class EffectThumbnailPainter extends CustomPainter {
       ..color = _color(0, alpha: 0.8)
       ..style = PaintingStyle.fill;
     drawDiamond(canvas, center.translate(-radius * 0.4, 0), 3, paint);
-    drawStar(canvas, center, 3, Paint()
-      ..color = _color(1, alpha: 0.8)
-      ..style = PaintingStyle.fill);
+    drawStar(
+        canvas,
+        center,
+        3,
+        Paint()
+          ..color = _color(1, alpha: 0.8)
+          ..style = PaintingStyle.fill);
     drawTriangle(canvas, center.translate(radius * 0.4, 0), 3,
         Paint()..color = _color(2, alpha: 0.8));
   }
@@ -640,14 +643,15 @@ class EffectThumbnailPainter extends CustomPainter {
     }
   }
 
-  void _thumbGeometricConstellation(Canvas canvas, Offset center, double radius) {
+  void _thumbGeometricConstellation(
+      Canvas canvas, Offset center, double radius) {
     final paint = Paint()
       ..color = _color(0, alpha: 0.8)
       ..style = PaintingStyle.fill;
-    drawDiamond(canvas, center.translate(-radius * 0.4, -radius * 0.2), 2.5,
-        paint);
-    drawTriangle(canvas, center.translate(radius * 0.4, -radius * 0.2), 2.5,
-        paint);
+    drawDiamond(
+        canvas, center.translate(-radius * 0.4, -radius * 0.2), 2.5, paint);
+    drawTriangle(
+        canvas, center.translate(radius * 0.4, -radius * 0.2), 2.5, paint);
     drawCircleOutline(
       canvas,
       center.translate(0, radius * 0.3),
@@ -684,7 +688,8 @@ extension _ThumbHelpers on CustomPainter {
     final path = Path()
       ..moveTo(0, size * 0.35)
       ..cubicTo(size * 0.55, -size * 0.45, size * 1.1, size * 0.1, 0, size)
-      ..cubicTo(-size * 1.1, size * 0.1, -size * 0.55, -size * 0.45, 0, size * 0.35);
+      ..cubicTo(
+          -size * 1.1, size * 0.1, -size * 0.55, -size * 0.45, 0, size * 0.35);
     canvas.drawPath(path, p);
     canvas.restore();
   }
@@ -854,7 +859,8 @@ class CosmeticEffectPainter extends CustomPainter {
     return colors[index % colors.length].withValues(alpha: alpha);
   }
 
-  Offset _perimeterOffset(Size size, double angle, {double radiusFactor = 0.42}) {
+  Offset _perimeterOffset(Size size, double angle,
+      {double radiusFactor = 0.42}) {
     final center = Offset(size.width / 2, size.height / 2);
     final radius = size.width * radiusFactor;
     return Offset(
@@ -1010,7 +1016,8 @@ class CosmeticEffectPainter extends CustomPainter {
     for (int i = 0; i <= 60; i++) {
       final t = i / 60 * 2 * pi;
       final x = size.width * 0.5 + size.width * 0.42 * sin(t + phase * 2 * pi);
-      final y = size.height * 0.5 + size.height * 0.42 * (sin(t * 2 + phase * 2 * pi) * 0.45);
+      final y = size.height * 0.5 +
+          size.height * 0.42 * (sin(t * 2 + phase * 2 * pi) * 0.45);
       if (i == 0) {
         path.moveTo(x, y);
       } else {
@@ -1258,7 +1265,8 @@ class CosmeticEffectPainter extends CustomPainter {
 
       final branchAngle1 = angle + pi / 5;
       final branchAngle2 = angle - pi / 5;
-      final branchStart = Offset(cos(angle) * size * 0.55, sin(angle) * size * 0.55);
+      final branchStart =
+          Offset(cos(angle) * size * 0.55, sin(angle) * size * 0.55);
       final branchEnd1 = Offset(
         branchStart.dx + cos(branchAngle1) * size * 0.3,
         branchStart.dy + sin(branchAngle1) * size * 0.3,
@@ -1280,8 +1288,8 @@ class CosmeticEffectPainter extends CustomPainter {
 
     // Three subtle glowing rings with different radii and opacities.
     for (int ring = 0; ring < 3; ring++) {
-      final animatedRadius = baseRadius +
-          sin((phase * 2 * pi) + ring * 0.8) * (5 + ring * 2);
+      final animatedRadius =
+          baseRadius + sin((phase * 2 * pi) + ring * 0.8) * (5 + ring * 2);
       final alpha = 0.04 + (3 - ring) * 0.035;
       final paint = Paint()
         ..color = _color(ring, alpha: alpha)
@@ -1473,7 +1481,8 @@ class CosmeticEffectPainter extends CustomPainter {
       final particlePaint = Paint()
         ..color = _color(i, alpha: alpha)
         ..style = PaintingStyle.fill;
-      canvas.drawCircle(offset, 1.5 + (i % 3) * 0.8 + pulse * 0.8, particlePaint);
+      canvas.drawCircle(
+          offset, 1.5 + (i % 3) * 0.8 + pulse * 0.8, particlePaint);
     }
 
     // Particle trails.
@@ -1793,8 +1802,7 @@ class CosmeticEffectPainter extends CustomPainter {
       ..strokeWidth = 18;
     canvas.drawCircle(center, size.width * 0.48, glowPaint);
 
-    final fillPaint = Paint()
-      ..style = PaintingStyle.fill;
+    final fillPaint = Paint()..style = PaintingStyle.fill;
     final strokePaint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.4;
@@ -1803,7 +1811,8 @@ class CosmeticEffectPainter extends CustomPainter {
       final t = (phase + i * 0.071) % 1;
       final x = size.width * (0.06 + _random01(i + 1) * 0.88);
       final y = size.height * (1.18 - t * 1.28);
-      final radius = 5 + _random01(i + 17) * 10 + sin((phase + i) * 2 * pi) * 1.2;
+      final radius =
+          5 + _random01(i + 17) * 10 + sin((phase + i) * 2 * pi) * 1.2;
       final alpha = 0.14 + _random01(i + 31) * 0.16;
       final offset = Offset(x, y);
 
@@ -1831,8 +1840,7 @@ class CosmeticEffectPainter extends CustomPainter {
       ..strokeWidth = 2
       ..strokeCap = StrokeCap.round;
 
-    final objectPaint = Paint()
-      ..style = PaintingStyle.fill;
+    final objectPaint = Paint()..style = PaintingStyle.fill;
 
     for (int i = 0; i < 18; i++) {
       final t = (phase + i * 0.113) % 1;
@@ -1847,16 +1855,20 @@ class CosmeticEffectPainter extends CustomPainter {
 
       objectPaint.color = _color(i, alpha: 0.24 + _random01(i + 19) * 0.18);
       if (i % 3 == 0) {
-        _drawDiamond(canvas, offset, 8 * scale, objectPaint, rotation: rotation);
+        _drawDiamond(canvas, offset, 8 * scale, objectPaint,
+            rotation: rotation);
       } else if (i % 3 == 1) {
-        _drawTriangle(canvas, offset, 8 * scale, objectPaint, rotation: rotation);
+        _drawTriangle(canvas, offset, 8 * scale, objectPaint,
+            rotation: rotation);
       } else {
-        _drawSmallOrbit(canvas, offset, 7 * scale, objectPaint, rotation: rotation);
+        _drawSmallOrbit(canvas, offset, 7 * scale, objectPaint,
+            rotation: rotation);
       }
     }
   }
 
-  void _drawDiamond(Canvas canvas, Offset center, double size, Paint paint, {double rotation = 0}) {
+  void _drawDiamond(Canvas canvas, Offset center, double size, Paint paint,
+      {double rotation = 0}) {
     final path = Path()
       ..moveTo(0, -size)
       ..lineTo(size, 0)
@@ -1870,7 +1882,8 @@ class CosmeticEffectPainter extends CustomPainter {
     canvas.restore();
   }
 
-  void _drawTriangle(Canvas canvas, Offset center, double size, Paint paint, {double rotation = 0}) {
+  void _drawTriangle(Canvas canvas, Offset center, double size, Paint paint,
+      {double rotation = 0}) {
     final path = Path()
       ..moveTo(0, -size)
       ..lineTo(size * 0.95, size * 0.85)
@@ -1883,7 +1896,8 @@ class CosmeticEffectPainter extends CustomPainter {
     canvas.restore();
   }
 
-  void _drawSmallOrbit(Canvas canvas, Offset center, double size, Paint paint, {double rotation = 0}) {
+  void _drawSmallOrbit(Canvas canvas, Offset center, double size, Paint paint,
+      {double rotation = 0}) {
     final path = Path();
     for (int i = 0; i <= 18; i++) {
       final angle = i / 18 * 2 * pi;
@@ -1908,8 +1922,7 @@ class CosmeticEffectPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.2
       ..strokeCap = StrokeCap.round;
-    final textPaint = Paint()
-      ..style = PaintingStyle.fill;
+    final textPaint = Paint()..style = PaintingStyle.fill;
 
     final symbols = ["✦", "●", "◆", "▲", "■", "♥", "●", "✚"];
     final offsets = <Offset>[];
@@ -1992,8 +2005,7 @@ class CosmeticEffectPainter extends CustomPainter {
       ..strokeWidth = 2.2
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round;
-    final leafPaint = Paint()
-      ..style = PaintingStyle.fill;
+    final leafPaint = Paint()..style = PaintingStyle.fill;
 
     final starts = [
       Offset(size.width * 0.12, size.height + 10),
@@ -2018,8 +2030,7 @@ class CosmeticEffectPainter extends CustomPainter {
       final controlX = size.width * (0.5 + sin(phase * 2 * pi + i) * 0.28);
       final controlY = size.height * (0.55 - grow * 0.25);
 
-      final path = Path()
-        ..moveTo(startX, startY);
+      final path = Path()..moveTo(startX, startY);
       final points = <Offset>[];
       for (int p = 1; p <= 24; p++) {
         final t = p / 24;
@@ -2038,7 +2049,9 @@ class CosmeticEffectPainter extends CustomPainter {
       linePaint.color = _color(i, alpha: 0.2 + grow * 0.2);
       canvas.drawPath(path, linePaint);
 
-      for (int leaf = 3; leaf < points.length && leaf / points.length <= grow; leaf += 3) {
+      for (int leaf = 3;
+          leaf < points.length && leaf / points.length <= grow;
+          leaf += 3) {
         final point = points[leaf];
         final side = leaf.isEven ? 1 : -1;
         final leafSize = 4 + (leaf % 4) * 1.5;
@@ -2069,8 +2082,7 @@ class CosmeticEffectPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1
       ..strokeCap = StrokeCap.round;
-    final nodePaint = Paint()
-      ..style = PaintingStyle.fill;
+    final nodePaint = Paint()..style = PaintingStyle.fill;
 
     final nodes = <Offset>[];
     for (int i = 0; i < 26; i++) {
@@ -2159,8 +2171,7 @@ class CosmeticEffectPainter extends CustomPainter {
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.2
       ..strokeCap = StrokeCap.round;
-    final nodePaint = Paint()
-      ..style = PaintingStyle.fill;
+    final nodePaint = Paint()..style = PaintingStyle.fill;
 
     final nodes = <Offset>[];
     for (int i = 0; i < 20; i++) {
@@ -2409,7 +2420,8 @@ class CosmeticEffectPainter extends CustomPainter {
     }
   }
 
-  Offset _infinityPoint(Offset center, double radiusX, double radiusY, double t) {
+  Offset _infinityPoint(
+      Offset center, double radiusX, double radiusY, double t) {
     return Offset(
       center.dx + sin(t) * radiusX,
       center.dy + sin(2 * t) * radiusY,

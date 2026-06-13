@@ -299,10 +299,8 @@ abstract class AvatarMakerController extends ChangeNotifier {
       eyebrows: options[PropertyCategoryIds.EyebrowType]!.value,
       eyes: options[PropertyCategoryIds.EyeType]!.value,
       facialHair: FacialHairsService.generateFacialHair(
-        color: options[PropertyCategoryIds.FacialHairColor]
-            as FacialHairColors,
-        type: options[PropertyCategoryIds.FacialHairType]
-            as FacialHairTypes,
+        color: options[PropertyCategoryIds.FacialHairColor] as FacialHairColors,
+        type: options[PropertyCategoryIds.FacialHairType] as FacialHairTypes,
       ),
       hair: HairService.generateHairStyle(
         color: options[PropertyCategoryIds.HairColor] as HairColors,

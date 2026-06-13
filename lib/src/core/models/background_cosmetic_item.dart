@@ -46,7 +46,8 @@ class BackgroundCosmeticItem extends CosmeticPropertyItem {
         shape: BoxShape.circle,
         gradient: colors.length >= 2
             ? LinearGradient(
-                colors: colors.map((c) => c.withValues(alpha: opacity)).toList(),
+                colors:
+                    colors.map((c) => c.withValues(alpha: opacity)).toList(),
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
               )

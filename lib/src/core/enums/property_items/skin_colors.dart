@@ -60,5 +60,4 @@ enum SkinColors implements PropertyItem {
   String get id => "SkinColor/$name";
 
   String get value => this.svg;
-
 }
