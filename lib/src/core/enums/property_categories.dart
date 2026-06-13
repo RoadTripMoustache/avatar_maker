@@ -14,7 +14,9 @@ import "package:avatar_maker/src/core/enums/property_items/hair_styles.dart";
 import "package:avatar_maker/src/core/enums/property_items/outfit_types.dart";
 import "package:avatar_maker/src/core/enums/property_items/mouths.dart";
 import "package:avatar_maker/src/core/enums/property_items/skin_colors.dart";
+import "package:avatar_maker/src/core/models/cosmetic_property_item.dart";
 import "package:avatar_maker/src/core/models/property_category.dart";
+import "package:flutter/material.dart";
 
 final PropertyCategory Accessory = PropertyCategory(
   id: PropertyCategoryIds.Accessory,
@@ -147,6 +149,114 @@ final PropertyCategory SkinColor = PropertyCategory(
   defaultValue: SkinColors.Brown,
 );
 
+/// Placeholder item used as default for the AvatarBackground category.
+class NoBackgroundItem extends CosmeticPropertyItem {
+  @override
+  final String cosmeticId = "none";
+  @override
+  final String label = "None";
+  @override
+  final String category = "background";
+  @override
+  final String tier = "basic";
+  @override
+  final int cost = 0;
+  @override
+  final bool locked = false;
+
+  @override
+  Widget buildWidget(BuildContext context, double size) => const SizedBox.shrink();
+
+  @override
+  Widget buildThumbnail(BuildContext context, double size) => const SizedBox.shrink();
+
+  @override
+  String localizedLabel(AppLocalizations l10n) => l10n.item_none;
+}
+
+/// Placeholder item used as default for the AvatarEffect category.
+class NoEffectItem extends CosmeticPropertyItem {
+  @override
+  final String cosmeticId = "none";
+  @override
+  final String label = "None";
+  @override
+  final String category = "effect";
+  @override
+  final String tier = "basic";
+  @override
+  final int cost = 0;
+  @override
+  final bool locked = false;
+
+  @override
+  Widget buildWidget(BuildContext context, double size) => const SizedBox.shrink();
+
+  @override
+  Widget buildThumbnail(BuildContext context, double size) => const SizedBox.shrink();
+
+  @override
+  String localizedLabel(AppLocalizations l10n) => l10n.item_none;
+}
+
+/// Placeholder item used as default for the AvatarEffectColor category.
+class NoEffectColorItem extends CosmeticPropertyItem {
+  @override
+  final String cosmeticId = "none";
+  @override
+  final String label = "None";
+  @override
+  final String category = "effect_color";
+  @override
+  final String tier = "basic";
+  @override
+  final int cost = 0;
+  @override
+  final bool locked = false;
+
+  @override
+  Widget buildWidget(BuildContext context, double size) => const SizedBox.shrink();
+
+  @override
+  Widget buildThumbnail(BuildContext context, double size) => const SizedBox.shrink();
+
+  @override
+  String localizedLabel(AppLocalizations l10n) => l10n.item_none;
+}
+
+final PropertyCategory AvatarBackground = PropertyCategory(
+  id: PropertyCategoryIds.AvatarBackground,
+  getL10nName: (AppLocalizations l10n) {
+    return l10n.property_category_backgrounds;
+  },
+  iconFile: "assets/icons/background.svg",
+  properties: const [],
+  toDisplay: true,
+  defaultValue: NoBackgroundItem(),
+);
+
+final PropertyCategory AvatarEffect = PropertyCategory(
+  id: PropertyCategoryIds.AvatarEffect,
+  getL10nName: (AppLocalizations l10n) {
+    return l10n.property_category_effects;
+  },
+  iconFile: "assets/icons/effects.svg",
+  properties: const [],
+  toDisplay: true,
+  defaultValue: NoEffectItem(),
+);
+
+final PropertyCategory AvatarEffectColor = PropertyCategory(
+  id: PropertyCategoryIds.AvatarEffectColor,
+  getL10nName: (AppLocalizations l10n) {
+    return l10n.property_category_effect_colors;
+  },
+  iconFile: "assets/icons/effect_color.svg",
+  properties: const [],
+  toDisplay: true,
+  defaultValue: NoEffectColorItem(),
+);
+
 // List of all the default property categories. The order here represents the
 // tab order to display in the Customizer widget.
 final List<PropertyCategory> defaultPropertyCategories = [
@@ -163,4 +273,7 @@ final List<PropertyCategory> defaultPropertyCategories = [
   OutfitColor,
   Accessory,
   Background,
+  AvatarBackground,
+  AvatarEffect,
+  AvatarEffectColor,
 ];

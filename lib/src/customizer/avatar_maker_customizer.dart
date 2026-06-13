@@ -1,5 +1,6 @@
 import "package:avatar_maker/src/core/controllers/controllers.dart";
 import "package:avatar_maker/src/core/enums/property_category_ids.dart";
+import "package:avatar_maker/src/core/models/cosmetic_property_item.dart";
 import "package:avatar_maker/src/core/models/customized_property_category.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 import "package:avatar_maker/src/core/models/theme_data.dart";
@@ -99,6 +100,9 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   late int nbrDisplayedCategories;
   late TabController tabController;
 
+  /// Listener to dispose properly.
+  VoidCallback? _controllerListener;
+
   @override
   void initState() {
     super.initState();
@@ -126,17 +130,18 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
     });
 
     // Add listener to the controller
-    avatarMakerController.addListener(() {
-      setState(() {});
-    });
+    _controllerListener = () {
+      if (mounted) setState(() {});
+    };
+    avatarMakerController.addListener(_controllerListener!);
   }
 
   @override
   void dispose() {
-    // Remove the listener
-    avatarMakerController.removeListener(() {
-      setState(() {});
-    });
+    if (_controllerListener != null) {
+      avatarMakerController.removeListener(_controllerListener!);
+    }
+    avatarMakerController.clearPreview();
 
     // Only dispose the controller if we created it
     if (_controllerCreatedInternally) {
@@ -150,7 +155,17 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   /// selected.
   void onTapOption(
       PropertyItem newSelectedItem, PropertyCategoryIds categoryId) {
+    // Handle cosmetic items separately
+    if (newSelectedItem is CosmeticPropertyItem) {
+      avatarMakerController.selectCosmetic(newSelectedItem);
+      if (widget.onChange != null) {
+        widget.onChange!(avatarMakerController.drawAvatarSVG());
+      }
+      return;
+    }
+
     if (avatarMakerController.selectedOptions[categoryId] != newSelectedItem) {
+      avatarMakerController.clearPreview();
       setState(() {
         avatarMakerController.selectedOptions[categoryId] = newSelectedItem;
       });

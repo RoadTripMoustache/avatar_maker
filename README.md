@@ -7,7 +7,7 @@ Customizer and other utility widgets/functions.
 
 ## Available widgets
 
-This package provides you three easy-to-use widgets
+This package provides easy-to-use widgets for rendering avatars, customizing them, and saving or resetting selections.
 
 | Name                                                  | Description                                                                                                                                                                                        | Screenshot                                                                                                                         | 
 |-------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------|
@@ -26,12 +26,17 @@ This package provides you three easy-to-use widgets
 The appearance of the widgets can be tweaked with `AvatarMakerThemeData`. It lets you change things
 like the customizer's background colours, the box decoration, etc.
 
-### Categories and properties
+### Categories, cosmetics, and properties
 
-**All the categories** *(like outfits or hairs)* **and all the properties** *(like all the colors
-available for hairs or facial hairs)* are also fully customizable! You want to change a title? hide
-a category? or add some custom properties? AvatarMaker is fully customizable to fulfill all your
-needs. Check [this documentation](./docs/how-to/define_custom_theme.md) to know how to do it easily.
+**All the categories** *(like outfits, hairs, backgrounds, or effects)* **and all the properties** *(like colors, cosmetic effects, or SVG parts)* are fully customizable. You can change titles, hide categories, replace default properties, or add cosmetic categories such as backgrounds, animated effects, and effect colors.
+
+Cosmetics render as widgets instead of SVG strings, which allows animated effects and rich thumbnails while keeping the existing controller/category architecture.
+
+Check these documents for details:
+- [define a custom theme](./doc/how-to/define_custom_theme.md)
+- [customize property category](./doc/how-to/define_customized_property_category.md)
+- [lock items](./doc/how-to/lock_items.md)
+- [cosmetic system integration](./doc/avatar-maker-cosmetics-integration.md)
 
 ### Localization
 
@@ -123,6 +128,9 @@ worth noting.
   would mean clearing these attributes as well.
 - You can create a `AvatarMakerThemeData` instance to configure the look and feel of the widgets to
   your liking.
+- Cosmetic categories such as backgrounds, effects, and effect colors can be added through
+  `customizedPropertyCategories`. Effects render behind the avatar and temporary locked-item previews
+  do not modify saved selections.
 
 More details can be found in the widgets documentations or in the how-to :
 

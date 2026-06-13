@@ -1,5 +1,20 @@
 ## Unreleased
 
+### Added
+- feat: Add cosmetic backgrounds, animated avatar effects, separate effect colors, and widget-rendered cosmetic thumbnails.
+- feat: Add temporary locked-item preview support without mutating saved selections.
+- feat: Disable `AvatarMakerSaveWidget` while a temporary preview is active.
+- feat: Add `usePreview` parameter to `AvatarMakerAvatar` (default `true`) so avatars that live outside the customizer context can opt out of rendering the controller's temporary preview state. When set to `false`, the avatar always reflects the saved selection even if a preview is active on the controller.
+- docs: Add cosmetic system integration documentation.
+- example: Demonstrate cosmetic categories, animated effects, effect colors, custom effects, level/gold locking, and locked-item preview.
+- example: Set `usePreview: false` on the home page avatar so locked-item previews activated inside the customizer do not leak onto the home screen.
+- test: Update tests and mocks for cosmetic categories, localization, and save-widget preview guard.
+- test: Cover `AvatarMakerAvatar` `usePreview: true` (default) and `usePreview: false` rendering behavior.
+
+### Updated
+- refactor: Remove direct `material_symbols_icons` dependency and use Material `Icons` in tests.
+- chore: Prepare version bump from `1.5.0` to `1.6.0` for the cosmetic system release.
+
 
 ## [1.5.0] - 06/12/2025
 ### Added

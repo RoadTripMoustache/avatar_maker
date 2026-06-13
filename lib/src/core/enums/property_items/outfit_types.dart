@@ -174,4 +174,5 @@ enum OutfitTypes implements PropertyItem {
   String get label => name;
   String get id => " OutfitTypes/$name";
   String get value => svg;
+
 }

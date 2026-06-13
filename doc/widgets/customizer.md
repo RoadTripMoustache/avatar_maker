@@ -10,6 +10,16 @@ This widget provides the user with a UI for customizing their Avatar_Maker
 - [customizedPropertyCategories] : List<CustomizedPropertyCategory>? - List of all the customized property categories you want to use instead of the default ones.
 - [scaffoldHeight] : double? - To define the height of the component.
 - [scaffoldWidth] : double? - To define the width of the component.
+- [isItemLocked] : `bool Function(PropertyCategoryIds categoryId, String itemId)?` - Optional callback used to determine whether an item should be locked.
+- [lockWidget] : `Widget?` - Optional widget displayed over locked items.
+- [onTapLockedItem] : `void Function(PropertyCategoryIds categoryId, String itemId)?` - Optional callback triggered when a locked item is tapped.
+- [onChange] : `Function(String avatarSvg)?` - Called after an unlocked item is selected.
+
+## Locked items and previews
+
+Use [isItemLocked] for level, premium, ownership, or purchase checks. Use [onTapLockedItem] to show an unlock dialog, paywall, or temporary preview.
+
+Temporary previews can be applied with `controller.previewOption(item, category)` or `controller.previewCosmetic(cosmeticItem)`. They render on the avatar but do not modify `selectedOptions`, JSON exports, or persistent storage.
 
 ## Notes
 - It is advised that a [AvatarMakerCircleAvatar] also be present in the same page to show the user a preview of the changes being made.

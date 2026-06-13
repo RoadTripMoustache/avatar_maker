@@ -108,7 +108,7 @@ void main() {
             PropertyCategoryService.mergePropertyCategories(null, mockL10n);
 
         // Assert
-        expect(result.length, 13);
+        expect(result.length, 16);
 
         expect(result.first.id, equals(PropertyCategoryIds.HairStyle));
         expect(result.first.name, equals('Hairstyles'));
@@ -138,7 +138,7 @@ void main() {
             customizedList, mockL10n);
 
         // Assert
-        expect(result.length, 13);
+        expect(result.length, 16);
 
         final accessoryResult =
             result.firstWhere((e) => e.id == PropertyCategoryIds.Accessory);

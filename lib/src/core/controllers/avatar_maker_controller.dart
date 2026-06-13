@@ -9,7 +9,9 @@ import "package:avatar_maker/src/core/enums/property_items/hair_colors.dart";
 import "package:avatar_maker/src/core/enums/property_items/hair_styles.dart";
 import "package:avatar_maker/src/core/enums/property_items/outfit_colors.dart";
 import "package:avatar_maker/src/core/enums/property_items/outfit_types.dart";
+import "package:avatar_maker/src/core/models/cosmetic_property_item.dart";
 import "package:avatar_maker/src/core/models/customized_property_category.dart";
+import "package:avatar_maker/src/core/models/effect_color_cosmetic_item.dart";
 import "package:avatar_maker/src/core/models/property_item.dart";
 import "package:avatar_maker/src/core/services/accessory_service.dart";
 import "package:avatar_maker/src/core/services/avatar_service.dart";
@@ -61,6 +63,77 @@ abstract class AvatarMakerController extends ChangeNotifier {
   /// the kind of eyes picked by the user
   late Map<PropertyCategoryIds, PropertyItem> selectedOptions;
 
+  /// Currently selected cosmetic background item.
+  CosmeticPropertyItem? _selectedBackgroundCosmetic;
+
+  /// Currently selected cosmetic effect item.
+  CosmeticPropertyItem? _selectedEffectCosmetic;
+
+  /// Currently selected cosmetic effect color item.
+  CosmeticPropertyItem? _selectedEffectColorCosmetic;
+
+  /// Temporary preview options. These are rendered on the avatar but are not saved.
+  final Map<PropertyCategoryIds, PropertyItem> _previewOptions = {};
+
+  /// Currently previewed cosmetic background item.
+  CosmeticPropertyItem? _previewBackgroundCosmetic;
+
+  /// Currently previewed cosmetic effect item.
+  CosmeticPropertyItem? _previewEffectCosmetic;
+
+  /// Currently previewed cosmetic effect color item.
+  CosmeticPropertyItem? _previewEffectColorCosmetic;
+
+  /// The currently selected cosmetic background item.
+  CosmeticPropertyItem? get selectedBackgroundCosmetic =>
+      _selectedBackgroundCosmetic;
+
+  /// The currently selected cosmetic effect item.
+  CosmeticPropertyItem? get selectedEffectCosmetic => _selectedEffectCosmetic;
+
+  /// The currently selected cosmetic effect color item.
+  CosmeticPropertyItem? get selectedEffectColorCosmetic =>
+      _selectedEffectColorCosmetic;
+
+  /// Temporary preview options.
+  Map<PropertyCategoryIds, PropertyItem> get previewOptions {
+    final result = <PropertyCategoryIds, PropertyItem>{};
+    _previewOptions.forEach((key, value) {
+      result[key] = value;
+    });
+    return result;
+  }
+
+  /// Whether a temporary preview is active.
+  bool get hasPreviewOptions => _previewOptions.isNotEmpty;
+
+  /// Selected options combined with temporary preview options.
+  Map<PropertyCategoryIds, PropertyItem> get effectiveSelectedOptions {
+    if (_previewOptions.isEmpty) {
+      return selectedOptions;
+    }
+
+    final result = <PropertyCategoryIds, PropertyItem>{};
+    selectedOptions.forEach((key, value) {
+      result[key] = value;
+    });
+    _previewOptions.forEach((key, value) {
+      result[key] = value;
+    });
+    return result;
+  }
+
+  /// The currently previewed cosmetic background item.
+  CosmeticPropertyItem? get previewBackgroundCosmetic =>
+      _previewBackgroundCosmetic;
+
+  /// The currently previewed cosmetic effect item.
+  CosmeticPropertyItem? get previewEffectCosmetic => _previewEffectCosmetic;
+
+  /// The currently previewed cosmetic effect color item.
+  CosmeticPropertyItem? get previewEffectColorCosmetic =>
+      _previewEffectColorCosmetic;
+
   AvatarMakerController({
     List<CustomizedPropertyCategory>? customizedPropertyCategories,
     Map<PropertyCategoryIds, PropertyItem>? selectedOptions,
@@ -101,6 +174,7 @@ abstract class AvatarMakerController extends ChangeNotifier {
   /// Initialize the controller by loading options and updating the preview
   Future<void> initController() async {
     selectedOptions = await getSelectedOptions();
+    _syncCosmeticSelectionsFromSelectedOptions();
     _displayedAvatarSVG = drawAvatarSVG();
     notifyListeners();
   }
@@ -115,10 +189,54 @@ abstract class AvatarMakerController extends ChangeNotifier {
     String newAvatarMakerSVG = "",
   }) {
     if (newAvatarMakerSVG.isEmpty) {
-      newAvatarMakerSVG = drawAvatarSVG();
+      newAvatarMakerSVG = drawAvatarSVG(
+        selectedOptionsOverride: effectiveSelectedOptions,
+      );
     }
     _displayedAvatarSVG = newAvatarMakerSVG;
     notifyListeners();
+  }
+
+  void _syncCosmeticSelectionsFromSelectedOptions() {
+    _syncCosmeticSelectionsFromOptions(selectedOptions, preview: false);
+  }
+
+  void _syncPreviewCosmeticSelectionsFromPreviewOptions() {
+    _syncCosmeticSelectionsFromOptions(_previewOptions, preview: true);
+  }
+
+  void _syncCosmeticSelectionsFromOptions(
+    Map<PropertyCategoryIds, PropertyItem> options, {
+    required bool preview,
+  }) {
+    final background = options[PropertyCategoryIds.AvatarBackground];
+    final effect = options[PropertyCategoryIds.AvatarEffect];
+    final effectColor = options[PropertyCategoryIds.AvatarEffectColor];
+
+    if (preview) {
+      _previewBackgroundCosmetic =
+          background is CosmeticPropertyItem && background.cosmeticId != "none"
+              ? background
+              : null;
+      _previewEffectCosmetic =
+          effect is CosmeticPropertyItem && effect.cosmeticId != "none"
+              ? effect
+              : null;
+      _previewEffectColorCosmetic =
+          effectColor is EffectColorCosmeticItem ? effectColor : null;
+      return;
+    }
+
+    _selectedBackgroundCosmetic =
+        background is CosmeticPropertyItem && background.cosmeticId != "none"
+            ? background
+            : null;
+    _selectedEffectCosmetic =
+        effect is CosmeticPropertyItem && effect.cosmeticId != "none"
+            ? effect
+            : null;
+    _selectedEffectColorCosmetic =
+        effectColor is EffectColorCosmeticItem ? effectColor : null;
   }
 
   /// Save the selected options and update the preview.
@@ -130,10 +248,13 @@ abstract class AvatarMakerController extends ChangeNotifier {
   /// - [jsonAvatarOptions] : String? - The jsonAvatarOptions which are forced
   /// to set by the user
   Future<void> saveAvatarSVG({String? jsonAvatarOptions}) async {
+    clearPreview();
+
     // Update the selectedOptions if jsonAvatarOptions is not null
     if (jsonAvatarOptions != null) {
       selectedOptions = OptionsService.jsonDecodeSelectedOptions(
           this.propertyCategories, jsonAvatarOptions);
+      _syncCosmeticSelectionsFromSelectedOptions();
     }
 
     // Perform the save operation (implemented by subclasses)
@@ -158,6 +279,8 @@ abstract class AvatarMakerController extends ChangeNotifier {
 
     // Update selected options
     selectedOptions = restoredData.options;
+    _syncCosmeticSelectionsFromSelectedOptions();
+    clearPreview();
     notifyListeners();
   }
 
@@ -166,29 +289,32 @@ abstract class AvatarMakerController extends ChangeNotifier {
   Future<RestoredData> performRestore();
 
   /// Generates a [String] SVG from the [selectedOptions] stored.
-  String drawAvatarSVG() {
+  String drawAvatarSVG({
+    Map<PropertyCategoryIds, PropertyItem>? selectedOptionsOverride,
+  }) {
+    final options = selectedOptionsOverride ?? selectedOptions;
     return AvatarService.drawSVG(
-      accessory: selectedOptions[PropertyCategoryIds.Accessory]!.value,
-      backgroundStyle: selectedOptions[PropertyCategoryIds.Background]!.value,
-      eyebrows: selectedOptions[PropertyCategoryIds.EyebrowType]!.value,
-      eyes: selectedOptions[PropertyCategoryIds.EyeType]!.value,
+      accessory: options[PropertyCategoryIds.Accessory]!.value,
+      backgroundStyle: options[PropertyCategoryIds.Background]!.value,
+      eyebrows: options[PropertyCategoryIds.EyebrowType]!.value,
+      eyes: options[PropertyCategoryIds.EyeType]!.value,
       facialHair: FacialHairsService.generateFacialHair(
-        color: selectedOptions[PropertyCategoryIds.FacialHairColor]
+        color: options[PropertyCategoryIds.FacialHairColor]
             as FacialHairColors,
-        type: selectedOptions[PropertyCategoryIds.FacialHairType]
+        type: options[PropertyCategoryIds.FacialHairType]
             as FacialHairTypes,
       ),
       hair: HairService.generateHairStyle(
-        color: selectedOptions[PropertyCategoryIds.HairColor] as HairColors,
-        style: selectedOptions[PropertyCategoryIds.HairStyle] as HairStyles,
+        color: options[PropertyCategoryIds.HairColor] as HairColors,
+        style: options[PropertyCategoryIds.HairStyle] as HairStyles,
       ),
-      mouth: selectedOptions[PropertyCategoryIds.MouthType]!.value,
-      nose: selectedOptions[PropertyCategoryIds.Nose]!.value,
+      mouth: options[PropertyCategoryIds.MouthType]!.value,
+      nose: options[PropertyCategoryIds.Nose]!.value,
       outfit: OutfitService.generateOutfit(
-        color: selectedOptions[PropertyCategoryIds.OutfitColor] as OutfitColors,
-        type: selectedOptions[PropertyCategoryIds.OutfitType] as OutfitTypes,
+        color: options[PropertyCategoryIds.OutfitColor] as OutfitColors,
+        type: options[PropertyCategoryIds.OutfitType] as OutfitTypes,
       ),
-      skin: selectedOptions[PropertyCategoryIds.SkinColor]!.value,
+      skin: options[PropertyCategoryIds.SkinColor]!.value,
     );
   }
 
@@ -252,22 +378,45 @@ abstract class AvatarMakerController extends ChangeNotifier {
 
       case PropertyCategoryIds.SkinColor:
         return SkinService.drawSVG(skinColor: item.value);
+
+      case PropertyCategoryIds.AvatarBackground:
+      case PropertyCategoryIds.AvatarEffect:
+      case PropertyCategoryIds.AvatarEffectColor:
+        return emptySVGIcon;
     }
   }
 
   /// Randomize the select options of all the displayed property categories.
   /// All the non displayed categories keep their default value.
   void randomizedSelectedOptions() {
+    clearPreview();
     var rng = Random();
     displayedPropertyCategories.forEach(
       (propertyCategory) {
+        final randomItem = propertyCategory.properties!
+            .elementAt(rng.nextInt(propertyCategory.properties!.length));
         selectedOptions.update(
           propertyCategory.id,
-          (value) => propertyCategory.properties!
-              .elementAt(rng.nextInt(propertyCategory.properties!.length)),
+          (value) => randomItem,
         );
+
+        // Also update cosmetic selections for cosmetic categories.
+        if (randomItem is CosmeticPropertyItem) {
+          switch (randomItem.category) {
+            case "background":
+              _selectedBackgroundCosmetic = randomItem;
+              break;
+            case "effect":
+              _selectedEffectCosmetic = randomItem;
+              break;
+            case "effect_color":
+              _selectedEffectColorCosmetic = randomItem;
+              break;
+          }
+        }
       },
     );
+    _syncCosmeticSelectionsFromSelectedOptions();
 
     updatePreview();
   }
@@ -286,6 +435,99 @@ abstract class AvatarMakerController extends ChangeNotifier {
   /// Useful for some widgets like the "Reset" or "Save" button to know if it's
   /// useful to be displayed.
   bool isPersistentController();
+
+  /// Preview an option without changing saved selected options.
+  void previewOption(PropertyItem item, PropertyCategoryIds categoryId) {
+    _previewOptions[categoryId] = item;
+    if (item is CosmeticPropertyItem) {
+      _syncPreviewCosmeticSelectionsFromPreviewOptions();
+    }
+    updatePreview();
+  }
+
+  /// Preview a cosmetic option without changing saved selected options.
+  void previewCosmetic(CosmeticPropertyItem item) {
+    previewOption(item, _categoryIdForCosmetic(item.category));
+  }
+
+  /// Clear temporary preview options.
+  void clearPreview() {
+    _previewOptions.clear();
+    _previewBackgroundCosmetic = null;
+    _previewEffectCosmetic = null;
+    _previewEffectColorCosmetic = null;
+    // Render using selectedOptions (without preview) so the avatar
+    // goes back to the saved state, not the previewed one.
+    _displayedAvatarSVG = drawAvatarSVG();
+    notifyListeners();
+  }
+
+  PropertyCategoryIds _categoryIdForCosmetic(String category) {
+    switch (category) {
+      case "background":
+        return PropertyCategoryIds.AvatarBackground;
+      case "effect":
+        return PropertyCategoryIds.AvatarEffect;
+      case "effect_color":
+        return PropertyCategoryIds.AvatarEffectColor;
+      default:
+        return PropertyCategoryIds.AvatarEffect;
+    }
+  }
+
+  /// Select a cosmetic item (background, effect, or effect color).
+  /// If the item is a "None" placeholder (cosmeticId == "none"), clears
+  /// the corresponding cosmetic.
+  void selectCosmetic(CosmeticPropertyItem item) {
+    clearPreview();
+    if (item.cosmeticId == "none") {
+      switch (item.category) {
+        case "background":
+          _selectedBackgroundCosmetic = null;
+          break;
+        case "effect":
+          _selectedEffectCosmetic = null;
+          break;
+        case "effect_color":
+          _selectedEffectColorCosmetic = null;
+          break;
+      }
+    } else {
+      switch (item.category) {
+        case "background":
+          _selectedBackgroundCosmetic = item;
+          break;
+        case "effect":
+          _selectedEffectCosmetic = item;
+          break;
+        case "effect_color":
+          _selectedEffectColorCosmetic = item;
+          break;
+      }
+    }
+    // Also update selectedOptions so the grid highlights the correct item.
+    final categoryId = _categoryIdForCosmetic(item.category);
+    selectedOptions[categoryId] = item;
+    updatePreview();
+    notifyListeners();
+  }
+
+  /// Clear all selected cosmetics.
+  void clearCosmetics() {
+    clearPreview();
+    _selectedBackgroundCosmetic = null;
+    _selectedEffectCosmetic = null;
+    _selectedEffectColorCosmetic = null;
+    // Reset to "None" placeholder items.
+    selectedOptions[PropertyCategoryIds.AvatarBackground] =
+        defaultSelectedOptions[PropertyCategoryIds.AvatarBackground]!;
+    selectedOptions[PropertyCategoryIds.AvatarEffect] =
+        defaultSelectedOptions[PropertyCategoryIds.AvatarEffect]!;
+    selectedOptions[PropertyCategoryIds.AvatarEffectColor] =
+        defaultSelectedOptions[PropertyCategoryIds.AvatarEffectColor]!;
+    updatePreview();
+    notifyListeners();
+  }
 }
 
 /// Class to hold restored data from persistence

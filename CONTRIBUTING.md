@@ -87,6 +87,25 @@ $ git push -u origin branch_name
 
 - Voila! Your Pull Request has been submitted and will be reviewed by the moderators and merged.🥳
 
+## Release and version update pattern
+
+Use the existing release history as the pattern:
+
+1. Keep ongoing changes under `CHANGELOG.md` in the `Unreleased` section.
+2. When preparing a release:
+   - Update `pubspec.yaml` to the next version.
+   - Update `CHANGELOG.md` from `Unreleased` to a versioned entry such as `## [1.6.0] - YYYY/MM/DD`.
+   - Run `flutter pub get` in the package root and `flutter pub get` in `example/` so both lockfiles stay in sync.
+   - Verify the diff does not include generated or ephemeral files such as `example/windows/flutter/generated_plugin_registrant.*`, `example/windows/flutter/generated_plugins.cmake`, or `example/ios/Flutter/ephemeral/*`.
+3. Release commits in history use short conventional messages such as `feat: v1.5.0`.
+4. Pre-release commits are tagged with the `pre-X.Y.Z+N` pattern, for example `pre-1.5.0+52`.
+5. Final releases are tagged with the semantic version, for example `1.5.0`.
+
+Use `major.minor.patch` semantics:
+- `major`: breaking public API or saved-state changes.
+- `minor`: backward-compatible features such as new widgets, cosmetics, locking, or preview APIs.
+- `patch`: backward-compatible fixes.
+
 ## Need more help? 🤔
 You can refer to the following articles on basics of Git and Github and also contact me, the Project Maintainer, in case you are stuck:
 - [Forking a Repo](https://help.github.com/en/github/getting-started-with-github/fork-a-repo)
