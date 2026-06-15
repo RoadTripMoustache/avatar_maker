@@ -71,6 +71,11 @@ jobs:
       - name: Run tests
         run: flutter test --coverage
       - name: Comment the coverage of the PR
+        # Fork PRs only get a read-only GITHUB_TOKEN, so posting a comment
+        # returns 403 "Resource not accessible by integration". Skip on forks
+        # and never fail the job because of the coverage comment.
+        if: github.event.pull_request.head.repo.fork == false
+        continue-on-error: true
         uses: romeovs/lcov-reporter-action@v0.4.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
