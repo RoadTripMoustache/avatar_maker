@@ -1,5 +1,4 @@
 import "package:avatar_maker/avatar_maker.dart";
-import "package:avatar_maker/src/core/enums/property_categories.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_appbar.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_body.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_bottom_navbar.dart";

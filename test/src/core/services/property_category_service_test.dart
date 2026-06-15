@@ -1,7 +1,5 @@
 import "package:flutter_test/flutter_test.dart";
 import "package:avatar_maker/avatar_maker.dart";
-import "package:avatar_maker/l10n/app_localizations.dart";
-import "package:avatar_maker/src/core/models/property_category.dart";
 import "package:avatar_maker/src/core/services/property_category_service.dart";
 import "package:mockito/annotations.dart";
 import "package:mockito/mockito.dart";
