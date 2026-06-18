@@ -47,7 +47,8 @@ class CustomizerBody extends StatelessWidget {
       var attributeListLength = propertyCategory.properties!.length;
 
       PropertyItem selectedItem =
-          avatarMakerController.selectedOptions[propertyCategory.id] ??
+          avatarMakerController.previewOptions[propertyCategory.id] ??
+              avatarMakerController.selectedOptions[propertyCategory.id] ??
               propertyCategory.properties!.first;
 
       /// Build the main Tile Grid with all the options from the attribute
@@ -64,6 +65,17 @@ class CustomizerBody extends StatelessWidget {
           final isLocked =
               isItemLocked?.call(propertyCategory.id, item.id) ?? false;
 
+          // Check if this is a cosmetic item
+          final isCosmetic = item is CosmeticPropertyItem;
+
+          // For cosmetic items, compare by id against the selectedOptions
+          // (which is updated when selectCosmetic is called).
+          final isCosmeticSelected = isCosmetic && item.id == selectedItem.id;
+
+          // For regular items, check selection by index
+          final isRegularSelected = !isCosmetic &&
+              index == propertyCategory.properties!.indexOf(selectedItem);
+
           return InkWell(
             onTap: isLocked
                 ? () => onTapLockedItem?.call(propertyCategory.id, item.id)
@@ -72,21 +84,23 @@ class CustomizerBody extends StatelessWidget {
               children: [
                 Container(
                   alignment: Alignment.center,
-                  decoration: index ==
-                          propertyCategory.properties!.indexOf(selectedItem)
-                      ? theme.selectedTileDecoration
-                      : theme.unselectedTileDecoration,
+                  decoration:
+                      (isCosmetic ? isCosmeticSelected : isRegularSelected)
+                          ? theme.selectedTileDecoration
+                          : theme.unselectedTileDecoration,
                   margin: theme.tileMargin,
                   padding: theme.tilePadding,
-                  child: SvgPicture.string(
-                    avatarMakerController.getComponentSVG(
-                        propertyCategory.id, index),
-                    height: 80,
-                    semanticsLabel: 'Your AvatarMaker',
-                    placeholderBuilder: (context) => Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    ),
-                  ),
+                  child: isCosmetic
+                      ? item.buildThumbnail(context, 80)
+                      : SvgPicture.string(
+                          avatarMakerController.getComponentSVG(
+                              propertyCategory.id, index),
+                          height: 80,
+                          semanticsLabel: 'Your AvatarMaker',
+                          placeholderBuilder: (context) => Center(
+                            child: CircularProgressIndicator.adaptive(),
+                          ),
+                        ),
                 ),
                 if (isLocked)
                   lockWidget ??

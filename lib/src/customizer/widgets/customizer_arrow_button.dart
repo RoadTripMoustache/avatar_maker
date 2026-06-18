@@ -1,6 +1,5 @@
 import "package:avatar_maker/avatar_maker.dart";
 import "package:flutter/material.dart";
-import "package:material_symbols_icons/material_symbols_icons.dart";
 
 /// Arrow button to navigate in the app bar between categories.
 class CustomizerArrowButton extends StatelessWidget {
@@ -33,7 +32,7 @@ class CustomizerArrowButton extends StatelessWidget {
       visible: isLeft ? tabIndex > 0 : tabIndex < nbrTabs - 1,
       child: IconButton(
         icon: Icon(
-          isLeft ? Symbols.arrow_back_rounded : Symbols.arrow_forward_rounded,
+          isLeft ? Icons.arrow_back_rounded : Icons.arrow_forward_rounded,
           color: theme.iconColor,
         ),
         onPressed: () => onArrowTap(isLeft),

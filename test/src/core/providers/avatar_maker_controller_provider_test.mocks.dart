@@ -4,12 +4,14 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i8;
-import 'dart:ui' as _i9;
+import 'dart:ui' as _i10;
 
 import 'package:avatar_maker/l10n/app_localizations.dart' as _i2;
 import 'package:avatar_maker/src/core/controllers/avatar_maker_controller.dart'
     as _i3;
 import 'package:avatar_maker/src/core/enums/property_category_ids.dart' as _i6;
+import 'package:avatar_maker/src/core/models/cosmetic_property_item.dart'
+    as _i9;
 import 'package:avatar_maker/src/core/models/customized_property_category.dart'
     as _i5;
 import 'package:avatar_maker/src/core/models/property_item.dart' as _i7;
@@ -112,6 +114,31 @@ class MockAvatarMakerController extends _i1.Mock
   Map<_i6.PropertyCategoryIds, _i7.PropertyItem> get selectedOptions =>
       (super.noSuchMethod(
         Invocation.getter(#selectedOptions),
+        returnValue: <_i6.PropertyCategoryIds, _i7.PropertyItem>{},
+        returnValueForMissingStub: <_i6.PropertyCategoryIds,
+            _i7.PropertyItem>{},
+      ) as Map<_i6.PropertyCategoryIds, _i7.PropertyItem>);
+
+  @override
+  Map<_i6.PropertyCategoryIds, _i7.PropertyItem> get previewOptions =>
+      (super.noSuchMethod(
+        Invocation.getter(#previewOptions),
+        returnValue: <_i6.PropertyCategoryIds, _i7.PropertyItem>{},
+        returnValueForMissingStub: <_i6.PropertyCategoryIds,
+            _i7.PropertyItem>{},
+      ) as Map<_i6.PropertyCategoryIds, _i7.PropertyItem>);
+
+  @override
+  bool get hasPreviewOptions => (super.noSuchMethod(
+        Invocation.getter(#hasPreviewOptions),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  Map<_i6.PropertyCategoryIds, _i7.PropertyItem> get effectiveSelectedOptions =>
+      (super.noSuchMethod(
+        Invocation.getter(#effectiveSelectedOptions),
         returnValue: <_i6.PropertyCategoryIds, _i7.PropertyItem>{},
         returnValueForMissingStub: <_i6.PropertyCategoryIds,
             _i7.PropertyItem>{},
@@ -280,16 +307,21 @@ class MockAvatarMakerController extends _i1.Mock
       ) as _i8.Future<_i3.RestoredData>);
 
   @override
-  String drawAvatarSVG() => (super.noSuchMethod(
+  String drawAvatarSVG(
+          {Map<_i6.PropertyCategoryIds, _i7.PropertyItem>?
+              selectedOptionsOverride}) =>
+      (super.noSuchMethod(
         Invocation.method(
           #drawAvatarSVG,
           [],
+          {#selectedOptionsOverride: selectedOptionsOverride},
         ),
         returnValue: _i4.dummyValue<String>(
           this,
           Invocation.method(
             #drawAvatarSVG,
             [],
+            {#selectedOptionsOverride: selectedOptionsOverride},
           ),
         ),
         returnValueForMissingStub: _i4.dummyValue<String>(
@@ -297,6 +329,7 @@ class MockAvatarMakerController extends _i1.Mock
           Invocation.method(
             #drawAvatarSVG,
             [],
+            {#selectedOptionsOverride: selectedOptionsOverride},
           ),
         ),
       ) as String);
@@ -400,7 +433,59 @@ class MockAvatarMakerController extends _i1.Mock
       ) as bool);
 
   @override
-  void addListener(_i9.VoidCallback? listener) => super.noSuchMethod(
+  void previewOption(
+    _i7.PropertyItem? item,
+    _i6.PropertyCategoryIds? categoryId,
+  ) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #previewOption,
+          [
+            item,
+            categoryId,
+          ],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void previewCosmetic(_i9.CosmeticPropertyItem? item) => super.noSuchMethod(
+        Invocation.method(
+          #previewCosmetic,
+          [item],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void clearPreview() => super.noSuchMethod(
+        Invocation.method(
+          #clearPreview,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void selectCosmetic(_i9.CosmeticPropertyItem? item) => super.noSuchMethod(
+        Invocation.method(
+          #selectCosmetic,
+          [item],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void clearCosmetics() => super.noSuchMethod(
+        Invocation.method(
+          #clearCosmetics,
+          [],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  void addListener(_i10.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
           #addListener,
           [listener],
@@ -409,7 +494,7 @@ class MockAvatarMakerController extends _i1.Mock
       );
 
   @override
-  void removeListener(_i9.VoidCallback? listener) => super.noSuchMethod(
+  void removeListener(_i10.VoidCallback? listener) => super.noSuchMethod(
         Invocation.method(
           #removeListener,
           [listener],

@@ -1,7 +1,5 @@
 import "package:flutter_test/flutter_test.dart";
 import "package:avatar_maker/avatar_maker.dart";
-import "package:avatar_maker/l10n/app_localizations.dart";
-import "package:avatar_maker/src/core/models/property_category.dart";
 import "package:avatar_maker/src/core/services/property_category_service.dart";
 import "package:mockito/annotations.dart";
 import "package:mockito/mockito.dart";
@@ -108,7 +106,7 @@ void main() {
             PropertyCategoryService.mergePropertyCategories(null, mockL10n);
 
         // Assert
-        expect(result.length, 13);
+        expect(result.length, 16);
 
         expect(result.first.id, equals(PropertyCategoryIds.HairStyle));
         expect(result.first.name, equals('Hairstyles'));
@@ -138,7 +136,7 @@ void main() {
             customizedList, mockL10n);
 
         // Assert
-        expect(result.length, 13);
+        expect(result.length, 16);
 
         final accessoryResult =
             result.firstWhere((e) => e.id == PropertyCategoryIds.Accessory);

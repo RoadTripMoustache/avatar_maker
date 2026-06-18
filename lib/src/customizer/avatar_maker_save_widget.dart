@@ -63,20 +63,38 @@ class AvatarMakerSaveWidget extends StatelessWidget {
       return SizedBox.shrink();
     }
 
-    return InkWell(
-      onTap: () async {
-        await avatarController.saveAvatarSVG();
-        if (onTap != null) onTap!(avatarController.drawAvatarSVG());
-      },
-      splashFactory: splashFactory,
-      radius: radius,
-      splashColor: splashColor,
-      child: child == null
-          ? Icon(
+    return ListenableBuilder(
+      listenable: avatarController,
+      builder: (context, _) {
+        final isPreviewing = avatarController.hasPreviewOptions;
+        final renderedChild = this.child ??
+            Icon(
               Icons.save,
-              color: theme.iconColor,
-            )
-          : child,
+              color: isPreviewing
+                  ? theme.iconColor.withValues(alpha: 0.45)
+                  : theme.iconColor,
+            );
+
+        return IgnorePointer(
+          ignoring: isPreviewing,
+          child: Opacity(
+            opacity: isPreviewing ? 0.45 : 1,
+            child: InkWell(
+              onTap: isPreviewing
+                  ? null
+                  : () async {
+                      await avatarController.saveAvatarSVG();
+                      if (onTap != null)
+                        onTap!(avatarController.drawAvatarSVG());
+                    },
+              splashFactory: splashFactory,
+              radius: radius,
+              splashColor: splashColor,
+              child: renderedChild,
+            ),
+          ),
+        );
+      },
     );
   }
 }

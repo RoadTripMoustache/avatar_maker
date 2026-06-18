@@ -28,7 +28,19 @@ bool Function(PropertyCategoryIds categoryId, String itemId)? isItemLocked;
   A customizable widget displayed over locked items.
   When not provided, a default semi-transparent overlay with a lock icon is used.
 * **`onTapLockedItem`**:
-  A callback triggered when the user taps a locked item—perfect for showing upgrade prompts, unlock conditions, or paywalls.
+  A callback triggered when the user taps a locked item—perfect for showing upgrade prompts, unlock conditions, paywalls, or temporary previews.
+
+### Temporary previews for locked items
+
+Locked items can be previewed without saving them. The recommended flow is:
+
+1. Tap a locked item.
+2. Open an unlock/preview dialog.
+3. Apply the item with `controller.previewOption(item, category)` or `controller.previewCosmetic(cosmeticItem)`.
+4. Close the dialog so the user can see the avatar.
+5. Clear the preview with `controller.clearPreview()` when the user cancels, selects another item, or leaves the customizer screen.
+
+Temporary previews are rendered by `AvatarMakerAvatar`, but they are not written to `selectedOptions`, JSON exports, or persistent storage.
 
 ### Key Points:
 - The `isItemLocked` callback receives two parameters:
@@ -53,7 +65,9 @@ The example now demonstrates how to use the locking system dynamically:
 **Custom lock behavior:**
 
 * A red lock overlay is supplied through `lockWidget`.
-* Tapping a locked item opens a dialog explaining the lock and simulating an "Unlock" action.
+* Tapping a locked item opens a dialog explaining the lock, showing a small item preview, and offering `Cancel` or `Preview`.
+* `Preview` applies the item temporarily with `controller.previewOption(...)` and closes the dialog so the avatar can be seen.
+* `Cancel` clears any temporary preview.
 
 
 ```dart
@@ -99,3 +113,40 @@ class _MyPageState extends State<MyPage> {
   }
 }
 ```
+
+### Previewing locked items safely
+
+Use `previewOption` for regular items and `previewCosmetic` for cosmetic items:
+
+```dart
+onTapLockedItem: (category, itemId) {
+  final item = findLockedItem(category, itemId);
+  if (item == null) return;
+
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      title: const Text("Locked"),
+      content: Text("Reach level 5 to unlock this item."),
+      actions: [
+        TextButton(
+          onPressed: () {
+            controller.clearPreview();
+            Navigator.pop(context);
+          },
+          child: const Text("Cancel"),
+        ),
+        TextButton(
+          onPressed: () {
+            controller.previewOption(item, category);
+            Navigator.pop(context);
+          },
+          child: const Text("Preview"),
+        ),
+      ],
+    ),
+  );
+}
+```
+
+`AvatarMakerSaveWidget` is disabled while a temporary preview is active, and `saveAvatarSVG()` clears previews before persisting.
