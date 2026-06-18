@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<style>.d{fill:none;stroke:#000000;stroke-linecap:round;stroke-linejoin:round;}</style>
+<path class="d" d="M24,2 L27,18 L44,18 L30,27 L34,44 L24,33 L14,44 L18,27 L4,18 L21,18 Z"/>
+<circle cx="24" cy="24" r="3" fill="#000000" stroke="none"/>
+</svg>
