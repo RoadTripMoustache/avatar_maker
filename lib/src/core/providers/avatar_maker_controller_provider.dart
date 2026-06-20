@@ -5,8 +5,20 @@ import "package:provider/provider.dart";
 /// A provider widget for [AvatarMakerController].
 ///
 /// This widget provides an [AvatarMakerController] to its descendants.
-/// If a controller is not provided, it will create a [PersistentAvatarMakerController]
+/// If a controller is provided, it will create a [PersistentAvatarMakerController]
 /// by default.
+///
+/// **Note on type lookup:** the provider exposes the base [AvatarMakerController]
+/// type, so `context.read<AvatarMakerController>()` is the supported way to
+/// read the controller. Reading a more specific subtype such as
+/// `context.read<PersistentAvatarMakerController>()` will fail with
+/// `ProviderNotFoundException` because the `provider` package performs
+/// exact type matching, not polymorphic lookup. If you need persistence
+/// helpers, pass an explicit [PersistentAvatarMakerController] via the
+/// [controller] parameter and access the helper through
+/// [PersistentAvatarMakerController.setJsonOptions] (which now accepts
+/// any [AvatarMakerController] subtype), or keep a separate reference
+/// to the persistent instance.
 ///
 /// Usage:
 /// ```dart
