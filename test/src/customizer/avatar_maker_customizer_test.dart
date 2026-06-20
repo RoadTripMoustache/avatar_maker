@@ -216,4 +216,202 @@ void main() {
           reason: "onTapLockedItem should be called");
     });
   });
+
+  group('onItemSelected callback (commit 3)', () {
+    testWidgets('AvatarMakerCustomizer accepts onItemSelected parameter',
+        (WidgetTester tester) async {
+      final controller = NonPersistentAvatarMakerController();
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: AvatarMakerCustomizer(
+              controller: controller,
+              scaffoldHeight: 600,
+              onItemSelected: (_, __) {},
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.byType(AvatarMakerCustomizer), findsOneWidget);
+    });
+
+    testWidgets(
+      'onItemSelected is called when an unlocked item is tapped',
+      (WidgetTester tester) async {
+        final controller = NonPersistentAvatarMakerController();
+        PropertyCategoryIds? capturedCategory;
+        String? capturedItemId;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: AvatarMakerCustomizer(
+                controller: controller,
+                scaffoldHeight: 600,
+                onItemSelected: (category, itemId) {
+                  capturedCategory = category;
+                  capturedItemId = itemId;
+                },
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final firstItem = find.byType(InkWell).first;
+        await tester.tap(firstItem);
+        await tester.pump();
+
+        expect(capturedCategory, isNotNull,
+            reason: "onItemSelected must fire on unlocked tap");
+        expect(capturedItemId, isNotNull);
+      },
+    );
+
+    testWidgets(
+      'onItemSelected receives the (categoryId, itemId) of the tapped item',
+      (WidgetTester tester) async {
+        final controller = NonPersistentAvatarMakerController();
+        PropertyCategoryIds? capturedCategory;
+        String? capturedItemId;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: AvatarMakerCustomizer(
+                controller: controller,
+                scaffoldHeight: 600,
+                onItemSelected: (category, itemId) {
+                  capturedCategory = category;
+                  capturedItemId = itemId;
+                },
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // The first displayed category's first property is the target.
+        final firstCategory = controller.displayedPropertyCategories.first;
+        final firstProperty = firstCategory.properties!.first;
+
+        // Tap the first InkWell which corresponds to the first item of the
+        // first category (customizer starts on tab 0).
+        final firstItem = find.byType(InkWell).first;
+        await tester.tap(firstItem);
+        await tester.pump();
+
+        expect(capturedCategory, equals(firstCategory.id));
+        expect(capturedItemId, equals(firstProperty.id));
+      },
+    );
+
+    testWidgets(
+      'onItemSelected is NOT called for locked items (onTapLockedItem '
+      'takes precedence)',
+      (WidgetTester tester) async {
+        final controller = NonPersistentAvatarMakerController();
+        bool itemSelectedCalled = false;
+        bool lockedItemTapped = false;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: AvatarMakerCustomizer(
+                controller: controller,
+                scaffoldHeight: 600,
+                isItemLocked: (_, __) => true,
+                onItemSelected: (_, __) => itemSelectedCalled = true,
+                onTapLockedItem: (_, __) => lockedItemTapped = true,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final firstItem = find.byType(InkWell).first;
+        await tester.tap(firstItem);
+        await tester.pump();
+
+        expect(lockedItemTapped, isTrue);
+        expect(itemSelectedCalled, isFalse,
+            reason: "Locked items must not trigger onItemSelected — only "
+                "onTapLockedItem fires");
+      },
+    );
+
+    testWidgets(
+      'AvatarMakerCustomizer without onItemSelected still applies the '
+      'selection (backward compatible behavior)',
+      (WidgetTester tester) async {
+        final controller = NonPersistentAvatarMakerController();
+        final originalSelection =
+            controller.selectedOptions[PropertyCategoryIds.HairStyle];
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: AvatarMakerCustomizer(
+                controller: controller,
+                scaffoldHeight: 600,
+                // No onItemSelected — selection must still apply.
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        // Pick an item that is NOT currently selected.
+        final hairCategory = controller.displayedPropertyCategories
+            .firstWhere((c) => c.id == PropertyCategoryIds.HairStyle);
+        final alternative = hairCategory.properties!
+            .firstWhere((p) => p.id != originalSelection!.id);
+
+        // Find the InkWell for the alternative. Because the customizer
+        // starts on tab 0 (HairStyle), the first N InkWells correspond to
+        // HairStyle properties in order.
+        final index =
+            hairCategory.properties!.indexWhere((p) => p.id == alternative.id);
+        final target = find.byType(InkWell).at(index);
+        await tester.tap(target);
+        await tester.pump();
+
+        expect(
+          controller.selectedOptions[PropertyCategoryIds.HairStyle]!.id,
+          equals(alternative.id),
+          reason: "Selection must still be applied without onItemSelected",
+        );
+      },
+    );
+
+    testWidgets(
+      'onItemSelected fires once per tap',
+      (WidgetTester tester) async {
+        final controller = NonPersistentAvatarMakerController();
+        int callCount = 0;
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: AvatarMakerCustomizer(
+                controller: controller,
+                scaffoldHeight: 600,
+                onItemSelected: (_, __) => callCount++,
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        final firstItem = find.byType(InkWell).first;
+        await tester.tap(firstItem);
+        await tester.pump();
+        await tester.tap(firstItem);
+        await tester.pump();
+
+        expect(callCount, equals(2));
+      },
+    );
+  });
 }
