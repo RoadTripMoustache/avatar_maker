@@ -1,5 +1,4 @@
 import "package:avatar_maker/avatar_maker.dart";
-import "package:avatar_maker/src/customizer/widgets/cosmetic_effect_widget.dart";
 import "package:flutter/material.dart";
 import "package:flutter_test/flutter_test.dart";
 
