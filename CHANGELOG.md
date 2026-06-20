@@ -1,7 +1,23 @@
 ## Unreleased
 
 ### Added
-- feat: Add cosmetic backgrounds, animated avatar effects, separate effect colors, and widget-rendered cosmetic thumbnails.
+- feat: Add `onItemSelected` callback to `AvatarMakerCustomizer` so consumers can observe unlocked item taps (e.g. for preview-then-apply flows). The selection is still applied immediately by default.
+- feat: `EffectCosmeticItem.buildWidget` accepts an optional `overrideColors` parameter so the chosen effect color is forwarded to `customBuilder`.
+- chore: Add test coverage threshold enforcement to CI workflow (default 100%).
+
+### Fixed
+- fix: `EffectCosmeticItemWithColor` now respects `EffectCosmeticItem.customBuilder` when an `EffectColorCosmeticItem` is selected. Previously, custom effects were silently replaced with the built-in `CosmeticEffectWidget` whenever an effect color was active.
+- fix: `PersistentAvatarMakerController.setJsonOptions` now accepts the base `AvatarMakerController` type instead of requiring the `PersistentAvatarMakerController` subtype. This removes the type-mismatch footgun between `AvatarMakerControllerProvider` (which exposes the base type) and the static helper.
+
+### Deprecated
+- chore: `BackgroundStyles` enum is now `@Deprecated`. Use `BackgroundCosmeticItem` instead. The enum will be removed in v2.0.0. No runtime behaviour change.
+
+### Tests
+- test: Add unit tests for `EffectCosmeticItem.buildWidget` `overrideColors` propagation and `EffectCosmeticItemWithColor` customBuilder delegation.
+- test: Add integration tests in `AvatarMakerAvatar` for the custom-effect + effect-color scenario.
+- test: Add type-signature tests for the widened `setJsonOptions`.
+- test: Add callback tests for `AvatarMakerCustomizer.onItemSelected` (fires, propagates correct args, skips locked items, backward compatible).
+- test: Add a static source-level test guarding the `@Deprecated` annotation on `BackgroundStyles`.
 - feat: Add temporary locked-item preview support without mutating saved selections.
 - feat: Disable `AvatarMakerSaveWidget` while a temporary preview is active.
 - feat: Add `usePreview` parameter to `AvatarMakerAvatar` (default `true`) so avatars that live outside the customizer context can opt out of rendering the controller's temporary preview state. When set to `false`, the avatar always reflects the saved selection even if a preview is active on the controller.
