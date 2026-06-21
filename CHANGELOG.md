@@ -1,5 +1,7 @@
 ## Unreleased
 
+
+## [1.7.0] - 21/06/2026
 ### Added
 - feat: Add `onItemSelected` callback to `AvatarMakerCustomizer` so consumers can observe unlocked item taps (e.g. for preview-then-apply flows). The selection is still applied immediately by default.
 - feat: `EffectCosmeticItem.buildWidget` accepts an optional `overrideColors` parameter so the chosen effect color is forwarded to `customBuilder`.
@@ -18,6 +20,13 @@
 - test: Add type-signature tests for the widened `setJsonOptions`.
 - test: Add callback tests for `AvatarMakerCustomizer.onItemSelected` (fires, propagates correct args, skips locked items, backward compatible).
 - test: Add a static source-level test guarding the `@Deprecated` annotation on `BackgroundStyles`.
+
+
+## [1.6.0] - 18/06/2026
+### Added
+- feat: Add `onItemSelected` callback to `AvatarMakerCustomizer` so consumers can observe unlocked item taps (e.g. for preview-then-apply flows). The selection is still applied immediately by default.
+
+### Tests
 - feat: Add temporary locked-item preview support without mutating saved selections.
 - feat: Disable `AvatarMakerSaveWidget` while a temporary preview is active.
 - feat: Add `usePreview` parameter to `AvatarMakerAvatar` (default `true`) so avatars that live outside the customizer context can opt out of rendering the controller's temporary preview state. When set to `false`, the avatar always reflects the saved selection even if a preview is active on the controller.
