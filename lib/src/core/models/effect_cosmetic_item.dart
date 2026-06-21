@@ -69,13 +69,14 @@ class EffectCosmeticItem extends CosmeticPropertyItem {
   });
 
   @override
-  Widget buildWidget(BuildContext context, double size) {
+  Widget buildWidget(BuildContext context, double size,
+      {List<Color>? overrideColors}) {
     if (customBuilder != null) {
-      return customBuilder!(context, size, colors);
+      return customBuilder!(context, size, overrideColors ?? colors);
     }
     return CosmeticEffectWidget(
       effectType: effectType,
-      colors: colors,
+      colors: overrideColors ?? colors,
       size: size,
     );
   }
@@ -127,10 +128,10 @@ class EffectCosmeticItemWithColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CosmeticEffectWidget(
-      effectType: effect.effectType,
-      colors: [color],
-      size: size,
+    return effect.buildWidget(
+      context,
+      size,
+      overrideColors: [color],
     );
   }
 }

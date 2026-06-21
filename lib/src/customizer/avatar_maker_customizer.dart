@@ -55,6 +55,15 @@ class AvatarMakerCustomizer extends StatefulWidget {
   final void Function(PropertyCategoryIds categoryId, String itemId)?
       onTapLockedItem;
 
+  /// Called when a non-locked item is selected (tapped) by the user.
+  /// Provides the category id and the item's id.
+  ///
+  /// This is fired in addition to the default behaviour of applying the
+  /// selection. If this callback is null, the selection is still applied
+  /// immediately (backward-compatible default).
+  final void Function(PropertyCategoryIds categoryId, String itemId)?
+      onItemSelected;
+
   /// The [AvatarMakerController] to use for saving the avatar.
   ///
   /// If not provided, it will be fetched from Provider or a new controller will be created.
@@ -83,6 +92,7 @@ class AvatarMakerCustomizer extends StatefulWidget {
     this.isItemLocked,
     this.lockWidget,
     this.onTapLockedItem,
+    this.onItemSelected,
     this.controller,
   })  : this.theme = theme ?? AvatarMakerThemeData.defaultTheme,
         super(key: key);
@@ -155,6 +165,10 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   /// selected.
   void onTapOption(
       PropertyItem newSelectedItem, PropertyCategoryIds categoryId) {
+    // Notify consumer observers of the selection before mutating state, so
+    // they can react (e.g. start a preview) before the change is committed.
+    widget.onItemSelected?.call(categoryId, newSelectedItem.id);
+
     // Handle cosmetic items separately
     if (newSelectedItem is CosmeticPropertyItem) {
       avatarMakerController.selectCosmetic(newSelectedItem);

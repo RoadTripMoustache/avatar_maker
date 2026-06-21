@@ -1,6 +1,10 @@
 import "package:avatar_maker/src/core/models/property_item.dart";
 
 /// List of all the background styles displayed by default.
+@Deprecated(
+  "Use BackgroundCosmeticItem instead. This enum is kept for backward "
+  "compatibility only and will be removed in v2.0.0.",
+)
 enum BackgroundStyles implements PropertyItem {
   Transparent(""),
   Circle("""

@@ -1,0 +1,11 @@
+# Force LF line endings for shell scripts and other Unix-style files
+# regardless of core.autocrlf setting on Windows checkouts.
+*.sh        text eol=lf
+*.bash      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.md        text eol=lf
+
+# Dart/Flutter source files: keep CRLF on Windows for tooling
+# compatibility (this matches the project's existing convention).
+*.dart      text eol=crlf

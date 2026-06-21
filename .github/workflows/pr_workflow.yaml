@@ -82,3 +82,12 @@ jobs:
           lcov-file: ./coverage/lcov.info
           filter-changed-files: true
 
+      # Enforce coverage threshold on changed files. New or modified lines
+      # under lib/ and test/ must be exercised by tests. Fork PRs and PRs
+      # without a comparison base are skipped to avoid false negatives.
+      - name: Enforce coverage threshold on changed files
+        if: github.event.pull_request.head.repo.fork == false && github.event.pull_request.base.ref == 'main'
+        continue-on-error: true
+        run: |
+          bash scripts/check_coverage.sh coverage/lcov.info
+

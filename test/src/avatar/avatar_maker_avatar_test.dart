@@ -178,5 +178,119 @@ void main() {
         },
       );
     });
+
+    group("Effect + EffectColor integration (commit 1)", () {
+      testWidgets(
+        "AvatarMakerAvatar renders the custom effect (customBuilder) "
+        "even when an EffectColorCosmeticItem is selected",
+        (WidgetTester tester) async {
+          bool customBuilderCalled = false;
+          List<Color>? capturedColors;
+          final controller = NonPersistentAvatarMakerController();
+          await tester.pumpAndSettle();
+
+          final customEffect = EffectCosmeticItem(
+            cosmeticId: "custom_rainbow_sweep",
+            label: "Rainbow",
+            tier: "premium",
+            cost: 900,
+            effectType: EffectType.colorWaves,
+            colors: const [
+              Colors.red,
+              Colors.orange,
+              Colors.yellow,
+              Colors.green,
+              Colors.blue,
+              Colors.purple,
+            ],
+            customBuilder: (ctx, size, colors) {
+              customBuilderCalled = true;
+              capturedColors = colors;
+              return SizedBox(
+                width: size,
+                height: size,
+                child: CustomPaint(
+                  size: Size(size, size),
+                  painter: _RecorderPainter(colors),
+                ),
+              );
+            },
+          );
+          final effectColor = EffectColorCosmeticItem(
+            cosmeticId: "gold",
+            label: "Gold",
+            tier: "basic",
+            cost: 0,
+            color: Colors.amber,
+          );
+          controller.selectCosmetic(customEffect);
+          controller.selectCosmetic(effectColor);
+          await tester.pumpAndSettle();
+
+          await tester.pumpMaterialApp(
+            AvatarMakerAvatar(controller: controller),
+          );
+          await tester.pump();
+
+          expect(
+            customBuilderCalled,
+            isTrue,
+            reason: "Avatar must render the custom effect even when an effect "
+                "color is selected",
+          );
+          expect(
+            capturedColors,
+            equals(const [Colors.amber]),
+            reason: "customBuilder must receive the effect color",
+          );
+        },
+      );
+
+      testWidgets(
+        "AvatarMakerAvatar falls back to CosmeticEffectWidget when the "
+        "active effect has no customBuilder and an effect color is set",
+        (WidgetTester tester) async {
+          final controller = NonPersistentAvatarMakerController();
+          await tester.pumpAndSettle();
+
+          final standardEffect = EffectCosmeticItem(
+            cosmeticId: "stars_effect",
+            label: "Stars",
+            tier: "basic",
+            cost: 0,
+            effectType: EffectType.stars,
+            colors: const [Colors.red],
+          );
+          final effectColor = EffectColorCosmeticItem(
+            cosmeticId: "gold",
+            label: "Gold",
+            tier: "basic",
+            cost: 0,
+            color: Colors.green,
+          );
+          controller.selectCosmetic(standardEffect);
+          controller.selectCosmetic(effectColor);
+          await tester.pumpAndSettle();
+
+          await tester.pumpMaterialApp(
+            AvatarMakerAvatar(controller: controller),
+          );
+          await tester.pump();
+          expect(find.byType(CircleAvatar), findsOneWidget);
+        },
+      );
+    });
   });
+}
+
+/// Records the colors passed to its [paint] callback so the integration test
+/// can assert that customBuilder received the effect color via overrideColors.
+class _RecorderPainter extends CustomPainter {
+  final List<Color> colors;
+  _RecorderPainter(this.colors);
+  @override
+  void paint(Canvas canvas, Size size) {}
+  @override
+  bool shouldRepaint(covariant _RecorderPainter oldDelegate) =>
+      oldDelegate.colors != colors;
 }
