@@ -1,5 +1,14 @@
-## Unreleased
+## [Unreleased]
 
+### Added
+- feat: Add Persian (Farsi) localization support with complete translation strings
+- feat: Add independent `width` and `height` parameters to `AvatarMakerAvatar` for flexible container sizing
+- feat: Add independent `svgWidth` and `svgHeight` parameters to `AvatarMakerAvatar` for precise SVG rendering control
+- feat: Add `svgPadding` parameter to `AvatarMakerAvatar` for custom padding around the avatar
+- feat: Add `border` parameter to `AvatarMakerAvatar` for custom border styling
+
+### Updated
+- refactor: Update localization lookup to properly support Persian (fa) as a supported locale
 
 ## [1.7.0] - 21/06/2026
 ### Added
