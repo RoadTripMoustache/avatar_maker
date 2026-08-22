@@ -46,6 +46,7 @@ By defining a locale, you can change the language of the displayed titles !
 
 - English *[Default]*
 - Français *(French)*
+- فارسی *(Persian)*
 
 ******
 
