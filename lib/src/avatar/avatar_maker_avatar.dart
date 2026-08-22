@@ -44,7 +44,6 @@ class AvatarMakerAvatar extends StatelessWidget {
   final Color? backgroundColor;
   final List<CustomizedPropertyCategory>? customizedPropertyCategories;
   final AvatarMakerController? controller;
-  final Widget? progressIndicator;
 
   /// When `false`, the avatar ignores any active temporary preview on the
   /// controller and always renders the saved selection. Defaults to `true`
@@ -62,18 +61,15 @@ class AvatarMakerAvatar extends StatelessWidget {
     this.border,
     this.backgroundColor,
     this.customizedPropertyCategories,
-    this.progressIndicator,
     this.controller,
     this.usePreview = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final avatarController =
-        controller ??
+    final avatarController = controller ??
         Provider.of<AvatarMakerController?>(context, listen: true) ??
         PersistentAvatarMakerController(customizedPropertyCategories: []);
-    final loader = progressIndicator ?? CircularProgressIndicator.adaptive();
 
     return ListenableBuilder(
       listenable: avatarController,
@@ -89,17 +85,14 @@ class AvatarMakerAvatar extends StatelessWidget {
           svgPadding: svgPadding,
           border: border,
           backgroundColor: backgroundColor,
-          loader: loader,
-          background:
-              (usePreview
+          background: (usePreview
                   ? avatarController.previewBackgroundCosmetic
                   : null) ??
               avatarController.selectedBackgroundCosmetic,
           effect:
               (usePreview ? avatarController.previewEffectCosmetic : null) ??
-              avatarController.selectedEffectCosmetic,
-          effectColor:
-              (usePreview
+                  avatarController.selectedEffectCosmetic,
+          effectColor: (usePreview
                   ? avatarController.previewEffectColorCosmetic
                   : null) ??
               avatarController.selectedEffectColorCosmetic,
@@ -121,13 +114,12 @@ class AvatarMakerAvatar extends StatelessWidget {
     double? svgPadding,
     BoxBorder? border,
     Color? backgroundColor,
-    Widget? loader,
     CosmeticPropertyItem? background,
     CosmeticPropertyItem? effect,
     CosmeticPropertyItem? effectColor,
     bool usePreview = true,
   }) {
-    final effectiveLoader = loader ?? CircularProgressIndicator.adaptive();
+    final effectiveLoader = CircularProgressIndicator.adaptive();
 
     // Preserve the previous default sizing (radius * 2) when width/height
     // are not explicitly provided.
@@ -135,9 +127,8 @@ class AvatarMakerAvatar extends StatelessWidget {
     final effectiveHeight = height ?? radius * 2;
     // Cosmetic layers (background/effect) are square and clipped to a
     // circle, so they use the smaller of the two dimensions as before.
-    final cosmeticSize = effectiveWidth < effectiveHeight
-        ? effectiveWidth
-        : effectiveHeight;
+    final cosmeticSize =
+        effectiveWidth < effectiveHeight ? effectiveWidth : effectiveHeight;
 
     Widget stack = Stack(
       alignment: Alignment.center,
