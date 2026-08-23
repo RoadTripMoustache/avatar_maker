@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+
+---
+
+## [1.8.0] - 23/08/2026
 ### Added
 - feat: Add Persian (Farsi) localization support with complete translation strings
 - feat: Add independent `width` and `height` parameters to `AvatarMakerAvatar` for flexible container sizing
