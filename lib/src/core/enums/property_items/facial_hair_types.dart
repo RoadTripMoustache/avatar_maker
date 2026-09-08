@@ -67,6 +67,70 @@ enum FacialHairTypes implements PropertyItem {
 										</g>
 									</g>
 								</g>
+        """),
+  Goatee("""
+        <g id="FacialHair/Goatee">
+									<defs>
+										<path d="M36,62 C44,58 68,58 76,62 C68,68 44,68 36,62 Z M44,88 C44,85 49,83 56,83 C63,83 68,85 68,88 C68,98 63,104 56,104 C49,104 44,98 44,88 Z" id="am-path-goatee"></path>
+									</defs>
+									<mask id="am-mask-goatee" fill="white">
+										<use xlink:href="#am-path-goatee"></use>
+									</mask>
+									<use id="Goatee" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-goatee"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-goatee)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								</g>
+        """),
+  SoulPatch("""
+        <g id="FacialHair/SoulPatch">
+									<defs>
+										<path d="M50,88 C50,86 52,85 56,85 C60,85 62,86 62,88 C62,93.5 60,96 56,96 C52,96 50,93.5 50,88 Z" id="am-path-soulpatch"></path>
+									</defs>
+									<mask id="am-mask-soulpatch" fill="white">
+										<use xlink:href="#am-path-soulpatch"></use>
+									</mask>
+									<use id="Soul-Patch" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-soulpatch"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-soulpatch)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								</g>
+        """),
+  MuttonChops("""
+        <g id="FacialHair/MuttonChops">
+									<defs>
+										<path d="M2,34 C10,34 16,40 18,52 C20,64 22,74 30,84 C22,88 12,84 8,74 C4,62 2,48 2,34 Z M110,34 C102,34 96,40 94,52 C92,64 90,74 82,84 C90,88 100,84 104,74 C108,62 110,48 110,34 Z" id="am-path-muttonchops"></path>
+									</defs>
+									<mask id="am-mask-muttonchops" fill="white">
+										<use xlink:href="#am-path-muttonchops"></use>
+									</mask>
+									<use id="Mutton-Chops" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-muttonchops"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-muttonchops)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								</g>
+        """),
+  MoustacheHandlebar("""
+        <g id="FacialHair/MoustacheHandlebar">
+									<defs>
+										<path d="M56,60 C48,56 36,55 28,58 C20,61 16,58 14,54 C12,50 9,52 11,58 C14,67 24,71 34,69 C42,67 50,65 56,65 C62,65 70,67 78,69 C88,71 98,67 101,58 C103,52 100,50 98,54 C96,58 92,61 84,58 C76,55 64,56 56,60 Z" id="am-path-handlebar"></path>
+									</defs>
+									<mask id="am-mask-handlebar" fill="white">
+										<use xlink:href="#am-path-handlebar"></use>
+									</mask>
+									<use id="Handlebar" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-handlebar"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-handlebar)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								</g>
         """);
 
   final String svg;

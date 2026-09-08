@@ -1153,6 +1153,70 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 </g>
+"""),
+  Mohawk("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M114,80 C114,52 121,24 132,6 C143,24 150,52 150,80 C140,74 124,74 114,80 Z" id="am-path-mohawk"></path>
+</defs>
+<mask id="am-mask-mohawk" fill="white">
+<use xlink:href="#am-path-mohawk"></use>
+</mask>
+<use id="Mohawk" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-mohawk"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-mohawk)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Ponytail("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M74,102 C74,54 100,30 132,30 C164,30 190,54 190,102 C190,80 176,62 132,62 C88,62 74,80 74,102 Z M180,66 C205,72 218,96 214,124 C210,150 194,166 178,170 C190,150 198,124 194,102 C191,88 186,74 180,70 Z" id="am-path-ponytail"></path>
+</defs>
+<mask id="am-mask-ponytail" fill="white">
+<use xlink:href="#am-path-ponytail"></use>
+</mask>
+<use id="Ponytail" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-ponytail"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-ponytail)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  TopKnot("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M78,100 C78,58 102,36 132,36 C162,36 186,58 186,100 C186,80 172,64 132,64 C92,64 78,80 78,100 Z M132,4 C143,4 152,13 152,24 C152,35 143,44 132,44 C121,44 112,35 112,24 C112,13 121,4 132,4 Z" id="am-path-topknot"></path>
+</defs>
+<mask id="am-mask-topknot" fill="white">
+<use xlink:href="#am-path-topknot"></use>
+</mask>
+<use id="Top-Knot" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-topknot"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-topknot)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Curtains("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M74,104 C74,54 100,30 132,30 C164,30 190,54 190,104 C190,84 180,70 164,64 C150,60 140,70 132,86 C124,70 114,60 100,64 C84,70 74,84 74,104 Z" id="am-path-curtains"></path>
+</defs>
+<mask id="am-mask-curtains" fill="white">
+<use xlink:href="#am-path-curtains"></use>
+</mask>
+<use id="Curtains" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-curtains"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-curtains)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
 """);
 
   final String svg;

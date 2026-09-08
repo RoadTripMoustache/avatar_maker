@@ -17,7 +17,15 @@ enum HairColors implements PropertyItem {
   Purple("#8E24AA"),
   Fuchsia("#D81B60"),
   Blue("#0277BD"),
-  Green("#1B5E20");
+  Green("#1B5E20"),
+  Copper("#B45A2A"),
+  Chestnut("#5C3A21"),
+  Burgundy("#6E2233"),
+  Ginger("#E07A3E"),
+  White("#F2F0EB"),
+  Teal("#00796B"),
+  Mint("#5FBFA0"),
+  Lavender("#B39DDB");
 
   final String hexCode;
 

@@ -1,5 +1,9 @@
 ## [Unreleased]
-
+### Added
+- feat: Add 4 hair styles: `Mohawk`, `Ponytail`, `TopKnot` and `Curtains`
+- feat: Add 4 facial hair types: `Goatee`, `SoulPatch`, `MuttonChops` and `MoustacheHandlebar`, tripling the choice in the thinnest category
+- feat: Add 8 hair colors, and the same 8 facial hair colors: `Copper`, `Chestnut`, `Burgundy`, `Ginger`, `White`, `Teal`, `Mint` and `Lavender`
+- feat: Add 8 outfit colors: `Teal`, `Mint`, `Lavender`, `Burgundy`, `Mustard`, `Cream`, `Charcoal` and `Coral`
 
 ---
 
