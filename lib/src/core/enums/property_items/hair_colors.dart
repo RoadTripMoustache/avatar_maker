@@ -25,7 +25,17 @@ enum HairColors implements PropertyItem {
   White("#F2F0EB"),
   Teal("#00796B"),
   Mint("#5FBFA0"),
-  Lavender("#B39DDB");
+  Lavender("#B39DDB"),
+  Sand("#C9A66B"),
+  Caramel("#9C6B3C"),
+  Cocoa("#3B2A20"),
+  Cherry("#8E1F2F"),
+  Rust("#B4531C"),
+  Steel("#5A6B78"),
+  Ash("#9E9B93"),
+  Sky("#4FA3D9"),
+  Rose("#E8829B"),
+  Amber("#E0A32E");
 
   final String hexCode;
 

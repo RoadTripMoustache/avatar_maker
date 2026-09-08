@@ -1217,6 +1217,166 @@ enum HairStyles implements PropertyItem {
 </g>
 </g>
 </g>
+"""),
+  Pigtails("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M74,102 C74,54 100,30 132,30 C164,30 190,54 190,102 C190,80 176,62 132,62 C88,62 74,80 74,102 Z M70,74 C50,80 40,102 44,126 C48,148 62,160 76,162 C66,144 60,122 64,102 C66,90 70,80 74,76 Z M194,74 C214,80 224,102 220,126 C216,148 202,160 188,162 C198,144 204,122 200,102 C198,90 194,80 190,76 Z" id="am-path-pigtails"></path>
+</defs>
+<mask id="am-mask-pigtails" fill="white">
+<use xlink:href="#am-path-pigtails"></use>
+</mask>
+<use id="Pigtails" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-pigtails"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-pigtails)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Undercut("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M76,84 C76,50 101,28 132,28 C163,28 188,50 188,84 C186,66 172,54 132,54 C92,54 78,66 76,84 Z" id="am-path-undercut"></path>
+</defs>
+<mask id="am-mask-undercut" fill="white">
+<use xlink:href="#am-path-undercut"></use>
+</mask>
+<use id="Undercut" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-undercut"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-undercut)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  SpikyShort("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M74,96 C74,78 80,62 90,50 L96,66 L106,40 L114,62 L124,34 L134,60 L144,34 L152,62 L160,40 L170,66 L176,50 C186,62 190,78 190,96 C186,74 170,60 132,60 C94,60 78,74 74,96 Z" id="am-path-spikyshort"></path>
+</defs>
+<mask id="am-mask-spikyshort" fill="white">
+<use xlink:href="#am-path-spikyshort"></use>
+</mask>
+<use id="SpikyShort" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-spikyshort"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-spikyshort)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Braids("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M74,102 C74,54 100,30 132,30 C164,30 190,54 190,102 C190,80 176,62 132,62 C88,62 74,80 74,102 Z M78,86 C66,102 62,130 68,158 C74,152 80,148 86,148 C80,128 80,104 86,90 Z M186,86 C198,102 202,130 196,158 C190,152 184,148 178,148 C184,128 184,104 178,90 Z" id="am-path-braids"></path>
+</defs>
+<mask id="am-mask-braids" fill="white">
+<use xlink:href="#am-path-braids"></use>
+</mask>
+<use id="Braids" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-braids"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-braids)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Afro("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M132,8 C178,8 210,42 210,84 C210,114 192,134 168,140 C172,116 166,96 152,84 C148,68 142,60 132,60 C122,60 116,68 112,84 C98,96 92,116 96,140 C72,134 54,114 54,84 C54,42 86,8 132,8 Z" id="am-path-afro"></path>
+</defs>
+<mask id="am-mask-afro" fill="white">
+<use xlink:href="#am-path-afro"></use>
+</mask>
+<use id="Afro" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-afro"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-afro)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  SidePart("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M74,104 C74,54 100,30 132,30 C164,30 190,54 190,104 C188,80 176,62 150,58 C140,70 122,74 100,72 C86,71 78,84 74,104 Z" id="am-path-sidepart"></path>
+</defs>
+<mask id="am-mask-sidepart" fill="white">
+<use xlink:href="#am-path-sidepart"></use>
+</mask>
+<use id="SidePart" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-sidepart"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-sidepart)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Bangs("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M74,106 C74,54 100,30 132,30 C164,30 190,54 190,106 C190,84 178,66 160,64 L156,86 L146,66 L140,88 L130,66 L124,88 L114,66 L108,86 L104,64 C86,66 74,84 74,106 Z" id="am-path-bangs"></path>
+</defs>
+<mask id="am-mask-bangs" fill="white">
+<use xlink:href="#am-path-bangs"></use>
+</mask>
+<use id="Bangs" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-bangs"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-bangs)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Bob("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M70,140 C70,60 96,30 132,30 C168,30 194,60 194,140 C186,140 180,138 176,134 C178,96 170,70 132,70 C94,70 86,96 88,134 C84,138 78,140 70,140 Z" id="am-path-bob"></path>
+</defs>
+<mask id="am-mask-bob" fill="white">
+<use xlink:href="#am-path-bob"></use>
+</mask>
+<use id="Bob" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-bob"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-bob)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Wavy("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M72,108 C72,54 99,28 132,28 C165,28 192,54 192,108 C186,92 190,74 176,66 C166,60 160,72 148,68 C138,65 138,56 128,58 C118,60 118,70 108,70 C96,70 92,60 84,68 C74,77 78,92 72,108 Z" id="am-path-wavy"></path>
+</defs>
+<mask id="am-mask-wavy" fill="white">
+<use xlink:href="#am-path-wavy"></use>
+</mask>
+<use id="Wavy" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-wavy"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-wavy)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
+"""),
+  Buzz("""
+<g id="Top" stroke-width="1" fill-rule="evenodd">
+<defs>
+<path d="M78,92 C78,56 102,34 132,34 C162,34 186,56 186,92 C182,72 168,58 132,58 C96,58 82,72 78,92 Z" id="am-path-buzz"></path>
+</defs>
+<mask id="am-mask-buzz" fill="white">
+<use xlink:href="#am-path-buzz"></use>
+</mask>
+<use id="Buzz" fill="#1F3140" fill-rule="evenodd" xlink:href="#am-path-buzz"></use>
+<g id="$TO_REPLACE_WITH_HAIRS_COLOR_NAME" mask="url(#am-mask-buzz)" fill="$TO_REPLACE_WITH_HAIRS_COLOR">
+<g transform="translate(0.000000, 0.000000)" id="Color">
+<rect x="0" y="0" width="264" height="280"></rect>
+</g>
+</g>
+</g>
 """);
 
   final String svg;

@@ -140,7 +140,37 @@ enum Accessories implements PropertyItem {
   BeautySpot("""<g id="Accessories/BeautySpot"><circle cx="38" cy="66" r="3.2" fill="#5A3A2A"/></g>"""),
   SkiGoggles("""<g id="Accessories/SkiGoggles"><rect x="-12" y="24" width="136" height="11" rx="5" fill="#2F383B"/><rect x="2" y="12" width="108" height="38" rx="18" fill="#3A4A6B" stroke="#E8B93E" stroke-width="4"/><path d="M16,22 C30,17 54,17 66,21 C52,25 30,27 16,22 Z" fill="#FFFFFF" fill-opacity="0.35"/></g>"""),
   SleepMask("""<g id="Accessories/SleepMask"><rect x="-12" y="26" width="136" height="8" rx="4" fill="#4A3C8A"/><path d="M4,22 C4,13 20,10 56,10 C92,10 108,13 108,22 L108,38 C108,47 92,51 56,51 C20,51 4,47 4,38 Z" fill="#6A5AE0"/><path d="M20,42 C34,50 78,50 92,42" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3"/></g>"""),
-  CyberVisor("""<g id="Accessories/CyberVisor"><rect x="-6" y="18" width="124" height="24" rx="12" fill="#1A2238"/><rect x="6" y="26" width="100" height="4" rx="2" fill="#4EE8D0"/><rect x="6" y="34" width="34" height="3" rx="1.5" fill="#4EE8D0" fill-opacity="0.5"/></g>""");
+  CyberVisor("""<g id="Accessories/CyberVisor"><rect x="-6" y="18" width="124" height="24" rx="12" fill="#1A2238"/><rect x="6" y="26" width="100" height="4" rx="2" fill="#4EE8D0"/><rect x="6" y="34" width="34" height="3" rx="1.5" fill="#4EE8D0" fill-opacity="0.5"/></g>"""),
+  Bindi("""
+        <g id="Accessories/Bindi"><circle cx="56" cy="14" r="5" fill="#C2185B"/></g>
+        """),
+  NoseStud("""
+        <g id="Accessories/NoseStud"><circle cx="46" cy="52" r="3" fill="#E8B93E"/></g>
+        """),
+  Bruise("""
+        <g id="Accessories/Bruise"><ellipse cx="30" cy="22" rx="14" ry="9" fill="#6A4A8A" fill-opacity="0.45"/></g>
+        """),
+  Snorkel("""
+        <g id="Accessories/Snorkel"><rect x="2" y="24" width="108" height="34" rx="14" fill="#9AD5E8" fill-opacity="0.55" stroke="#E8433C" stroke-width="4"/><rect x="108" y="6" width="9" height="46" rx="4" fill="#E8433C"/></g>
+        """),
+  Bubblegum("""
+        <g id="Accessories/Bubblegum"><circle cx="56" cy="92" r="20" fill="#FF8FB1" fill-opacity="0.85"/><circle cx="50" cy="86" r="5" fill="#FFFFFF" fill-opacity="0.5"/></g>
+        """),
+  Whiskers("""
+        <g id="Accessories/Whiskers"><g fill="none" stroke="#2F383B" stroke-opacity="0.7" stroke-width="2.6" stroke-linecap="round"><path d="M40,50 L10,44"/><path d="M40,55 L8,55"/><path d="M40,60 L10,66"/><path d="M72,50 L102,44"/><path d="M72,55 L104,55"/><path d="M72,60 L102,66"/></g></g>
+        """),
+  Warpaint("""
+        <g id="Accessories/Warpaint"><g fill="#B3172B" fill-opacity="0.85"><path d="M14,-18 L98,-18 L98,-8 L14,-8 Z"/><path d="M18,-5 L94,-5 L94,-1 L18,-1 Z" fill-opacity="0.6"/></g></g>
+        """),
+  Glitter("""
+        <g id="Accessories/Glitter"><g fill="#F2B705"><circle cx="22" cy="40" r="2.4"/><circle cx="34" cy="34" r="1.8"/><circle cx="18" cy="52" r="1.8"/><circle cx="90" cy="40" r="2.4"/><circle cx="78" cy="34" r="1.8"/><circle cx="94" cy="52" r="1.8"/><circle cx="56" cy="18" r="2"/></g></g>
+        """),
+  Eyeliner("""
+        <g id="Accessories/Eyeliner"><g fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"><path d="M20,26 C24,20 38,20 44,26 L50,22"/><path d="M95,26 C91,20 77,20 71,26 L65,22"/></g></g>
+        """),
+  Dimples("""
+        <g id="Accessories/Dimples"><g fill="none" stroke="#000000" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"><path d="M33,66 C36,73 36,80 33,86"/><path d="M79,66 C76,73 76,80 79,86"/></g></g>
+        """);
 
   final String svg;
 

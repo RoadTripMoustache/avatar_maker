@@ -197,7 +197,37 @@ enum Eyebrows implements PropertyItem {
   Sharp("""<g id="Eyebrows/Sharp" fill="#000000"><path d="M12,23 L28,9 L43,16 L43,21 L28,15 L12,27 Z"/><path d="M100,23 L84,9 L69,16 L69,21 L84,15 L100,27 Z"/></g>"""),
   Rounded("""<g id="Eyebrows/Rounded" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round"><path d="M14,20 Q27,8 40,20"/><path d="M98,20 Q85,8 72,20"/></g>"""),
   Pierced("""<g id="Eyebrows/Pierced"><g fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round"><path d="M14,20 Q27,9 40,18"/><path d="M98,20 Q85,9 72,18"/></g><circle cx="19" cy="18" r="3.4" fill="none" stroke="#E8B93E" stroke-width="2.6"/></g>"""),
-  Notched("""<g id="Eyebrows/Notched" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round"><path d="M14,20 Q27,9 40,18"/><path d="M98,20 Q92,15 87,13"/><path d="M79,13 Q75,13 72,17"/></g>""");
+  Notched("""<g id="Eyebrows/Notched" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round"><path d="M14,20 Q27,9 40,18"/><path d="M98,20 Q92,15 87,13"/><path d="M79,13 Q75,13 72,17"/></g>"""),
+  Straight("""
+  <g id="Eyebrows/Straight" fill-rule="nonzero"><g fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round"><path d="M13,16 L41,16"/><path d="M99,16 L71,16"/></g></g>
+  """),
+  Slanted("""
+  <g id="Eyebrows/Slanted" fill-rule="nonzero"><g fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round"><path d="M13,22 L41,12"/><path d="M99,22 L71,12"/></g></g>
+  """),
+  Worry("""
+  <g id="Eyebrows/Worry" fill-rule="nonzero"><g fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round"><path d="M13,12 L41,21"/><path d="M99,12 L71,21"/></g></g>
+  """),
+  Feathered("""
+  <g id="Eyebrows/Feathered" fill-rule="nonzero"><g fill="#000000"><path d="M12,20 Q27,8 42,15 L42,19 Q27,13 14,25 Z"/><path d="M100,20 Q85,8 70,15 L70,19 Q85,13 98,25 Z"/></g><g fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"><path d="M18,10 L21,17"/><path d="M27,7 L29,15"/><path d="M37,9 L36,16"/><path d="M94,10 L91,17"/><path d="M85,7 L83,15"/><path d="M75,9 L76,16"/></g></g>
+  """),
+  Furrowed("""
+  <g id="Eyebrows/Furrowed" fill-rule="nonzero"><g fill="#000000"><path d="M14,13 L42,20 L42,25 L14,19 Z"/><path d="M98,13 L70,20 L70,25 L98,19 Z"/></g></g>
+  """),
+  Highset("""
+  <g id="Eyebrows/Highset" fill-rule="nonzero"><g fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round"><path d="M14,10 Q27,2 40,9"/><path d="M98,10 Q85,2 72,9"/></g></g>
+  """),
+  Comma("""
+  <g id="Eyebrows/Comma" fill-rule="nonzero"><g fill="#000000"><path d="M13,20 Q24,9 38,12 C42,13 43,17 39,17 Q26,15 16,25 Z"/><path d="M99,20 Q88,9 74,12 C70,13 69,17 73,17 Q86,15 96,25 Z"/></g></g>
+  """),
+  Split("""
+  <g id="Eyebrows/Split" fill-rule="nonzero"><g fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round"><path d="M13,19 Q21,11 27,15"/><path d="M33,13 Q38,12 41,17"/><path d="M99,19 Q91,11 85,15"/><path d="M79,13 Q74,12 71,17"/></g></g>
+  """),
+  Heavy("""
+  <g id="Eyebrows/Heavy" fill-rule="nonzero"><g fill="#000000"><path d="M11,22 Q27,6 43,13 L43,24 Q27,16 13,29 Z"/><path d="M101,22 Q85,6 69,13 L69,24 Q85,16 99,29 Z"/></g></g>
+  """),
+  Tapered("""
+  <g id="Eyebrows/Tapered" fill-rule="nonzero"><g fill="#000000"><path d="M12,21 Q27,8 43,14 L42,18 Q27,13 15,26 Z"/><path d="M100,21 Q85,8 69,14 L70,18 Q85,13 97,26 Z"/></g></g>
+  """);
 
   final String svg;
 

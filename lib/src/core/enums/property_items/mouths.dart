@@ -154,7 +154,37 @@ enum Mouths implements PropertyItem {
   Zigzag("""<g id="Mouth/Zigzag" transform="translate(2.000000, 52.000000)" fill="none" stroke="#000000" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M40,23 L46,17 L52,25 L58,17 L64,25 L69,20"/></g>"""),
   Braces("""<g id="Mouth/Braces" transform="translate(2.000000, 52.000000)"><path d="M36,15 L72,15 C72,29 64,34 54,34 C44,34 36,29 36,15 Z" fill="#000000" fill-opacity="0.7"/><path d="M38,16 L70,16 L70,22 L38,22 Z" fill="#FFFFFF"/><path d="M38,18.5 L70,18.5" stroke="#9AA6B4" stroke-width="1.6"/><g fill="#9AA6B4"><rect x="42" y="17" width="3" height="3.4"/><rect x="49" y="17" width="3" height="3.4"/><rect x="56" y="17" width="3" height="3.4"/><rect x="63" y="17" width="3" height="3.4"/></g></g>"""),
   Gap("""<g id="Mouth/Gap" transform="translate(2.000000, 52.000000)"><path d="M36,15 L72,15 C72,29 64,34 54,34 C44,34 36,29 36,15 Z" fill="#000000" fill-opacity="0.7"/><path d="M38,16 L52.4,16 L52.4,22 L38,22 Z" fill="#FFFFFF"/><path d="M55.6,16 L70,16 L70,22 L55.6,22 Z" fill="#FFFFFF"/></g>"""),
-  Sneer("""<g id="Mouth/Sneer" transform="translate(2.000000, 52.000000)"><path d="M40,22 C46,18 52,15 60,13 C66,12 70,15 70,19 C70,25 62,29 54,29 C46,29 41,26 40,22 Z" fill="#000000" fill-opacity="0.7"/><path d="M58,15.5 L67,14 L67,18 L58,19 Z" fill="#FFFFFF"/></g>""");
+  Sneer("""<g id="Mouth/Sneer" transform="translate(2.000000, 52.000000)"><path d="M40,22 C46,18 52,15 60,13 C66,12 70,15 70,19 C70,25 62,29 54,29 C46,29 41,26 40,22 Z" fill="#000000" fill-opacity="0.7"/><path d="M58,15.5 L67,14 L67,18 L58,19 Z" fill="#FFFFFF"/></g>"""),
+  Wide("""
+        <g id="Mouth/Wide" transform="translate(2.000000, 52.000000)"><path d="M32,16 C36,32 72,32 76,16 C72,26 36,26 32,16 Z" fill="#000000" fill-opacity="0.7"/></g>
+        """),
+  Frown("""
+        <g id="Mouth/Frown" transform="translate(2.000000, 52.000000)"><path d="M40,28 C46,19 62,19 68,28" fill="none" stroke="#000000" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round"/></g>
+        """),
+  Flat("""
+        <g id="Mouth/Flat" transform="translate(2.000000, 52.000000)"><path d="M42,22 L66,22" fill="none" stroke="#000000" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round"/></g>
+        """),
+  Chew("""
+        <g id="Mouth/Chew" transform="translate(2.000000, 52.000000)"><path d="M40,18 L68,18 L68,28 L40,28 Z" fill="#000000" fill-opacity="0.7"/><path d="M44,18 L44,28 M52,18 L52,28 M60,18 L60,28" stroke="#FFFFFF" stroke-width="2"/></g>
+        """),
+  Fang("""
+        <g id="Mouth/Fang" transform="translate(2.000000, 52.000000)"><path d="M38,15 L70,15 C70,28 63,33 54,33 C45,33 38,28 38,15 Z" fill="#000000" fill-opacity="0.7"/><path d="M44,16 L50,16 L47,25 Z" fill="#FFFFFF"/><path d="M58,16 L64,16 L61,25 Z" fill="#FFFFFF"/></g>
+        """),
+  Yawn("""
+        <g id="Mouth/Yawn" transform="translate(2.000000, 52.000000)"><ellipse cx="54" cy="24" rx="13" ry="16" fill="#000000" fill-opacity="0.7"/></g>
+        """),
+  Lipstick("""
+        <g id="Mouth/Lipstick" transform="translate(2.000000, 52.000000)"><path d="M40,18 Q47,11 54,17 Q61,11 68,18 Q62,32 54,32 Q46,32 40,18 Z" fill="#C2185B"/></g>
+        """),
+  Side("""
+        <g id="Mouth/Side" transform="translate(2.000000, 52.000000)"><path d="M44,20 C50,26 62,27 70,20 C66,29 50,30 44,20 Z" fill="#000000" fill-opacity="0.7"/></g>
+        """),
+  Buck("""
+        <g id="Mouth/Buck" transform="translate(2.000000, 52.000000)"><path d="M40,18 C44,29 64,29 68,18 C64,25 44,25 40,18 Z" fill="#000000" fill-opacity="0.7"/><rect x="49" y="17" width="10" height="9" rx="1" fill="#FFFFFF"/></g>
+        """),
+  Ooh("""
+        <g id="Mouth/Ooh" transform="translate(2.000000, 52.000000)"><ellipse cx="54" cy="23" rx="9" ry="11" fill="#000000" fill-opacity="0.7"/><ellipse cx="54" cy="21" rx="5" ry="6" fill="#000000" fill-opacity="0.35"/></g>
+        """);
 
   final String svg;
 

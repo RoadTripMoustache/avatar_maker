@@ -12,6 +12,7 @@
 - feat: Add 11 skin tones: `Porcelain`, `Almond`, `Olive`, `Sienna` and `Espresso` fill out the realistic ramp, and `Stone`, `Mint`, `Lilac`, `Rose`, `Azure` and `Fern` sit after it
 
 - feat: Add 5 outfits: `TankTop`, `Turtleneck`, `ShirtAndTie`, `DenimJacket` and `Jersey`
+- feat: Add a further 10 of each: hair styles, facial hair types, outfits, eyes, eyebrows, mouths, noses, accessories, skin tones, hair colors, facial hair colors and outfit colors
 - feat: Add Swedish (sv) localization with a complete set of translation strings
 - feat: Show the `Nose` category by default. It carried `toDisplay: false` while it had a single option; it now has ten
 
