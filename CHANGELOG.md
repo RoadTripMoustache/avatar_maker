@@ -11,8 +11,12 @@
 - feat: Add 22 accessories, which are no longer only eyewear: an eye patch, a monocle, a face mask, heart and star glasses, aviators, ski goggles, a sleep mask, a cyber visor, a bandana, earrings, freckles, blush, a plaster, war paint, a clown nose, a sweat drop, stubble, a septum ring, a scar, tears and a beauty spot
 - feat: Add 11 skin tones: `Porcelain`, `Almond`, `Olive`, `Sienna` and `Espresso` fill out the realistic ramp, and `Stone`, `Mint`, `Lilac`, `Rose`, `Azure` and `Fern` sit after it
 
+- feat: Add Swedish (sv) localization with a complete set of translation strings
+- feat: Show the `Nose` category by default. It carried `toDisplay: false` while it had a single option; it now has ten
+
 ### Updated
 - fix: `PropertyItemLocalization` falls back to the item's own label for skin tones that have no l10n key yet, the way every unlocalized category already does
+- fix: The customizer's option tiles announce the item's own localized name to screen readers. Every tile used to announce the same hardcoded English phrase, which left `localizedLabel` and all of its translations unused
 
 ---
 
