@@ -82,7 +82,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-goatee)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   SoulPatch("""
         <g id="FacialHair/SoulPatch">
@@ -98,7 +98,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-soulpatch)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   MuttonChops("""
         <g id="FacialHair/MuttonChops">
@@ -114,7 +114,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-muttonchops)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   MoustacheHandlebar("""
         <g id="FacialHair/MoustacheHandlebar">
@@ -130,12 +130,12 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-handlebar)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Chinstrap("""
         <g id="FacialHair/Chinstrap">
 									<defs>
-										<path d="M6,44 C8,74 24,96 56,100 C88,96 104,74 106,44 C102,80 84,92 56,92 C28,92 10,80 6,44 Z" id="am-path-chinstrap"></path>
+										<path d="M6,42 C8,74 24,98 56,102 C88,98 104,74 106,42 C100,78 82,88 56,88 C30,88 12,78 6,42 Z" id="am-path-chinstrap"></path>
 									</defs>
 									<mask id="am-mask-chinstrap" fill="white">
 										<use xlink:href="#am-path-chinstrap"></use>
@@ -146,7 +146,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-chinstrap)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Anchor("""
         <g id="FacialHair/Anchor">
@@ -162,7 +162,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-anchor)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Walrus("""
         <g id="FacialHair/Walrus">
@@ -178,7 +178,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-walrus)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Pencil("""
         <g id="FacialHair/Pencil">
@@ -194,7 +194,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-pencil)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Sideburns("""
         <g id="FacialHair/Sideburns">
@@ -210,7 +210,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-sideburns)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Balbo("""
         <g id="FacialHair/Balbo">
@@ -226,7 +226,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-balbo)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Ducktail("""
         <g id="FacialHair/Ducktail">
@@ -242,7 +242,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-ducktail)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Horseshoe("""
         <g id="FacialHair/Horseshoe">
@@ -258,12 +258,12 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-horseshoe)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Scruff("""
         <g id="FacialHair/Scruff">
 									<defs>
-										<path d="M12,54 C16,82 30,96 56,100 C82,96 96,82 100,54 C94,86 78,94 56,94 C34,94 18,86 12,54 Z M38,60 C46,56 66,56 74,60 C66,66 46,66 38,60 Z" id="am-path-scruff"></path>
+										<path d="M10,50 C14,82 28,98 56,102 C84,98 98,82 102,50 C96,84 78,90 56,90 C34,90 16,84 10,50 Z M36,58 C46,53 66,53 76,58 C66,67 46,67 36,58 Z" id="am-path-scruff"></path>
 									</defs>
 									<mask id="am-mask-scruff" fill="white">
 										<use xlink:href="#am-path-scruff"></use>
@@ -274,7 +274,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-scruff)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """),
   Toothbrush("""
         <g id="FacialHair/Toothbrush">
@@ -290,7 +290,7 @@ enum FacialHairTypes implements PropertyItem {
 											<rect x="-80" y="-80" width="400" height="400"></rect>
 										</g>
 									</g>
-								</g>
+								<g mask="url(#am-mask-toothbrush)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """);
 
   final String svg;

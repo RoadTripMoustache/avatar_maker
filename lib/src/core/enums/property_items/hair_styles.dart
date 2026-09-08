@@ -1168,7 +1168,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-mohawk)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Ponytail("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1184,12 +1184,12 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-ponytail)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   TopKnot("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
 <defs>
-<path d="M78,100 C78,58 102,36 132,36 C162,36 186,58 186,100 C186,80 172,64 132,64 C92,64 78,80 78,100 Z M132,4 C143,4 152,13 152,24 C152,35 143,44 132,44 C121,44 112,35 112,24 C112,13 121,4 132,4 Z" id="am-path-topknot"></path>
+<path d="M74,106 C74,52 100,24 132,24 C164,24 190,52 190,106 C190,80 176,66 132,66 C88,66 74,80 74,106 Z M132,-4 C144,-4 154,6 154,18 C154,30 144,40 132,40 C120,40 110,30 110,18 C110,6 120,-4 132,-4 Z" id="am-path-topknot"></path>
 </defs>
 <mask id="am-mask-topknot" fill="white">
 <use xlink:href="#am-path-topknot"></use>
@@ -1200,7 +1200,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-topknot)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Curtains("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1216,7 +1216,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-curtains)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Pigtails("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1232,7 +1232,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-pigtails)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Undercut("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1248,7 +1248,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-undercut)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   SpikyShort("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1264,7 +1264,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-spikyshort)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Braids("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1280,7 +1280,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-braids)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Afro("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1296,7 +1296,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-afro)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   SidePart("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1312,7 +1312,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-sidepart)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Bangs("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1328,7 +1328,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-bangs)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Bob("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1344,7 +1344,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-bob)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Wavy("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1360,7 +1360,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-wavy)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """),
   Buzz("""
 <g id="Top" stroke-width="1" fill-rule="evenodd">
@@ -1376,7 +1376,7 @@ enum HairStyles implements PropertyItem {
 <rect x="0" y="0" width="264" height="280"></rect>
 </g>
 </g>
-</g>
+<g mask="url(#am-mask-buzz)"><ellipse cx="102" cy="48" rx="44" ry="28" transform="rotate(-22 102 48)" fill="#FFFFFF" fill-opacity="0.16"></ellipse><rect x="0" y="106" width="264" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="3" stroke-linecap="round"><path d="M92,22 C84,52 82,84 88,116"></path><path d="M118,14 C113,48 111,82 114,118"></path><path d="M146,14 C151,48 153,82 150,118"></path><path d="M172,22 C180,52 182,84 176,116"></path></g></g></g>
 """);
 
   final String svg;

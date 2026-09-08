@@ -166,7 +166,7 @@ enum Accessories implements PropertyItem {
         <g id="Accessories/Glitter"><g fill="#F2B705"><circle cx="22" cy="40" r="2.4"/><circle cx="34" cy="34" r="1.8"/><circle cx="18" cy="52" r="1.8"/><circle cx="90" cy="40" r="2.4"/><circle cx="78" cy="34" r="1.8"/><circle cx="94" cy="52" r="1.8"/><circle cx="56" cy="18" r="2"/></g></g>
         """),
   Eyeliner("""
-        <g id="Accessories/Eyeliner"><g fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"><path d="M20,26 C24,20 38,20 44,26 L50,22"/><path d="M95,26 C91,20 77,20 71,26 L65,22"/></g></g>
+        <g id="Accessories/Eyeliner"><g fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"><path d="M21,31 C22,25 26,22 31,22 C36,22 40,25 41,30 L48,26"/><path d="M94,31 C93,25 89,22 84,22 C79,22 75,25 74,30 L67,26"/></g></g>
         """),
   Dimples("""
         <g id="Accessories/Dimples"><g fill="none" stroke="#000000" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"><path d="M33,66 C36,73 36,80 33,86"/><path d="M79,66 C76,73 76,80 79,86"/></g></g>
