@@ -190,7 +190,14 @@ enum Eyebrows implements PropertyItem {
           transform="translate(86.246508, 17.285912) rotate(5.000000) translate(-86.246508, -17.285912) "
         />
       </g>
-  """);
+  """),
+  Bushy("""<g id="Eyebrows/Bushy" fill="#000000"><path d="M11,21 Q27,6 43,14 L43,21 Q27,13 15,27 Z"/><path d="M101,21 Q85,6 69,14 L69,21 Q85,13 97,27 Z"/></g>"""),
+  Wavy("""<g id="Eyebrows/Wavy" fill="none" stroke="#000000" stroke-width="5" stroke-linecap="round"><path d="M12,19 Q19,10 26,17 Q33,24 41,14"/><path d="M100,19 Q93,10 86,17 Q79,24 71,14"/></g>"""),
+  Thin("""<g id="Eyebrows/Thin" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round"><path d="M13,18 Q27,9 41,15"/><path d="M99,18 Q85,9 71,15"/></g>"""),
+  Sharp("""<g id="Eyebrows/Sharp" fill="#000000"><path d="M12,23 L28,9 L43,16 L43,21 L28,15 L12,27 Z"/><path d="M100,23 L84,9 L69,16 L69,21 L84,15 L100,27 Z"/></g>"""),
+  Rounded("""<g id="Eyebrows/Rounded" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round"><path d="M14,20 Q27,8 40,20"/><path d="M98,20 Q85,8 72,20"/></g>"""),
+  Pierced("""<g id="Eyebrows/Pierced"><g fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round"><path d="M14,20 Q27,9 40,18"/><path d="M98,20 Q85,9 72,18"/></g><circle cx="19" cy="18" r="3.4" fill="none" stroke="#E8B93E" stroke-width="2.6"/></g>"""),
+  Notched("""<g id="Eyebrows/Notched" fill="none" stroke="#000000" stroke-width="6" stroke-linecap="round"><path d="M14,20 Q27,9 40,18"/><path d="M98,20 Q92,15 87,13"/><path d="M79,13 Q75,13 72,17"/></g>""");
 
   final String svg;
 

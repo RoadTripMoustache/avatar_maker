@@ -4,6 +4,15 @@
 - feat: Add 4 facial hair types: `Goatee`, `SoulPatch`, `MuttonChops` and `MoustacheHandlebar`, tripling the choice in the thinnest category
 - feat: Add 8 hair colors, and the same 8 facial hair colors: `Copper`, `Chestnut`, `Burgundy`, `Ginger`, `White`, `Teal`, `Mint` and `Lavender`
 - feat: Add 8 outfit colors: `Teal`, `Mint`, `Lavender`, `Burgundy`, `Mustard`, `Cream`, `Charcoal` and `Coral`
+- feat: Add 8 eyes: `Stars`, `Sleepy`, `Wide`, `Sparkle`, `Determined`, `Shy`, `Anime` and `Worried`
+- feat: Add 7 eyebrows: `Bushy`, `Wavy`, `Thin`, `Sharp`, `Rounded`, `Pierced` and `Notched`
+- feat: Add 9 mouths: `Whistle`, `Smirk`, `Kiss`, `Grin`, `Pout`, `Zigzag`, `Braces`, `Gap` and `Sneer`
+- feat: Add 9 noses: `Button`, `Wide`, `Small`, `Nostrils`, `Hooked`, `Upturned`, `Pointed`, `Bulbous` and `Roman`. The category ships with `toDisplay: false` because it had a single option; with ten it may be worth showing by default
+- feat: Add 22 accessories, which are no longer only eyewear: an eye patch, a monocle, a face mask, heart and star glasses, aviators, ski goggles, a sleep mask, a cyber visor, a bandana, earrings, freckles, blush, a plaster, war paint, a clown nose, a sweat drop, stubble, a septum ring, a scar, tears and a beauty spot
+- feat: Add 11 skin tones: `Porcelain`, `Almond`, `Olive`, `Sienna` and `Espresso` fill out the realistic ramp, and `Stone`, `Mint`, `Lilac`, `Rose`, `Azure` and `Fern` sit after it
+
+### Updated
+- fix: `PropertyItemLocalization` falls back to the item's own label for skin tones that have no l10n key yet, the way every unlocalized category already does
 
 ---
 
