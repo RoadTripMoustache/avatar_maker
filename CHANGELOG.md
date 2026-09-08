@@ -11,6 +11,7 @@
 - feat: Add 22 accessories, which are no longer only eyewear: an eye patch, a monocle, a face mask, heart and star glasses, aviators, ski goggles, a sleep mask, a cyber visor, a bandana, earrings, freckles, blush, a plaster, war paint, a clown nose, a sweat drop, stubble, a septum ring, a scar, tears and a beauty spot
 - feat: Add 11 skin tones: `Porcelain`, `Almond`, `Olive`, `Sienna` and `Espresso` fill out the realistic ramp, and `Stone`, `Mint`, `Lilac`, `Rose`, `Azure` and `Fern` sit after it
 
+- feat: Add 5 outfits: `TankTop`, `Turtleneck`, `ShirtAndTie`, `DenimJacket` and `Jersey`
 - feat: Add Swedish (sv) localization with a complete set of translation strings
 - feat: Show the `Nose` category by default. It carried `toDisplay: false` while it had a single option; it now has ten
 
