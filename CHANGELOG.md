@@ -1,4 +1,8 @@
 ## [Unreleased]
+
+---
+
+## [1.9.0] - 12/09/2926
 ### Added
 - feat: Add 4 hair styles: `Mohawk`, `Ponytail`, `TopKnot` and `Curtains`
 - feat: Add 4 facial hair types: `Goatee`, `SoulPatch`, `MuttonChops` and `MoustacheHandlebar`, tripling the choice in the thinnest category
