@@ -221,7 +221,75 @@ enum Eyes implements PropertyItem {
 								<use id="Eyeball-Mask" fill="#FFFFFF" xlink:href="#react-path-55833"></use>
 								<circle fill-opacity="0.699999988" fill="#000000" mask="url(#react-mask-55835)" cx="14" cy="10" r="6"></circle>
 							</g>
-						</g>""");
+						</g>"""),
+  Stars("""<g id="Eyes/Stars" transform="translate(0.000000, 8.000000)" fill="#F2B705"><path d="M30.0,10.0 L33.2,17.6 L41.4,18.3 L35.1,23.7 L37.1,31.7 L30.0,27.4 L22.9,31.7 L24.9,23.7 L18.6,18.3 L26.8,17.6 Z"/><path d="M85.0,10.0 L88.2,17.6 L96.4,18.3 L90.1,23.7 L92.1,31.7 L85.0,27.4 L77.9,31.7 L79.9,23.7 L73.6,18.3 L81.8,17.6 Z"/></g>"""),
+  Sleepy("""<g id="Eyes/Sleepy" transform="translate(0.000000, 8.000000)"><g fill="#000000"><path d="M20,21 A10,10 0 0 0 40,21 Z"/><path d="M75,21 A10,10 0 0 0 95,21 Z"/></g><g fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round"><path d="M18,18 Q30,9 42,18"/><path d="M73,18 Q85,9 97,18"/></g></g>"""),
+  Wide("""<g id="Eyes/Wide" transform="translate(0.000000, 8.000000)"><g transform="translate(30,22)"><circle cx="0" cy="0" r="10" fill="#000000"/><circle cx="-3.5" cy="-3.5" r="3.2" fill="#FFFFFF"/></g><g transform="translate(85,22)"><circle cx="0" cy="0" r="10" fill="#000000"/><circle cx="-3.5" cy="-3.5" r="3.2" fill="#FFFFFF"/></g></g>"""),
+  Sparkle("""<g id="Eyes/Sparkle" transform="translate(0.000000, 8.000000)"><g transform="translate(30,22)"><circle cx="0" cy="0" r="8" fill="#000000"/><circle cx="-3" cy="-3" r="2.6" fill="#FFFFFF"/><circle cx="3" cy="3.5" r="1.4" fill="#FFFFFF"/></g><g transform="translate(85,22)"><circle cx="0" cy="0" r="8" fill="#000000"/><circle cx="-3" cy="-3" r="2.6" fill="#FFFFFF"/><circle cx="3" cy="3.5" r="1.4" fill="#FFFFFF"/></g></g>"""),
+  Determined("""<g id="Eyes/Determined" transform="translate(0.000000, 8.000000)"><g transform="translate(30,22)"><path d="M-8,-3 L8,1 C8,7 4,10 0,10 C-4,10 -8,7 -8,2 Z" fill="#000000"/></g><g transform="translate(85,22)"><path d="M-8,-3 L8,1 C8,7 4,10 0,10 C-4,10 -8,7 -8,2 Z" fill="#000000"/></g></g>"""),
+  Shy("""<g id="Eyes/Shy" transform="translate(0.000000, 8.000000)"><g transform="translate(30,22)"><circle cx="0" cy="4" r="5.5" fill="#000000"/><path d="M-9,-4 Q0,2 9,-4" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round"/></g><g transform="translate(85,22)"><circle cx="0" cy="4" r="5.5" fill="#000000"/><path d="M-9,-4 Q0,2 9,-4" fill="none" stroke="#000000" stroke-width="3" stroke-linecap="round"/></g></g>"""),
+  Anime("""<g id="Eyes/Anime" transform="translate(0.000000, 8.000000)"><g transform="translate(30,22)"><ellipse cx="0" cy="0" rx="9" ry="11" fill="#000000"/><circle cx="-3" cy="-4" r="3.6" fill="#FFFFFF"/><circle cx="3.5" cy="4" r="2" fill="#FFFFFF"/></g><g transform="translate(85,22)"><ellipse cx="0" cy="0" rx="9" ry="11" fill="#000000"/><circle cx="-3" cy="-4" r="3.6" fill="#FFFFFF"/><circle cx="3.5" cy="4" r="2" fill="#FFFFFF"/></g></g>"""),
+  Worried("""<g id="Eyes/Worried" transform="translate(0.000000, 8.000000)"><g transform="translate(30,22)"><path d="M-9,2 L9,-4 C9,3 5,10 0,10 C-5,10 -9,6 -9,3 Z" fill="#000000"/></g><g transform="translate(85,22)"><path d="M-9,2 L9,-4 C9,3 5,10 0,10 C-5,10 -9,6 -9,3 Z" fill="#000000"/></g></g>"""),
+  Glare("""
+  <g id="Eyes/Glare" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><path d="M-9,-1 L9,-1 C9,7 5,11 0,11 C-5,11 -9,7 -9,-1 Z" fill="#000000"/></g>
+    <g transform="translate(85,22)"><path d="M-9,-1 L9,-1 C9,7 5,11 0,11 C-5,11 -9,7 -9,-1 Z" fill="#000000"/></g>
+  </g>
+  """),
+  Wonder("""
+  <g id="Eyes/Wonder" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><circle cx="0" cy="0" r="9" fill="#FFFFFF"/><circle cx="0" cy="1" r="6" fill="#000000"/><circle cx="-2" cy="-2" r="2" fill="#FFFFFF"/></g>
+    <g transform="translate(85,22)"><circle cx="0" cy="0" r="9" fill="#FFFFFF"/><circle cx="0" cy="1" r="6" fill="#000000"/><circle cx="-2" cy="-2" r="2" fill="#FFFFFF"/></g>
+  </g>
+  """),
+  Bored("""
+  <g id="Eyes/Bored" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><path d="M-9,-2 L9,-2" stroke="#000000" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="0" cy="4" r="4" fill="#000000"/></g>
+    <g transform="translate(85,22)"><path d="M-9,-2 L9,-2" stroke="#000000" stroke-width="3" stroke-linecap="round" fill="none"/><circle cx="0" cy="4" r="4" fill="#000000"/></g>
+  </g>
+  """),
+  Crescent("""
+  <g id="Eyes/Crescent" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><path d="M-9,3 C-9,-3 -5,-7 0,-7 C5,-7 9,-3 9,3 C5,-1 -5,-1 -9,3 Z" fill="#000000"/></g>
+    <g transform="translate(85,22)"><path d="M-9,3 C-9,-3 -5,-7 0,-7 C5,-7 9,-3 9,3 C5,-1 -5,-1 -9,3 Z" fill="#000000"/></g>
+  </g>
+  """),
+  Pixel("""
+  <g id="Eyes/Pixel" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><rect x="-6" y="-7" width="12" height="14" fill="#000000"/></g>
+    <g transform="translate(85,22)"><rect x="-6" y="-7" width="12" height="14" fill="#000000"/></g>
+  </g>
+  """),
+  Slit("""
+  <g id="Eyes/Slit" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><path d="M-9,0 C-5,-6 5,-6 9,0 C5,6 -5,6 -9,0 Z" fill="#FFFFFF"/><path d="M-2,-5 L2,-5 L2,5 L-2,5 Z" fill="#000000"/></g>
+    <g transform="translate(85,22)"><path d="M-9,0 C-5,-6 5,-6 9,0 C5,6 -5,6 -9,0 Z" fill="#FFFFFF"/><path d="M-2,-5 L2,-5 L2,5 L-2,5 Z" fill="#000000"/></g>
+  </g>
+  """),
+  Teary("""
+  <g id="Eyes/Teary" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><circle cx="0" cy="0" r="6" fill="#000000"/><path d="M4,6 C4,6 9,14 9,18 C9,20.8 6.8,23 4,23 C1.2,23 -1,20.8 -1,18 C-1,14 4,6 4,6 Z" fill="#92D9FF"/></g>
+    <g transform="translate(85,22)"><circle cx="0" cy="0" r="6" fill="#000000"/><path d="M4,6 C4,6 9,14 9,18 C9,20.8 6.8,23 4,23 C1.2,23 -1,20.8 -1,18 C-1,14 4,6 4,6 Z" fill="#92D9FF"/></g>
+  </g>
+  """),
+  Suspicious("""
+  <g id="Eyes/Suspicious" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><path d="M-9,-3 L9,-3 C9,2 6,5 0,5 C-6,5 -9,2 -9,-3 Z" fill="#000000"/></g>
+    <g transform="translate(85,22)"><path d="M-9,-3 L9,-3 C9,2 6,5 0,5 C-6,5 -9,2 -9,-3 Z" fill="#000000"/></g>
+  </g>
+  """),
+  Starstruck("""
+  <g id="Eyes/Starstruck" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><circle cx="0" cy="0" r="9" fill="#FFFFFF"/><circle cx="0" cy="0" r="7" fill="#F2B705"/><circle cx="0" cy="0" r="3" fill="#000000"/></g>
+    <g transform="translate(85,22)"><circle cx="0" cy="0" r="9" fill="#FFFFFF"/><circle cx="0" cy="0" r="7" fill="#F2B705"/><circle cx="0" cy="0" r="3" fill="#000000"/></g>
+  </g>
+  """),
+  Blink("""
+  <g id="Eyes/Blink" transform="translate(0.000000, 8.000000)">
+    <g transform="translate(30,22)"><path d="M-9,0 C-5,5 5,5 9,0" stroke="#000000" stroke-width="3" stroke-linecap="round" fill="none"/></g>
+    <g transform="translate(85,22)"><path d="M-9,0 C-5,5 5,5 9,0" stroke="#000000" stroke-width="3" stroke-linecap="round" fill="none"/></g>
+  </g>
+  """);
 
   final String svg;
 

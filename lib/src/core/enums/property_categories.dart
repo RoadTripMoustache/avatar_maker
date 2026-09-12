@@ -115,7 +115,7 @@ final PropertyCategory NoseType = PropertyCategory(
   },
   iconFile: "assets/icons/noses.svg",
   properties: Noses.values,
-  toDisplay: false,
+  toDisplay: true,
   defaultValue: Noses.Default,
 );
 final PropertyCategory OutfitColor = PropertyCategory(

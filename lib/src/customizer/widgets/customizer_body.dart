@@ -1,4 +1,5 @@
 import "package:avatar_maker/avatar_maker.dart";
+import "package:avatar_maker/src/core/services/item_localization_service.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_appbar.dart";
 import "package:avatar_maker/src/customizer/widgets/customizer_bottom_navbar.dart";
 import "package:flutter/material.dart";
@@ -96,7 +97,12 @@ class CustomizerBody extends StatelessWidget {
                           avatarMakerController.getComponentSVG(
                               propertyCategory.id, index),
                           height: 80,
-                          semanticsLabel: 'Your AvatarMaker',
+                          // The item's own name, so a screen reader can tell
+                          // the options apart. Every tile used to announce
+                          // the same hardcoded English phrase, which left
+                          // `localizedLabel` and its translations unused.
+                          semanticsLabel:
+                              item.localizedLabel(avatarMakerController.l10n),
                           placeholderBuilder: (context) => Center(
                             child: CircularProgressIndicator.adaptive(),
                           ),

@@ -141,7 +141,7 @@ void main() {
         final accessoryResult =
             result.firstWhere((e) => e.id == PropertyCategoryIds.Accessory);
         expect(accessoryResult.name, equals('Accessories'));
-        expect(accessoryResult.properties!.length, 7);
+        expect(accessoryResult.properties!.length, Accessories.values.length);
         expect(
             accessoryResult.iconFile, equals('assets/icons/accessories.svg'));
 

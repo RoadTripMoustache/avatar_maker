@@ -1,5 +1,24 @@
 ## [Unreleased]
+### Added
+- feat: Add 4 hair styles: `Mohawk`, `Ponytail`, `TopKnot` and `Curtains`
+- feat: Add 4 facial hair types: `Goatee`, `SoulPatch`, `MuttonChops` and `MoustacheHandlebar`, tripling the choice in the thinnest category
+- feat: Add 8 hair colors, and the same 8 facial hair colors: `Copper`, `Chestnut`, `Burgundy`, `Ginger`, `White`, `Teal`, `Mint` and `Lavender`
+- feat: Add 8 outfit colors: `Teal`, `Mint`, `Lavender`, `Burgundy`, `Mustard`, `Cream`, `Charcoal` and `Coral`
+- feat: Add 8 eyes: `Stars`, `Sleepy`, `Wide`, `Sparkle`, `Determined`, `Shy`, `Anime` and `Worried`
+- feat: Add 7 eyebrows: `Bushy`, `Wavy`, `Thin`, `Sharp`, `Rounded`, `Pierced` and `Notched`
+- feat: Add 9 mouths: `Whistle`, `Smirk`, `Kiss`, `Grin`, `Pout`, `Zigzag`, `Braces`, `Gap` and `Sneer`
+- feat: Add 9 noses: `Button`, `Wide`, `Small`, `Nostrils`, `Hooked`, `Upturned`, `Pointed`, `Bulbous` and `Roman`. The category ships with `toDisplay: false` because it had a single option; with ten it may be worth showing by default
+- feat: Add 22 accessories, which are no longer only eyewear: an eye patch, a monocle, a face mask, heart and star glasses, aviators, ski goggles, a sleep mask, a cyber visor, a bandana, earrings, freckles, blush, a plaster, war paint, a clown nose, a sweat drop, stubble, a septum ring, a scar, tears and a beauty spot
+- feat: Add 11 skin tones: `Porcelain`, `Almond`, `Olive`, `Sienna` and `Espresso` fill out the realistic ramp, and `Stone`, `Mint`, `Lilac`, `Rose`, `Azure` and `Fern` sit after it
 
+- feat: Add 5 outfits: `TankTop`, `Turtleneck`, `ShirtAndTie`, `DenimJacket` and `Jersey`
+- feat: Add a further 10 of each: hair styles, facial hair types, outfits, eyes, eyebrows, mouths, noses, accessories, skin tones, hair colors, facial hair colors and outfit colors
+- feat: Add Swedish (sv) localization with a complete set of translation strings
+- feat: Show the `Nose` category by default. It carried `toDisplay: false` while it had a single option; it now has ten
+
+### Updated
+- fix: `PropertyItemLocalization` falls back to the item's own label for skin tones that have no l10n key yet, the way every unlocalized category already does
+- fix: The customizer's option tiles announce the item's own localized name to screen readers. Every tile used to announce the same hardcoded English phrase, which left `localizedLabel` and all of its translations unused
 
 ---
 

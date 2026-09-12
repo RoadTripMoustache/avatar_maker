@@ -165,7 +165,307 @@ enum OutfitTypes implements PropertyItem {
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 					</g>
-        """);
+        """),
+  TankTop("""
+<g id=" OutfitTypes/TankTop" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M184,36 C212,47 232,72 232,101.051724 L232,110 L32,110 L32,101.051724 C32,72 52,47 81,36 C87,66 108,84 132.5,84 C157,84 178,66 184,36 Z" id="am-path-tanktop"></path>
+</defs>
+<mask id="am-mask-tanktop" fill="white">
+<use xlink:href="#am-path-tanktop"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-tanktop"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-tanktop)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-tanktop)"></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-tanktop)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Turtleneck("""
+<g id=" OutfitTypes/Turtleneck" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M166,29.5 C203,32.5 232,63.3 232,101.051724 L232,110 L32,110 L32,101.051724 C32,63.3 61.6,32.5 99,29.5 L99,16 C99,11 113,7 132.5,7 C152,7 166,11 166,16 Z" id="am-path-turtleneck"></path>
+</defs>
+<mask id="am-mask-turtleneck" fill="white">
+<use xlink:href="#am-path-turtleneck"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-turtleneck"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-turtleneck)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-turtleneck)"><path d="M99,21 C111,26 154,26 166,21" fill="none" stroke="#000000" stroke-opacity="0.14" stroke-width="3"></path></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-turtleneck)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  ShirtAndTie("""
+<g id=" OutfitTypes/ShirtAndTie" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-shirtandtie"></path>
+</defs>
+<mask id="am-mask-shirtandtie" fill="white">
+<use xlink:href="#am-path-shirtandtie"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-shirtandtie"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-shirtandtie)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-shirtandtie)"><g fill="#FFFFFF" fill-opacity="0.92"><path d="M104,31 L132.5,60 L119,31 Z"></path><path d="M161,31 L132.5,60 L146,31 Z"></path></g><g fill="#B03A2E"><path d="M126,50 L139,50 L142,61 L123,61 Z"></path><path d="M123,61 L142,61 L137,95 L132.5,103 L128,95 Z"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-shirtandtie)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  DenimJacket("""
+<g id=" OutfitTypes/DenimJacket" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-denimjacket"></path>
+</defs>
+<mask id="am-mask-denimjacket" fill="white">
+<use xlink:href="#am-path-denimjacket"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-denimjacket"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-denimjacket)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-denimjacket)"><g fill="#000000" fill-opacity="0.22"><path d="M99,30 L122,46 L99,56 Z"></path><path d="M166,30 L143,46 L166,56 Z"></path></g><g fill="none" stroke="#000000" stroke-opacity="0.22" stroke-width="3"><path d="M132.5,52 L132.5,110"></path><rect x="83" y="66" width="30" height="21" rx="3"></rect><rect x="152" y="66" width="30" height="21" rx="3"></rect></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-denimjacket)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Jersey("""
+<g id=" OutfitTypes/Jersey" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-jersey"></path>
+</defs>
+<mask id="am-mask-jersey" fill="white">
+<use xlink:href="#am-path-jersey"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-jersey"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-jersey)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-jersey)"><g fill="#000000" fill-opacity="0.26"><path d="M81,36 C56,48 36,71 33,99 L33,110 L52,110 C56,88 70,68 92,56 Z"></path><path d="M184,36 C209,48 229,71 232,99 L232,110 L213,110 C209,88 195,68 173,56 Z"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-jersey)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  PoloShirt("""
+<g id=" OutfitTypes/PoloShirt" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-poloshirt"></path>
+</defs>
+<mask id="am-mask-poloshirt" fill="white">
+<use xlink:href="#am-path-poloshirt"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-poloshirt"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-poloshirt)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-poloshirt)"><g fill="#FFFFFF" fill-opacity="0.85"><path d="M104,31 L132.5,56 L119,31 Z"></path><path d="M161,31 L132.5,56 L146,31 Z"></path></g><g fill="#000000" fill-opacity="0.25"><circle cx="132.5" cy="62" r="3"></circle><circle cx="132.5" cy="76" r="3"></circle></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-poloshirt)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Cardigan("""
+<g id=" OutfitTypes/Cardigan" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-cardigan"></path>
+</defs>
+<mask id="am-mask-cardigan" fill="white">
+<use xlink:href="#am-path-cardigan"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-cardigan"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-cardigan)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-cardigan)"><g fill="#000000" fill-opacity="0.2"><path d="M120,40 L128,52 L128,110 L112,110 Z"></path><path d="M145,40 L137,52 L137,110 L153,110 Z"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-cardigan)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  VestTie("""
+<g id=" OutfitTypes/VestTie" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 L132.5,74 L165.96,29.29 Z" id="am-path-vesttie"></path>
+</defs>
+<mask id="am-mask-vesttie" fill="white">
+<use xlink:href="#am-path-vesttie"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-vesttie"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-vesttie)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-vesttie)"><g fill="#FFFFFF" fill-opacity="0.9"><path d="M99,30 L132.5,76 L166,30 L157,30 L132.5,64 L108,30 Z"></path></g><g fill="#7B2C3B"><path d="M126,52 L139,52 L142,63 L123,63 Z"></path><path d="M123,63 L142,63 L137,98 L132.5,106 L128,98 Z"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-vesttie)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Apron("""
+<g id=" OutfitTypes/Apron" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-apron"></path>
+</defs>
+<mask id="am-mask-apron" fill="white">
+<use xlink:href="#am-path-apron"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-apron"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-apron)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-apron)"><g fill="#FFFFFF" fill-opacity="0.55"><path d="M104,52 L161,52 L166,110 L99,110 Z"></path></g><g fill="none" stroke="#000000" stroke-opacity="0.2" stroke-width="3"><path d="M110,52 L120,34"></path><path d="M155,52 L145,34"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-apron)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Scarf("""
+<g id=" OutfitTypes/Scarf" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-scarf"></path>
+</defs>
+<mask id="am-mask-scarf" fill="white">
+<use xlink:href="#am-path-scarf"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-scarf"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-scarf)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-scarf)"><g fill="#000000" fill-opacity="0.28"><path d="M96,40 C110,54 155,54 169,40 L169,58 C155,70 110,70 96,58 Z"></path><path d="M150,64 L168,64 L172,110 L154,110 Z"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-scarf)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Overalls("""
+<g id=" OutfitTypes/Overalls" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-overalls"></path>
+</defs>
+<mask id="am-mask-overalls" fill="white">
+<use xlink:href="#am-path-overalls"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-overalls"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-overalls)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-overalls)"><g fill="#000000" fill-opacity="0.22"><path d="M100,44 L114,44 L114,110 L100,110 Z"></path><path d="M151,44 L165,44 L165,110 L151,110 Z"></path><path d="M114,74 L151,74 L151,110 L114,110 Z"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-overalls)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Kimono("""
+<g id=" OutfitTypes/Kimono" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-kimono"></path>
+</defs>
+<mask id="am-mask-kimono" fill="white">
+<use xlink:href="#am-path-kimono"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-kimono"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-kimono)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-kimono)"><g fill="#000000" fill-opacity="0.22"><path d="M99,30 L132.5,84 L104,110 L86,110 L99,52 Z"></path><path d="M166,30 L132.5,84 L161,110 L179,110 L166,52 Z"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-kimono)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Puffer("""
+<g id=" OutfitTypes/Puffer" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-puffer"></path>
+</defs>
+<mask id="am-mask-puffer" fill="white">
+<use xlink:href="#am-path-puffer"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-puffer"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-puffer)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-puffer)"><g fill="none" stroke="#000000" stroke-opacity="0.2" stroke-width="4"><path d="M36,66 L229,66"></path><path d="M34,84 L231,84"></path><path d="M33,100 L232,100"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-puffer)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  Striped("""
+<g id=" OutfitTypes/Striped" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-striped"></path>
+</defs>
+<mask id="am-mask-striped" fill="white">
+<use xlink:href="#am-path-striped"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-striped"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-striped)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-striped)"><g fill="#FFFFFF" fill-opacity="0.55"><path d="M32,58 L232,58 L232,70 L32,70 Z"></path><path d="M32,80 L232,80 L232,92 L32,92 Z"></path><path d="M32,102 L232,102 L232,110 L32,110 Z"></path></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-striped)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+"""),
+  LabCoat("""
+<g id=" OutfitTypes/LabCoat" transform="translate(0.000000, 170.000000)">
+<defs>
+<path d="M165.96,29.29 C202.94,32.32 232,63.29 232,101.051724 L232,110 L32,110 L32,101.051724 C32,62.95 61.59,31.76 99.05,29.22 C99.02,29.59 99,29.97 99,30.35 C99,42.21 114,51.83 132.5,51.83 C151,51.83 166,42.21 166,30.35 C166,29.99 165.99,29.64 165.96,29.29 Z" id="am-path-labcoat"></path>
+</defs>
+<mask id="am-mask-labcoat" fill="white">
+<use xlink:href="#am-path-labcoat"></use>
+</mask>
+<use id="Clothes" fill="#E6E6E6" fill-rule="evenodd" xlink:href="#am-path-labcoat"></use>
+<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#am-mask-labcoat)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
+<rect id="Color" x="0" y="0" width="264" height="110"></rect>
+</g>
+<g mask="url(#am-mask-labcoat)"><g fill="#FFFFFF" fill-opacity="0.9"><path d="M99,30 L132.5,70 L166,30 L182,38 L196,110 L69,110 L83,38 Z"></path></g><g fill="none" stroke="#000000" stroke-opacity="0.18" stroke-width="3"><path d="M132.5,70 L132.5,110"></path><rect x="92" y="80" width="24" height="18" rx="2"></rect><rect x="149" y="80" width="24" height="18" rx="2"></rect></g></g>
+<g id="Shadowy" opacity="0.599999964" stroke-width="1" fill-rule="evenodd" mask="url(#am-mask-labcoat)" fill-opacity="0.16" fill="#000000">
+<g transform="translate(92.000000, 4.000000)" id="Hola">
+<ellipse cx="40.5" cy="27.8476251" rx="39.6351047" ry="26.9138272"></ellipse>
+</g>
+</g>
+</g>
+""");
 
   final String svg;
 

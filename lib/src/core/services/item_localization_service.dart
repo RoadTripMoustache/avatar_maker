@@ -36,6 +36,10 @@ extension PropertyItemLocalization on PropertyItem {
         return l10n.item_skin_dark_brown;
       case SkinColors.Black:
         return l10n.item_skin_black;
+      default:
+        // Tones added after the l10n keys were written fall back to their
+        // own name, the way every other property item without a key does.
+        return color.label;
     }
   }
 
@@ -59,6 +63,10 @@ extension PropertyItemLocalization on PropertyItem {
         return l10n.item_outfit_shirt_scoop_neck;
       case OutfitTypes.ShirtVNeck:
         return l10n.item_outfit_shirt_v_neck;
+      default:
+        // Outfits added after the l10n keys were written fall back to their
+        // own name, the same way the newer skin tones do.
+        return type.label;
     }
   }
 }

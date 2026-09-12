@@ -118,6 +118,58 @@ enum Accessories implements PropertyItem {
 										<path d="M2.93181818,5.85714286 C3.61786364,5.17185714 11.1233182,0 32.25,0 C49.9640455,0 53.7138409,1.88014286 59.3898409,4.72085714 L59.8053162,4.93054903 C60.1999353,5.07314243 62.2179351,5.77419634 64.5784525,5.85128811 C66.7290156,5.75689949 68.5684809,5.16080623 69.1059926,4.96981137 C75.5844654,1.74762081 81.9260118,0 96.75,0 C117.876682,0 125.382136,5.17185714 126.068182,5.85714286 C127.689477,5.85714286 129,7.16621429 129,8.78571429 L129,11.7142857 C129,13.3337857 127.689477,14.6428571 126.068182,14.6428571 C126.068182,14.6428571 120.204545,14.6428571 120.204545,17.5714286 C120.204545,20.5 117.272727,13.3337857 117.272727,11.7142857 L117.272727,8.8618831 C113.697201,7.46243482 107.296654,5.85714286 96.75,5.85714286 C84.9995538,5.85714286 79.1475515,6.98813142 74.1276604,9.10414393 L74.1837955,9.24257143 L71.6878772,10.2500422 L74.1813177,11.2582547 L71.981173,16.6874536 L69.263564,15.5885995 C69.0208516,15.4904597 68.4971539,15.3141463 67.770994,15.1309826 C65.7466083,14.6203594 63.6653786,14.4649153 61.8248214,14.8513001 C61.1495627,14.993056 60.5230576,15.2057795 59.9480988,15.4931011 L57.3260941,16.8033836 L54.7026238,11.5651815 L57.3246285,10.2548989 L57.3310023,10.251716 L54.8191364,9.23671429 L54.8992448,9.03890561 C50.5700368,6.97578666 46.5781927,5.85714286 32.25,5.85714286 C21.7038986,5.85714286 15.3034993,7.46145875 11.7272727,8.86093383 L11.7272727,11.7142857 C11.7272727,13.3337857 8.79545455,20.5 8.79545455,17.5714286 C8.79545455,14.6428571 2.93181818,14.6428571 2.93181818,14.6428571 C1.31345455,14.6428571 0,13.3337857 0,11.7142857 L0,8.78571429 C0,7.16621429 1.31345455,5.85714286 2.93181818,5.85714286 Z" id="Stuff" fill="#252C2F" fill-rule="nonzero"></path>
 									</g>
 								</g>
+        """),
+  EyePatch("""<g id="Accessories/EyePatch" fill="#2F383B"><polygon points="-16,12 12,20 12,28 -16,20"/><polygon points="48,18 118,2 118,12 48,28"/><ellipse cx="30" cy="26" rx="21" ry="17"/></g>"""),
+  Monocle("""<g id="Accessories/Monocle"><circle cx="85" cy="30" r="21" fill="#FFFFFF" fill-opacity="0.18" stroke="#2F383B" stroke-width="4"/><path d="M85,53 C88,66 96,74 106,79" fill="none" stroke="#2F383B" stroke-width="3" stroke-linecap="round"/></g>"""),
+  FaceMask("""<g id="Accessories/FaceMask"><path d="M4,58 L-12,48" fill="none" stroke="#8FBFD4" stroke-width="3" stroke-linecap="round"/><path d="M108,58 L124,48" fill="none" stroke="#8FBFD4" stroke-width="3" stroke-linecap="round"/><path d="M4,52 L20,44 L92,44 L108,52 L108,62 C108,86 90,100 56,100 C22,100 4,86 4,62 Z" fill="#BFE3F2" stroke="#8FBFD4" stroke-width="2"/><path d="M14,66 L98,66" fill="none" stroke="#9CCADD" stroke-width="2"/><path d="M17,78 L95,78" fill="none" stroke="#9CCADD" stroke-width="2"/></g>"""),
+  HeartGlasses("""<g id="Accessories/HeartGlasses"><g fill="none" stroke="#2F383B" stroke-width="4" stroke-linecap="round"><path d="M52,30 L63,30"/><path d="M8,28 L-14,21"/><path d="M107,28 L129,21"/></g><g fill="#FF7FA6" fill-opacity="0.55" stroke="#2F383B" stroke-width="4"><path transform="translate(30,34)" d="M0,16 C-8,6 -22,-2 -22,-12 C-22,-19 -16,-24 -9,-24 C-4,-24 -1,-21 0,-18 C1,-21 4,-24 9,-24 C16,-24 22,-19 22,-12 C22,-2 8,6 0,16 Z"/><path transform="translate(85,34)" d="M0,16 C-8,6 -22,-2 -22,-12 C-22,-19 -16,-24 -9,-24 C-4,-24 -1,-21 0,-18 C1,-21 4,-24 9,-24 C16,-24 22,-19 22,-12 C22,-2 8,6 0,16 Z"/></g></g>"""),
+  StarGlasses("""<g id="Accessories/StarGlasses"><g fill="none" stroke="#2F383B" stroke-width="4" stroke-linecap="round"><path d="M50,32 L65,32"/><path d="M11,28 L-14,21"/><path d="M104,28 L129,21"/></g><g fill="#FFD34E" fill-opacity="0.6" stroke="#2F383B" stroke-width="4" stroke-linejoin="round"><path transform="translate(30,32)" d="M0.0,-20.0 L5.3,-7.3 L19.0,-6.2 L8.6,2.8 L11.8,16.2 L0.0,9.0 L-11.8,16.2 L-8.6,2.8 L-19.0,-6.2 L-5.3,-7.3 Z"/><path transform="translate(85,32)" d="M0.0,-20.0 L5.3,-7.3 L19.0,-6.2 L8.6,2.8 L11.8,16.2 L0.0,9.0 L-11.8,16.2 L-8.6,2.8 L-19.0,-6.2 L-5.3,-7.3 Z"/></g></g>"""),
+  Freckles("""<g id="Accessories/Freckles" fill="#8A4B2A" fill-opacity="0.45"><circle cx="22" cy="46" r="2.6"/><circle cx="30" cy="42" r="2.2"/><circle cx="31" cy="51" r="2.4"/><circle cx="39" cy="47" r="2"/><circle cx="24" cy="55" r="2"/><circle cx="90" cy="46" r="2.6"/><circle cx="82" cy="42" r="2.2"/><circle cx="81" cy="51" r="2.4"/><circle cx="73" cy="47" r="2"/><circle cx="88" cy="55" r="2"/></g>"""),
+  Blush("""<g id="Accessories/Blush" fill="#FF7C93" fill-opacity="0.35"><ellipse cx="24" cy="50" rx="14" ry="9"/><ellipse cx="88" cy="50" rx="14" ry="9"/></g>"""),
+  Plaster("""<g id="Accessories/Plaster" transform="rotate(-24 27 44)"><rect x="9" y="37" width="36" height="14" rx="7" fill="#F6C9A0" stroke="#D9A472" stroke-width="1.5"/><rect x="20" y="39" width="14" height="10" rx="3" fill="#E8B487"/><g fill="#D9A472"><circle cx="24" cy="42" r="1.3"/><circle cx="30" cy="42" r="1.3"/><circle cx="24" cy="46" r="1.3"/><circle cx="30" cy="46" r="1.3"/></g></g>"""),
+  Aviators("""<g id="Accessories/Aviators"><g fill="none" stroke="#C79A3E" stroke-width="4" stroke-linecap="round"><path d="M50,22 L63,22"/><path d="M8,20 L-14,15"/><path d="M105,20 L127,15"/></g><g fill="#3B4A3E" fill-opacity="0.62" stroke="#C79A3E" stroke-width="4" stroke-linejoin="round"><path d="M8,20 L51,20 C51,40 41,49 30,49 C19,49 8,40 8,20 Z"/><path d="M62,20 L105,20 C105,40 94,49 83,49 C72,49 62,40 62,20 Z"/></g></g>"""),
+  Bandana("""<g id="Accessories/Bandana"><path d="M0,48 C20,58 92,58 112,48 L112,58 C112,86 88,104 56,104 C24,104 0,86 0,58 Z" fill="#D14545" stroke="#A93434" stroke-width="2"/><g fill="#FFFFFF" fill-opacity="0.75"><circle cx="24" cy="68" r="3"/><circle cx="46" cy="78" r="3"/><circle cx="68" cy="66" r="3"/><circle cx="88" cy="76" r="3"/><circle cx="34" cy="88" r="3"/><circle cx="74" cy="90" r="3"/></g></g>"""),
+  Earrings("""<g id="Accessories/Earrings" fill="none" stroke="#E8B93E" stroke-width="3"><circle cx="2" cy="66" r="8"/><circle cx="110" cy="66" r="8"/></g>"""),
+  FacePaint("""<g id="Accessories/FacePaint" fill="#23303A" fill-opacity="0.85"><g transform="rotate(-24 24 56)"><rect x="6" y="46" width="28" height="7" rx="3.5"/><rect x="6" y="58" width="28" height="7" rx="3.5"/></g><g transform="rotate(24 88 56)"><rect x="78" y="46" width="28" height="7" rx="3.5"/><rect x="78" y="58" width="28" height="7" rx="3.5"/></g></g>"""),
+  ClownNose("""<g id="Accessories/ClownNose"><circle cx="56" cy="52" r="12" fill="#E8433C"/><circle cx="52" cy="48" r="3.4" fill="#FFFFFF" fill-opacity="0.55"/></g>"""),
+  Sweat("""<g id="Accessories/Sweat"><path d="M104,14 C104,14 96,26 96,32 C96,36.4 99.6,40 104,40 C108.4,40 112,36.4 112,32 C112,26 104,14 104,14 Z" fill="#92D9FF"/><g fill="none" stroke="#92D9FF" stroke-width="3" stroke-linecap="round" stroke-opacity="0.8"><path d="M92,10 L88,20"/><path d="M116,12 L119,21"/></g></g>"""),
+  Stubble("""<g id="Accessories/Stubble" fill="#2F383B" fill-opacity="0.22"><path fill-rule="evenodd" d="M6,56 C10,80 22,94 38,101 C44,104 50,105 56,105 C62,105 68,104 74,101 C90,94 102,80 106,56 Z M37,65 C37,81 45,88 56,88 C67,88 75,81 75,65 Z"/></g>"""),
+  Septum("""<g id="Accessories/Septum" fill="none" stroke="#E8B93E" stroke-width="3"><path d="M49,57 A7,7 0 0 0 63,57"/></g>"""),
+  Scar("""<g id="Accessories/Scar" fill="none" stroke="#A85A4A" stroke-opacity="0.85" stroke-linecap="round"><path d="M20,38 L33,60" stroke-width="3"/><g stroke-width="2.4"><path d="M18,44 L28,41"/><path d="M22,51 L32,48"/><path d="M26,58 L36,55"/></g></g>"""),
+  Tears("""<g id="Accessories/Tears" fill="#92D9FF"><path d="M30,40 C30,40 23,52 23,58 C23,62.4 26.1,66 30,66 C33.9,66 37,62.4 37,58 C37,52 30,40 30,40 Z"/><path d="M85,40 C85,40 78,52 78,58 C78,62.4 81.1,66 85,66 C88.9,66 92,62.4 92,58 C92,52 85,40 85,40 Z"/></g>"""),
+  BeautySpot("""<g id="Accessories/BeautySpot"><circle cx="38" cy="66" r="3.2" fill="#5A3A2A"/></g>"""),
+  SkiGoggles("""<g id="Accessories/SkiGoggles"><rect x="-12" y="24" width="136" height="11" rx="5" fill="#2F383B"/><rect x="2" y="12" width="108" height="38" rx="18" fill="#3A4A6B" stroke="#E8B93E" stroke-width="4"/><path d="M16,22 C30,17 54,17 66,21 C52,25 30,27 16,22 Z" fill="#FFFFFF" fill-opacity="0.35"/></g>"""),
+  SleepMask("""<g id="Accessories/SleepMask"><rect x="-12" y="26" width="136" height="8" rx="4" fill="#4A3C8A"/><path d="M4,22 C4,13 20,10 56,10 C92,10 108,13 108,22 L108,38 C108,47 92,51 56,51 C20,51 4,47 4,38 Z" fill="#6A5AE0"/><path d="M20,42 C34,50 78,50 92,42" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="3"/></g>"""),
+  CyberVisor("""<g id="Accessories/CyberVisor"><rect x="-6" y="18" width="124" height="24" rx="12" fill="#1A2238"/><rect x="6" y="26" width="100" height="4" rx="2" fill="#4EE8D0"/><rect x="6" y="34" width="34" height="3" rx="1.5" fill="#4EE8D0" fill-opacity="0.5"/></g>"""),
+  Bindi("""
+        <g id="Accessories/Bindi"><circle cx="56" cy="14" r="5" fill="#C2185B"/></g>
+        """),
+  NoseStud("""
+        <g id="Accessories/NoseStud"><circle cx="46" cy="52" r="3" fill="#E8B93E"/></g>
+        """),
+  Bruise("""
+        <g id="Accessories/Bruise"><ellipse cx="30" cy="22" rx="14" ry="9" fill="#6A4A8A" fill-opacity="0.45"/></g>
+        """),
+  Snorkel("""
+        <g id="Accessories/Snorkel"><rect x="2" y="24" width="108" height="34" rx="14" fill="#9AD5E8" fill-opacity="0.55" stroke="#E8433C" stroke-width="4"/><rect x="108" y="6" width="9" height="46" rx="4" fill="#E8433C"/></g>
+        """),
+  Bubblegum("""
+        <g id="Accessories/Bubblegum"><circle cx="56" cy="92" r="20" fill="#FF8FB1" fill-opacity="0.85"/><circle cx="50" cy="86" r="5" fill="#FFFFFF" fill-opacity="0.5"/></g>
+        """),
+  Whiskers("""
+        <g id="Accessories/Whiskers"><g fill="none" stroke="#2F383B" stroke-opacity="0.7" stroke-width="2.6" stroke-linecap="round"><path d="M40,50 L10,44"/><path d="M40,55 L8,55"/><path d="M40,60 L10,66"/><path d="M72,50 L102,44"/><path d="M72,55 L104,55"/><path d="M72,60 L102,66"/></g></g>
+        """),
+  Warpaint("""
+        <g id="Accessories/Warpaint"><g fill="#B3172B" fill-opacity="0.85"><path d="M14,-18 L98,-18 L98,-8 L14,-8 Z"/><path d="M18,-5 L94,-5 L94,-1 L18,-1 Z" fill-opacity="0.6"/></g></g>
+        """),
+  Glitter("""
+        <g id="Accessories/Glitter"><g fill="#F2B705"><circle cx="22" cy="40" r="2.4"/><circle cx="34" cy="34" r="1.8"/><circle cx="18" cy="52" r="1.8"/><circle cx="90" cy="40" r="2.4"/><circle cx="78" cy="34" r="1.8"/><circle cx="94" cy="52" r="1.8"/><circle cx="56" cy="18" r="2"/></g></g>
+        """),
+  Eyeliner("""
+        <g id="Accessories/Eyeliner"><g fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"><path d="M21,31 C22,25 26,22 31,22 C36,22 40,25 41,30 L48,26"/><path d="M94,31 C93,25 89,22 84,22 C79,22 75,25 74,30 L67,26"/></g></g>
+        """),
+  Dimples("""
+        <g id="Accessories/Dimples"><g fill="none" stroke="#000000" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"><path d="M33,66 C36,73 36,80 33,86"/><path d="M79,66 C76,73 76,80 79,86"/></g></g>
         """);
 
   final String svg;

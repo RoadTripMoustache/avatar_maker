@@ -67,6 +67,230 @@ enum FacialHairTypes implements PropertyItem {
 										</g>
 									</g>
 								</g>
+        """),
+  Goatee("""
+        <g id="FacialHair/Goatee">
+									<defs>
+										<path d="M36,62 C44,58 68,58 76,62 C68,68 44,68 36,62 Z M44,88 C44,85 49,83 56,83 C63,83 68,85 68,88 C68,98 63,104 56,104 C49,104 44,98 44,88 Z" id="am-path-goatee"></path>
+									</defs>
+									<mask id="am-mask-goatee" fill="white">
+										<use xlink:href="#am-path-goatee"></use>
+									</mask>
+									<use id="Goatee" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-goatee"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-goatee)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-goatee)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  SoulPatch("""
+        <g id="FacialHair/SoulPatch">
+									<defs>
+										<path d="M50,88 C50,86 52,85 56,85 C60,85 62,86 62,88 C62,93.5 60,96 56,96 C52,96 50,93.5 50,88 Z" id="am-path-soulpatch"></path>
+									</defs>
+									<mask id="am-mask-soulpatch" fill="white">
+										<use xlink:href="#am-path-soulpatch"></use>
+									</mask>
+									<use id="Soul-Patch" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-soulpatch"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-soulpatch)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-soulpatch)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  MuttonChops("""
+        <g id="FacialHair/MuttonChops">
+									<defs>
+										<path d="M2,34 C10,34 16,40 18,52 C20,64 22,74 30,84 C22,88 12,84 8,74 C4,62 2,48 2,34 Z M110,34 C102,34 96,40 94,52 C92,64 90,74 82,84 C90,88 100,84 104,74 C108,62 110,48 110,34 Z" id="am-path-muttonchops"></path>
+									</defs>
+									<mask id="am-mask-muttonchops" fill="white">
+										<use xlink:href="#am-path-muttonchops"></use>
+									</mask>
+									<use id="Mutton-Chops" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-muttonchops"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-muttonchops)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-muttonchops)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  MoustacheHandlebar("""
+        <g id="FacialHair/MoustacheHandlebar">
+									<defs>
+										<path d="M56,60 C48,56 36,55 28,58 C20,61 16,58 14,54 C12,50 9,52 11,58 C14,67 24,71 34,69 C42,67 50,65 56,65 C62,65 70,67 78,69 C88,71 98,67 101,58 C103,52 100,50 98,54 C96,58 92,61 84,58 C76,55 64,56 56,60 Z" id="am-path-handlebar"></path>
+									</defs>
+									<mask id="am-mask-handlebar" fill="white">
+										<use xlink:href="#am-path-handlebar"></use>
+									</mask>
+									<use id="Handlebar" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-handlebar"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-handlebar)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-handlebar)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Chinstrap("""
+        <g id="FacialHair/Chinstrap">
+									<defs>
+										<path d="M6,42 C8,74 24,98 56,102 C88,98 104,74 106,42 C100,78 82,88 56,88 C30,88 12,78 6,42 Z" id="am-path-chinstrap"></path>
+									</defs>
+									<mask id="am-mask-chinstrap" fill="white">
+										<use xlink:href="#am-path-chinstrap"></use>
+									</mask>
+									<use id="Chinstrap" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-chinstrap"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-chinstrap)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-chinstrap)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Anchor("""
+        <g id="FacialHair/Anchor">
+									<defs>
+										<path d="M36,62 C44,58 68,58 76,62 C68,68 44,68 36,62 Z M46,86 C46,83 50,81 56,81 C62,81 66,83 66,86 C66,96 62,102 56,102 C50,102 46,96 46,86 Z M50,72 L62,72 L60,82 L52,82 Z" id="am-path-anchor"></path>
+									</defs>
+									<mask id="am-mask-anchor" fill="white">
+										<use xlink:href="#am-path-anchor"></use>
+									</mask>
+									<use id="Anchor" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-anchor"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-anchor)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-anchor)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Walrus("""
+        <g id="FacialHair/Walrus">
+									<defs>
+										<path d="M56,58 C46,54 30,54 22,60 C16,64 14,72 18,76 C24,82 40,80 48,74 C52,71 54,68 56,66 C58,68 60,71 64,74 C72,80 88,82 94,76 C98,72 96,64 90,60 C82,54 66,54 56,58 Z" id="am-path-walrus"></path>
+									</defs>
+									<mask id="am-mask-walrus" fill="white">
+										<use xlink:href="#am-path-walrus"></use>
+									</mask>
+									<use id="Walrus" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-walrus"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-walrus)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-walrus)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Pencil("""
+        <g id="FacialHair/Pencil">
+									<defs>
+										<path d="M40,62 C46,59 66,59 72,62 C66,65 46,65 40,62 Z" id="am-path-pencil"></path>
+									</defs>
+									<mask id="am-mask-pencil" fill="white">
+										<use xlink:href="#am-path-pencil"></use>
+									</mask>
+									<use id="Pencil" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-pencil"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-pencil)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-pencil)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Sideburns("""
+        <g id="FacialHair/Sideburns">
+									<defs>
+										<path d="M4,36 C10,36 16,42 17,52 C18,62 19,70 24,78 C16,80 9,74 7,64 C5,54 4,44 4,36 Z M108,36 C102,36 96,42 95,52 C94,62 93,70 88,78 C96,80 103,74 105,64 C107,54 108,44 108,36 Z" id="am-path-sideburns"></path>
+									</defs>
+									<mask id="am-mask-sideburns" fill="white">
+										<use xlink:href="#am-path-sideburns"></use>
+									</mask>
+									<use id="Sideburns" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-sideburns"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-sideburns)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-sideburns)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Balbo("""
+        <g id="FacialHair/Balbo">
+									<defs>
+										<path d="M36,62 C44,58 68,58 76,62 C68,68 44,68 36,62 Z M38,84 C38,80 46,78 56,78 C66,78 74,80 74,84 C74,96 66,104 56,104 C46,104 38,96 38,84 Z" id="am-path-balbo"></path>
+									</defs>
+									<mask id="am-mask-balbo" fill="white">
+										<use xlink:href="#am-path-balbo"></use>
+									</mask>
+									<use id="Balbo" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-balbo"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-balbo)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-balbo)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Ducktail("""
+        <g id="FacialHair/Ducktail">
+									<defs>
+										<path d="M8,48 C12,78 26,96 56,110 C86,96 100,78 104,48 C98,82 80,94 56,94 C32,94 14,82 8,48 Z" id="am-path-ducktail"></path>
+									</defs>
+									<mask id="am-mask-ducktail" fill="white">
+										<use xlink:href="#am-path-ducktail"></use>
+									</mask>
+									<use id="Ducktail" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-ducktail"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-ducktail)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-ducktail)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Horseshoe("""
+        <g id="FacialHair/Horseshoe">
+									<defs>
+										<path d="M36,60 C44,56 68,56 76,60 C68,66 44,66 36,60 Z M36,60 L46,60 L46,96 L36,96 Z M66,60 L76,60 L76,96 L66,96 Z" id="am-path-horseshoe"></path>
+									</defs>
+									<mask id="am-mask-horseshoe" fill="white">
+										<use xlink:href="#am-path-horseshoe"></use>
+									</mask>
+									<use id="Horseshoe" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-horseshoe"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-horseshoe)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-horseshoe)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Scruff("""
+        <g id="FacialHair/Scruff">
+									<defs>
+										<path d="M10,50 C14,82 28,98 56,102 C84,98 98,82 102,50 C96,84 78,90 56,90 C34,90 16,84 10,50 Z M36,58 C46,53 66,53 76,58 C66,67 46,67 36,58 Z" id="am-path-scruff"></path>
+									</defs>
+									<mask id="am-mask-scruff" fill="white">
+										<use xlink:href="#am-path-scruff"></use>
+									</mask>
+									<use id="Scruff" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-scruff"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-scruff)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-scruff)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
+        """),
+  Toothbrush("""
+        <g id="FacialHair/Toothbrush">
+									<defs>
+										<path d="M48,58 L64,58 L64,68 L48,68 Z" id="am-path-toothbrush"></path>
+									</defs>
+									<mask id="am-mask-toothbrush" fill="white">
+										<use xlink:href="#am-path-toothbrush"></use>
+									</mask>
+									<use id="Toothbrush" fill="#252E32" fill-rule="evenodd" xlink:href="#am-path-toothbrush"></use>
+									<g id="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME" mask="url(#am-mask-toothbrush)" fill="$TO_REPLACE_WITH_FACIAL_HAIRS_COLOR">
+										<g transform="translate(0.000000, 0.000000)" id="Color">
+											<rect x="-80" y="-80" width="400" height="400"></rect>
+										</g>
+									</g>
+								<g mask="url(#am-mask-toothbrush)"><ellipse cx="34" cy="62" rx="26" ry="18" transform="rotate(-20 34 62)" fill="#FFFFFF" fill-opacity="0.15"></ellipse><rect x="-80" y="94" width="400" height="120" fill="#000000" fill-opacity="0.14"></rect><g fill="none" stroke="#000000" stroke-opacity="0.13" stroke-width="2.4" stroke-linecap="round"><path d="M28,58 C26,74 28,88 34,98"></path><path d="M48,62 C46,78 47,92 50,102"></path><path d="M66,62 C68,78 67,92 64,102"></path><path d="M86,58 C88,74 86,88 80,98"></path></g></g></g>
         """);
 
   final String svg;
