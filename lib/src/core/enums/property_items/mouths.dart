@@ -146,15 +146,23 @@ enum Mouths implements PropertyItem {
 							</g>
 						</g>
         """),
-  Whistle("""<g id="Mouth/Whistle" transform="translate(2.000000, 52.000000)" fill="#000000" fill-opacity="0.7"><ellipse cx="54" cy="22" rx="7" ry="9"/></g>"""),
-  Smirk("""<g id="Mouth/Smirk" transform="translate(2.000000, 52.000000)" fill="none" stroke="#000000" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round"><path d="M39,21 C47,27 57,26 68,11"/></g>"""),
-  Kiss("""<g id="Mouth/Kiss" transform="translate(2.000000, 52.000000)"><path d="M44,19 C44,13 50,10 54,15 C58,10 64,13 64,19 C64,26 58,32 54,32 C50,32 44,26 44,19 Z" fill="#000000" fill-opacity="0.7"/></g>"""),
-  Grin("""<g id="Mouth/Grin" transform="translate(2.000000, 52.000000)"><path d="M36,15 L72,15 C72,29 64,34 54,34 C44,34 36,29 36,15 Z" fill="#000000" fill-opacity="0.7"/><path d="M38,16 L70,16 L70,21 L38,21 Z" fill="#FFFFFF"/></g>"""),
-  Pout("""<g id="Mouth/Pout" transform="translate(2.000000, 52.000000)"><path d="M41,20 Q54,26 67,20 Q64,33 54,33 Q44,33 41,20 Z" fill="#000000" fill-opacity="0.7"/></g>"""),
-  Zigzag("""<g id="Mouth/Zigzag" transform="translate(2.000000, 52.000000)" fill="none" stroke="#000000" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M40,23 L46,17 L52,25 L58,17 L64,25 L69,20"/></g>"""),
-  Braces("""<g id="Mouth/Braces" transform="translate(2.000000, 52.000000)"><path d="M36,15 L72,15 C72,29 64,34 54,34 C44,34 36,29 36,15 Z" fill="#000000" fill-opacity="0.7"/><path d="M38,16 L70,16 L70,22 L38,22 Z" fill="#FFFFFF"/><path d="M38,18.5 L70,18.5" stroke="#9AA6B4" stroke-width="1.6"/><g fill="#9AA6B4"><rect x="42" y="17" width="3" height="3.4"/><rect x="49" y="17" width="3" height="3.4"/><rect x="56" y="17" width="3" height="3.4"/><rect x="63" y="17" width="3" height="3.4"/></g></g>"""),
+  Whistle(
+      """<g id="Mouth/Whistle" transform="translate(2.000000, 52.000000)" fill="#000000" fill-opacity="0.7"><ellipse cx="54" cy="22" rx="7" ry="9"/></g>"""),
+  Smirk(
+      """<g id="Mouth/Smirk" transform="translate(2.000000, 52.000000)" fill="none" stroke="#000000" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round"><path d="M39,21 C47,27 57,26 68,11"/></g>"""),
+  Kiss(
+      """<g id="Mouth/Kiss" transform="translate(2.000000, 52.000000)"><path d="M44,19 C44,13 50,10 54,15 C58,10 64,13 64,19 C64,26 58,32 54,32 C50,32 44,26 44,19 Z" fill="#000000" fill-opacity="0.7"/></g>"""),
+  Grin(
+      """<g id="Mouth/Grin" transform="translate(2.000000, 52.000000)"><path d="M36,15 L72,15 C72,29 64,34 54,34 C44,34 36,29 36,15 Z" fill="#000000" fill-opacity="0.7"/><path d="M38,16 L70,16 L70,21 L38,21 Z" fill="#FFFFFF"/></g>"""),
+  Pout(
+      """<g id="Mouth/Pout" transform="translate(2.000000, 52.000000)"><path d="M41,20 Q54,26 67,20 Q64,33 54,33 Q44,33 41,20 Z" fill="#000000" fill-opacity="0.7"/></g>"""),
+  Zigzag(
+      """<g id="Mouth/Zigzag" transform="translate(2.000000, 52.000000)" fill="none" stroke="#000000" stroke-opacity="0.7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M40,23 L46,17 L52,25 L58,17 L64,25 L69,20"/></g>"""),
+  Braces(
+      """<g id="Mouth/Braces" transform="translate(2.000000, 52.000000)"><path d="M36,15 L72,15 C72,29 64,34 54,34 C44,34 36,29 36,15 Z" fill="#000000" fill-opacity="0.7"/><path d="M38,16 L70,16 L70,22 L38,22 Z" fill="#FFFFFF"/><path d="M38,18.5 L70,18.5" stroke="#9AA6B4" stroke-width="1.6"/><g fill="#9AA6B4"><rect x="42" y="17" width="3" height="3.4"/><rect x="49" y="17" width="3" height="3.4"/><rect x="56" y="17" width="3" height="3.4"/><rect x="63" y="17" width="3" height="3.4"/></g></g>"""),
   Gap("""<g id="Mouth/Gap" transform="translate(2.000000, 52.000000)"><path d="M36,15 L72,15 C72,29 64,34 54,34 C44,34 36,29 36,15 Z" fill="#000000" fill-opacity="0.7"/><path d="M38,16 L52.4,16 L52.4,22 L38,22 Z" fill="#FFFFFF"/><path d="M55.6,16 L70,16 L70,22 L55.6,22 Z" fill="#FFFFFF"/></g>"""),
-  Sneer("""<g id="Mouth/Sneer" transform="translate(2.000000, 52.000000)"><path d="M40,22 C46,18 52,15 60,13 C66,12 70,15 70,19 C70,25 62,29 54,29 C46,29 41,26 40,22 Z" fill="#000000" fill-opacity="0.7"/><path d="M58,15.5 L67,14 L67,18 L58,19 Z" fill="#FFFFFF"/></g>"""),
+  Sneer(
+      """<g id="Mouth/Sneer" transform="translate(2.000000, 52.000000)"><path d="M40,22 C46,18 52,15 60,13 C66,12 70,15 70,19 C70,25 62,29 54,29 C46,29 41,26 40,22 Z" fill="#000000" fill-opacity="0.7"/><path d="M58,15.5 L67,14 L67,18 L58,19 Z" fill="#FFFFFF"/></g>"""),
   Wide("""
         <g id="Mouth/Wide" transform="translate(2.000000, 52.000000)"><path d="M32,16 C36,32 72,32 76,16 C72,26 36,26 32,16 Z" fill="#000000" fill-opacity="0.7"/></g>
         """),
