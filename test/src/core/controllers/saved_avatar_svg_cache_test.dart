@@ -56,9 +56,8 @@ void main() {
 
       final skinCategory = controller.propertyCategories
           .firstWhere((c) => c.id == PropertyCategoryIds.SkinColor);
-      final otherSkin = skinCategory.properties!
-          .firstWhere((item) => item != controller.selectedOptions[
-              PropertyCategoryIds.SkinColor]);
+      final otherSkin = skinCategory.properties!.firstWhere((item) =>
+          item != controller.selectedOptions[PropertyCategoryIds.SkinColor]);
 
       controller.drawCalls = 0;
       controller.selectedOptions[PropertyCategoryIds.SkinColor] = otherSkin;
@@ -76,15 +75,15 @@ void main() {
 
       final hairCategory = controller.displayedPropertyCategories
           .firstWhere((c) => c.id == PropertyCategoryIds.HairStyle);
-      final current = controller.selectedOptions[PropertyCategoryIds.HairStyle]!;
+      final current =
+          controller.selectedOptions[PropertyCategoryIds.HairStyle]!;
       final alternative =
           hairCategory.properties!.firstWhere((item) => item.id != current.id);
 
       controller.previewOption(alternative, PropertyCategoryIds.HairStyle);
 
       // The preview is reflected in displayedAvatarSVG ...
-      expect(controller.displayedAvatarSVG,
-          isNot(equals(savedBeforePreview)));
+      expect(controller.displayedAvatarSVG, isNot(equals(savedBeforePreview)));
       // ... but savedAvatarSVG keeps rendering the saved state.
       expect(controller.savedAvatarSVG, equals(savedBeforePreview));
     });

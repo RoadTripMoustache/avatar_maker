@@ -181,8 +181,8 @@ void main() {
     );
 
     Future<Uint8List> snapshot() async {
-      final boundary = key.currentContext!.findRenderObject()!
-          as RenderRepaintBoundary;
+      final boundary =
+          key.currentContext!.findRenderObject()! as RenderRepaintBoundary;
       late Uint8List bytes;
       await tester.runAsync(() async {
         final image = await boundary.toImage();

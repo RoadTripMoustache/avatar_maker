@@ -2325,7 +2325,8 @@ class CosmeticEffectPainter extends CustomPainter {
         final squared = dx * dx + dy * dy;
         if (squared < linkDistance * linkDistance) {
           final distance = sqrt(squared);
-          linePaint.color = _color(i, alpha: (1 - distance / linkDistance) * 0.14);
+          linePaint.color =
+              _color(i, alpha: (1 - distance / linkDistance) * 0.14);
           canvas.drawLine(positions[i], positions[j], linePaint);
         }
       }

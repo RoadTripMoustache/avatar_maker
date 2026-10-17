@@ -216,8 +216,8 @@ class _AvatarMakerAvatarState extends State<AvatarMakerAvatar> {
   Widget build(BuildContext context) {
     final avatarController = widget.controller ??
         Provider.of<AvatarMakerController?>(context, listen: true) ??
-        (_fallbackController ??= PersistentAvatarMakerController(
-            customizedPropertyCategories: []));
+        (_fallbackController ??=
+            PersistentAvatarMakerController(customizedPropertyCategories: []));
 
     // The avatar is a mostly-static widget that is often placed next to other
     // animations (a progress chart, a shimmer, a scrolling list) inside the
