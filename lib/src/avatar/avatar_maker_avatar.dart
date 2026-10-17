@@ -33,7 +33,7 @@ import "package:provider/provider.dart";
 /// Defaults to `true`. Set to `false` on avatars that live outside the
 /// customizer context (e.g. a home/profile page) so transient previews
 /// produced inside the customizer do not leak into them.
-class AvatarMakerAvatar extends StatelessWidget {
+class AvatarMakerAvatar extends StatefulWidget {
   final double radius;
   final double? width;
   final double? height;
@@ -66,41 +66,7 @@ class AvatarMakerAvatar extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final avatarController = controller ??
-        Provider.of<AvatarMakerController?>(context, listen: true) ??
-        PersistentAvatarMakerController(customizedPropertyCategories: []);
-
-    return ListenableBuilder(
-      listenable: avatarController,
-      builder: (context, child) {
-        return buildWithCosmetics(
-          context: context,
-          avatarController: avatarController,
-          radius: radius,
-          width: width,
-          height: height,
-          svgWidth: svgWidth,
-          svgHeight: svgHeight,
-          svgPadding: svgPadding,
-          border: border,
-          backgroundColor: backgroundColor,
-          background: (usePreview
-                  ? avatarController.previewBackgroundCosmetic
-                  : null) ??
-              avatarController.selectedBackgroundCosmetic,
-          effect:
-              (usePreview ? avatarController.previewEffectCosmetic : null) ??
-                  avatarController.selectedEffectCosmetic,
-          effectColor: (usePreview
-                  ? avatarController.previewEffectColorCosmetic
-                  : null) ??
-              avatarController.selectedEffectColorCosmetic,
-          usePreview: usePreview,
-        );
-      },
-    );
-  }
+  State<AvatarMakerAvatar> createState() => _AvatarMakerAvatarState();
 
   /// Build avatar with cosmetic layers (background + avatar + effect).
   static Widget buildWithCosmetics({
@@ -156,20 +122,27 @@ class AvatarMakerAvatar extends StatelessWidget {
           ),
 
         // Layer 3: SVG avatar
-        if (avatarController.displayedAvatarSVG.isEmpty)
-          effectiveLoader
-        else
-          SvgPicture.string(
-            usePreview
-                ? avatarController.displayedAvatarSVG
-                : avatarController.drawAvatarSVG(
-                    selectedOptionsOverride: avatarController.selectedOptions,
-                  ),
-            width: svgWidth,
-            height: svgHeight ?? radius * 1.6,
-            semanticsLabel: "Your avatar",
-            placeholderBuilder: (context) => Center(child: effectiveLoader),
-          ),
+        //
+        // Kept in its own repaint boundary so that (a) the animated cosmetic
+        // effect (layer 2) cannot force the SVG to be re-rasterized on every
+        // animation frame, and (b) rebuilds triggered by the controller stay
+        // confined to this subtree. `savedAvatarSVG` is the memoized version
+        // of `drawAvatarSVG(selectedOptionsOverride: selectedOptions)`, so
+        // repeated builds no longer re-concatenate the whole SVG string.
+        RepaintBoundary(
+          child: avatarController.displayedAvatarSVG.isEmpty
+              ? effectiveLoader
+              : SvgPicture.string(
+                  usePreview
+                      ? avatarController.displayedAvatarSVG
+                      : avatarController.savedAvatarSVG,
+                  width: svgWidth,
+                  height: svgHeight ?? radius * 1.6,
+                  semanticsLabel: "Your avatar",
+                  placeholderBuilder: (context) =>
+                      Center(child: effectiveLoader),
+                ),
+        ),
       ],
     );
 
@@ -203,6 +176,62 @@ class AvatarMakerAvatar extends StatelessWidget {
         border: border,
       ),
       child: ClipOval(child: stack),
+    );
+  }
+}
+
+class _AvatarMakerAvatarState extends State<AvatarMakerAvatar> {
+  /// Controller created lazily when neither [AvatarMakerAvatar.controller]
+  /// nor a [Provider] supplies one.
+  ///
+  /// Previously a fresh [PersistentAvatarMakerController] was built on every
+  /// `build()` – leaking a controller (and its async `initController` work)
+  /// per rebuild and re-subscribing the [ListenableBuilder] to a brand new
+  /// instance each time. It is now created once and disposed with the widget.
+  AvatarMakerController? _fallbackController;
+
+  @override
+  void dispose() {
+    _fallbackController?.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final avatarController = widget.controller ??
+        Provider.of<AvatarMakerController?>(context, listen: true) ??
+        (_fallbackController ??= PersistentAvatarMakerController(
+            customizedPropertyCategories: []));
+
+    return ListenableBuilder(
+      listenable: avatarController,
+      builder: (context, child) {
+        return AvatarMakerAvatar.buildWithCosmetics(
+          context: context,
+          avatarController: avatarController,
+          radius: widget.radius,
+          width: widget.width,
+          height: widget.height,
+          svgWidth: widget.svgWidth,
+          svgHeight: widget.svgHeight,
+          svgPadding: widget.svgPadding,
+          border: widget.border,
+          backgroundColor: widget.backgroundColor,
+          background: (widget.usePreview
+                  ? avatarController.previewBackgroundCosmetic
+                  : null) ??
+              avatarController.selectedBackgroundCosmetic,
+          effect: (widget.usePreview
+                  ? avatarController.previewEffectCosmetic
+                  : null) ??
+              avatarController.selectedEffectCosmetic,
+          effectColor: (widget.usePreview
+                  ? avatarController.previewEffectColorCosmetic
+                  : null) ??
+              avatarController.selectedEffectColorCosmetic,
+          usePreview: widget.usePreview,
+        );
+      },
     );
   }
 }

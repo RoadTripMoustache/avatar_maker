@@ -288,6 +288,52 @@ abstract class AvatarMakerController extends ChangeNotifier {
   /// to provide the appropriate restore strategy.
   Future<RestoredData> performRestore();
 
+  /// Cache for [savedAvatarSVG]: the SVG plus a snapshot of the option
+  /// (key, value) identities it was built from.
+  String? _cachedSavedAvatarSVG;
+  List<PropertyCategoryIds>? _cachedSavedAvatarKeys;
+  List<PropertyItem>? _cachedSavedAvatarValues;
+
+  /// The SVG built from [selectedOptions] (the saved state, ignoring any
+  /// active preview), memoized.
+  ///
+  /// [AvatarMakerAvatar] uses this every time it builds with
+  /// `usePreview: false` (e.g. the home screen avatar). Without memoization
+  /// the full SVG string was rebuilt from scratch on every single rebuild,
+  /// which is pure waste: the output only depends on the identity of the
+  /// selected items. The validity check is an O(n) identity comparison over
+  /// the map (n ≈ 16) – no hashing, so it cannot collide.
+  String get savedAvatarSVG {
+    if (_isSavedAvatarSVGCacheValid()) {
+      return _cachedSavedAvatarSVG!;
+    }
+    final svg = drawAvatarSVG();
+    _cachedSavedAvatarSVG = svg;
+    _cachedSavedAvatarKeys = selectedOptions.keys.toList(growable: false);
+    _cachedSavedAvatarValues = selectedOptions.values.toList(growable: false);
+    return svg;
+  }
+
+  bool _isSavedAvatarSVGCacheValid() {
+    final keys = _cachedSavedAvatarKeys;
+    final values = _cachedSavedAvatarValues;
+    if (_cachedSavedAvatarSVG == null || keys == null || values == null) {
+      return false;
+    }
+    if (keys.length != selectedOptions.length) {
+      return false;
+    }
+    var i = 0;
+    for (final entry in selectedOptions.entries) {
+      if (!identical(keys[i], entry.key) ||
+          !identical(values[i], entry.value)) {
+        return false;
+      }
+      i++;
+    }
+    return true;
+  }
+
   /// Generates a [String] SVG from the [selectedOptions] stored.
   String drawAvatarSVG({
     Map<PropertyCategoryIds, PropertyItem>? selectedOptionsOverride,
