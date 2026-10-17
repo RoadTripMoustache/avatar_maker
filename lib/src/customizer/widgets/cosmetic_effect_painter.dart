@@ -1,6 +1,7 @@
 import "dart:math";
 
 import "package:avatar_maker/src/core/enums/effect_type.dart";
+import "package:flutter/foundation.dart";
 import "package:flutter/material.dart";
 
 /// Internal droplet helper for liquid-style effects.
@@ -675,7 +676,11 @@ class EffectThumbnailPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant EffectThumbnailPainter oldDelegate) {
-    return oldDelegate.effectType != effectType || oldDelegate.colors != colors;
+    // Content comparison, not identity: `buildThumbnail` maps the item colors
+    // into a fresh list on every build, so an identity check repainted every
+    // visible thumbnail on every rebuild of the customizer grid.
+    return oldDelegate.effectType != effectType ||
+        !listEquals(oldDelegate.colors, colors);
   }
 }
 
@@ -756,14 +761,30 @@ extension _ThumbHelpers on CustomPainter {
 /// - Performance optimization (reduced particle count)
 class CosmeticEffectPainter extends CustomPainter {
   final EffectType effectType;
-  final double phase;
+
+  /// Animation driving the effect, when the painter is kept alive across
+  /// frames.
+  ///
+  /// It is forwarded to `super(repaint: ...)`, which lets the render object
+  /// repaint on every tick **without rebuilding any widget**: the phase is read
+  /// straight from the animation at paint time. When it is `null`, [phase]
+  /// falls back to the value passed to the constructor.
+  final Animation<double>? animation;
+
+  final double _initialPhase;
+
   final List<Color> colors;
 
   CosmeticEffectPainter({
     required this.effectType,
-    required this.phase,
+    required double phase,
     required this.colors,
-  });
+    this.animation,
+  })  : _initialPhase = phase,
+        super(repaint: animation);
+
+  /// Current animation phase in `[0, 1]`.
+  double get phase => animation?.value ?? _initialPhase;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -869,9 +890,27 @@ class CosmeticEffectPainter extends CustomPainter {
     );
   }
 
+  /// Deterministic pseudo-random value in `[0, 1)` for [seed].
+  ///
+  /// Pure function of [seed], so it is memoized: several effects call it dozens
+  /// of times per frame with the same small integer seeds (e.g. the pair loops
+  /// in `pushSymbols` / `networkWeb` / `waterDroplets`), and every miss costs a
+  /// `sin`.
+  static final List<double> _random01Cache = <double>[];
+
   double _random01(int seed) {
-    final value = sin(seed * 12.9898) * 43758.5453;
-    return value - value.floor();
+    if (seed < 0) {
+      final value = sin(seed * 12.9898) * 43758.5453;
+      return value - value.floor();
+    }
+    final cached = _random01Cache;
+    if (seed >= cached.length) {
+      for (var s = cached.length; s <= seed; s++) {
+        final value = sin(s * 12.9898) * 43758.5453;
+        cached.add(value - value.floor());
+      }
+    }
+    return cached[seed];
   }
 
   void _drawTextSymbol(
@@ -883,19 +922,9 @@ class CosmeticEffectPainter extends CustomPainter {
     double rotation = 0,
     double scale = 1,
   }) {
-    final painter = TextPainter(
-      text: TextSpan(
-        text: symbol,
-        style: TextStyle(
-          fontSize: fontSize,
-          color: paint.color,
-          fontWeight: FontWeight.w700,
-        ),
-      ),
-      textDirection: TextDirection.ltr,
-      textAlign: TextAlign.center,
-    );
-    painter.layout();
+    // Cached: the layout only depends on (symbol, fontSize, color), all of
+    // which are stable across frames for a given effect.
+    final painter = _textSymbolPainter(symbol, fontSize, paint.color);
 
     canvas.save();
     canvas.translate(center.dx, center.dy);
@@ -903,21 +932,47 @@ class CosmeticEffectPainter extends CustomPainter {
     canvas.scale(scale);
     painter.paint(canvas, Offset(-painter.width / 2, -painter.height / 2));
     canvas.restore();
-    painter.dispose();
+    // No dispose(): the painter is owned by [_textSymbolCache].
+  }
+
+  /// Cache of laid-out glyph painters, keyed by (symbol, fontSize, color).
+  ///
+  /// Text layout dominates the record cost of [EffectType.pushSymbols] – it
+  /// used to lay out and dispose 18 [TextPainter]s on every animation frame,
+  /// even though nothing about them changes between frames.
+  static final Map<int, TextPainter> _textSymbolCache = {};
+
+  TextPainter _textSymbolPainter(String symbol, double fontSize, Color color) {
+    final key = Object.hash(symbol, fontSize, color);
+    final cached = _textSymbolCache[key];
+    if (cached != null) {
+      return cached;
+    }
+    // Bound the cache so exotic custom color lists cannot leak unboundedly.
+    if (_textSymbolCache.length >= 256) {
+      for (final painter in _textSymbolCache.values) {
+        painter.dispose();
+      }
+      _textSymbolCache.clear();
+    }
+    final painter = TextPainter(
+      text: TextSpan(
+        text: symbol,
+        style: TextStyle(
+          fontSize: fontSize,
+          color: color,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+      textDirection: TextDirection.ltr,
+      textAlign: TextAlign.center,
+    )..layout();
+    _textSymbolCache[key] = painter;
+    return painter;
   }
 
   // ── STARS: Twinkling star particles with subtle trails ─────────────
   void _paintStars(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Subtle outer glow ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 12;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Orbiting stars on the perimeter.
     for (int i = 0; i < 8; i++) {
       final angle = (i * 2 * pi / 8) + (phase * 2 * pi);
@@ -978,16 +1033,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── HEARTS: Floating heart petals with soft pulse ───────────────────
   void _paintHearts(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Soft heart aura ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 10;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Floating heart particles on the perimeter.
     for (int i = 0; i < 8; i++) {
       final angle = (i * 2 * pi / 8) + (phase * 2 * pi);
@@ -1061,16 +1106,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── SPARKLES: Diamond sparkles with light beams ──────────────────────
   void _paintSparkles(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Radiant sparkle ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 10;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Sparkle particles around the perimeter.
     for (int i = 0; i < 10; i++) {
       final angle = (i * 2 * pi / 10) + (phase * 2 * pi);
@@ -1129,16 +1164,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── FLAMES: Flickering flame wisps ────────────────────────────────────
   void _paintFlames(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Flame aura ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.1)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 12;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Flickering flame particles on the perimeter.
     for (int i = 0; i < 8; i++) {
       final angle = (i * 2 * pi / 8) + (phase * 2 * pi);
@@ -1207,16 +1232,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── SNOWFLAKES: Delicate snow crystals with shimmer ──────────────────
   void _paintSnowflakes(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Snow aura ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.07)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 8)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 6;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Snowflakes on the perimeter.
     for (int i = 0; i < 8; i++) {
       final angle = (i * 2 * pi / 8) + (phase * 2 * pi);
@@ -1312,16 +1327,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── BUTTERFLIES: Delicate wing patterns ───────────────────────────────
   void _paintButterflies(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Butterfly aura ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.07)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 8;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Butterflies orbiting the perimeter.
     for (int i = 0; i < 6; i++) {
       final angle = (i * 2 * pi / 6) + (phase * 2 * pi);
@@ -1421,16 +1426,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── BUBBLES: Floating bubble particles ────────────────────────────────
   void _paintBubbles(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Bubble aura ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 8;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Bubble particles on the perimeter.
     for (int i = 0; i < 10; i++) {
       final angle = (i * 2 * pi / 10) + (phase * 2 * pi);
@@ -1462,16 +1457,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── PARTICLES: Floating particle dust ─────────────────────────────────
   void _paintParticles(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Particle aura ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.06)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 10;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Particle dust on the perimeter.
     for (int i = 0; i < 16; i++) {
       final angle = (i * 2 * pi / 16) + (phase * 2 * pi);
@@ -1501,16 +1486,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── MIST: Soft mist/fog particles ─────────────────────────────────────
   void _paintMist(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    // Mist aura ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 14)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 12;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
-
     // Mist particles.
     for (int i = 0; i < 12; i++) {
       final angle = (i * 2 * pi / 12) + (phase * 2 * pi);
@@ -1546,14 +1521,6 @@ class CosmeticEffectPainter extends CustomPainter {
   // ── WAVY LINES: Animated wave lines (inspired by Lottie Radio_02) ─────
   void _paintWavyLines(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-
-    // Subtle outer glow ring.
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 10)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 10;
-    canvas.drawCircle(center, size.width * 0.42, glowPaint);
 
     // Wavy line paths.
     final linePaint = Paint()
@@ -1793,15 +1760,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── RISING BUBBLES: Full background bubbles rising upward ─────────────
   void _paintRisingBubbles(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 16)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 18;
-    canvas.drawCircle(center, size.width * 0.48, glowPaint);
-
     final fillPaint = Paint()..style = PaintingStyle.fill;
     final strokePaint = Paint()
       ..style = PaintingStyle.stroke
@@ -1935,13 +1893,18 @@ class CosmeticEffectPainter extends CustomPainter {
       offsets.add(Offset(baseX + driftX, baseY + driftY));
     }
 
+    // Pairwise links: compare squared distances so the (i × j) scan does not
+    // pay for a sqrt on every pair. `58 * 58` is exact, so the branch matches
+    // the previous `distance < 58` check exactly.
+    const linkDistance = 58.0;
     for (int i = 0; i < offsets.length; i++) {
       for (int j = i + 1; j < offsets.length; j++) {
         final dx = offsets[i].dx - offsets[j].dx;
         final dy = offsets[i].dy - offsets[j].dy;
-        final distance = sqrt(dx * dx + dy * dy);
-        if (distance < 58) {
-          final alpha = (1 - distance / 58) * 0.12;
+        final squared = dx * dx + dy * dy;
+        if (squared < linkDistance * linkDistance) {
+          final distance = sqrt(squared);
+          final alpha = (1 - distance / linkDistance) * 0.12;
           linePaint.color = _color(i, alpha: alpha);
           canvas.drawLine(offsets[i], offsets[j], linePaint);
         }
@@ -1965,13 +1928,6 @@ class CosmeticEffectPainter extends CustomPainter {
   // ── COLOR WAVES: Full background gradient waves ────────────────────────
   void _paintColorWaves(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 18)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 22;
-    canvas.drawCircle(center, size.width * 0.5, glowPaint);
 
     for (int ring = 0; ring < 5; ring++) {
       final path = Path();
@@ -2095,11 +2051,15 @@ class CosmeticEffectPainter extends CustomPainter {
       nodes.add(Offset(x, y) + drift);
     }
 
+    const linkDistance = 105.0;
     for (int i = 0; i < nodes.length; i++) {
       for (int j = i + 1; j < nodes.length; j++) {
-        final distance = (nodes[i] - nodes[j]).distance;
-        if (distance < 105) {
-          final alpha = (1 - distance / 105) * 0.16;
+        final dx = nodes[i].dx - nodes[j].dx;
+        final dy = nodes[i].dy - nodes[j].dy;
+        final squared = dx * dx + dy * dy;
+        if (squared < linkDistance * linkDistance) {
+          final distance = sqrt(squared);
+          final alpha = (1 - distance / linkDistance) * 0.16;
           linePaint.color = _color(i, alpha: alpha);
           canvas.drawLine(nodes[i], nodes[j], linePaint);
         }
@@ -2184,11 +2144,15 @@ class CosmeticEffectPainter extends CustomPainter {
       nodes.add(Offset(baseX, baseY) + drift);
     }
 
+    const linkDistance = 95.0;
     for (int i = 0; i < nodes.length; i++) {
       for (int j = i + 1; j < nodes.length; j++) {
-        final distance = (nodes[i] - nodes[j]).distance;
-        if (distance < 95) {
-          final alpha = (1 - distance / 95) * 0.18;
+        final dx = nodes[i].dx - nodes[j].dx;
+        final dy = nodes[i].dy - nodes[j].dy;
+        final squared = dx * dx + dy * dy;
+        if (squared < linkDistance * linkDistance) {
+          final distance = sqrt(squared);
+          final alpha = (1 - distance / linkDistance) * 0.18;
           linePaint.color = _color(i, alpha: alpha);
           canvas.drawLine(nodes[i], nodes[j], linePaint);
         }
@@ -2204,15 +2168,6 @@ class CosmeticEffectPainter extends CustomPainter {
 
   // ── WATER DROPLETS: Droplets that merge and split with surface tension ─
   void _paintWaterDroplets(Canvas canvas, Size size) {
-    final center = Offset(size.width / 2, size.height / 2);
-
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 10;
-    canvas.drawCircle(center, size.width * 0.48, glowPaint);
-
     final fillPaint = Paint()..style = PaintingStyle.fill;
     final strokePaint = Paint()
       ..style = PaintingStyle.stroke
@@ -2275,13 +2230,6 @@ class CosmeticEffectPainter extends CustomPainter {
   void _paintLiquidMetaballs(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
 
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 18)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 18;
-    canvas.drawCircle(center, size.width * 0.5, glowPaint);
-
     final fillPaint = Paint()..style = PaintingStyle.fill;
 
     final blobs = <Offset>[];
@@ -2297,12 +2245,14 @@ class CosmeticEffectPainter extends CustomPainter {
     }
 
     // Draw filled blobs with mask filter to simulate metaball merging.
+    // The paint (and its blur) is hoisted out of the loop: only the color
+    // changes per blob, so allocating a fresh Paint per blob was pure waste.
+    final blobPaint = Paint()
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 18)
+      ..style = PaintingStyle.fill;
     for (int i = 0; i < blobs.length; i++) {
-      final paint = Paint()
-        ..color = _color(i, alpha: 0.24)
-        ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 18)
-        ..style = PaintingStyle.fill;
-      canvas.drawCircle(blobs[i], radii[i], paint);
+      blobPaint.color = _color(i, alpha: 0.24);
+      canvas.drawCircle(blobs[i], radii[i], blobPaint);
     }
 
     // Center highlights on each blob.
@@ -2315,13 +2265,6 @@ class CosmeticEffectPainter extends CustomPainter {
   // ── MORPH SHAPES: Shapes that morph between forms ─────────────────────
   void _paintMorphShapes(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height / 2);
-
-    final glowPaint = Paint()
-      ..color = _color(0, alpha: 0.08)
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 12)
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 10;
-    canvas.drawCircle(center, size.width * 0.46, glowPaint);
 
     final fillPaint = Paint()..style = PaintingStyle.fill;
 
@@ -2374,11 +2317,15 @@ class CosmeticEffectPainter extends CustomPainter {
     }
 
     // Constellation lines.
+    const linkDistance = 70.0;
     for (int i = 0; i < positions.length; i++) {
       for (int j = i + 1; j < positions.length; j++) {
-        final distance = (positions[i] - positions[j]).distance;
-        if (distance < 70) {
-          linePaint.color = _color(i, alpha: (1 - distance / 70) * 0.14);
+        final dx = positions[i].dx - positions[j].dx;
+        final dy = positions[i].dy - positions[j].dy;
+        final squared = dx * dx + dy * dy;
+        if (squared < linkDistance * linkDistance) {
+          final distance = sqrt(squared);
+          linePaint.color = _color(i, alpha: (1 - distance / linkDistance) * 0.14);
           canvas.drawLine(positions[i], positions[j], linePaint);
         }
       }
@@ -2430,8 +2377,89 @@ class CosmeticEffectPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CosmeticEffectPainter oldDelegate) {
-    return oldDelegate.phase != phase ||
-        oldDelegate.effectType != effectType ||
-        oldDelegate.colors != colors;
+    return oldDelegate.effectType != effectType ||
+        oldDelegate.phase != phase ||
+        !listEquals(oldDelegate.colors, colors);
+  }
+}
+
+/// Specification of the static outer glow ring of an ambient effect.
+class _GlowSpec {
+  final double alpha;
+  final double sigma;
+  final double strokeWidth;
+  final double radiusFactor;
+
+  const _GlowSpec(this.alpha, this.sigma, this.strokeWidth, this.radiusFactor);
+}
+
+/// Draws the *static* outer glow ring of ambient effects.
+///
+/// The glow depends only on the effect type and its colors – never on the
+/// animation phase – yet it used to be redrawn on every animation frame inside
+/// [CosmeticEffectPainter], which meant each frame paid for a large
+/// `MaskFilter.blur` stroke (sigma 8–18 on a 300px canvas). Extracting it into
+/// this painter lets [CosmeticEffectWidget] render it once into its own
+/// [RepaintBoundary] and reuse the layer for every frame, with identical
+/// output.
+///
+/// Effects without an outer glow (e.g. [EffectType.aura],
+/// [EffectType.birds], [EffectType.networkWeb]) are no-ops here.
+class CosmeticEffectGlowPainter extends CustomPainter {
+  final EffectType effectType;
+  final List<Color> colors;
+
+  CosmeticEffectGlowPainter({
+    required this.effectType,
+    required this.colors,
+  });
+
+  static const Map<EffectType, _GlowSpec> _specs = {
+    EffectType.stars: _GlowSpec(0.08, 10, 12, 0.42),
+    EffectType.hearts: _GlowSpec(0.08, 12, 10, 0.42),
+    EffectType.sparkles: _GlowSpec(0.08, 12, 10, 0.42),
+    EffectType.flames: _GlowSpec(0.10, 12, 12, 0.42),
+    EffectType.snowflakes: _GlowSpec(0.07, 8, 6, 0.42),
+    EffectType.butterflies: _GlowSpec(0.07, 10, 8, 0.42),
+    EffectType.bubbles: _GlowSpec(0.08, 10, 8, 0.42),
+    EffectType.particles: _GlowSpec(0.06, 12, 10, 0.42),
+    EffectType.mist: _GlowSpec(0.08, 14, 12, 0.42),
+    EffectType.wavyLines: _GlowSpec(0.08, 10, 10, 0.42),
+    EffectType.risingBubbles: _GlowSpec(0.08, 16, 18, 0.48),
+    EffectType.colorWaves: _GlowSpec(0.08, 18, 22, 0.50),
+    EffectType.waterDroplets: _GlowSpec(0.08, 12, 10, 0.48),
+    EffectType.liquidMetaballs: _GlowSpec(0.08, 18, 18, 0.50),
+    EffectType.morphShapes: _GlowSpec(0.08, 12, 10, 0.46),
+  };
+
+  Color _color(int index, {double alpha = 0.8}) {
+    if (colors.isEmpty) {
+      return Colors.white.withValues(alpha: alpha);
+    }
+    return colors[index % colors.length].withValues(alpha: alpha);
+  }
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final spec = _specs[effectType];
+    if (spec == null) {
+      return;
+    }
+    final center = Offset(size.width / 2, size.height / 2);
+    final glowPaint = Paint()
+      ..color = _color(0, alpha: spec.alpha)
+      ..maskFilter = MaskFilter.blur(BlurStyle.normal, spec.sigma)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = spec.strokeWidth;
+    canvas.drawCircle(center, size.width * spec.radiusFactor, glowPaint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CosmeticEffectGlowPainter oldDelegate) {
+    // Content comparison, not identity: `EffectCosmeticItemWithColor` passes a
+    // fresh `[color]` list on every build, so an identity check made the
+    // (expensive, blurred) glow re-rasterize on every single avatar rebuild.
+    return oldDelegate.effectType != effectType ||
+        !listEquals(oldDelegate.colors, colors);
   }
 }
