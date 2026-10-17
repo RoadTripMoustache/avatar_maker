@@ -1,5 +1,6 @@
 import "package:avatar_maker/avatar_maker.dart";
 import "package:flutter/material.dart";
+import "package:flutter/rendering.dart";
 import "package:flutter_test/flutter_test.dart";
 
 import "../../helpers.dart";
@@ -280,6 +281,98 @@ void main() {
         },
       );
     });
+
+    group("repaint isolation", () {
+      testWidgets(
+        "wraps its whole subtree in a RepaintBoundary so the shared layer "
+        "does not own the avatar's paint",
+        (WidgetTester tester) async {
+          final controller = NonPersistentAvatarMakerController();
+          await controller.initController();
+
+          await tester.pumpWidget(
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Center(
+                child: AvatarMakerAvatar(controller: controller, radius: 40),
+              ),
+            ),
+          );
+
+          expect(
+            tester.renderObject(find.byType(AvatarMakerAvatar)),
+            isA<RenderRepaintBoundary>(),
+            reason: "the avatar must be its own repaint layer: a sibling or "
+                "ancestor animation (a chart, a shimmer, a scroll) must not "
+                "re-record the avatar's circle, clips and cosmetic wrappers",
+          );
+        },
+      );
+
+      testWidgets(
+        "a repainting sibling does not repaint the avatar's internals",
+        (WidgetTester tester) async {
+          final controller = NonPersistentAvatarMakerController();
+          await controller.initController();
+
+          // A canary painted *inside* the avatar (in the cosmetic background
+          // slot, which has no repaint boundary of its own) so we can observe
+          // how far up the layer tree a sibling repaint reaches.
+          final avatarCanary = _CountingPainter();
+          controller.selectCosmetic(_CanaryBackgroundItem(avatarCanary));
+
+          final siblingTrigger = _RepaintTrigger();
+          final siblingPainter = _CountingPainter(repaint: siblingTrigger);
+
+          await tester.pumpWidget(
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Stack(
+                children: [
+                  // Shares the layer with the avatar and repaints on demand,
+                  // like the animated chart next to the avatar on the home
+                  // screen.
+                  Positioned.fill(
+                    child: CustomPaint(painter: siblingPainter),
+                  ),
+                  Center(
+                    child: AvatarMakerAvatar(
+                      controller: controller,
+                      radius: 80,
+                      backgroundColor: Colors.transparent,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+          await tester.pump();
+
+          final avatarBaseline = avatarCanary.paintCount;
+          final siblingBaseline = siblingPainter.paintCount;
+          expect(avatarBaseline, greaterThan(0),
+              reason: "the avatar canary must be painted on the first frame");
+
+          // Repaint the sibling only.
+          siblingTrigger.trigger();
+          await tester.pump();
+
+          expect(
+            siblingPainter.paintCount,
+            greaterThan(siblingBaseline),
+            reason: "the sibling must actually repaint for this test to be "
+                "meaningful",
+          );
+          expect(
+            avatarCanary.paintCount,
+            avatarBaseline,
+            reason: "without a RepaintBoundary at the avatar root the whole "
+                "shared layer (avatar included) is re-recorded on every "
+                "sibling repaint",
+          );
+        },
+      );
+    });
   });
 }
 
@@ -293,4 +386,66 @@ class _RecorderPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _RecorderPainter oldDelegate) =>
       oldDelegate.colors != colors;
+}
+
+/// A [ChangeNotifier] that lets a test force a repaint of a [CustomPaint].
+class _RepaintTrigger extends ChangeNotifier {
+  void trigger() => notifyListeners();
+}
+
+/// Counts how many times it is asked to paint. It never requests a repaint by
+/// itself, so every counted paint was forced by an ancestor layer repaint.
+class _CountingPainter extends CustomPainter {
+  _CountingPainter({Listenable? repaint}) : super(repaint: repaint);
+
+  int paintCount = 0;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    paintCount++;
+    canvas.drawRect(
+      Offset.zero & size,
+      Paint()..color = const Color(0x22000000),
+    );
+  }
+
+  @override
+  bool shouldRepaint(covariant _CountingPainter oldDelegate) => false;
+}
+
+/// A cosmetic background whose widget paints [painter], used to observe
+/// repaints of the avatar's inner (non-boundary) layers.
+class _CanaryBackgroundItem extends CosmeticPropertyItem {
+  _CanaryBackgroundItem(this.painter);
+
+  final CustomPainter painter;
+
+  @override
+  final String cosmeticId = "test_canary_background";
+
+  @override
+  final String label = "Canary background";
+
+  @override
+  final String category = "background";
+
+  @override
+  final String tier = "basic";
+
+  @override
+  final int cost = 0;
+
+  @override
+  final bool locked = false;
+
+  @override
+  Widget buildWidget(BuildContext context, double size) => SizedBox(
+        width: size,
+        height: size,
+        child: CustomPaint(painter: painter),
+      );
+
+  @override
+  Widget buildThumbnail(BuildContext context, double size) =>
+      buildWidget(context, size);
 }
