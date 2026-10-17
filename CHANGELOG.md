@@ -35,6 +35,16 @@
   direction, a controller update now repaints the avatar's own layer instead of
   walking up to and re-recording the shared ancestor layer. Output is
   pixel-identical (109/109 rendered frames byte-compared).
+- perf(avatar): give the cosmetic background and effect slots their own
+  `RepaintBoundary`. `CosmeticPropertyItem.buildWidget` is the documented entry
+  point for custom cosmetics ("gradient backgrounds, animated effects, and other
+  widget-based visual elements"); the built-in `CosmeticEffectWidget` isolates
+  itself, but a consumer-supplied `customBuilder` (a Lottie animation, a
+  ticker/stream-driven painter, ...) had no boundary of its own, so every frame
+  of such an animation re-recorded the rest of the avatar - and, when no closer
+  boundary existed, the whole shared screen layer it sits in. That is the exact
+  configuration 11 of the effects in p763_quiz use. Output is pixel-identical
+  (109/109 rendered frames byte-compared).
 
 ### Fixed
 - fix(effects): compare color lists by content in `shouldRepaint` for
