@@ -25,6 +25,16 @@
   `Offset` allocations on every frame.
 - perf(effects): hoist the blurred `Paint` of `liquidMetaballs` out of its blob
   loop instead of allocating one per blob and frame.
+- perf(avatar): give `AvatarMakerAvatar` its own root `RepaintBoundary`, so the
+  avatar stops sharing a repaint layer with whatever animates next to it on the
+  same screen. A sibling/ancestor animation (a progress chart, a shimmering
+  badge, any per-frame repaint in the shared layer) used to re-record the
+  avatar's circle, clips, cosmetic wrappers and SVG on every frame - measured at
+  ~350 us/frame for a 200px avatar with a cosmetic background and an effect,
+  versus ~160-220 us/frame for re-attaching a cached layer. In the other
+  direction, a controller update now repaints the avatar's own layer instead of
+  walking up to and re-recording the shared ancestor layer. Output is
+  pixel-identical (109/109 rendered frames byte-compared).
 
 ### Fixed
 - fix(effects): compare color lists by content in `shouldRepaint` for
