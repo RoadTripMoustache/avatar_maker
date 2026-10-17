@@ -372,6 +372,135 @@ void main() {
           );
         },
       );
+
+      testWidgets(
+        "an animated custom effect does not repaint the avatar's other layers",
+        (WidgetTester tester) async {
+          final controller = NonPersistentAvatarMakerController();
+          await controller.initController();
+
+          // p763_quiz (and any consumer that wants an animated effect the
+          // package does not ship) injects an animation through
+          // `customBuilder`, exactly like this.
+          final backgroundCanary = _CountingPainter();
+          controller.selectCosmetic(_CanaryBackgroundItem(backgroundCanary));
+
+          final effectTrigger = _RepaintTrigger();
+          final effectCanary = _CountingPainter(repaint: effectTrigger);
+          controller.selectCosmetic(
+            EffectCosmeticItem(
+              cosmeticId: "custom_canary_effect",
+              label: "Custom canary effect",
+              tier: "basic",
+              cost: 0,
+              effectType: EffectType.stars,
+              customBuilder: (context, size, colors) =>
+                  CustomPaint(painter: effectCanary),
+            ),
+          );
+
+          await tester.pumpWidget(
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Center(
+                child: AvatarMakerAvatar(
+                  controller: controller,
+                  radius: 80,
+                  backgroundColor: Colors.transparent,
+                ),
+              ),
+            ),
+          );
+          await tester.pump();
+
+          final backgroundBaseline = backgroundCanary.paintCount;
+          final effectBaseline = effectCanary.paintCount;
+          expect(backgroundBaseline, greaterThan(0));
+          expect(effectBaseline, greaterThan(0),
+              reason: "the custom effect must be rendered");
+
+          // Advance the custom effect animation by one frame.
+          effectTrigger.trigger();
+          await tester.pump();
+
+          expect(
+            effectCanary.paintCount,
+            greaterThan(effectBaseline),
+            reason: "the custom effect must repaint for this test to be "
+                "meaningful",
+          );
+          expect(
+            backgroundCanary.paintCount,
+            backgroundBaseline,
+            reason: "a custom effect animates on every frame; without its own "
+                "RepaintBoundary the effect slot re-records the whole avatar "
+                "(background, clips, SVG) on each of those frames",
+          );
+        },
+      );
+
+      testWidgets(
+        "an animated custom background does not repaint the avatar's other "
+        "layers",
+        (WidgetTester tester) async {
+          final controller = NonPersistentAvatarMakerController();
+          await controller.initController();
+
+          final backgroundTrigger = _RepaintTrigger();
+          final backgroundCanary = _CountingPainter(repaint: backgroundTrigger);
+          controller.selectCosmetic(_CanaryBackgroundItem(backgroundCanary));
+
+          final effectCanary = _CountingPainter();
+          controller.selectCosmetic(
+            EffectCosmeticItem(
+              cosmeticId: "custom_canary_effect",
+              label: "Custom canary effect",
+              tier: "basic",
+              cost: 0,
+              effectType: EffectType.stars,
+              customBuilder: (context, size, colors) =>
+                  CustomPaint(painter: effectCanary),
+            ),
+          );
+
+          await tester.pumpWidget(
+            Directionality(
+              textDirection: TextDirection.ltr,
+              child: Center(
+                child: AvatarMakerAvatar(
+                  controller: controller,
+                  radius: 80,
+                  backgroundColor: Colors.transparent,
+                ),
+              ),
+            ),
+          );
+          await tester.pump();
+
+          final backgroundBaseline = backgroundCanary.paintCount;
+          final effectBaseline = effectCanary.paintCount;
+          expect(backgroundBaseline, greaterThan(0));
+          expect(effectBaseline, greaterThan(0));
+
+          // Advance the custom background animation by one frame.
+          backgroundTrigger.trigger();
+          await tester.pump();
+
+          expect(
+            backgroundCanary.paintCount,
+            greaterThan(backgroundBaseline),
+            reason: "the custom background must repaint for this test to be "
+                "meaningful",
+          );
+          expect(
+            effectCanary.paintCount,
+            effectBaseline,
+            reason: "a custom background animates on every frame; without its "
+                "own RepaintBoundary the background slot re-records the whole "
+                "avatar on each of those frames",
+          );
+        },
+      );
     });
   });
 }

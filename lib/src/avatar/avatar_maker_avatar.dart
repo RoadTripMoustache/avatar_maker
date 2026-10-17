@@ -103,7 +103,16 @@ class AvatarMakerAvatar extends StatefulWidget {
         if (background != null)
           Positioned.fill(
             child: ClipOval(
-              child: background.buildWidget(context, cosmeticSize),
+              // Cosmetic items are allowed to animate (`CosmeticPropertyItem`
+              // documents `buildWidget` for "gradient backgrounds, animated
+              // effects, and other widget-based visual elements"), so each
+              // slot gets its own repaint layer. Without it, every frame of an
+              // animated background/effect re-records the rest of the avatar -
+              // and, when no closer boundary exists, the whole shared screen
+              // layer it sits in.
+              child: RepaintBoundary(
+                child: background.buildWidget(context, cosmeticSize),
+              ),
             ),
           ),
 
@@ -111,13 +120,20 @@ class AvatarMakerAvatar extends StatefulWidget {
         if (effect != null)
           Positioned.fill(
             child: ClipOval(
-              child: effectColor is EffectColorCosmeticItem
-                  ? EffectCosmeticItemWithColor(
-                      effect: effect as EffectCosmeticItem,
-                      color: effectColor.color,
-                      size: cosmeticSize,
-                    )
-                  : effect.buildWidget(context, cosmeticSize),
+              // The built-in `CosmeticEffectWidget` already isolates its own
+              // layers, but a consumer-supplied `customBuilder` (a Lottie
+              // animation, a stream-driven painter, ...) has no boundary of
+              // its own - and that is the consumer-facing path for animated
+              // effects.
+              child: RepaintBoundary(
+                child: effectColor is EffectColorCosmeticItem
+                    ? EffectCosmeticItemWithColor(
+                        effect: effect as EffectCosmeticItem,
+                        color: effectColor.color,
+                        size: cosmeticSize,
+                      )
+                    : effect.buildWidget(context, cosmeticSize),
+              ),
             ),
           ),
 
