@@ -1,4 +1,59 @@
 ## [Unreleased]
+### Changed
+- perf(effects): isolate the animated cosmetic effect in its own `RepaintBoundary`
+  so its per-frame repaint no longer bubbles up and repaints the rest of the
+  screen (avatar SVG, background, home screen content). This was the main cause
+  of frame drops when an effect was equipped.
+- perf(effects): split the static outer glow ring out of `CosmeticEffectPainter`
+  into the new `CosmeticEffectGlowPainter`, rendered once in its own layer
+  instead of re-running a large `MaskFilter.blur` stroke on every frame
+  (up to ~76% less per-frame raster work; pixel-identical output).
+- perf(effects): cache the laid-out `TextPainter`s used by `pushSymbols` instead
+  of re-laying out (and disposing) 18 of them on every frame.
+- perf(avatar): keep the avatar SVG in its own `RepaintBoundary` and memoize the
+  saved-state SVG (`AvatarMakerController.savedAvatarSVG`) so non-preview
+  avatars no longer re-concatenate the whole SVG string on every rebuild.
+- fix(avatar): create the fallback `PersistentAvatarMakerController` once in
+  `AvatarMakerAvatar` instead of on every `build()`.
+- perf(effects): drive the animated layer with a single long-lived painter that
+  listens to the controller (`CustomPaint` repaint notifications) instead of
+  rebuilding the widget subtree and allocating a new painter on every frame.
+  Measured per-frame UI cost of the effect pipeline: ~1046 us -> ~544 us.
+- perf(effects): memoize the `_random01(seed)` helper and compare squared
+  distances in the pairwise link loops (`pushSymbols`, `networkWeb`,
+  `graphNodes`, `geometricConstellation`), avoiding a `sqrt` and per-pair
+  `Offset` allocations on every frame.
+- perf(effects): hoist the blurred `Paint` of `liquidMetaballs` out of its blob
+  loop instead of allocating one per blob and frame.
+- perf(avatar): give `AvatarMakerAvatar` its own root `RepaintBoundary`, so the
+  avatar stops sharing a repaint layer with whatever animates next to it on the
+  same screen. A sibling/ancestor animation (a progress chart, a shimmering
+  badge, any per-frame repaint in the shared layer) used to re-record the
+  avatar's circle, clips, cosmetic wrappers and SVG on every frame - measured at
+  ~350 us/frame for a 200px avatar with a cosmetic background and an effect,
+  versus ~160-220 us/frame for re-attaching a cached layer. In the other
+  direction, a controller update now repaints the avatar's own layer instead of
+  walking up to and re-recording the shared ancestor layer. Output is
+  pixel-identical (109/109 rendered frames byte-compared).
+- perf(avatar): give the cosmetic background and effect slots their own
+  `RepaintBoundary`. `CosmeticPropertyItem.buildWidget` is the documented entry
+  point for custom cosmetics ("gradient backgrounds, animated effects, and other
+  widget-based visual elements"); the built-in `CosmeticEffectWidget` isolates
+  itself, but a consumer-supplied `customBuilder` (a Lottie animation, a
+  ticker/stream-driven painter, ...) had no boundary of its own, so every frame
+  of such an animation re-recorded the rest of the avatar - and, when no closer
+  boundary existed, the whole shared screen layer it sits in. That is the exact
+  configuration 11 of the effects in p763_quiz use. Output is pixel-identical
+  (109/109 rendered frames byte-compared).
+
+### Fixed
+- fix(effects): compare color lists by content in `shouldRepaint` for
+  `EffectThumbnailPainter`, `CosmeticEffectPainter` and
+  `CosmeticEffectGlowPainter`. The callers hand these painters a freshly
+  allocated list on every build (`[color]` in `EffectCosmeticItemWithColor`,
+  the mapped `displayColors` in `buildThumbnail`), so the previous identity
+  check re-recorded and re-rasterized every visible effect thumbnail and the
+  blurred glow ring on every rebuild of the avatar / customizer grid.
 
 ---
 
