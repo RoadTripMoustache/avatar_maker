@@ -1,4 +1,8 @@
 ## [Unreleased]
+
+---
+
+## [1.10.0] - 18/10/2026
 ### Changed
 - perf(effects): isolate the animated cosmetic effect in its own `RepaintBoundary`
   so its per-frame repaint no longer bubbles up and repaints the rest of the
