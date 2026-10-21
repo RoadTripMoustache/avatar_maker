@@ -40,6 +40,11 @@ class CustomizerBody extends StatelessWidget {
     var attributeGrids = <Widget>[];
     var navbarWidgets = <Widget>[];
 
+    /// Read the controller state once: the preview options getter builds a
+    /// copy of its map, and it is needed for every category.
+    final previewOptions = avatarMakerController.previewOptions;
+    final selectedOptions = avatarMakerController.selectedOptions;
+
     /// Create the tab icon and content for each category.
     for (final (categoryIndex, propertyCategory)
         in avatarMakerController.displayedPropertyCategories.indexed) {
@@ -54,14 +59,17 @@ class CustomizerBody extends StatelessWidget {
       final properties = propertyCategory.properties ?? const <PropertyItem>[];
       var attributeListLength = properties.length;
 
-      final PropertyItem? selectedItem =
-          avatarMakerController.previewOptions[propertyCategory.id] ??
-              avatarMakerController.selectedOptions[propertyCategory.id] ??
-              (properties.isNotEmpty
-                  ? properties.first
-                  : propertyCategory.defaultValue);
+      final PropertyItem? selectedItem = previewOptions[propertyCategory.id] ??
+          selectedOptions[propertyCategory.id] ??
+          (properties.isNotEmpty
+              ? properties.first
+              : propertyCategory.defaultValue);
 
       /// Index of the selected option inside [properties].
+      ///
+      /// Computed once for the whole grid instead of once per tile: looking
+      /// the selection up for every tile made the grid build quadratic in the
+      /// number of options (49 options -> 2401 comparisons per rebuild).
       final selectedIndex =
           selectedItem == null ? -1 : properties.indexOf(selectedItem);
 

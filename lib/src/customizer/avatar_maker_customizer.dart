@@ -106,6 +106,9 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
   late AvatarMakerController avatarMakerController;
   bool _controllerCreatedInternally = false;
 
+  /// The last state of the controller the customizer rendered.
+  late _CustomizerRenderState _renderState;
+
   /// Number of displayed categories in the customizer widget.
   late int nbrDisplayedCategories;
   late TabController tabController;
@@ -139,9 +142,21 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
       setState(() {});
     });
 
+    _renderState = _CustomizerRenderState.capture(avatarMakerController);
+
     // Add listener to the controller
     _controllerListener = () {
-      if (mounted) setState(() {});
+      if (!mounted) return;
+      // The controller notifies its listeners on every state change, but the
+      // customizer only renders the selected and previewed options. When
+      // neither changed, rebuilding the whole grid is pure waste: it re-builds
+      // every visible tile (a hair style thumbnail is ~4 KB of SVG path data)
+      // and drops frames right after the customizer opened.
+      final next = _CustomizerRenderState.capture(avatarMakerController);
+      if (next.isSameAs(_renderState)) {
+        return;
+      }
+      setState(() {});
     };
     avatarMakerController.addListener(_controllerListener!);
   }
@@ -212,6 +227,10 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
 
   @override
   Widget build(BuildContext context) {
+    // Keep the snapshot in sync with what is actually rendered, so the
+    // controller listener can tell an actual change from a no-op.
+    _renderState = _CustomizerRenderState.capture(avatarMakerController);
+
     var size = MediaQuery.of(context).size;
     return ChangeNotifierProvider<AvatarMakerController>.value(
       value: avatarMakerController,
@@ -232,5 +251,55 @@ class _AvatarMakerCustomizerState extends State<AvatarMakerCustomizer>
         ),
       ),
     );
+  }
+}
+
+/// Snapshot of the controller state the customizer actually renders.
+///
+/// The customizer renders the selected and the previewed option of every
+/// displayed category, plus the thumbnails, which embed the color of some
+/// categories. Everything else the controller holds (the rendered avatar SVG,
+/// the saved state, ...) has no impact on the UI: rebuilding the grid for
+/// those changes is pure waste.
+class _CustomizerRenderState {
+  const _CustomizerRenderState(this.values);
+
+  /// The selected and previewed option of every displayed category, followed
+  /// by the color options the thumbnails embed.
+  final List<Object?> values;
+
+  /// Captures the state the customizer renders for [controller].
+  static _CustomizerRenderState capture(AvatarMakerController controller) {
+    final selectedOptions = controller.selectedOptions;
+    final previewOptions = controller.previewOptions;
+
+    final values = <Object?>[];
+    for (final category in controller.displayedPropertyCategories) {
+      values.add(selectedOptions[category.id]);
+      values.add(previewOptions[category.id]);
+    }
+
+    // The thumbnails of some categories embed the color of another category
+    // (the hair styles are drawn with the selected hair color, the outfits
+    // with the selected outfit color, ...), so a change of one of those has
+    // to rebuild the grids as well.
+    values.add(selectedOptions[PropertyCategoryIds.HairColor]);
+    values.add(selectedOptions[PropertyCategoryIds.OutfitColor]);
+    values.add(selectedOptions[PropertyCategoryIds.FacialHairColor]);
+
+    return _CustomizerRenderState(values);
+  }
+
+  /// Whether both snapshots hold the same options.
+  bool isSameAs(_CustomizerRenderState other) {
+    if (values.length != other.values.length) {
+      return false;
+    }
+    for (var i = 0; i < values.length; i++) {
+      if (values[i] != other.values[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 }
