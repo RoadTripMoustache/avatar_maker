@@ -339,26 +339,34 @@ abstract class AvatarMakerController extends ChangeNotifier {
     Map<PropertyCategoryIds, PropertyItem>? selectedOptionsOverride,
   }) {
     final options = selectedOptionsOverride ?? selectedOptions;
+
+    /// The option of [id], falling back to its default value.
+    ///
+    /// The controller can be used before it finished initialising, in which
+    /// case the selection does not hold every option yet.
+    PropertyItem option(PropertyCategoryIds id) =>
+        options[id] ?? defaultSelectedOptions[id]!;
+
     return AvatarService.drawSVG(
-      accessory: options[PropertyCategoryIds.Accessory]!.value,
-      backgroundStyle: options[PropertyCategoryIds.Background]!.value,
-      eyebrows: options[PropertyCategoryIds.EyebrowType]!.value,
-      eyes: options[PropertyCategoryIds.EyeType]!.value,
+      accessory: option(PropertyCategoryIds.Accessory).value,
+      backgroundStyle: option(PropertyCategoryIds.Background).value,
+      eyebrows: option(PropertyCategoryIds.EyebrowType).value,
+      eyes: option(PropertyCategoryIds.EyeType).value,
       facialHair: FacialHairsService.generateFacialHair(
-        color: options[PropertyCategoryIds.FacialHairColor] as FacialHairColors,
-        type: options[PropertyCategoryIds.FacialHairType] as FacialHairTypes,
+        color: option(PropertyCategoryIds.FacialHairColor) as FacialHairColors,
+        type: option(PropertyCategoryIds.FacialHairType) as FacialHairTypes,
       ),
       hair: HairService.generateHairStyle(
-        color: options[PropertyCategoryIds.HairColor] as HairColors,
-        style: options[PropertyCategoryIds.HairStyle] as HairStyles,
+        color: option(PropertyCategoryIds.HairColor) as HairColors,
+        style: option(PropertyCategoryIds.HairStyle) as HairStyles,
       ),
-      mouth: options[PropertyCategoryIds.MouthType]!.value,
-      nose: options[PropertyCategoryIds.Nose]!.value,
+      mouth: option(PropertyCategoryIds.MouthType).value,
+      nose: option(PropertyCategoryIds.Nose).value,
       outfit: OutfitService.generateOutfit(
-        color: options[PropertyCategoryIds.OutfitColor] as OutfitColors,
-        type: options[PropertyCategoryIds.OutfitType] as OutfitTypes,
+        color: option(PropertyCategoryIds.OutfitColor) as OutfitColors,
+        type: option(PropertyCategoryIds.OutfitType) as OutfitTypes,
       ),
-      skin: options[PropertyCategoryIds.SkinColor]!.value,
+      skin: option(PropertyCategoryIds.SkinColor).value,
     );
   }
 
