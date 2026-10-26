@@ -294,6 +294,35 @@ abstract class AvatarMakerController extends ChangeNotifier {
   List<PropertyCategoryIds>? _cachedSavedAvatarKeys;
   List<PropertyItem>? _cachedSavedAvatarValues;
 
+  /// Cache for [getComponentSVG], per category.
+  ///
+  /// The thumbnails of a category are the same SVG strings every time the
+  /// grid is built, but generating them is not free: a single hair style is
+  /// ~4 KB of SVG path data, so a full grid rebuild used to allocate and
+  /// concatenate ~200 KB of strings again and again. The generated strings
+  /// are cached and reused until the selection they depend on changes.
+  final Map<PropertyCategoryIds, _ComponentSVGCache> _componentSVGCache = {};
+
+  /// The option the generated SVGs of [categoryId] depend on, if any.
+  ///
+  /// Some thumbnails embed the color of another category (the hair styles
+  /// are drawn with the selected hair color, the outfits with the selected
+  /// outfit color, ...). When that color changes, the cached SVGs of the
+  /// category are stale and have to be generated again.
+  PropertyItem? _componentSVGColorDependency(PropertyCategoryIds categoryId) {
+    switch (categoryId) {
+      case PropertyCategoryIds.HairStyle:
+        return selectedOptions[PropertyCategoryIds.HairColor] ??
+            HairColors.values.first;
+      case PropertyCategoryIds.OutfitType:
+        return selectedOptions[PropertyCategoryIds.OutfitColor];
+      case PropertyCategoryIds.FacialHairType:
+        return selectedOptions[PropertyCategoryIds.FacialHairColor];
+      default:
+        return null;
+    }
+  }
+
   /// The SVG built from [selectedOptions] (the saved state, ignoring any
   /// active preview), memoized.
   ///
@@ -339,32 +368,65 @@ abstract class AvatarMakerController extends ChangeNotifier {
     Map<PropertyCategoryIds, PropertyItem>? selectedOptionsOverride,
   }) {
     final options = selectedOptionsOverride ?? selectedOptions;
+
+    /// The option of [id], falling back to its default value.
+    ///
+    /// The controller can be used before it finished initialising, in which
+    /// case the selection does not hold every option yet.
+    PropertyItem option(PropertyCategoryIds id) =>
+        options[id] ?? defaultSelectedOptions[id]!;
+
     return AvatarService.drawSVG(
-      accessory: options[PropertyCategoryIds.Accessory]!.value,
-      backgroundStyle: options[PropertyCategoryIds.Background]!.value,
-      eyebrows: options[PropertyCategoryIds.EyebrowType]!.value,
-      eyes: options[PropertyCategoryIds.EyeType]!.value,
+      accessory: option(PropertyCategoryIds.Accessory).value,
+      backgroundStyle: option(PropertyCategoryIds.Background).value,
+      eyebrows: option(PropertyCategoryIds.EyebrowType).value,
+      eyes: option(PropertyCategoryIds.EyeType).value,
       facialHair: FacialHairsService.generateFacialHair(
-        color: options[PropertyCategoryIds.FacialHairColor] as FacialHairColors,
-        type: options[PropertyCategoryIds.FacialHairType] as FacialHairTypes,
+        color: option(PropertyCategoryIds.FacialHairColor) as FacialHairColors,
+        type: option(PropertyCategoryIds.FacialHairType) as FacialHairTypes,
       ),
       hair: HairService.generateHairStyle(
-        color: options[PropertyCategoryIds.HairColor] as HairColors,
-        style: options[PropertyCategoryIds.HairStyle] as HairStyles,
+        color: option(PropertyCategoryIds.HairColor) as HairColors,
+        style: option(PropertyCategoryIds.HairStyle) as HairStyles,
       ),
-      mouth: options[PropertyCategoryIds.MouthType]!.value,
-      nose: options[PropertyCategoryIds.Nose]!.value,
+      mouth: option(PropertyCategoryIds.MouthType).value,
+      nose: option(PropertyCategoryIds.Nose).value,
       outfit: OutfitService.generateOutfit(
-        color: options[PropertyCategoryIds.OutfitColor] as OutfitColors,
-        type: options[PropertyCategoryIds.OutfitType] as OutfitTypes,
+        color: option(PropertyCategoryIds.OutfitColor) as OutfitColors,
+        type: option(PropertyCategoryIds.OutfitType) as OutfitTypes,
       ),
-      skin: options[PropertyCategoryIds.SkinColor]!.value,
+      skin: option(PropertyCategoryIds.SkinColor).value,
     );
   }
 
   /// Generates component SVG string for an individual component
   /// to display as a preview
+  ///
+  /// The generated strings are memoized: a thumbnail only depends on the
+  /// option it displays and, for some categories, on a color selection. See
+  /// [_componentSVGCache].
   String getComponentSVG(PropertyCategoryIds categoryId, int index) {
+    final colorDependency = _componentSVGColorDependency(categoryId);
+    final cached = _componentSVGCache[categoryId];
+
+    if (cached == null || cached.colorDependency != colorDependency) {
+      // Either the category was never rendered, or the color its thumbnails
+      // depend on changed: the previously generated SVGs are stale.
+      _componentSVGCache[categoryId] = _ComponentSVGCache(colorDependency);
+    } else {
+      final memoized = cached.svgs[index];
+      if (memoized != null) {
+        return memoized;
+      }
+    }
+
+    final svg = _generateComponentSVG(categoryId, index);
+    _componentSVGCache[categoryId]!.svgs[index] = svg;
+    return svg;
+  }
+
+  /// Generates the SVG of the component at [index] of [categoryId].
+  String _generateComponentSVG(PropertyCategoryIds categoryId, int index) {
     PropertyItem item = PropertyCategoryService.getPropertyCategoryById(
             this.propertyCategories, categoryId)
         .properties![index];
@@ -580,4 +642,20 @@ class RestoredData {
   final Map<PropertyCategoryIds, PropertyItem> options;
 
   RestoredData({required this.svg, required this.options});
+}
+
+/// The memoized component SVGs of a single category.
+///
+/// [colorDependency] is the option the generated SVGs were built with. When it
+/// changes, the whole cache is dropped: the SVGs have to be generated again
+/// with the new color.
+class _ComponentSVGCache {
+  _ComponentSVGCache(this.colorDependency);
+
+  /// The option the cached SVGs depend on, `null` when the category does not
+  /// depend on any color.
+  final PropertyItem? colorDependency;
+
+  /// The generated SVGs, indexed like the properties of the category.
+  final Map<int, String> svgs = {};
 }

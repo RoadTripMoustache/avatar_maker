@@ -40,17 +40,38 @@ class CustomizerBody extends StatelessWidget {
     var attributeGrids = <Widget>[];
     var navbarWidgets = <Widget>[];
 
+    /// Read the controller state once: the preview options getter builds a
+    /// copy of its map, and it is needed for every category.
+    final previewOptions = avatarMakerController.previewOptions;
+    final selectedOptions = avatarMakerController.selectedOptions;
+
     /// Create the tab icon and content for each category.
     for (final (categoryIndex, propertyCategory)
         in avatarMakerController.displayedPropertyCategories.indexed) {
-      /// Number of options available for said [attribute]
+      /// The options available for said [attribute]
       /// Eg: "Hairstyle" attribute has 38 options
-      var attributeListLength = propertyCategory.properties!.length;
+      ///
+      /// A category can legitimately have no option at all (the cosmetic
+      /// categories are empty until the application fills them in) and the
+      /// controller may not have finished its initialisation yet, so nothing
+      /// below may assume that the list is not empty or that the category
+      /// already has a selected option.
+      final properties = propertyCategory.properties ?? const <PropertyItem>[];
+      var attributeListLength = properties.length;
 
-      PropertyItem selectedItem =
-          avatarMakerController.previewOptions[propertyCategory.id] ??
-              avatarMakerController.selectedOptions[propertyCategory.id] ??
-              propertyCategory.properties!.first;
+      final PropertyItem? selectedItem = previewOptions[propertyCategory.id] ??
+          selectedOptions[propertyCategory.id] ??
+          (properties.isNotEmpty
+              ? properties.first
+              : propertyCategory.defaultValue);
+
+      /// Index of the selected option inside [properties].
+      ///
+      /// Computed once for the whole grid instead of once per tile: looking
+      /// the selection up for every tile made the grid build quadratic in the
+      /// number of options (49 options -> 2401 comparisons per rebuild).
+      final selectedIndex =
+          selectedItem == null ? -1 : properties.indexOf(selectedItem);
 
       /// Build the main Tile Grid with all the options from the attribute
       var _tileGrid = GridView.builder(
@@ -62,7 +83,7 @@ class CustomizerBody extends StatelessWidget {
           mainAxisSpacing: 4.0,
         ),
         itemBuilder: (BuildContext context, int index) {
-          final item = propertyCategory.properties![index];
+          final item = properties[index];
           final isLocked =
               isItemLocked?.call(propertyCategory.id, item.id) ?? false;
 
@@ -71,11 +92,11 @@ class CustomizerBody extends StatelessWidget {
 
           // For cosmetic items, compare by id against the selectedOptions
           // (which is updated when selectCosmetic is called).
-          final isCosmeticSelected = isCosmetic && item.id == selectedItem.id;
+          final isCosmeticSelected =
+              isCosmetic && selectedItem != null && item.id == selectedItem.id;
 
           // For regular items, check selection by index
-          final isRegularSelected = !isCosmetic &&
-              index == propertyCategory.properties!.indexOf(selectedItem);
+          final isRegularSelected = !isCosmetic && index == selectedIndex;
 
           return InkWell(
             onTap: isLocked
