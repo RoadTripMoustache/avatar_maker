@@ -1,4 +1,9 @@
 ## [Unreleased]
+---
+
+## [1.11.0] - 25/10/2026
+### Updated
+- perf(customizer): stop rebuilding the grid when nothing changed
 
 ---
 
