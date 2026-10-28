@@ -159,7 +159,10 @@ def build_simple(items, id_prefix, base_fill, transform=''):
         if not body:
             out.append((name, ''))
             continue
-        out.append((name, f'<g id="{id_prefix}{name}" {transform}>{body}</g>'))
+        if transform:
+            out.append((name, f'<g id="{id_prefix}{name}" transform="{transform}">{body}</g>'))
+        else:
+            out.append((name, f'<g id="{id_prefix}{name}">{body}</g>'))
     return out
 
 

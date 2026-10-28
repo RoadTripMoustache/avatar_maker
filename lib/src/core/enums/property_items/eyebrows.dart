@@ -232,94 +232,50 @@ enum Eyebrows implements PropertyItem {
   Heavy("""
   <g id="Eyebrows/Heavy" fill-rule="nonzero"><g fill="#000000"><path d="M11,22 Q27,6 43,13 L43,24 Q27,16 13,29 Z"/><path d="M101,22 Q85,6 69,13 L69,24 Q85,16 99,29 Z"/></g></g>
   """),
-  StraightThin(
-      """<g id=\"Eyebrows/StraightThin\" None><path d=\"M13,17 L41,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /><path d=\"M99,17 L71,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
-  StraightBold(
-      """<g id=\"Eyebrows/StraightBold\" None><path d=\"M13,16 L41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"7\" stroke-linecap=\"round\" /><path d=\"M99,16 L71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"7\" stroke-linecap=\"round\" /></g>"""),
-  Arched(
-      """<g id=\"Eyebrows/Arched\" None><path d=\"M12,19 Q26,8 41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,19 Q86,8 71,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  ArchedHigh(
-      """<g id=\"Eyebrows/ArchedHigh\" None><path d=\"M12,20 Q26,5 41,14\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,20 Q86,5 71,14\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  SlantedUp(
-      """<g id=\"Eyebrows/SlantedUp\" None><path d=\"M12,24 L42,9\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,24 L70,9\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  SlantedDown(
-      """<g id=\"Eyebrows/SlantedDown\" None><path d=\"M12,12 L42,22\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,12 L70,22\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  RoundedSoft(
-      """<g id=\"Eyebrows/RoundedSoft\" None><path d=\"M14,20 Q27,9 40,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M98,20 Q85,9 72,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  ThickBlock(
-      """<g id=\"Eyebrows/ThickBlock\" None><path d=\"M11,17 Q27,7 43,14 L43,21 Q27,15 13,22 Z\" fill=\"#000000\" /><path d=\"M101,17 Q85,7 69,14 L69,21 Q85,15 99,22 Z\" fill=\"#000000\" /></g>"""),
-  ThinArched(
-      """<g id=\"Eyebrows/ThinArched\" None><path d=\"M13,18 Q27,9 41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /><path d=\"M99,18 Q85,9 71,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
-  ThinFlat(
-      """<g id=\"Eyebrows/ThinFlat\" None><path d=\"M13,17 L41,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><path d=\"M99,17 L71,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /></g>"""),
-  Angled(
-      """<g id=\"Eyebrows/Angled\" None><path d=\"M12,20 L20,11 L30,12 L42,19\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,20 L92,11 L82,12 L70,19\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  AngledThick(
-      """<g id=\"Eyebrows/AngledThick\" None><path d=\"M12,21 L20,10 L30,11 L42,20 L42,25 L28,18 L12,26 Z\" fill=\"#000000\" /><path d=\"M100,21 L92,10 L82,11 L70,20 L70,25 L84,18 L100,26 Z\" fill=\"#000000\" /></g>"""),
-  HalfRound(
-      """<g id=\"Eyebrows/HalfRound\" None><path d=\"M13,18 Q27,9 41,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M99,18 Q85,9 71,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
-  Curved(
-      """<g id=\"Eyebrows/Curved\" None><path d=\"M12,20 Q26,7 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"6\" stroke-linecap=\"round\" /><path d=\"M100,20 Q86,7 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"6\" stroke-linecap=\"round\" /></g>"""),
-  CurvedThin(
-      """<g id=\"Eyebrows/CurvedThin\" None><path d=\"M13,20 Q26,9 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /><path d=\"M99,20 Q86,9 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
-  Short(
-      """<g id=\"Eyebrows/Short\" None><path d=\"M14,17 L38,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M98,17 L74,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  Long(
-      """<g id=\"Eyebrows/Long\" None><path d=\"M9,16 L45,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M103,16 L67,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  HighArch(
-      """<g id=\"Eyebrows/HighArch\" None><path d=\"M12,22 Q26,4 42,14\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,22 Q86,4 70,14\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  LowArch(
-      """<g id=\"Eyebrows/LowArch\" None><path d=\"M12,16 Q27,12 42,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,16 Q85,12 70,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  StraightTapered(
-      """<g id=\"Eyebrows/StraightTapered\" None><path d=\"M13,16 L41,16 L41,13 L13,13 Z\" fill=\"#000000\" /><path d=\"M99,16 L71,16 L71,13 L99,13 Z\" fill=\"#000000\" /></g>"""),
-  ArchTapered(
-      """<g id=\"Eyebrows/ArchTapered\" None><path d=\"M12,20 Q26,7 41,14 L41,19 Q26,12 12,25 Z\" fill=\"#000000\" /><path d=\"M100,20 Q86,7 71,14 L71,19 Q86,12 100,25 Z\" fill=\"#000000\" /></g>"""),
-  SoftNatural(
-      """<g id=\"Eyebrows/SoftNatural\" None><path d=\"M13,18 Q27,10 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M99,18 Q85,10 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
-  NaturalFlat(
-      """<g id=\"Eyebrows/NaturalFlat\" None><path d=\"M13,17 Q27,15 41,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M99,17 Q85,15 71,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
-  BoldArch(
-      """<g id=\"Eyebrows/BoldArch\" None><path d=\"M12,20 Q26,7 42,15 L42,21 Q26,13 12,26 Z\" fill=\"#000000\" /><path d=\"M100,20 Q86,7 70,15 L70,21 Q86,13 100,26 Z\" fill=\"#000000\" /></g>"""),
-  ThickStraight(
-      """<g id=\"Eyebrows/ThickStraight\" None><path d=\"M12,15 L42,15 L42,21 L12,21 Z\" fill=\"#000000\" /><path d=\"M100,15 L70,15 L70,21 L100,21 Z\" fill=\"#000000\" /></g>"""),
-  ThinSlant(
-      """<g id=\"Eyebrows/ThinSlant\" None><path d=\"M13,21 L41,12\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /><path d=\"M99,21 L71,12\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
-  WavyThick(
-      """<g id=\"Eyebrows/WavyThick\" None><path d=\"M12,18 Q19,9 26,15 Q33,21 41,12 L41,19 Q33,27 26,21 Q19,15 12,24 Z\" fill=\"#000000\" /><path d=\"M100,18 Q93,9 86,15 Q79,21 71,12 L71,19 Q79,27 86,21 Q93,15 100,24 Z\" fill=\"#000000\" /></g>"""),
-  SoftPeak(
-      """<g id=\"Eyebrows/SoftPeak\" None><path d=\"M13,18 L24,11 L32,16 L41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M99,18 L88,11 L80,16 L71,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  Hooked(
-      """<g id=\"Eyebrows/Hooked\" None><path d=\"M12,14 L12,22 Q26,10 41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,14 L100,22 Q86,10 71,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  Pointed(
-      """<g id=\"Eyebrows/Pointed\" None><path d=\"M12,20 L26,9 L42,16 L42,21 L26,15 L12,25 Z\" fill=\"#000000\" /><path d=\"M100,20 L86,9 L70,16 L70,21 L86,15 L100,25 Z\" fill=\"#000000\" /></g>"""),
-  BrowDash(
-      """<g id=\"Eyebrows/BrowDash\" None><path d=\"M13,16 L41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M99,16 L71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><g fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M17,14 L18,18\"/><path d=\"M24,14 L25,18\"/><path d=\"M31,14 L32,18\"/><path d=\"M38,14 L39,18\"/><path d=\"M95,14 L94,18\"/><path d=\"M88,14 L87,18\"/><path d=\"M81,14 L80,18\"/><path d=\"M74,14 L73,18\"/></g></g>"""),
-  AsymStraight(
-      """<g id=\"Eyebrows/AsymStraight\" None><path d=\"M13,16 L41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M99,18 L71,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  AsymArch(
-      """<g id=\"Eyebrows/AsymArch\" None><path d=\"M12,19 Q26,8 41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,21 Q86,10 71,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  LowBrows(
-      """<g id=\"Eyebrows/LowBrows\" None><path d=\"M13,21 L41,21\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M99,21 L71,21\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  HighBrows(
-      """<g id=\"Eyebrows/HighBrows\" None><path d=\"M13,11 L41,11\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M99,11 L71,11\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  Angular(
-      """<g id=\"Eyebrows/Angular\" None><path d=\"M12,17 L24,9 L33,13 L42,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M100,17 L88,9 L79,13 L70,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
-  ThinPointed(
-      """<g id=\"Eyebrows/ThinPointed\" None><path d=\"M12,20 L27,10 L42,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><path d=\"M100,20 L85,10 L70,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /></g>"""),
-  FeatherLight(
-      """<g id=\"Eyebrows/FeatherLight\" None><path d=\"M13,19 Q27,9 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><path d=\"M99,19 Q85,9 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /></g>"""),
-  ThickWavy(
-      """<g id=\"Eyebrows/ThickWavy\" None><path d=\"M11,19 Q18,8 26,15 Q33,22 42,13 L42,20 Q33,28 26,21 Q18,14 11,25 Z\" fill=\"#000000\" /><path d=\"M101,19 Q94,8 86,15 Q79,22 70,13 L70,20 Q79,28 86,21 Q94,14 101,25 Z\" fill=\"#000000\" /></g>"""),
-  HalfMoon(
-      """<g id=\"Eyebrows/HalfMoon\" None><path d=\"M12,20 Q26,8 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"7\" stroke-linecap=\"round\" /><path d=\"M100,20 Q86,8 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"7\" stroke-linecap=\"round\" /></g>"""),
-  TaperedSoft(
-      """<g id=\"Eyebrows/TaperedSoft\" None><path d=\"M13,19 Q27,10 41,16 L41,19 Q27,15 13,22 Z\" fill=\"#000000\" /><path d=\"M99,19 Q85,10 71,16 L71,19 Q85,15 99,22 Z\" fill=\"#000000\" /></g>"""),
-  BrokenArch(
-      """<g id=\"Eyebrows/BrokenArch\" None><path d=\"M12,19 Q20,11 27,13 Q34,15 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M100,19 Q92,11 85,13 Q78,15 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
-  Peak(
-      """<g id=\"Eyebrows/Peak\" None><path d=\"M12,19 L24,9 L33,15 L41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,19 L88,9 L79,15 L71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
-  Squared(
-      """<g id=\"Eyebrows/Squared\" None><path d=\"M12,14 L41,12 L41,19 L12,21 Z\" fill=\"#000000\" /><path d=\"M100,14 L71,12 L71,19 L100,21 Z\" fill=\"#000000\" /></g>"""),
+  StraightThin("""<g id=\"Eyebrows/StraightThin\"><path d=\"M13,17 L41,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /><path d=\"M99,17 L71,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
+  StraightBold("""<g id=\"Eyebrows/StraightBold\"><path d=\"M13,16 L41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"7\" stroke-linecap=\"round\" /><path d=\"M99,16 L71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"7\" stroke-linecap=\"round\" /></g>"""),
+  Arched("""<g id=\"Eyebrows/Arched\"><path d=\"M12,19 Q26,8 41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,19 Q86,8 71,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  ArchedHigh("""<g id=\"Eyebrows/ArchedHigh\"><path d=\"M12,20 Q26,5 41,14\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,20 Q86,5 71,14\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  SlantedUp("""<g id=\"Eyebrows/SlantedUp\"><path d=\"M12,24 L42,9\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,24 L70,9\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  SlantedDown("""<g id=\"Eyebrows/SlantedDown\"><path d=\"M12,12 L42,22\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,12 L70,22\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  RoundedSoft("""<g id=\"Eyebrows/RoundedSoft\"><path d=\"M14,20 Q27,9 40,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M98,20 Q85,9 72,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  ThickBlock("""<g id=\"Eyebrows/ThickBlock\"><path d=\"M11,17 Q27,7 43,14 L43,21 Q27,15 13,22 Z\" fill=\"#000000\" /><path d=\"M101,17 Q85,7 69,14 L69,21 Q85,15 99,22 Z\" fill=\"#000000\" /></g>"""),
+  ThinArched("""<g id=\"Eyebrows/ThinArched\"><path d=\"M13,18 Q27,9 41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /><path d=\"M99,18 Q85,9 71,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
+  ThinFlat("""<g id=\"Eyebrows/ThinFlat\"><path d=\"M13,17 L41,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><path d=\"M99,17 L71,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /></g>"""),
+  Angled("""<g id=\"Eyebrows/Angled\"><path d=\"M12,20 L20,11 L30,12 L42,19\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,20 L92,11 L82,12 L70,19\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  AngledThick("""<g id=\"Eyebrows/AngledThick\"><path d=\"M12,21 L20,10 L30,11 L42,20 L42,25 L28,18 L12,26 Z\" fill=\"#000000\" /><path d=\"M100,21 L92,10 L82,11 L70,20 L70,25 L84,18 L100,26 Z\" fill=\"#000000\" /></g>"""),
+  HalfRound("""<g id=\"Eyebrows/HalfRound\"><path d=\"M13,18 Q27,9 41,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M99,18 Q85,9 71,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
+  Curved("""<g id=\"Eyebrows/Curved\"><path d=\"M12,20 Q26,7 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"6\" stroke-linecap=\"round\" /><path d=\"M100,20 Q86,7 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"6\" stroke-linecap=\"round\" /></g>"""),
+  CurvedThin("""<g id=\"Eyebrows/CurvedThin\"><path d=\"M13,20 Q26,9 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /><path d=\"M99,20 Q86,9 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
+  Short("""<g id=\"Eyebrows/Short\"><path d=\"M14,17 L38,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M98,17 L74,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  Long("""<g id=\"Eyebrows/Long\"><path d=\"M9,16 L45,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M103,16 L67,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  HighArch("""<g id=\"Eyebrows/HighArch\"><path d=\"M12,22 Q26,4 42,14\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,22 Q86,4 70,14\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  LowArch("""<g id=\"Eyebrows/LowArch\"><path d=\"M12,16 Q27,12 42,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,16 Q85,12 70,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  StraightTapered("""<g id=\"Eyebrows/StraightTapered\"><path d=\"M13,16 L41,16 L41,13 L13,13 Z\" fill=\"#000000\" /><path d=\"M99,16 L71,16 L71,13 L99,13 Z\" fill=\"#000000\" /></g>"""),
+  ArchTapered("""<g id=\"Eyebrows/ArchTapered\"><path d=\"M12,20 Q26,7 41,14 L41,19 Q26,12 12,25 Z\" fill=\"#000000\" /><path d=\"M100,20 Q86,7 71,14 L71,19 Q86,12 100,25 Z\" fill=\"#000000\" /></g>"""),
+  SoftNatural("""<g id=\"Eyebrows/SoftNatural\"><path d=\"M13,18 Q27,10 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M99,18 Q85,10 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
+  NaturalFlat("""<g id=\"Eyebrows/NaturalFlat\"><path d=\"M13,17 Q27,15 41,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M99,17 Q85,15 71,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
+  BoldArch("""<g id=\"Eyebrows/BoldArch\"><path d=\"M12,20 Q26,7 42,15 L42,21 Q26,13 12,26 Z\" fill=\"#000000\" /><path d=\"M100,20 Q86,7 70,15 L70,21 Q86,13 100,26 Z\" fill=\"#000000\" /></g>"""),
+  ThickStraight("""<g id=\"Eyebrows/ThickStraight\"><path d=\"M12,15 L42,15 L42,21 L12,21 Z\" fill=\"#000000\" /><path d=\"M100,15 L70,15 L70,21 L100,21 Z\" fill=\"#000000\" /></g>"""),
+  ThinSlant("""<g id=\"Eyebrows/ThinSlant\"><path d=\"M13,21 L41,12\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /><path d=\"M99,21 L71,12\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
+  WavyThick("""<g id=\"Eyebrows/WavyThick\"><path d=\"M12,18 Q19,9 26,15 Q33,21 41,12 L41,19 Q33,27 26,21 Q19,15 12,24 Z\" fill=\"#000000\" /><path d=\"M100,18 Q93,9 86,15 Q79,21 71,12 L71,19 Q79,27 86,21 Q93,15 100,24 Z\" fill=\"#000000\" /></g>"""),
+  SoftPeak("""<g id=\"Eyebrows/SoftPeak\"><path d=\"M13,18 L24,11 L32,16 L41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M99,18 L88,11 L80,16 L71,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  Hooked("""<g id=\"Eyebrows/Hooked\"><path d=\"M12,14 L12,22 Q26,10 41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,14 L100,22 Q86,10 71,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  Pointed("""<g id=\"Eyebrows/Pointed\"><path d=\"M12,20 L26,9 L42,16 L42,21 L26,15 L12,25 Z\" fill=\"#000000\" /><path d=\"M100,20 L86,9 L70,16 L70,21 L86,15 L100,25 Z\" fill=\"#000000\" /></g>"""),
+  BrowDash("""<g id=\"Eyebrows/BrowDash\"><path d=\"M13,16 L41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M99,16 L71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><g fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M17,14 L18,18\"/><path d=\"M24,14 L25,18\"/><path d=\"M31,14 L32,18\"/><path d=\"M38,14 L39,18\"/><path d=\"M95,14 L94,18\"/><path d=\"M88,14 L87,18\"/><path d=\"M81,14 L80,18\"/><path d=\"M74,14 L73,18\"/></g></g>"""),
+  AsymStraight("""<g id=\"Eyebrows/AsymStraight\"><path d=\"M13,16 L41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M99,18 L71,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  AsymArch("""<g id=\"Eyebrows/AsymArch\"><path d=\"M12,19 Q26,8 41,15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,21 Q86,10 71,17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  LowBrows("""<g id=\"Eyebrows/LowBrows\"><path d=\"M13,21 L41,21\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M99,21 L71,21\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  HighBrows("""<g id=\"Eyebrows/HighBrows\"><path d=\"M13,11 L41,11\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M99,11 L71,11\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  Angular("""<g id=\"Eyebrows/Angular\"><path d=\"M12,17 L24,9 L33,13 L42,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M100,17 L88,9 L79,13 L70,18\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
+  ThinPointed("""<g id=\"Eyebrows/ThinPointed\"><path d=\"M12,20 L27,10 L42,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><path d=\"M100,20 L85,10 L70,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /></g>"""),
+  FeatherLight("""<g id=\"Eyebrows/FeatherLight\"><path d=\"M13,19 Q27,9 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /><path d=\"M99,19 Q85,9 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" stroke-linecap=\"round\" /></g>"""),
+  ThickWavy("""<g id=\"Eyebrows/ThickWavy\"><path d=\"M11,19 Q18,8 26,15 Q33,22 42,13 L42,20 Q33,28 26,21 Q18,14 11,25 Z\" fill=\"#000000\" /><path d=\"M101,19 Q94,8 86,15 Q79,22 70,13 L70,20 Q79,28 86,21 Q94,14 101,25 Z\" fill=\"#000000\" /></g>"""),
+  HalfMoon("""<g id=\"Eyebrows/HalfMoon\"><path d=\"M12,20 Q26,8 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"7\" stroke-linecap=\"round\" /><path d=\"M100,20 Q86,8 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"7\" stroke-linecap=\"round\" /></g>"""),
+  TaperedSoft("""<g id=\"Eyebrows/TaperedSoft\"><path d=\"M13,19 Q27,10 41,16 L41,19 Q27,15 13,22 Z\" fill=\"#000000\" /><path d=\"M99,19 Q85,10 71,16 L71,19 Q85,15 99,22 Z\" fill=\"#000000\" /></g>"""),
+  BrokenArch("""<g id=\"Eyebrows/BrokenArch\"><path d=\"M12,19 Q20,11 27,13 Q34,15 41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /><path d=\"M100,19 Q92,11 85,13 Q78,15 71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" /></g>"""),
+  Peak("""<g id=\"Eyebrows/Peak\"><path d=\"M12,19 L24,9 L33,15 L41,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /><path d=\"M100,19 L88,9 L79,15 L71,16\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" stroke-linecap=\"round\" /></g>"""),
+  Squared("""<g id=\"Eyebrows/Squared\"><path d=\"M12,14 L41,12 L41,19 L12,21 Z\" fill=\"#000000\" /><path d=\"M100,14 L71,12 L71,19 L100,21 Z\" fill=\"#000000\" /></g>"""),
 
   Tapered("""
   <g id="Eyebrows/Tapered" fill-rule="nonzero"><g fill="#000000"><path d="M12,21 Q27,8 43,14 L42,18 Q27,13 15,26 Z"/><path d="M100,21 Q85,8 69,14 L70,18 Q85,13 97,26 Z"/></g></g>
