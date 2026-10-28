@@ -73,8 +73,8 @@ void main() {
     for (final style in FacialHairTypes.values) {
       if (style.svg.isEmpty) continue;
       final svg = style.svg
-          .replaceAll(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME,
-              'FacialHairColor/Black')
+          .replaceAll(
+              TO_REPLACE_WITH_FACIAL_HAIRS_COLOR_NAME, 'FacialHairColor/Black')
           .replaceAll(TO_REPLACE_WITH_FACIAL_HAIRS_COLOR, '#252E32');
       expect(svg, isNot(contains('TO_REPLACE_WITH')));
     }
