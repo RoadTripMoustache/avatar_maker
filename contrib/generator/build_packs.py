@@ -98,7 +98,7 @@ register('facial_hair', 'facial_hair_types.dart', 'FacialHairTypes', 'FacialHair
          'face', True, PH_FHAIR, PH_FHAIR_NAME, PREVIEW_FHAIR)
 register('eyebrows', 'eyebrows.dart', 'Eyebrows', 'Eyebrows/', 'face', False,
          base_fill='#000000')
-register('eyes', 'eyes.dart', 'Eyes', 'Eyes/', 'face', False, base_fill='#000000', transform='translate(0,8)')
+register('eyes', 'eyes.dart', 'Eyes', 'Eyes/', 'face', False, base_fill='#000000', transform='translate(0,0)')
 register('nose', 'noses.dart', 'Noses', 'Nose/', 'face', False, base_fill='#000000')
 register('mouth', 'mouths.dart', 'Mouths', 'Mouth/', 'face', False, base_fill='#000000', transform='translate(2,52)')
 register('outfit', 'outfit_types.dart', 'OutfitTypes', 'OutfitTypes/',
