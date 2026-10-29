@@ -165,7 +165,7 @@ enum Accessories implements PropertyItem {
         <g id="Accessories/Whiskers"><g fill="none" stroke="#2F383B" stroke-opacity="0.7" stroke-width="2.6" stroke-linecap="round"><path d="M40,50 L10,44"/><path d="M40,55 L8,55"/><path d="M40,60 L10,66"/><path d="M72,50 L102,44"/><path d="M72,55 L104,55"/><path d="M72,60 L102,66"/></g></g>
         """),
   Warpaint("""
-        <g id="Accessories/Warpaint"><g fill="#B3172B" fill-opacity="0.85"><path d="M14,-18 L98,-18 L98,-8 L14,-8 Z"/><path d="M18,-5 L94,-5 L94,-1 L18,-1 Z" fill-opacity="0.6"/></g></g>
+        <g id="Accessories/Warpaint"><g fill="#B3172B" fill-opacity="0.85"><path d="M14,42 L98,42 L98,48 L14,48 Z"/><path d="M18,51 L94,51 L94,55 L18,55 Z" fill-opacity="0.6"/></g></g>
         """),
   Glitter("""
         <g id="Accessories/Glitter"><g fill="#F2B705"><circle cx="22" cy="40" r="2.4"/><circle cx="34" cy="34" r="1.8"/><circle cx="18" cy="52" r="1.8"/><circle cx="90" cy="40" r="2.4"/><circle cx="78" cy="34" r="1.8"/><circle cx="94" cy="52" r="1.8"/><circle cx="56" cy="18" r="2"/></g></g>
