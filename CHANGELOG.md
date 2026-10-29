@@ -30,6 +30,12 @@
 
 ---
 
+## [1.11.0] - 25/10/2026
+### Updated
+- perf(customizer): stop rebuilding the grid when nothing changed origin/main
+
+---
+
 ## [1.10.0] - 18/10/2026
 ### Changed
 - perf(effects): isolate the animated cosmetic effect in its own `RepaintBoundary`
