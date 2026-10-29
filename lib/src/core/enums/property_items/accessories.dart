@@ -190,56 +190,105 @@ enum Accessories implements PropertyItem {
   Eyeliner("""
         <g id="Accessories/Eyeliner"><g fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round"><path d="M21,31 C22,25 26,22 31,22 C36,22 40,25 41,30 L48,26"/><path d="M94,31 C93,25 89,22 84,22 C79,22 75,25 74,30 L67,26"/></g></g>
         """),
-  RoundGlasses("""<g id=\"Accessories/RoundGlasses\"><circle cx=\"28\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><circle cx=\"84\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M45,30 L67,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  RoundGlassesThin("""<g id=\"Accessories/RoundGlassesThin\"><circle cx=\"28\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.8\" /><circle cx=\"84\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.8\" /><path d=\"M45,30 L67,30\" stroke=\"#000000\" stroke-width=\"1.8\" /></g>"""),
-  RoundGlassesThick("""<g id=\"Accessories/RoundGlassesThick\"><circle cx=\"28\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" /><circle cx=\"84\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" /><path d=\"M45,30 L67,30\" stroke=\"#000000\" stroke-width=\"5\" /></g>"""),
-  SquareGlasses("""<g id=\"Accessories/SquareGlasses\"><rect x=\"6\" y=\"14\" width=\"44\" height=\"32\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"62\" y=\"14\" width=\"44\" height=\"32\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M50,30 L62,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  SquareGlassesSmall("""<g id=\"Accessories/SquareGlassesSmall\"><rect x=\"10\" y=\"17\" width=\"36\" height=\"26\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"66\" y=\"17\" width=\"36\" height=\"26\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M46,30 L66,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  SquareGlassesLarge("""<g id=\"Accessories/SquareGlassesLarge\"><rect x=\"2\" y=\"11\" width=\"52\" height=\"38\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"58\" y=\"11\" width=\"52\" height=\"38\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M54,30 L58,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  RectGlasses("""<g id=\"Accessories/RectGlasses\"><rect x=\"3\" y=\"17\" width=\"50\" height=\"26\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"59\" y=\"17\" width=\"50\" height=\"26\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M53,30 L59,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  Aviator("""<g id=\"Accessories/Aviator\"><path d=\"M12,24 C12,16 44,16 44,24 C44,36 34,44 28,44 C22,44 12,36 12,24 Z\" fill=\"#000000\" fill-opacity=\"0.25\" stroke=\"#000000\" stroke-width=\"2.5\" /><path d=\"M68,24 C68,16 100,16 100,24 C100,36 90,44 84,44 C78,44 68,36 68,24 Z\" fill=\"#000000\" fill-opacity=\"0.25\" stroke=\"#000000\" stroke-width=\"2.5\" /><path d=\"M44,22 L68,22\" stroke=\"#000000\" stroke-width=\"2.5\" /></g>"""),
-  Wayfarer("""<g id=\"Accessories/Wayfarer\"><path d=\"M12,20 L44,20 L44,30 C44,38 36,42 28,42 C20,42 12,38 12,30 Z\" fill=\"#000000\" fill-opacity=\"0.85\" /><path d=\"M68,20 L100,20 L100,30 C100,38 92,42 84,42 C76,42 68,38 68,30 Z\" fill=\"#000000\" fill-opacity=\"0.85\" /><path d=\"M44,18 L68,18\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
-  CatEye("""<g id=\"Accessories/CatEye\"><path d=\"M10,26 C10,18 30,14 44,20 L44,32 C30,38 12,34 10,26 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M102,26 C102,18 82,14 68,20 L68,32 C82,38 100,34 102,26 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M44,22 L68,22\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  HalfRim("""<g id=\"Accessories/HalfRim\"><path d=\"M10,30 L46,30\" stroke=\"#000000\" stroke-width=\"4\" /><path d=\"M66,30 L102,30\" stroke=\"#000000\" stroke-width=\"4\" /><path d=\"M10,30 C10,20 46,20 46,30\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M66,30 C66,20 102,20 102,30\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" /></g>"""),
-  Prescription("""<g id=\"Accessories/Prescription\"><rect x=\"4\" y=\"15\" width=\"48\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"60\" y=\"15\" width=\"48\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M52,30 L60,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  Reading("""<g id=\"Accessories/Reading\"><rect x=\"6\" y=\"16\" width=\"40\" height=\"28\" rx=\"8\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"66\" y=\"16\" width=\"40\" height=\"28\" rx=\"8\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M46,30 L66,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  SportShield("""<g id=\"Accessories/SportShield\"><path d=\"M8,22 C24,14 88,14 104,22 L100,36 C80,30 32,30 12,36 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
-  Goggles("""<g id=\"Accessories/Goggles\"><circle cx=\"28\" cy=\"30\" r=\"18\" fill=\"#000000\" fill-opacity=\"0.2\" stroke=\"#000000\" stroke-width=\"3\" /><circle cx=\"84\" cy=\"30\" r=\"18\" fill=\"#000000\" fill-opacity=\"0.2\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M46,24 L66,24\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
-  StudEarrings("""<g id=\"Accessories/StudEarrings\"><circle cx=\"14\" cy=\"52\" r=\"3.5\" fill=\"#000000\" /><circle cx=\"98\" cy=\"52\" r=\"3.5\" fill=\"#000000\" /></g>"""),
-  HoopEarrings("""<g id=\"Accessories/HoopEarrings\"><circle cx=\"14\" cy=\"56\" r=\"7\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /><circle cx=\"98\" cy=\"56\" r=\"7\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /></g>"""),
-  DropEarrings("""<g id=\"Accessories/DropEarrings\"><path d=\"M14,52 L14,60\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M14,60 L9,68 L14,76 L19,68 Z\" fill=\"#000000\" /><path d=\"M98,52 L98,60\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M98,60 L93,68 L98,76 L103,68 Z\" fill=\"#000000\" /></g>"""),
-  NoseRing("""<g id=\"Accessories/NoseRing\"><circle cx=\"56\" cy=\"58\" r=\"4\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" /></g>"""),
-  LipPiercing("""<g id=\"Accessories/LipPiercing\"><circle cx=\"64\" cy=\"76\" r=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.8\" /></g>"""),
-  BrowPiercing("""<g id=\"Accessories/BrowPiercing\"><path d=\"M30,18 L30,10\" stroke=\"#000000\" stroke-width=\"1.6\" /><circle cx=\"30\" cy=\"9\" r=\"2.4\" fill=\"#000000\" /></g>"""),
-  Mole("""<g id=\"Accessories/Mole\"><circle cx=\"30\" cy=\"52\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.6\" /></g>"""),
-  BeautyMark("""<g id=\"Accessories/BeautyMark\"><circle cx=\"84\" cy=\"54\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.6\" /></g>"""),
-  SurgicalMask("""<g id=\"Accessories/SurgicalMask\"><path d=\"M14,44 C14,38 98,38 98,44 L98,70 C98,78 14,78 14,70 Z\" fill=\"#000000\" fill-opacity=\"0.35\" /><path d=\"M14,50 L98,50 M14,58 L98,58 M14,66 L98,66\" stroke=\"#000000\" stroke-opacity=\"0.3\" stroke-width=\"1.4\" /></g>"""),
-  Necklace("""<g id=\"Accessories/Necklace\"><path d=\"M20,86 C28,96 44,102 56,102 C68,102 84,96 92,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /><circle cx=\"56\" cy=\"106\" r=\"4\" fill=\"#000000\" /></g>"""),
-  Choker("""<g id=\"Accessories/Choker\"><path d=\"M22,88 C32,94 44,98 56,98 C68,98 80,94 90,88\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" /></g>"""),
-  Scarf("""<g id=\"Accessories/Scarf\"><path d=\"M16,84 C26,98 44,104 56,104 C68,104 86,98 96,84 L92,96 C80,106 68,110 56,110 C44,110 32,106 20,96 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
-  BowTie("""<g id=\"Accessories/BowTie\"><path d=\"M38,66 L50,72 L38,79 Z\" fill=\"#000000\" /><path d=\"M74,66 L62,72 L74,79 Z\" fill=\"#000000\" /><rect x=\"48\" y=\"68\" width=\"16\" height=\"9\" rx=\"2\" fill=\"#000000\" /></g>"""),
+  RoundGlasses(
+      """<g id=\"Accessories/RoundGlasses\"><circle cx=\"28\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><circle cx=\"84\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M45,30 L67,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  RoundGlassesThin(
+      """<g id=\"Accessories/RoundGlassesThin\"><circle cx=\"28\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.8\" /><circle cx=\"84\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.8\" /><path d=\"M45,30 L67,30\" stroke=\"#000000\" stroke-width=\"1.8\" /></g>"""),
+  RoundGlassesThick(
+      """<g id=\"Accessories/RoundGlassesThick\"><circle cx=\"28\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" /><circle cx=\"84\" cy=\"30\" r=\"17\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" /><path d=\"M45,30 L67,30\" stroke=\"#000000\" stroke-width=\"5\" /></g>"""),
+  SquareGlasses(
+      """<g id=\"Accessories/SquareGlasses\"><rect x=\"6\" y=\"14\" width=\"44\" height=\"32\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"62\" y=\"14\" width=\"44\" height=\"32\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M50,30 L62,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  SquareGlassesSmall(
+      """<g id=\"Accessories/SquareGlassesSmall\"><rect x=\"10\" y=\"17\" width=\"36\" height=\"26\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"66\" y=\"17\" width=\"36\" height=\"26\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M46,30 L66,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  SquareGlassesLarge(
+      """<g id=\"Accessories/SquareGlassesLarge\"><rect x=\"2\" y=\"11\" width=\"52\" height=\"38\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"58\" y=\"11\" width=\"52\" height=\"38\" rx=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M54,30 L58,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  RectGlasses(
+      """<g id=\"Accessories/RectGlasses\"><rect x=\"3\" y=\"17\" width=\"50\" height=\"26\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"59\" y=\"17\" width=\"50\" height=\"26\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M53,30 L59,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  Aviator(
+      """<g id=\"Accessories/Aviator\"><path d=\"M12,24 C12,16 44,16 44,24 C44,36 34,44 28,44 C22,44 12,36 12,24 Z\" fill=\"#000000\" fill-opacity=\"0.25\" stroke=\"#000000\" stroke-width=\"2.5\" /><path d=\"M68,24 C68,16 100,16 100,24 C100,36 90,44 84,44 C78,44 68,36 68,24 Z\" fill=\"#000000\" fill-opacity=\"0.25\" stroke=\"#000000\" stroke-width=\"2.5\" /><path d=\"M44,22 L68,22\" stroke=\"#000000\" stroke-width=\"2.5\" /></g>"""),
+  Wayfarer(
+      """<g id=\"Accessories/Wayfarer\"><path d=\"M12,20 L44,20 L44,30 C44,38 36,42 28,42 C20,42 12,38 12,30 Z\" fill=\"#000000\" fill-opacity=\"0.85\" /><path d=\"M68,20 L100,20 L100,30 C100,38 92,42 84,42 C76,42 68,38 68,30 Z\" fill=\"#000000\" fill-opacity=\"0.85\" /><path d=\"M44,18 L68,18\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
+  CatEye(
+      """<g id=\"Accessories/CatEye\"><path d=\"M10,26 C10,18 30,14 44,20 L44,32 C30,38 12,34 10,26 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M102,26 C102,18 82,14 68,20 L68,32 C82,38 100,34 102,26 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M44,22 L68,22\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  HalfRim(
+      """<g id=\"Accessories/HalfRim\"><path d=\"M10,30 L46,30\" stroke=\"#000000\" stroke-width=\"4\" /><path d=\"M66,30 L102,30\" stroke=\"#000000\" stroke-width=\"4\" /><path d=\"M10,30 C10,20 46,20 46,30\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M66,30 C66,20 102,20 102,30\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" /></g>"""),
+  Prescription(
+      """<g id=\"Accessories/Prescription\"><rect x=\"4\" y=\"15\" width=\"48\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"60\" y=\"15\" width=\"48\" height=\"30\" rx=\"8\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M52,30 L60,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  Reading(
+      """<g id=\"Accessories/Reading\"><rect x=\"6\" y=\"16\" width=\"40\" height=\"28\" rx=\"8\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"66\" y=\"16\" width=\"40\" height=\"28\" rx=\"8\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M46,30 L66,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  SportShield(
+      """<g id=\"Accessories/SportShield\"><path d=\"M8,22 C24,14 88,14 104,22 L100,36 C80,30 32,30 12,36 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  Goggles(
+      """<g id=\"Accessories/Goggles\"><circle cx=\"28\" cy=\"30\" r=\"18\" fill=\"#000000\" fill-opacity=\"0.2\" stroke=\"#000000\" stroke-width=\"3\" /><circle cx=\"84\" cy=\"30\" r=\"18\" fill=\"#000000\" fill-opacity=\"0.2\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M46,24 L66,24\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
+  StudEarrings(
+      """<g id=\"Accessories/StudEarrings\"><circle cx=\"14\" cy=\"52\" r=\"3.5\" fill=\"#000000\" /><circle cx=\"98\" cy=\"52\" r=\"3.5\" fill=\"#000000\" /></g>"""),
+  HoopEarrings(
+      """<g id=\"Accessories/HoopEarrings\"><circle cx=\"14\" cy=\"56\" r=\"7\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /><circle cx=\"98\" cy=\"56\" r=\"7\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /></g>"""),
+  DropEarrings(
+      """<g id=\"Accessories/DropEarrings\"><path d=\"M14,52 L14,60\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M14,60 L9,68 L14,76 L19,68 Z\" fill=\"#000000\" /><path d=\"M98,52 L98,60\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M98,60 L93,68 L98,76 L103,68 Z\" fill=\"#000000\" /></g>"""),
+  NoseRing(
+      """<g id=\"Accessories/NoseRing\"><circle cx=\"56\" cy=\"58\" r=\"4\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" /></g>"""),
+  LipPiercing(
+      """<g id=\"Accessories/LipPiercing\"><circle cx=\"64\" cy=\"76\" r=\"3\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.8\" /></g>"""),
+  BrowPiercing(
+      """<g id=\"Accessories/BrowPiercing\"><path d=\"M30,18 L30,10\" stroke=\"#000000\" stroke-width=\"1.6\" /><circle cx=\"30\" cy=\"9\" r=\"2.4\" fill=\"#000000\" /></g>"""),
+  Mole(
+      """<g id=\"Accessories/Mole\"><circle cx=\"30\" cy=\"52\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.6\" /></g>"""),
+  BeautyMark(
+      """<g id=\"Accessories/BeautyMark\"><circle cx=\"84\" cy=\"54\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.6\" /></g>"""),
+  SurgicalMask(
+      """<g id=\"Accessories/SurgicalMask\"><path d=\"M14,44 C14,38 98,38 98,44 L98,70 C98,78 14,78 14,70 Z\" fill=\"#000000\" fill-opacity=\"0.35\" /><path d=\"M14,50 L98,50 M14,58 L98,58 M14,66 L98,66\" stroke=\"#000000\" stroke-opacity=\"0.3\" stroke-width=\"1.4\" /></g>"""),
+  Necklace(
+      """<g id=\"Accessories/Necklace\"><path d=\"M20,86 C28,96 44,102 56,102 C68,102 84,96 92,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /><circle cx=\"56\" cy=\"106\" r=\"4\" fill=\"#000000\" /></g>"""),
+  Choker(
+      """<g id=\"Accessories/Choker\"><path d=\"M22,88 C32,94 44,98 56,98 C68,98 80,94 90,88\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" /></g>"""),
+  Scarf(
+      """<g id=\"Accessories/Scarf\"><path d=\"M16,84 C26,98 44,104 56,104 C68,104 86,98 96,84 L92,96 C80,106 68,110 56,110 C44,110 32,106 20,96 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  BowTie(
+      """<g id=\"Accessories/BowTie\"><path d=\"M38,66 L50,72 L38,79 Z\" fill=\"#000000\" /><path d=\"M74,66 L62,72 L74,79 Z\" fill=\"#000000\" /><rect x=\"48\" y=\"68\" width=\"16\" height=\"9\" rx=\"2\" fill=\"#000000\" /></g>"""),
   Tie("""<g id=\"Accessories/Tie\"><path d=\"M50,66 L62,66 L58,74 L62,90 L50,98 L40,90 L44,74 Z\" fill=\"#000000\" /></g>"""),
-  Headband("""<g id=\"Accessories/Headband\"><path d=\"M6,26 C18,12 94,12 106,26\" fill=\"none\" stroke=\"#000000\" stroke-width=\"6\" stroke-linecap=\"round\" /></g>"""),
-  HairClip("""<g id=\"Accessories/HairClip\"><path d=\"M84,10 L100,6 L104,20 L88,24 Z\" fill=\"#000000\" /></g>"""),
-  Tiara("""<g id=\"Accessories/Tiara\"><path d=\"M32,20 L40,4 L48,16 L56,0 L64,16 L72,4 L80,20 Z\" fill=\"#000000\" /></g>"""),
-  Crown("""<g id=\"Accessories/Crown\"><path d=\"M30,24 L30,10 L42,18 L56,4 L70,18 L82,10 L82,24 Z\" fill=\"#000000\" /></g>"""),
-  Mask2("""<g id=\"Accessories/Mask2\"><path d=\"M12,40 C30,34 82,34 100,40 L100,74 C82,80 30,80 12,74 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
-  BeautyMask("""<g id=\"Accessories/BeautyMask\"><path d=\"M22,42 C22,36 90,36 90,42 L90,74 C90,80 22,80 22,74 Z\" fill=\"#000000\" fill-opacity=\"0.15\" /></g>"""),
-  EyePatch2("""<g id=\"Accessories/EyePatch2\"><ellipse cx=\"28\" cy=\"30\" rx=\"20\" ry=\"17\" fill=\"#000000\" /><path d=\"M10,22 L46,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
-  RoundShades("""<g id=\"Accessories/RoundShades\"><circle cx=\"28\" cy=\"30\" r=\"19\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"84\" cy=\"30\" r=\"19\" fill=\"#000000\" fill-opacity=\"0.8\" /><path d=\"M47,30 L65,30\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
-  BrowGlasses("""<g id=\"Accessories/BrowGlasses\"><path d=\"M8,24 L48,18\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M104,24 L64,18\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  ScarfLoop("""<g id=\"Accessories/ScarfLoop\"><path d=\"M30,90 C34,80 78,80 82,90 C76,100 36,100 30,90 Z\" fill=\"#000000\" fill-opacity=\"0.85\" /></g>"""),
-  SquareGlassesBold("""<g id=\"Accessories/SquareGlassesBold\"><rect x=\"4\" y=\"13\" width=\"48\" height=\"34\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"60\" y=\"13\" width=\"48\" height=\"34\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M52,30 L60,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  OvalGlasses("""<g id=\"Accessories/OvalGlasses\"><ellipse cx=\"28\" cy=\"30\" rx=\"23\" ry=\"15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><ellipse cx=\"84\" cy=\"30\" rx=\"23\" ry=\"15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M51,30 L61,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  TempleGlasses("""<g id=\"Accessories/TempleGlasses\"><path d=\"M12,26 L48,22\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M100,26 L64,22\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  HalfMoonGlasses("""<g id=\"Accessories/HalfMoonGlasses\"><path d=\"M14,26 L42,26 L42,40 L14,40 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M70,26 L98,26 L98,40 L70,40 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M42,28 L70,28\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  ChokerPendant("""<g id=\"Accessories/ChokerPendant\"><path d=\"M24,88 C34,96 46,100 56,100 C66,100 78,96 88,88\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" /><circle cx=\"56\" cy=\"106\" r=\"5\" fill=\"#000000\" /></g>"""),
-  ChainNecklace("""<g id=\"Accessories/ChainNecklace\"><path d=\"M22,86 C30,100 46,106 56,106 C66,106 82,100 90,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.6\" /></g>"""),
-  AnkleBand("""<g id=\"Accessories/AnkleBand\"><path d=\"M22,86 C32,94 46,98 56,98 C66,98 80,94 90,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"8\" stroke-linecap=\"round\" /></g>"""),
-  CheekBlush("""<g id=\"Accessories/CheekBlush\"><ellipse cx=\"18\" cy=\"48\" rx=\"8\" ry=\"5\" fill=\"#000000\" fill-opacity=\"0.16\" /><ellipse cx=\"94\" cy=\"48\" rx=\"8\" ry=\"5\" fill=\"#000000\" fill-opacity=\"0.16\" /></g>"""),
-  UnderEyeShading("""<g id=\"Accessories/UnderEyeShading\"><path d=\"M22,38 Q30,44 38,38\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.18\" stroke-width=\"3\" /><path d=\"M74,38 Q82,44 90,38\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.18\" stroke-width=\"3\" /></g>"""),
-  GlassesStrap("""<g id=\"Accessories/GlassesStrap\"><path d=\"M6,30 L22,30\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M106,30 L90,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
-  NeckRibbon("""<g id=\"Accessories/NeckRibbon\"><path d=\"M48,88 L64,88 L60,96 L52,96 Z\" fill=\"#000000\" /><path d=\"M56,96 L50,112\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
+  Headband(
+      """<g id=\"Accessories/Headband\"><path d=\"M6,26 C18,12 94,12 106,26\" fill=\"none\" stroke=\"#000000\" stroke-width=\"6\" stroke-linecap=\"round\" /></g>"""),
+  HairClip(
+      """<g id=\"Accessories/HairClip\"><path d=\"M84,10 L100,6 L104,20 L88,24 Z\" fill=\"#000000\" /></g>"""),
+  Tiara(
+      """<g id=\"Accessories/Tiara\"><path d=\"M32,20 L40,4 L48,16 L56,0 L64,16 L72,4 L80,20 Z\" fill=\"#000000\" /></g>"""),
+  Crown(
+      """<g id=\"Accessories/Crown\"><path d=\"M30,24 L30,10 L42,18 L56,4 L70,18 L82,10 L82,24 Z\" fill=\"#000000\" /></g>"""),
+  Mask2(
+      """<g id=\"Accessories/Mask2\"><path d=\"M12,40 C30,34 82,34 100,40 L100,74 C82,80 30,80 12,74 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  BeautyMask(
+      """<g id=\"Accessories/BeautyMask\"><path d=\"M22,42 C22,36 90,36 90,42 L90,74 C90,80 22,80 22,74 Z\" fill=\"#000000\" fill-opacity=\"0.15\" /></g>"""),
+  EyePatch2(
+      """<g id=\"Accessories/EyePatch2\"><ellipse cx=\"28\" cy=\"30\" rx=\"20\" ry=\"17\" fill=\"#000000\" /><path d=\"M10,22 L46,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
+  RoundShades(
+      """<g id=\"Accessories/RoundShades\"><circle cx=\"28\" cy=\"30\" r=\"19\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"84\" cy=\"30\" r=\"19\" fill=\"#000000\" fill-opacity=\"0.8\" /><path d=\"M47,30 L65,30\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
+  BrowGlasses(
+      """<g id=\"Accessories/BrowGlasses\"><path d=\"M8,24 L48,18\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M104,24 L64,18\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  ScarfLoop(
+      """<g id=\"Accessories/ScarfLoop\"><path d=\"M30,90 C34,80 78,80 82,90 C76,100 36,100 30,90 Z\" fill=\"#000000\" fill-opacity=\"0.85\" /></g>"""),
+  SquareGlassesBold(
+      """<g id=\"Accessories/SquareGlassesBold\"><rect x=\"4\" y=\"13\" width=\"48\" height=\"34\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"60\" y=\"13\" width=\"48\" height=\"34\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M52,30 L60,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  OvalGlasses(
+      """<g id=\"Accessories/OvalGlasses\"><ellipse cx=\"28\" cy=\"30\" rx=\"23\" ry=\"15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><ellipse cx=\"84\" cy=\"30\" rx=\"23\" ry=\"15\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M51,30 L61,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  TempleGlasses(
+      """<g id=\"Accessories/TempleGlasses\"><path d=\"M12,26 L48,22\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M100,26 L64,22\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  HalfMoonGlasses(
+      """<g id=\"Accessories/HalfMoonGlasses\"><path d=\"M14,26 L42,26 L42,40 L14,40 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M70,26 L98,26 L98,40 L70,40 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M42,28 L70,28\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  ChokerPendant(
+      """<g id=\"Accessories/ChokerPendant\"><path d=\"M24,88 C34,96 46,100 56,100 C66,100 78,96 88,88\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" /><circle cx=\"56\" cy=\"106\" r=\"5\" fill=\"#000000\" /></g>"""),
+  ChainNecklace(
+      """<g id=\"Accessories/ChainNecklace\"><path d=\"M22,86 C30,100 46,106 56,106 C66,106 82,100 90,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.6\" /></g>"""),
+  AnkleBand(
+      """<g id=\"Accessories/AnkleBand\"><path d=\"M22,86 C32,94 46,98 56,98 C66,98 80,94 90,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"8\" stroke-linecap=\"round\" /></g>"""),
+  CheekBlush(
+      """<g id=\"Accessories/CheekBlush\"><ellipse cx=\"18\" cy=\"48\" rx=\"8\" ry=\"5\" fill=\"#000000\" fill-opacity=\"0.16\" /><ellipse cx=\"94\" cy=\"48\" rx=\"8\" ry=\"5\" fill=\"#000000\" fill-opacity=\"0.16\" /></g>"""),
+  UnderEyeShading(
+      """<g id=\"Accessories/UnderEyeShading\"><path d=\"M22,38 Q30,44 38,38\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.18\" stroke-width=\"3\" /><path d=\"M74,38 Q82,44 90,38\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.18\" stroke-width=\"3\" /></g>"""),
+  GlassesStrap(
+      """<g id=\"Accessories/GlassesStrap\"><path d=\"M6,30 L22,30\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M106,30 L90,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+  NeckRibbon(
+      """<g id=\"Accessories/NeckRibbon\"><path d=\"M48,88 L64,88 L60,96 L52,96 Z\" fill=\"#000000\" /><path d=\"M56,96 L50,112\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
 
   Dimples("""
         <g id="Accessories/Dimples"><g fill="none" stroke="#000000" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"><path d="M33,66 C36,73 36,80 33,86"/><path d="M79,66 C76,73 76,80 79,86"/></g></g>
