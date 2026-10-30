@@ -35,7 +35,8 @@ void main() {
 
     Directory('build/flutter_render').createSync(recursive: true);
 
-    for (final category in NonPersistentAvatarMakerController().propertyCategories) {
+    for (final category
+        in NonPersistentAvatarMakerController().propertyCategories) {
       if (category.id.name != 'HairStyle') continue;
       final items = category.properties;
       if (items == null) continue;
@@ -57,7 +58,9 @@ void main() {
         final picture = recorder.endRecording();
         final image = await picture.toImage(
           (_size * scale).round().clamp(1, 4000),
-          (_size * scale * info.size.height / info.size.width).round().clamp(1, 4000),
+          (_size * scale * info.size.height / info.size.width)
+              .round()
+              .clamp(1, 4000),
         );
         final bytes = await image.toByteData(format: ui.ImageByteFormat.png);
         File('build/flutter_render/$name.png')
