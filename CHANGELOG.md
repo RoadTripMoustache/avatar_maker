@@ -1,9 +1,38 @@
 ## [Unreleased]
+### Added
+- feat(assets): extended every style category to at least 50 items, so the
+  customizer now offers 742 styles in total:
+  hair styles 49 -> 107, facial hair types 19 -> 81, eyebrows 30 -> 74,
+  eyes 30 -> 74, noses 20 -> 57, mouths 31 -> 68, outfit types 24 -> 75,
+  accessories 39 -> 89, skin colours 28 -> 66, background styles 2 -> 51.
+  Every new item is a distinct shape rather than a recolour of another one, and
+  the hair / facial hair / outfit items reuse the existing colour placeholders
+  (`TO_REPLACE_WITH_HAIRS_COLOR`, `TO_REPLACE_WITH_FACIAL_HAIRS_COLOR`,
+  `TO_REPLACE_WITH_OUTFIT_COLOR`) so the `HairColor`, `FacialHairColor` and
+  `OutfitColor` categories keep working unchanged.
+  The new assets follow the package's own coordinate frames (the avatar frame
+  for hair and outfits, the `Face` group frame for the facial features) and
+  contain no `<style>` element, so they render with `flutter_svg`.
+- feat(assets): standalone previews in `assets/icons/*_50.svg` and a browser
+  preview in `assets/icons/preview_50.html` that renders every item on a full
+  avatar using the package's own `AvatarService.drawSVG` composition.
+- test(assets): `test/generated_assets_test.dart` covers the item counts, the
+  uniqueness of the ids, the resolution of the colour placeholders, the absence
+  of `<style>` elements and the well-formedness of every asset.
+### Changed
+- build(example): migrate the example app's Android project to the current
+  Flutter toolchain so it builds and runs again: the 2017 Gradle setup (AGP
+  3.5.0, Gradle 5.6, the imperative `apply from: app_plugin_loader.gradle`)
+  no longer builds with Flutter 3.3x. The project now uses the declarative
+  plugins block, AGP 9.1, Gradle 9.3.1 and the Kotlin `compilerOptions` DSL,
+  and the `package` attribute was dropped from the manifest in favour of the
+  `namespace` in `app/build.gradle.kts`.
+
 ---
 
 ## [1.11.0] - 25/10/2026
 ### Updated
-- perf(customizer): stop rebuilding the grid when nothing changed
+- perf(customizer): stop rebuilding the grid when nothing changed origin/main
 
 ---
 

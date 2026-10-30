@@ -155,7 +155,12 @@ abstract class AvatarMakerController extends ChangeNotifier {
     // [CustomizedPropertyCategory] list given to the constructor.
     this.defaultSelectedOptions = {
       for (var category in this.propertyCategories)
-        category.id: category.defaultValue!
+        category.id: category.defaultValue!,
+      // Color categories may not be part of the displayed categories, but
+      // the avatar still needs a default value for them.
+      PropertyCategoryIds.HairColor: HairColors.Black,
+      PropertyCategoryIds.FacialHairColor: FacialHairColors.Black,
+      PropertyCategoryIds.OutfitColor: OutfitColors.PastelBlue,
     };
 
     // Initialize the controller

@@ -24,15 +24,26 @@ class OptionsService {
     Map<PropertyCategoryIds, PropertyItem> selectedOptions = {};
 
     decodedOptions.forEach((key, value) {
-      PropertyCategoryIds categoryId =
+      // Unknown category ID -> throw (matches existing contract / tests).
+      final PropertyCategoryIds categoryId =
           PropertyCategoryIds.values.firstWhere((id) => id.name == key);
-      PropertyItem item = PropertyCategoryService.getPropertyCategoryById(
-              propertyCategories, categoryId)
-          .properties!
-          .firstWhere(
-            (property) => property.label == value,
-          );
-      selectedOptions.putIfAbsent(categoryId, () => item);
+
+      final category = PropertyCategoryService.getPropertyCategoryById(
+          propertyCategories, categoryId);
+      if (category.properties == null) return;
+
+      // A stored item label may no longer exist (e.g. after an update that
+      // removed or renamed styles). Skip it instead of crashing; the default
+      // value will be used.
+      PropertyItem? item;
+      try {
+        item = category.properties!.firstWhere(
+          (property) => property.label == value,
+        );
+      } catch (_) {
+        return;
+      }
+      selectedOptions.putIfAbsent(categoryId, () => item!);
     });
     return selectedOptions;
   }

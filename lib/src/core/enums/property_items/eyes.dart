@@ -291,6 +291,92 @@ enum Eyes implements PropertyItem {
     <g transform="translate(85,22)"><circle cx="0" cy="0" r="9" fill="#FFFFFF"/><circle cx="0" cy="0" r="7" fill="#F2B705"/><circle cx="0" cy="0" r="3" fill="#000000"/></g>
   </g>
   """),
+  Big("""<g id=\"Eyes/Big\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"8\" /><circle cx=\"82\" cy=\"30\" r=\"8\" /></g></g>"""),
+  Small(
+      """<g id=\"Eyes/Small\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"4\" /><circle cx=\"82\" cy=\"30\" r=\"4\" /></g></g>"""),
+  Narrow(
+      """<g id=\"Eyes/Narrow\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  Round(
+      """<g id=\"Eyes/Round\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"7\" /><circle cx=\"82\" cy=\"30\" r=\"7\" /></g></g>"""),
+  Oval(
+      """<g id=\"Eyes/Oval\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  WideOpen(
+      """<g id=\"Eyes/WideOpen\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"9\" /><circle cx=\"82\" cy=\"30\" r=\"9\" /></g></g>"""),
+  NarrowSlit(
+      """<g id=\"Eyes/NarrowSlit\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  HalfClosed(
+      """<g id=\"Eyes/HalfClosed\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,30 Q30,26 38,30 L38,30 Q30,33 22,30 Z\" /><path d=\"M74,30 Q82,26 90,30 L90,30 Q82,33 74,30 Z\" /></g></g>"""),
+  SideMore(
+      """<g id=\"Eyes/SideMore\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"22\" cy=\"30\" r=\"6\" /><circle cx=\"74\" cy=\"30\" r=\"6\" /></g></g>"""),
+  Cross(
+      """<g id=\"Eyes/Cross\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"34\" cy=\"30\" r=\"6\" /><circle cx=\"78\" cy=\"30\" r=\"6\" /></g></g>"""),
+  Up("""<g id=\"Eyes/Up\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"25\" r=\"6\" /><circle cx=\"82\" cy=\"25\" r=\"6\" /></g></g>"""),
+  Down(
+      """<g id=\"Eyes/Down\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"34\" r=\"6\" /><circle cx=\"82\" cy=\"34\" r=\"6\" /></g></g>"""),
+  Star(
+      """<g id=\"Eyes/Star\" transform=\"translate(0,0)\"><g fill-opacity=\"1\"><path d=\"M30,18 L32,26 L40,26 L33,31 L36,39 L30,34 L24,39 L27,31 L20,26 L28,26 Z\" fill=\"#FFFFFF\" /><path d=\"M82,18 L84,26 L92,26 L85,31 L88,39 L82,34 L76,39 L79,31 L72,26 L80,26 Z\" fill=\"#FFFFFF\" /></g></g>"""),
+  X("""<g id=\"Eyes/X\" transform=\"translate(0,0)\"><g fill-opacity=\"1\"><path d=\"M24,24 L36,36 M36,24 L24,36\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\" /><path d=\"M76,24 L88,36 M88,24 L76,36\" stroke=\"#000000\" stroke-width=\"4\" stroke-linecap=\"round\" fill=\"none\" /></g></g>"""),
+  Blank(
+      """<g id=\"Eyes/Blank\" transform=\"translate(0,0)\"><g fill-opacity=\"1\"><circle cx=\"30\" cy=\"30\" r=\"8\" fill=\"#FFFFFF\" /><circle cx=\"82\" cy=\"30\" r=\"8\" fill=\"#FFFFFF\" /></g></g>"""),
+  TinyPupil(
+      """<g id=\"Eyes/TinyPupil\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"1.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"1.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  BigPupil(
+      """<g id=\"Eyes/BigPupil\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  Ring(
+      """<g id=\"Eyes/Ring\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"8\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"8\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  Droopy(
+      """<g id=\"Eyes/Droopy\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,28 Q30,26 38,28 Q30,36 22,28 Z\" /><path d=\"M74,28 Q82,26 90,28 Q82,36 74,28 Z\" /></g></g>"""),
+  Bags(
+      """<g id=\"Eyes/Bags\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"6\" /><circle cx=\"82\" cy=\"30\" r=\"6\" /><path d=\"M22,36 Q30,42 38,36\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.6\" stroke-opacity=\"0.4\"/><path d=\"M74,36 Q82,42 90,36\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.6\" stroke-opacity=\"0.4\"/></g></g>"""),
+  Lazy(
+      """<g id=\"Eyes/Lazy\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"32\" cy=\"29\" r=\"6\" /><circle cx=\"84\" cy=\"29\" r=\"6\" /></g></g>"""),
+  Sharp(
+      """<g id=\"Eyes/Sharp\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,26 L38,26 L38,34 L22,34 Z\" /><path d=\"M74,26 L90,26 L90,34 L74,34 Z\" /></g></g>"""),
+  Almond(
+      """<g id=\"Eyes/Almond\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,30 Q30,22 38,30 Q30,38 22,30 Z\" /><path d=\"M74,30 Q82,22 90,30 Q82,38 74,30 Z\" /></g></g>"""),
+  DeepSet(
+      """<g id=\"Eyes/DeepSet\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"31\" r=\"5\" /><circle cx=\"82\" cy=\"31\" r=\"5\" /><path d=\"M20,20 Q30,15 40,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-opacity=\"0.5\"/><path d=\"M72,20 Q82,15 92,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-opacity=\"0.5\"/></g></g>"""),
+  Beady(
+      """<g id=\"Eyes/Beady\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  Innocent(
+      """<g id=\"Eyes/Innocent\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  SleepyHalf(
+      """<g id=\"Eyes/SleepyHalf\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,28 Q30,24 38,28 L38,32 Q30,35 22,32 Z\" /><path d=\"M74,28 Q82,24 90,28 L90,32 Q82,35 74,32 Z\" /></g></g>"""),
+  Angry(
+      """<g id=\"Eyes/Angry\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,26 L38,30 L38,36 L22,32 Z\" /><path d=\"M74,30 L90,26 L90,32 L74,36 Z\" /></g></g>"""),
+  Calm(
+      """<g id=\"Eyes/Calm\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,29 Q30,26 38,29 Q30,36 22,29 Z\" /><path d=\"M74,29 Q82,26 90,29 Q82,36 74,29 Z\" /></g></g>"""),
+  Focused(
+      """<g id=\"Eyes/Focused\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  Bright(
+      """<g id=\"Eyes/Bright\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"29\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"29\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"29\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"29\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  Sunken(
+      """<g id=\"Eyes/Sunken\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"32\" r=\"4\" /><circle cx=\"82\" cy=\"32\" r=\"4\" /></g></g>"""),
+  OvalIris(
+      """<g id=\"Eyes/OvalIris\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><ellipse cx=\"30\" cy=\"30\" rx=\"7\" ry=\"8\" /><ellipse cx=\"82\" cy=\"30\" rx=\"7\" ry=\"8\" /></g></g>"""),
+  Lidded(
+      """<g id=\"Eyes/Lidded\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,26 Q30,22 38,26 Q30,34 22,26 Z\" /><path d=\"M74,26 Q82,22 90,26 Q82,34 74,26 Z\" /></g></g>"""),
+  DroopyLid(
+      """<g id=\"Eyes/DroopyLid\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,28 Q30,25 38,29 Q30,36 22,28 Z\" /><path d=\"M74,29 Q82,25 90,28 Q82,36 74,29 Z\" /></g></g>"""),
+  HalfLid(
+      """<g id=\"Eyes/HalfLid\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,28 Q30,25 38,28 Q30,32 22,28 Z\" /><path d=\"M74,28 Q82,25 90,28 Q82,32 74,28 Z\" /></g></g>"""),
+  Hollow(
+      """<g id=\"Eyes/Hollow\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.4\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.4\" /></g></g>"""),
+  TinyIris(
+      """<g id=\"Eyes/TinyIris\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"1.2\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"1.2\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  WideIris(
+      """<g id=\"Eyes/WideIris\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"9\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"6\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"9\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+  Slanted(
+      """<g id=\"Eyes/Slanted\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,32 L38,26 L38,32 L22,36 Z\" /><path d=\"M74,26 L90,32 L90,36 L74,32 Z\" /></g></g>"""),
+  Upturned(
+      """<g id=\"Eyes/Upturned\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,28 Q30,24 38,29 Q30,35 22,28 Z\" /><path d=\"M74,29 Q82,24 90,28 Q82,35 74,29 Z\" /></g></g>"""),
+  Downturned(
+      """<g id=\"Eyes/Downturned\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,30 Q30,35 38,29 Q30,27 22,30 Z\" /><path d=\"M74,29 Q82,35 90,30 Q82,27 74,29 Z\" /></g></g>"""),
+  Monolid(
+      """<g id=\"Eyes/Monolid\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,29 Q30,26 38,29 L38,32 Q30,34 22,32 Z\" /><path d=\"M74,29 Q82,26 90,29 L90,32 Q82,34 74,32 Z\" /></g></g>"""),
+  Creased(
+      """<g id=\"Eyes/Creased\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"6\" /><circle cx=\"82\" cy=\"30\" r=\"6\" /><path d=\"M22,25 Q30,21 38,25\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.8\" stroke-opacity=\"0.5\"/><path d=\"M74,25 Q82,21 90,25\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.8\" stroke-opacity=\"0.5\"/></g></g>"""),
+
   Blink("""
   <g id="Eyes/Blink" transform="translate(0.000000, 8.000000)">
     <g transform="translate(30,22)"><path d="M-9,0 C-5,5 5,5 9,0" stroke="#000000" stroke-width="3" stroke-linecap="round" fill="none"/></g>
