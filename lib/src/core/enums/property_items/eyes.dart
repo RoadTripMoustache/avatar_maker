@@ -295,15 +295,15 @@ enum Eyes implements PropertyItem {
   Small(
       """<g id=\"Eyes/Small\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"4\" /><circle cx=\"82\" cy=\"30\" r=\"4\" /></g></g>"""),
   Narrow(
-      """<g id=\"Eyes/Narrow\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"6\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/Narrow\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   Round(
       """<g id=\"Eyes/Round\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"7\" /><circle cx=\"82\" cy=\"30\" r=\"7\" /></g></g>"""),
   Oval(
-      """<g id=\"Eyes/Oval\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"6\" /><circle cx=\"30\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" /><circle cx=\"82\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/Oval\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   WideOpen(
       """<g id=\"Eyes/WideOpen\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"9\" /><circle cx=\"82\" cy=\"30\" r=\"9\" /></g></g>"""),
   NarrowSlit(
-      """<g id=\"Eyes/NarrowSlit\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"5\" /><circle cx=\"30\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" /><circle cx=\"82\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/NarrowSlit\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   HalfClosed(
       """<g id=\"Eyes/HalfClosed\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,30 Q30,26 38,30 L38,30 Q30,33 22,30 Z\" /><path d=\"M74,30 Q82,26 90,30 L90,30 Q82,33 74,30 Z\" /></g></g>"""),
   SideMore(
@@ -319,11 +319,11 @@ enum Eyes implements PropertyItem {
   Blank(
       """<g id=\"Eyes/Blank\" transform=\"translate(0,0)\"><g fill-opacity=\"1\"><circle cx=\"30\" cy=\"30\" r=\"8\" fill=\"#FFFFFF\" /><circle cx=\"82\" cy=\"30\" r=\"8\" fill=\"#FFFFFF\" /></g></g>"""),
   TinyPupil(
-      """<g id=\"Eyes/TinyPupil\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"7\" /><circle cx=\"30\" cy=\"30\" r=\"1.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"7\" /><circle cx=\"82\" cy=\"30\" r=\"1.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/TinyPupil\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"1.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"1.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   BigPupil(
-      """<g id=\"Eyes/BigPupil\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"6\" /><circle cx=\"30\" cy=\"30\" r=\"5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/BigPupil\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   Ring(
-      """<g id=\"Eyes/Ring\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"8\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"8\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/Ring\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"8\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"8\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   Droopy(
       """<g id=\"Eyes/Droopy\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,28 Q30,26 38,28 Q30,36 22,28 Z\" /><path d=\"M74,28 Q82,26 90,28 Q82,36 74,28 Z\" /></g></g>"""),
   Bags(
@@ -337,9 +337,9 @@ enum Eyes implements PropertyItem {
   DeepSet(
       """<g id=\"Eyes/DeepSet\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"31\" r=\"5\" /><circle cx=\"82\" cy=\"31\" r=\"5\" /><path d=\"M20,20 Q30,15 40,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-opacity=\"0.5\"/><path d=\"M72,20 Q82,15 92,20\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" stroke-opacity=\"0.5\"/></g></g>"""),
   Beady(
-      """<g id=\"Eyes/Beady\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"5\" /><circle cx=\"30\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" /><circle cx=\"82\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/Beady\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"3\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   Innocent(
-      """<g id=\"Eyes/Innocent\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"7\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"7\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/Innocent\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   SleepyHalf(
       """<g id=\"Eyes/SleepyHalf\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,28 Q30,24 38,28 L38,32 Q30,35 22,32 Z\" /><path d=\"M74,28 Q82,24 90,28 L90,32 Q82,35 74,32 Z\" /></g></g>"""),
   Angry(
@@ -347,9 +347,9 @@ enum Eyes implements PropertyItem {
   Calm(
       """<g id=\"Eyes/Calm\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,29 Q30,26 38,29 Q30,36 22,29 Z\" /><path d=\"M74,29 Q82,26 90,29 Q82,36 74,29 Z\" /></g></g>"""),
   Focused(
-      """<g id=\"Eyes/Focused\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"5\" /><circle cx=\"30\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" /><circle cx=\"82\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/Focused\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"5\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"2.5\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   Bright(
-      """<g id=\"Eyes/Bright\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"29\" r=\"7\" /><circle cx=\"30\" cy=\"29\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"29\" r=\"7\" /><circle cx=\"82\" cy=\"29\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/Bright\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"29\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"29\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"29\" r=\"7\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"29\" r=\"4\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   Sunken(
       """<g id=\"Eyes/Sunken\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"32\" r=\"4\" /><circle cx=\"82\" cy=\"32\" r=\"4\" /></g></g>"""),
   OvalIris(
@@ -363,9 +363,9 @@ enum Eyes implements PropertyItem {
   Hollow(
       """<g id=\"Eyes/Hollow\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.4\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.4\" /></g></g>"""),
   TinyIris(
-      """<g id=\"Eyes/TinyIris\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"6\" /><circle cx=\"30\" cy=\"30\" r=\"1.2\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" /><circle cx=\"82\" cy=\"30\" r=\"1.2\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/TinyIris\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"1.2\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"1.2\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   WideIris(
-      """<g id=\"Eyes/WideIris\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><circle cx=\"30\" cy=\"30\" r=\"9\" /><circle cx=\"30\" cy=\"30\" r=\"6\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"9\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill=\"#000000\" fill-opacity=\"0.8\" /></g></g>"""),
+      """<g id=\"Eyes/WideIris\" transform=\"translate(0,0)\"><circle cx=\"30\" cy=\"30\" r=\"9\" fill-opacity=\"0.6\" /><circle cx=\"30\" cy=\"30\" r=\"6\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"82\" cy=\"30\" r=\"9\" fill-opacity=\"0.6\" /><circle cx=\"82\" cy=\"30\" r=\"6\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   Slanted(
       """<g id=\"Eyes/Slanted\" transform=\"translate(0,0)\"><g fill-opacity=\"0.6\"><path d=\"M22,32 L38,26 L38,32 L22,36 Z\" /><path d=\"M74,26 L90,32 L90,36 L74,32 Z\" /></g></g>"""),
   Upturned(

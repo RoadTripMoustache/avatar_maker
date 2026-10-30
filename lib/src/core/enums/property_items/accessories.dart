@@ -147,7 +147,7 @@ enum Accessories implements PropertyItem {
   CyberVisor(
       """<g id="Accessories/CyberVisor"><rect x="-6" y="18" width="124" height="24" rx="12" fill="#1A2238"/><rect x="6" y="26" width="100" height="4" rx="2" fill="#4EE8D0"/><rect x="6" y="34" width="34" height="3" rx="1.5" fill="#4EE8D0" fill-opacity="0.5"/></g>"""),
   Bindi("""
-        <g id="Accessories/Bindi"><circle cx="56" cy="14" r="5" fill="#C2185B"/></g>
+        <g id="Accessories/Bindi"><circle cx="56" cy="-4" r="5" fill="#C2185B"/></g>
         """),
   NoseStud("""
         <g id="Accessories/NoseStud"><circle cx="46" cy="52" r="3" fill="#E8B93E"/></g>
@@ -204,11 +204,11 @@ enum Accessories implements PropertyItem {
   Goggles(
       """<g id=\"Accessories/Goggles\"><circle cx=\"28\" cy=\"30\" r=\"18\" fill=\"#000000\" fill-opacity=\"0.2\" stroke=\"#000000\" stroke-width=\"3\" /><circle cx=\"84\" cy=\"30\" r=\"18\" fill=\"#000000\" fill-opacity=\"0.2\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M46,24 L66,24\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
   StudEarrings(
-      """<g id=\"Accessories/StudEarrings\"><circle cx=\"14\" cy=\"52\" r=\"3.5\" fill=\"#000000\" /><circle cx=\"98\" cy=\"52\" r=\"3.5\" fill=\"#000000\" /></g>"""),
+      """<g id=\"Accessories/StudEarrings\"><circle cx=\"2\" cy=\"66\" r=\"3.5\" fill=\"#000000\" /><circle cx=\"110\" cy=\"66\" r=\"3.5\" fill=\"#000000\" /></g>"""),
   HoopEarrings(
-      """<g id=\"Accessories/HoopEarrings\"><circle cx=\"14\" cy=\"56\" r=\"7\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /><circle cx=\"98\" cy=\"56\" r=\"7\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /></g>"""),
+      """<g id=\"Accessories/HoopEarrings\"><circle cx=\"2\" cy=\"66\" r=\"7\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /><circle cx=\"110\" cy=\"66\" r=\"7\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /></g>"""),
   DropEarrings(
-      """<g id=\"Accessories/DropEarrings\"><path d=\"M14,52 L14,60\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M14,60 L9,68 L14,76 L19,68 Z\" fill=\"#000000\" /><path d=\"M98,52 L98,60\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M98,60 L93,68 L98,76 L103,68 Z\" fill=\"#000000\" /></g>"""),
+      """<g id=\"Accessories/DropEarrings\"><path d=\"M2,60 L2,68\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M2,68 L-3,76 L2,84 L7,76 Z\" fill=\"#000000\" /><path d=\"M110,60 L110,68\" stroke=\"#000000\" stroke-width=\"2\" /><path d=\"M110,68 L105,76 L110,84 L115,76 Z\" fill=\"#000000\" /></g>"""),
   NoseRing(
       """<g id=\"Accessories/NoseRing\"><circle cx=\"56\" cy=\"58\" r=\"4\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2\" /></g>"""),
   LipPiercing(
@@ -224,20 +224,20 @@ enum Accessories implements PropertyItem {
   Necklace(
       """<g id=\"Accessories/Necklace\"><path d=\"M20,86 C28,96 44,102 56,102 C68,102 84,96 92,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"2.5\" /><circle cx=\"56\" cy=\"106\" r=\"4\" fill=\"#000000\" /></g>"""),
   Choker(
-      """<g id=\"Accessories/Choker\"><path d=\"M22,88 C32,94 44,98 56,98 C68,98 80,94 90,88\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" /></g>"""),
+      """<g id=\"Accessories/Choker\" transform=\"translate(0,30)\"><path d=\"M22,88 C32,94 44,98 56,98 C68,98 80,94 90,88\" fill=\"none\" stroke=\"#000000\" stroke-width=\"5\" /></g>"""),
   Scarf(
-      """<g id=\"Accessories/Scarf\"><path d=\"M16,84 C26,98 44,104 56,104 C68,104 86,98 96,84 L92,96 C80,106 68,110 56,110 C44,110 32,106 20,96 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
+      """<g id=\"Accessories/Scarf\" transform=\"translate(0,30)\"><path d=\"M16,84 C26,98 44,104 56,104 C68,104 86,98 96,84 L92,96 C80,106 68,110 56,110 C44,110 32,106 20,96 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   BowTie(
-      """<g id=\"Accessories/BowTie\"><path d=\"M38,66 L50,72 L38,79 Z\" fill=\"#000000\" /><path d=\"M74,66 L62,72 L74,79 Z\" fill=\"#000000\" /><rect x=\"48\" y=\"68\" width=\"16\" height=\"9\" rx=\"2\" fill=\"#000000\" /></g>"""),
-  Tie("""<g id=\"Accessories/Tie\"><path d=\"M50,66 L62,66 L58,74 L62,90 L50,98 L40,90 L44,74 Z\" fill=\"#000000\" /></g>"""),
+      """<g id=\"Accessories/BowTie\" transform=\"translate(0,50)\"><path d=\"M38,66 L50,72 L38,79 Z\" fill=\"#000000\" /><path d=\"M74,66 L62,72 L74,79 Z\" fill=\"#000000\" /><rect x=\"48\" y=\"68\" width=\"16\" height=\"9\" rx=\"2\" fill=\"#000000\" /></g>"""),
+  Tie("""<g id=\"Accessories/Tie\" transform=\"translate(0,50)\"><path d=\"M50,66 L62,66 L58,74 L62,90 L50,98 L40,90 L44,74 Z\" fill=\"#000000\" /></g>"""),
   Headband(
-      """<g id=\"Accessories/Headband\"><path d=\"M6,26 C18,12 94,12 106,26\" fill=\"none\" stroke=\"#000000\" stroke-width=\"6\" stroke-linecap=\"round\" /></g>"""),
+      """<g id=\"Accessories/Headband\" transform=\"translate(0,-30)\"><path d=\"M6,26 C18,12 94,12 106,26\" fill=\"none\" stroke=\"#000000\" stroke-width=\"6\" stroke-linecap=\"round\" /></g>"""),
   HairClip(
       """<g id=\"Accessories/HairClip\"><path d=\"M84,10 L100,6 L104,20 L88,24 Z\" fill=\"#000000\" /></g>"""),
   Tiara(
-      """<g id=\"Accessories/Tiara\"><path d=\"M32,20 L40,4 L48,16 L56,0 L64,16 L72,4 L80,20 Z\" fill=\"#000000\" /></g>"""),
+      """<g id=\"Accessories/Tiara\" transform=\"translate(0,-52)\"><path d=\"M32,20 L40,4 L48,16 L56,0 L64,16 L72,4 L80,20 Z\" fill=\"#000000\" /></g>"""),
   Crown(
-      """<g id=\"Accessories/Crown\"><path d=\"M30,24 L30,10 L42,18 L56,4 L70,18 L82,10 L82,24 Z\" fill=\"#000000\" /></g>"""),
+      """<g id=\"Accessories/Crown\" transform=\"translate(0,-62)\"><path d=\"M30,24 L30,10 L42,18 L56,4 L70,18 L82,10 L82,24 Z\" fill=\"#000000\" /></g>"""),
   Mask2(
       """<g id=\"Accessories/Mask2\"><path d=\"M12,40 C30,34 82,34 100,40 L100,74 C82,80 30,80 12,74 Z\" fill=\"#000000\" fill-opacity=\"0.8\" /></g>"""),
   BeautyMask(
@@ -247,9 +247,9 @@ enum Accessories implements PropertyItem {
   RoundShades(
       """<g id=\"Accessories/RoundShades\"><circle cx=\"28\" cy=\"30\" r=\"19\" fill=\"#000000\" fill-opacity=\"0.8\" /><circle cx=\"84\" cy=\"30\" r=\"19\" fill=\"#000000\" fill-opacity=\"0.8\" /><path d=\"M47,30 L65,30\" stroke=\"#000000\" stroke-width=\"4\" /></g>"""),
   BrowGlasses(
-      """<g id=\"Accessories/BrowGlasses\"><path d=\"M8,24 L48,18\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M104,24 L64,18\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
+      """<g id=\"Accessories/BrowGlasses\" transform=\"translate(0,-8)\"><path d=\"M8,24 L48,18\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M104,24 L64,18\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
   ScarfLoop(
-      """<g id=\"Accessories/ScarfLoop\"><path d=\"M30,90 C34,80 78,80 82,90 C76,100 36,100 30,90 Z\" fill=\"#000000\" fill-opacity=\"0.85\" /></g>"""),
+      """<g id=\"Accessories/ScarfLoop\" transform=\"translate(0,30)\"><path d=\"M30,90 C34,80 78,80 82,90 C76,100 36,100 30,90 Z\" fill=\"#000000\" fill-opacity=\"0.85\" /></g>"""),
   SquareGlassesBold(
       """<g id=\"Accessories/SquareGlassesBold\"><rect x=\"4\" y=\"13\" width=\"48\" height=\"34\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><rect x=\"60\" y=\"13\" width=\"48\" height=\"34\" rx=\"0\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M52,30 L60,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
   OvalGlasses(
@@ -259,11 +259,11 @@ enum Accessories implements PropertyItem {
   HalfMoonGlasses(
       """<g id=\"Accessories/HalfMoonGlasses\"><path d=\"M14,26 L42,26 L42,40 L14,40 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M70,26 L98,26 L98,40 L70,40 Z\" fill=\"none\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M42,28 L70,28\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
   ChokerPendant(
-      """<g id=\"Accessories/ChokerPendant\"><path d=\"M24,88 C34,96 46,100 56,100 C66,100 78,96 88,88\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" /><circle cx=\"56\" cy=\"106\" r=\"5\" fill=\"#000000\" /></g>"""),
+      """<g id=\"Accessories/ChokerPendant\" transform=\"translate(0,30)\"><path d=\"M24,88 C34,96 46,100 56,100 C66,100 78,96 88,88\" fill=\"none\" stroke=\"#000000\" stroke-width=\"4\" /><circle cx=\"56\" cy=\"106\" r=\"5\" fill=\"#000000\" /></g>"""),
   ChainNecklace(
-      """<g id=\"Accessories/ChainNecklace\"><path d=\"M22,86 C30,100 46,106 56,106 C66,106 82,100 90,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.6\" /></g>"""),
+      """<g id=\"Accessories/ChainNecklace\" transform=\"translate(0,37)\"><path d=\"M22,86 C30,100 46,106 56,106 C66,106 82,100 90,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"1.6\" /></g>"""),
   AnkleBand(
-      """<g id=\"Accessories/AnkleBand\"><path d=\"M22,86 C32,94 46,98 56,98 C66,98 80,94 90,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"8\" stroke-linecap=\"round\" /></g>"""),
+      """<g id=\"Accessories/AnkleBand\" transform=\"translate(0,30)\"><path d=\"M22,86 C32,94 46,98 56,98 C66,98 80,94 90,86\" fill=\"none\" stroke=\"#000000\" stroke-width=\"8\" stroke-linecap=\"round\" /></g>"""),
   CheekBlush(
       """<g id=\"Accessories/CheekBlush\"><ellipse cx=\"18\" cy=\"48\" rx=\"8\" ry=\"5\" fill=\"#000000\" fill-opacity=\"0.16\" /><ellipse cx=\"94\" cy=\"48\" rx=\"8\" ry=\"5\" fill=\"#000000\" fill-opacity=\"0.16\" /></g>"""),
   UnderEyeShading(
@@ -271,7 +271,7 @@ enum Accessories implements PropertyItem {
   GlassesStrap(
       """<g id=\"Accessories/GlassesStrap\"><path d=\"M6,30 L22,30\" stroke=\"#000000\" stroke-width=\"3\" /><path d=\"M106,30 L90,30\" stroke=\"#000000\" stroke-width=\"3\" /></g>"""),
   NeckRibbon(
-      """<g id=\"Accessories/NeckRibbon\"><path d=\"M48,88 L64,88 L60,96 L52,96 Z\" fill=\"#000000\" /><path d=\"M56,96 L50,112\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
+      """<g id=\"Accessories/NeckRibbon\" transform=\"translate(0,25)\"><path d=\"M48,88 L64,88 L60,96 L52,96 Z\" fill=\"#000000\" /><path d=\"M56,96 L50,112\" stroke=\"#000000\" stroke-width=\"3\" stroke-linecap=\"round\" /></g>"""),
 
   Dimples("""
         <g id="Accessories/Dimples"><g fill="none" stroke="#000000" stroke-opacity="0.22" stroke-width="3" stroke-linecap="round"><path d="M33,66 C36,73 36,80 33,86"/><path d="M79,66 C76,73 76,80 79,86"/></g></g>
