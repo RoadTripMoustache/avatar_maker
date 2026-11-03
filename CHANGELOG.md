@@ -1,4 +1,8 @@
 ## [Unreleased]
+
+---
+
+## [1.12.0] - 03/11/2026
 ### Added
 - feat(assets): extended every style category to at least 50 items, so the
   customizer now offers 733 styles in total:
