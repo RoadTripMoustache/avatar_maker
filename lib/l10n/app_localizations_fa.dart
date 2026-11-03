@@ -9,16 +9,16 @@ class AppLocalizationsFa extends AppLocalizations {
   AppLocalizationsFa([String locale = 'fa']) : super(locale);
 
   @override
-  String get property_category_accessories => 'لوازم جانبی';
+  String get property_category_accessories => 'عینک';
 
   @override
-  String get property_category_backgrounds => 'پس‌زمینه‌ها';
+  String get property_category_backgrounds => 'پس‌زمینه‌';
 
   @override
-  String get property_category_effects => 'جلوه‌ها';
+  String get property_category_effects => 'جلوه‌';
 
   @override
-  String get property_category_effect_colors => 'رنگ‌های جلوه';
+  String get property_category_effect_colors => 'رنگ‌ جلوه';
 
   @override
   String unlock_cosmetic_level(int level) {
@@ -26,16 +26,16 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String get property_category_eyes => 'چشم‌ها';
+  String get property_category_eyes => 'چشم‌';
 
   @override
-  String get property_category_eyebrows => 'ابروها';
+  String get property_category_eyebrows => 'ابرو';
 
   @override
-  String get property_category_facial_hair_colors => 'رنگ موهای صورت';
+  String get property_category_facial_hair_colors => 'رنگ ریش و سبیل';
 
   @override
-  String get property_category_facial_hair_types => 'موهای صورت';
+  String get property_category_facial_hair_types => 'ریش و سبیل';
 
   @override
   String get property_category_hair_colors => 'رنگ مو';

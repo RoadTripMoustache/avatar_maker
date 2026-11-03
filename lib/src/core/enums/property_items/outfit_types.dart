@@ -30,6 +30,8 @@ enum OutfitTypes implements PropertyItem {
 							<path d="M69,1.13686838e-13 C65,19.3333333 66.6666667,46.6666667 74,82 L58,82 L44,46 L50,37 L44,31 L63,1 C65.027659,0.369238637 67.027659,0.0359053037 69,1.13686838e-13 Z" id="Wing" fill="#2F4351"></path>
 							<path d="M151,1.13686838e-13 C147,19.3333333 148.666667,46.6666667 156,82 L140,82 L126,46 L132,37 L126,31 L145,1 C147.027659,0.369238637 149.027659,0.0359053037 151,1.13686838e-13 Z" id="Wing" fill="#2F4351" transform="translate(141.000000, 41.000000) scale(-1, 1) translate(-141.000000, -41.000000) "></path>
 						</g>
+
+
 					</g>
         """),
   BlazerSweater("""
@@ -44,12 +46,14 @@ enum OutfitTypes implements PropertyItem {
 						<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#react-mask-34906)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
-						<g id="Blazer" stroke-width="1" fill-rule="evenodd" transform="translate(32.000000, 28.000000)">
+						<g mask="url(#react-mask-34906)">
+<g id="Blazer" stroke-width="1" fill-rule="evenodd" transform="translate(32.000000, 28.000000)">
 							<path d="M68.784807,1.12222847 C30.512317,2.80409739 1.24427139e-14,34.3646437 0,73.0517235 L0,82 L69.3616767,82 C65.9607412,69.9199941 64,55.7087296 64,40.5 C64,26.1729736 65.7399891,12.7311115 68.784807,1.12222847 Z M131.638323,82 L200,82 L200,73.0517235 C200,34.7067641 170.024954,3.36285166 132.228719,1.17384225 C135.265163,12.7709464 137,26.1942016 137,40.5 C137,55.7087296 135.039259,69.9199941 131.638323,82 Z" id="Saco" fill="#3A4C5A"></path>
 							<path d="M149,58 L158.555853,50.83311 L158.555853,50.83311 C159.998897,49.7508275 161.987779,49.7682725 163.411616,50.8757011 L170,56 L149,58 Z" id="Pocket-hanky" fill="#E6E6E6"></path>
 							<path d="M69,1.13686838e-13 C65,19.3333333 66.6666667,46.6666667 74,82 L58,82 L44,46 L50,37 L44,31 L63,1 C65.027659,0.369238637 67.027659,0.0359053037 69,1.13686838e-13 Z" id="Wing" fill="#2F4351"></path>
 							<path d="M151,1.13686838e-13 C147,19.3333333 148.666667,46.6666667 156,82 L140,82 L126,46 L132,37 L126,31 L145,1 C147.027659,0.369238637 149.027659,0.0359053037 151,1.13686838e-13 Z" id="Wing" fill="#2F4351" transform="translate(141.000000, 41.000000) scale(-1, 1) translate(-141.000000, -41.000000) "></path>
 						</g>
+</g>
 						<path d="M156,21.5390062 C162.772319,26.1359565 167,32.6563196 167,39.8878801 C167,47.2887711 162.572015,53.9447688 155.520105,58.5564942 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,21.5390062 Z M108,21.5390062 C101.227681,26.1359565 97,32.6563196 97,39.8878801 C97,47.2887711 101.427985,53.9447688 108.479895,58.5564942 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5390062 Z" id="Collar" fill="#F2F2F2" fill-rule="evenodd"></path>
 					</g>
         """),
@@ -65,7 +69,9 @@ enum OutfitTypes implements PropertyItem {
 						<g id="$TO_REPLACE_WITH_OUTFIT_COLOR_NAME" mask="url(#react-mask-35117)" fill-rule="evenodd" fill="$TO_REPLACE_WITH_OUTFIT_COLOR">
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
-						<path d="M156,22.2794906 C162.181647,26.8351858 166,33.1057265 166,40.027915 C166,47.2334941 161.862605,53.7329769 155.228997,58.3271669 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,22.2794906 Z M108,21.5714994 C101.232748,26.1740081 97,32.7397769 97,40.027915 C97,47.4261549 101.361602,54.080035 108.308428,58.6915723 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5714994 Z" id="Collar" fill="#F2F2F2" fill-rule="evenodd"></path>
+						<g mask="url(#react-mask-35117)">
+<path d="M156,22.2794906 C162.181647,26.8351858 166,33.1057265 166,40.027915 C166,47.2334941 161.862605,53.7329769 155.228997,58.3271669 L149.57933,53.8764929 L145,54.207887 L146,51.0567821 L145.922229,50.995516 C152.022491,47.8530505 156,42.7003578 156,36.8768102 L156,22.2794906 Z M108,21.5714994 C101.232748,26.1740081 97,32.7397769 97,40.027915 C97,47.4261549 101.361602,54.080035 108.308428,58.6915723 L114.42067,53.8764929 L119,54.207887 L118,51.0567821 L118.077771,50.995516 C111.977509,47.8530505 108,42.7003578 108,36.8768102 L108,21.5714994 Z" id="Collar" fill="#F2F2F2" fill-rule="evenodd"></path>
+</g>
 					</g>
         """),
   GraphicShirt("""
@@ -100,7 +106,7 @@ enum OutfitTypes implements PropertyItem {
 							<rect id="🖍Color" x="0" y="0" width="264" height="110"></rect>
 						</g>
 						<path d="M102,61.7390531 L102,110 L95,110 L95,58.1502625 C97.2037542,59.4600576 99.5467694,60.6607878 102,61.7390531 Z M169,58.1502625 L169,98.5 C169,100.432997 167.432997,102 165.5,102 C163.567003,102 162,100.432997 162,98.5 L162,61.7390531 C164.453231,60.6607878 166.796246,59.4600576 169,58.1502625 Z" id="Straps" fill="#F4F4F4" fill-rule="evenodd" mask="url(#react-mask-35938)"></path>
-						<path d="M90.9601329,12.7243537 C75.9093095,15.5711782 65.5,21.2428847 65.5,32.3076923 C65.5,52.0200095 98.5376807,68 132,68 C165.462319,68 198.5,52.0200095 198.5,32.3076923 C198.5,21.2428847 188.09069,15.5711782 173.039867,12.7243537 C182.124921,16.0744598 188,21.7060546 188,31.0769231 C188,51.4689754 160.178795,68 132,68 C103.821205,68 76,51.4689754 76,31.0769231 C76,21.7060546 81.8750795,16.0744598 90.9601329,12.7243537 Z" id="Shadow" fill-opacity="0.16" fill="#000000" fill-rule="evenodd" mask="url(#react-mask-35938)"></path>
+						<path d="M98.9601329,14.7243537 C87.9093095,16.5711782 80.5,21.2428847 80.5,30.3076923 C80.5,48.0200095 104.5376807,64 132,64 C159.462319,64 183.5,48.0200095 183.5,30.3076923 C183.5,21.2428847 176.09069,16.5711782 165.039867,14.7243537 C172.124921,17.0744598 176,21.7060546 176,29.0769231 C176,47.4689754 154.178795,64 132,64 C109.821205,64 88,47.4689754 88,29.0769231 C88,21.7060546 91.8750795,17.0744598 98.9601329,14.7243537 Z" id="Shadow" fill-opacity="0.16" fill="#000000" fill-rule="evenodd" mask="url(#react-mask-35938)"></path>
 					</g>
         """),
   Overall("""
@@ -446,6 +452,698 @@ enum OutfitTypes implements PropertyItem {
 </g>
 </g>
 """),
+  CrewNeckTee(
+      """<g id=\"OutfitTypes/CrewNeckTee\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /></g></g>"""),
+  VNeckTee(
+      """<g id=\"OutfitTypes/VNeckTee\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L162,29 L132,58 L102,29 Z\" /><path d=\"M104,26 L132,56 L160,26 L166,31 L132,66 L98,31 Z\" /></g></g>"""),
+  ScoopNeckTee(
+      """<g id=\"OutfitTypes/ScoopNeckTee\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 C160,46 146,52 132,52 C118,52 104,46 104,29 Z\" /></g></g>"""),
+  TurtleNeck(
+      """<g id=\"OutfitTypes/TurtleNeck\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" /><rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" /></g></g>"""),
+  StrapTop(
+      """<g id=\"OutfitTypes/StrapTop\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L154,29 C154,40 110,40 110,29 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /></g></g>"""),
+  BoatNeck(
+      """<g id=\"OutfitTypes/BoatNeck\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 C160,46 104,46 104,29.0 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /></g></g>"""),
+  LongSleeveShirt(
+      """<g id=\"OutfitTypes/LongSleeveShirt\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-longsleeveshirt-0"/>
+<path d=\"M100,26 L132,50 L164,26 L170,31 L138,62 L126,62 L94,31 Z\" id="am-path-longsleeveshirt-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"80\" fill-opacity=\"0.22\" id="am-path-longsleeveshirt-2"/>
+<mask id="am-mask-longsleeveshirt" fill="white">
+<use xlink:href="#am-path-longsleeveshirt-0"></use>
+<use xlink:href="#am-path-longsleeveshirt-1"></use>
+<use xlink:href="#am-path-longsleeveshirt-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-longsleeveshirt-0"></use>
+<use xlink:href="#am-path-longsleeveshirt-1"></use>
+<use xlink:href="#am-path-longsleeveshirt-2"></use>
+</g>
+<g mask="url(#am-mask-longsleeveshirt)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  Henley(
+      """<g id=\"OutfitTypes/Henley\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /><rect x=\"122\" y=\"52\" width=\"20\" height=\"22\" fill-opacity=\"0.25\" /></g><circle cx=\"132\" cy=\"59\" r=\"2.4\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /></g>"""),
+  ButtonUp(
+      """<g id=\"OutfitTypes/ButtonUp\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-buttonup-0"/>
+<path d=\"M100,26 L132,50 L164,26 L170,31 L138,62 L126,62 L94,31 Z\" id="am-path-buttonup-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"96\" fill-opacity=\"0.22\" id="am-path-buttonup-2"/>
+<mask id="am-mask-buttonup" fill="white">
+<use xlink:href="#am-path-buttonup-0"></use>
+<use xlink:href="#am-path-buttonup-1"></use>
+<use xlink:href="#am-path-buttonup-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-buttonup-0"></use>
+<use xlink:href="#am-path-buttonup-1"></use>
+<use xlink:href="#am-path-buttonup-2"></use>
+</g>
+<g mask="url(#am-mask-buttonup)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"135\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  FlannelShirt(
+      """<g id=\"OutfitTypes/FlannelShirt\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-flannelshirt-0"/>
+<path d=\"M100,26 L132,50 L164,26 L170,31 L138,62 L126,62 L94,31 Z\" id="am-path-flannelshirt-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"96\" fill-opacity=\"0.22\" id="am-path-flannelshirt-2"/>
+<mask id="am-mask-flannelshirt" fill="white">
+<use xlink:href="#am-path-flannelshirt-0"></use>
+<use xlink:href="#am-path-flannelshirt-1"></use>
+<use xlink:href="#am-path-flannelshirt-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-flannelshirt-0"></use>
+<use xlink:href="#am-path-flannelshirt-1"></use>
+<use xlink:href="#am-path-flannelshirt-2"></use>
+</g>
+<g mask="url(#am-mask-flannelshirt)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"135\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><rect x=\"32\" y=\"48\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.13\" /><rect x=\"32\" y=\"63\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.13\" /><rect x=\"32\" y=\"78\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.13\" /><rect x=\"32\" y=\"93\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.13\" />
+</g>
+</g>"""),
+  OxfordShirt(
+      """<g id=\"OutfitTypes/OxfordShirt\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-oxfordshirt-0"/>
+<path d=\"M96,22 L132,46 L168,22 L176,28 L140,60 L124,60 L88,28 Z\" id="am-path-oxfordshirt-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"96\" fill-opacity=\"0.22\" id="am-path-oxfordshirt-2"/>
+<mask id="am-mask-oxfordshirt" fill="white">
+<use xlink:href="#am-path-oxfordshirt-0"></use>
+<use xlink:href="#am-path-oxfordshirt-1"></use>
+<use xlink:href="#am-path-oxfordshirt-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-oxfordshirt-0"></use>
+<use xlink:href="#am-path-oxfordshirt-1"></use>
+<use xlink:href="#am-path-oxfordshirt-2"></use>
+</g>
+<g mask="url(#am-mask-oxfordshirt)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"135\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  DressShirt(
+      """<g id=\"OutfitTypes/DressShirt\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-dressshirt-0"/>
+<path d=\"M96,22 L132,46 L168,22 L176,28 L140,60 L124,60 L88,28 Z\" id="am-path-dressshirt-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"112\" fill-opacity=\"0.22\" id="am-path-dressshirt-2"/>
+<mask id="am-mask-dressshirt" fill="white">
+<use xlink:href="#am-path-dressshirt-0"></use>
+<use xlink:href="#am-path-dressshirt-1"></use>
+<use xlink:href="#am-path-dressshirt-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-dressshirt-0"></use>
+<use xlink:href="#am-path-dressshirt-1"></use>
+<use xlink:href="#am-path-dressshirt-2"></use>
+</g>
+<g mask="url(#am-mask-dressshirt)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"135\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"151\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><path d=\"M122,44 L142,44 L140,62 L124,62 Z\" fill=\"#FFFFFF\" fill-opacity=\"0.35\" />
+</g>
+</g>"""),
+  MandarinCollar(
+      """<g id=\"OutfitTypes/MandarinCollar\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-mandarincollar-0"/>
+<rect x=\"100\" y=\"16\" width=\"64\" height=\"14\" rx=\"4\" id="am-path-mandarincollar-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"80\" fill-opacity=\"0.22\" id="am-path-mandarincollar-2"/>
+<mask id="am-mask-mandarincollar" fill="white">
+<use xlink:href="#am-path-mandarincollar-0"></use>
+<use xlink:href="#am-path-mandarincollar-1"></use>
+<use xlink:href="#am-path-mandarincollar-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-mandarincollar-0"></use>
+<use xlink:href="#am-path-mandarincollar-1"></use>
+<use xlink:href="#am-path-mandarincollar-2"></use>
+</g>
+<g mask="url(#am-mask-mandarincollar)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  ChiffonBlouse(
+      """<g id=\"OutfitTypes/ChiffonBlouse\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-chiffonblouse-0"/>
+<path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" id="am-path-chiffonblouse-1"/>
+<mask id="am-mask-chiffonblouse" fill="white">
+<use xlink:href="#am-path-chiffonblouse-0"></use>
+<use xlink:href="#am-path-chiffonblouse-1"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-chiffonblouse-0"></use>
+<use xlink:href="#am-path-chiffonblouse-1"></use>
+</g>
+<g mask="url(#am-mask-chiffonblouse)">
+<path d=\"M116,52 C126,74 138,74 148,52\" fill=\"none\" stroke=\"#FFFFFF\" stroke-opacity=\"0.4\" stroke-width=\"2\" />
+</g>
+</g>"""),
+  WrapBlouse(
+      """<g id=\"OutfitTypes/WrapBlouse\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L162,29 L132,58 L102,29 Z\" id="am-path-wrapblouse-0"/>
+<path d=\"M104,26 L132,56 L160,26 L166,31 L132,66 L98,31 Z\" id="am-path-wrapblouse-1"/>
+<mask id="am-mask-wrapblouse" fill="white">
+<use xlink:href="#am-path-wrapblouse-0"></use>
+<use xlink:href="#am-path-wrapblouse-1"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-wrapblouse-0"></use>
+<use xlink:href="#am-path-wrapblouse-1"></use>
+</g>
+<g mask="url(#am-mask-wrapblouse)">
+<path d=\"M104,44 L160,68\" fill=\"none\" stroke=\"#FFFFFF\" stroke-opacity=\"0.35\" stroke-width=\"3\" />
+</g>
+</g>"""),
+  PuffSleeveBlouse(
+      """<g id=\"OutfitTypes/PuffSleeveBlouse\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /><ellipse cx=\"40\" cy=\"62\" rx=\"18\" ry=\"13\" fill-opacity=\"0.2\" /><ellipse cx=\"224\" cy=\"62\" rx=\"18\" ry=\"13\" fill-opacity=\"0.2\" /></g></g>"""),
+  PeasantBlouse(
+      """<g id=\"OutfitTypes/PeasantBlouse\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-peasantblouse-0"/>
+<path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" id="am-path-peasantblouse-1"/>
+<mask id="am-mask-peasantblouse" fill="white">
+<use xlink:href="#am-path-peasantblouse-0"></use>
+<use xlink:href="#am-path-peasantblouse-1"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-peasantblouse-0"></use>
+<use xlink:href="#am-path-peasantblouse-1"></use>
+</g>
+<g mask="url(#am-mask-peasantblouse)">
+<path d=\"M96,50 C110,60 154,60 168,50\" fill=\"none\" stroke=\"#FFFFFF\" stroke-opacity=\"0.35\" stroke-width=\"2\" />
+</g>
+</g>"""),
+  TieShirt(
+      """<g id=\"OutfitTypes/TieShirt\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-tieshirt-0"/>
+<path d=\"M100,26 L132,50 L164,26 L170,31 L138,62 L126,62 L94,31 Z\" id="am-path-tieshirt-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"96\" fill-opacity=\"0.22\" id="am-path-tieshirt-2"/>
+<path d=\"M126,44 L138,44 L135,56 L140,88 L124,100 L118,88 L123,56 Z\" id="am-path-tieshirt-3"/>
+<mask id="am-mask-tieshirt" fill="white">
+<use xlink:href="#am-path-tieshirt-0"></use>
+<use xlink:href="#am-path-tieshirt-1"></use>
+<use xlink:href="#am-path-tieshirt-2"></use>
+<use xlink:href="#am-path-tieshirt-3"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-tieshirt-0"></use>
+<use xlink:href="#am-path-tieshirt-1"></use>
+<use xlink:href="#am-path-tieshirt-2"></use>
+<use xlink:href="#am-path-tieshirt-3"></use>
+</g>
+<g mask="url(#am-mask-tieshirt)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"135\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  Overshirt(
+      """<g id=\"OutfitTypes/Overshirt\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-overshirt-0"/>
+<path d=\"M100,26 L132,50 L164,26 L170,31 L138,62 L126,62 L94,31 Z\" id="am-path-overshirt-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"96\" fill-opacity=\"0.22\" id="am-path-overshirt-2"/>
+<path d=\"M50,66 L84,66 L84,92 L50,92 Z\" fill-opacity=\"0.22\" id="am-path-overshirt-3"/>
+<path d=\"M180,66 L214,66 L214,92 L180,92 Z\" fill-opacity=\"0.22\" id="am-path-overshirt-4"/>
+<mask id="am-mask-overshirt" fill="white">
+<use xlink:href="#am-path-overshirt-0"></use>
+<use xlink:href="#am-path-overshirt-1"></use>
+<use xlink:href="#am-path-overshirt-2"></use>
+<use xlink:href="#am-path-overshirt-3"></use>
+<use xlink:href="#am-path-overshirt-4"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-overshirt-0"></use>
+<use xlink:href="#am-path-overshirt-1"></use>
+<use xlink:href="#am-path-overshirt-2"></use>
+<use xlink:href="#am-path-overshirt-3"></use>
+<use xlink:href="#am-path-overshirt-4"></use>
+</g>
+<g mask="url(#am-mask-overshirt)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"135\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  Blazer(
+      """<g id=\"OutfitTypes/Blazer\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M96,22 L132,54 L102,44 Z\" /><path d=\"M168,22 L132,54 L162,44 Z\" /><path d=\"M50,68 L80,68 L80,90 L50,90 Z\" fill-opacity=\"0.22\" /></g></g>"""),
+  SuitJacket(
+      """<g id=\"OutfitTypes/SuitJacket\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-suitjacket-0"/>
+<path d=\"M96,22 L132,54 L102,44 Z\" id="am-path-suitjacket-1"/>
+<path d=\"M168,22 L132,54 L162,44 Z\" id="am-path-suitjacket-2"/>
+<rect x=\"126\" y=\"52\" width=\"12\" height=\"56\" fill-opacity=\"0.4\" id="am-path-suitjacket-3"/>
+<path d=\"M50,68 L80,68 L80,90 L50,90 Z\" fill-opacity=\"0.22\" id="am-path-suitjacket-4"/>
+<mask id="am-mask-suitjacket" fill="white">
+<use xlink:href="#am-path-suitjacket-0"></use>
+<use xlink:href="#am-path-suitjacket-1"></use>
+<use xlink:href="#am-path-suitjacket-2"></use>
+<use xlink:href="#am-path-suitjacket-3"></use>
+<use xlink:href="#am-path-suitjacket-4"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-suitjacket-0"></use>
+<use xlink:href="#am-path-suitjacket-1"></use>
+<use xlink:href="#am-path-suitjacket-2"></use>
+<use xlink:href="#am-path-suitjacket-3"></use>
+<use xlink:href="#am-path-suitjacket-4"></use>
+</g>
+<g mask="url(#am-mask-suitjacket)">
+<circle cx=\"132\" cy=\"62\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  Waistcoat(
+      """<g id=\"OutfitTypes/Waistcoat\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M96,22 L132,54 L102,44 Z\" /><path d=\"M168,22 L132,54 L162,44 Z\" /><rect x=\"126\" y=\"52\" width=\"12\" height=\"56\" fill-opacity=\"0.4\" /></g></g>"""),
+  TweedJacket(
+      """<g id=\"OutfitTypes/TweedJacket\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-tweedjacket-0"/>
+<path d=\"M96,29 L132,54 L102,44 Z\" id="am-path-tweedjacket-1"/>
+<path d=\"M168,29 L132,54 L162,44 Z\" id="am-path-tweedjacket-2"/>
+<mask id="am-mask-tweedjacket" fill="white">
+<use xlink:href="#am-path-tweedjacket-0"></use>
+<use xlink:href="#am-path-tweedjacket-1"></use>
+<use xlink:href="#am-path-tweedjacket-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-tweedjacket-0"></use>
+<use xlink:href="#am-path-tweedjacket-1"></use>
+<use xlink:href="#am-path-tweedjacket-2"></use>
+</g>
+<g mask="url(#am-mask-tweedjacket)">
+<rect x=\"32\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"54.2\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"76.4\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"98.7\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"120.9\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"143.1\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"165.3\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"187.6\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"209.8\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" />
+</g>
+</g>"""),
+  BomberJacket(
+      """<g id=\"OutfitTypes/BomberJacket\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-bomberjacket-0"/>
+<rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" id="am-path-bomberjacket-1"/>
+<rect x=\"128\" y=\"46\" width=\"8\" height=\"60\" fill-opacity=\"0.35\" id="am-path-bomberjacket-2"/>
+<rect x=\"32\" y=\"92\" width=\"200\" height=\"10\" fill-opacity=\"0.3\" id="am-path-bomberjacket-3"/>
+<mask id="am-mask-bomberjacket" fill="white">
+<use xlink:href="#am-path-bomberjacket-0"></use>
+<use xlink:href="#am-path-bomberjacket-1"></use>
+<use xlink:href="#am-path-bomberjacket-2"></use>
+<use xlink:href="#am-path-bomberjacket-3"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-bomberjacket-0"></use>
+<use xlink:href="#am-path-bomberjacket-1"></use>
+<use xlink:href="#am-path-bomberjacket-2"></use>
+<use xlink:href="#am-path-bomberjacket-3"></use>
+</g>
+<g mask="url(#am-mask-bomberjacket)">
+<rect x=\"130\" y=\"46\" width=\"2\" height=\"60\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" />
+</g>
+</g>"""),
+  VarsityJacket(
+      """<g id=\"OutfitTypes/VarsityJacket\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-varsityjacket-0"/>
+<rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" id="am-path-varsityjacket-1"/>
+<rect x=\"128\" y=\"46\" width=\"8\" height=\"60\" fill-opacity=\"0.35\" id="am-path-varsityjacket-2"/>
+<path d=\"M104,40 L124,50 L124,68 L104,58 Z\" fill-opacity=\"0.35\" id="am-path-varsityjacket-3"/>
+<path d=\"M160,40 L140,50 L140,68 L160,58 Z\" fill-opacity=\"0.35\" id="am-path-varsityjacket-4"/>
+<mask id="am-mask-varsityjacket" fill="white">
+<use xlink:href="#am-path-varsityjacket-0"></use>
+<use xlink:href="#am-path-varsityjacket-1"></use>
+<use xlink:href="#am-path-varsityjacket-2"></use>
+<use xlink:href="#am-path-varsityjacket-3"></use>
+<use xlink:href="#am-path-varsityjacket-4"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-varsityjacket-0"></use>
+<use xlink:href="#am-path-varsityjacket-1"></use>
+<use xlink:href="#am-path-varsityjacket-2"></use>
+<use xlink:href="#am-path-varsityjacket-3"></use>
+<use xlink:href="#am-path-varsityjacket-4"></use>
+</g>
+<g mask="url(#am-mask-varsityjacket)">
+<rect x=\"130\" y=\"46\" width=\"2\" height=\"60\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" />
+</g>
+</g>"""),
+  Windbreaker(
+      """<g id=\"OutfitTypes/Windbreaker\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-windbreaker-0"/>
+<rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" id="am-path-windbreaker-1"/>
+<rect x=\"128\" y=\"44\" width=\"8\" height=\"64\" fill-opacity=\"0.35\" id="am-path-windbreaker-2"/>
+<rect x=\"32\" y=\"90\" width=\"200\" height=\"8\" fill-opacity=\"0.3\" id="am-path-windbreaker-3"/>
+<mask id="am-mask-windbreaker" fill="white">
+<use xlink:href="#am-path-windbreaker-0"></use>
+<use xlink:href="#am-path-windbreaker-1"></use>
+<use xlink:href="#am-path-windbreaker-2"></use>
+<use xlink:href="#am-path-windbreaker-3"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-windbreaker-0"></use>
+<use xlink:href="#am-path-windbreaker-1"></use>
+<use xlink:href="#am-path-windbreaker-2"></use>
+<use xlink:href="#am-path-windbreaker-3"></use>
+</g>
+<g mask="url(#am-mask-windbreaker)">
+<rect x=\"130\" y=\"44\" width=\"2\" height=\"64\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" />
+</g>
+</g>"""),
+  PufferJacket(
+      """<g id=\"OutfitTypes/PufferJacket\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-pufferjacket-0"/>
+<rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" id="am-path-pufferjacket-1"/>
+<rect x=\"128\" y=\"44\" width=\"8\" height=\"64\" fill-opacity=\"0.35\" id="am-path-pufferjacket-2"/>
+<mask id="am-mask-pufferjacket" fill="white">
+<use xlink:href="#am-path-pufferjacket-0"></use>
+<use xlink:href="#am-path-pufferjacket-1"></use>
+<use xlink:href="#am-path-pufferjacket-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-pufferjacket-0"></use>
+<use xlink:href="#am-path-pufferjacket-1"></use>
+<use xlink:href="#am-path-pufferjacket-2"></use>
+</g>
+<g mask="url(#am-mask-pufferjacket)">
+<rect x=\"130\" y=\"44\" width=\"2\" height=\"64\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" /><rect x=\"32\" y=\"48\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.18\" /><rect x=\"32\" y=\"63\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.18\" /><rect x=\"32\" y=\"78\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.18\" /><rect x=\"32\" y=\"93\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.18\" />
+</g>
+</g>"""),
+  Parka("""<g id=\"OutfitTypes/Parka\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-parka-0"/>
+<path d=\"M98,26 C92,-2 172,-2 166,26 C158,44 106,44 98,26 Z\" id="am-path-parka-1"/>
+<rect x=\"128\" y=\"44\" width=\"8\" height=\"64\" fill-opacity=\"0.35\" id="am-path-parka-2"/>
+<path d=\"M42,68 L76,68 L76,94 L42,94 Z\" fill-opacity=\"0.22\" id="am-path-parka-3"/>
+<path d=\"M188,68 L222,68 L222,94 L188,94 Z\" fill-opacity=\"0.22\" id="am-path-parka-4"/>
+<mask id="am-mask-parka" fill="white">
+<use xlink:href="#am-path-parka-0"></use>
+<use xlink:href="#am-path-parka-1"></use>
+<use xlink:href="#am-path-parka-2"></use>
+<use xlink:href="#am-path-parka-3"></use>
+<use xlink:href="#am-path-parka-4"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-parka-0"></use>
+<use xlink:href="#am-path-parka-1"></use>
+<use xlink:href="#am-path-parka-2"></use>
+<use xlink:href="#am-path-parka-3"></use>
+<use xlink:href="#am-path-parka-4"></use>
+</g>
+<g mask="url(#am-mask-parka)">
+<rect x=\"130\" y=\"44\" width=\"2\" height=\"64\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" />
+</g>
+</g>"""),
+  TrenchCoat(
+      """<g id=\"OutfitTypes/TrenchCoat\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M96,22 L132,54 L102,44 Z\" /><path d=\"M168,22 L132,54 L162,44 Z\" /><rect x=\"32\" y=\"56\" width=\"200\" height=\"8\" fill-opacity=\"0.25\" /><rect x=\"126\" y=\"48\" width=\"12\" height=\"60\" fill-opacity=\"0.35\" /></g></g>"""),
+  ZipHoodie(
+      """<g id=\"OutfitTypes/ZipHoodie\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-ziphoodie-0"/>
+<path d=\"M98,26 C92,-2 172,-2 166,26 C158,44 106,44 98,26 Z\" id="am-path-ziphoodie-1"/>
+<rect x=\"128\" y=\"48\" width=\"8\" height=\"60\" fill-opacity=\"0.35\" id="am-path-ziphoodie-2"/>
+<mask id="am-mask-ziphoodie" fill="white">
+<use xlink:href="#am-path-ziphoodie-0"></use>
+<use xlink:href="#am-path-ziphoodie-1"></use>
+<use xlink:href="#am-path-ziphoodie-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-ziphoodie-0"></use>
+<use xlink:href="#am-path-ziphoodie-1"></use>
+<use xlink:href="#am-path-ziphoodie-2"></use>
+</g>
+<g mask="url(#am-mask-ziphoodie)">
+<rect x=\"130\" y=\"48\" width=\"2\" height=\"60\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" /><path d=\"M124,44 L120,78\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" /><path d=\"M140,44 L144,78\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" /><circle cx=\"120\" cy=\"80\" r=\"3\" fill=\"#FFFFFF\" /><circle cx=\"144\" cy=\"80\" r=\"3\" fill=\"#FFFFFF\" />
+</g>
+</g>"""),
+  CrewSweatshirt(
+      """<g id=\"OutfitTypes/CrewSweatshirt\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" /></g></g>"""),
+  RibbedSweatshirt(
+      """<g id=\"OutfitTypes/RibbedSweatshirt\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-ribbedsweatshirt-0"/>
+<rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" id="am-path-ribbedsweatshirt-1"/>
+<mask id="am-mask-ribbedsweatshirt" fill="white">
+<use xlink:href="#am-path-ribbedsweatshirt-0"></use>
+<use xlink:href="#am-path-ribbedsweatshirt-1"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-ribbedsweatshirt-0"></use>
+<use xlink:href="#am-path-ribbedsweatshirt-1"></use>
+</g>
+<g mask="url(#am-mask-ribbedsweatshirt)">
+<rect x=\"32\" y=\"48\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"63\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"78\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"93\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"108\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"123\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"138\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"153\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" />
+</g>
+</g>"""),
+  CableKnit(
+      """<g id=\"OutfitTypes/CableKnit\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /><rect x=\"38\" y=\"46\" width=\"8\" height=\"64\" fill-opacity=\"0.14\" /><rect x=\"62\" y=\"46\" width=\"8\" height=\"64\" fill-opacity=\"0.14\" /><rect x=\"86\" y=\"46\" width=\"8\" height=\"64\" fill-opacity=\"0.14\" /><rect x=\"110\" y=\"46\" width=\"8\" height=\"64\" fill-opacity=\"0.14\" /><rect x=\"134\" y=\"46\" width=\"8\" height=\"64\" fill-opacity=\"0.14\" /><rect x=\"158\" y=\"46\" width=\"8\" height=\"64\" fill-opacity=\"0.14\" /><rect x=\"182\" y=\"46\" width=\"8\" height=\"64\" fill-opacity=\"0.14\" /><rect x=\"206\" y=\"46\" width=\"8\" height=\"64\" fill-opacity=\"0.14\" /></g></g>"""),
+  Poncho(
+      "<g id=\"OutfitTypes/Poncho\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M99,29 C70,34 40,50 24,72 L10,110 L254,110 L240,72 C224,50 194,34 165,29 C165,45 150,56 132,56 C114,56 99,45 99,29 Z\" /><path d=\"M12,98 L252,98 L252,110 L12,110 Z\" fill-opacity=\"0.22\" /><path d=\"M99,29 C99,45 114,56 132,56 C150,56 165,45 165,29\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.16\" stroke-width=\"2.5\" /></g></g>"),
+  Cape(
+      "<g id=\"OutfitTypes/Cape\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M99,29 C62,33 32,62 32,101 L32,110 L232,110 L232,101 C232,62 202,33 165,29 C165,45 150,56 132,56 C114,56 99,45 99,29 Z\" /><path d=\"M132,52 L132,110\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.18\" stroke-width=\"2.5\" /><path d=\"M32,74 C70,68 110,66 132,66 C154,66 194,68 232,74\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.12\" stroke-width=\"2\" /><path d=\"M99,29 C99,45 114,56 132,56 C150,56 165,45 165,29\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.16\" stroke-width=\"2.5\" /></g></g>"),
+  KnitVest(
+      "<g id=\"OutfitTypes/KnitVest\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M99,29 C62,33 32,62 32,101 L32,110 L232,110 L232,101 C232,62 202,33 165,29 C165,45 150,56 132,56 C114,56 99,45 99,29 Z\" /><path d=\"M100,29 C104,44 116,52 132,52 C148,52 160,44 164,29 L164,110 L100,110 Z\" fill-opacity=\"0.14\" /><path d=\"M100,29 C104,44 116,52 132,52 C148,52 160,44 164,29\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.18\" stroke-width=\"2.5\" /><path d=\"M100,29 L100,110 M164,29 L164,110\" fill=\"none\" stroke=\"#000000\" stroke-opacity=\"0.10\" stroke-width=\"2\" /></g></g>"),
+  CroppedHoodie(
+      """<g id=\"OutfitTypes/CroppedHoodie\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-croppedhoodie-0"/>
+<path d=\"M98,26 C92,-2 172,-2 166,26 C158,44 106,44 98,26 Z\" id="am-path-croppedhoodie-1"/>
+<rect x=\"32\" y=\"86\" width=\"200\" height=\"6\" fill-opacity=\"0.25\" id="am-path-croppedhoodie-2"/>
+<mask id="am-mask-croppedhoodie" fill="white">
+<use xlink:href="#am-path-croppedhoodie-0"></use>
+<use xlink:href="#am-path-croppedhoodie-1"></use>
+<use xlink:href="#am-path-croppedhoodie-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-croppedhoodie-0"></use>
+<use xlink:href="#am-path-croppedhoodie-1"></use>
+<use xlink:href="#am-path-croppedhoodie-2"></use>
+</g>
+<g mask="url(#am-mask-croppedhoodie)">
+<path d=\"M124,44 L120,78\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" /><path d=\"M140,44 L144,78\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" /><circle cx=\"120\" cy=\"80\" r=\"3\" fill=\"#FFFFFF\" /><circle cx=\"144\" cy=\"80\" r=\"3\" fill=\"#FFFFFF\" />
+</g>
+</g>"""),
+  ChefCoat(
+      """<g id=\"OutfitTypes/ChefCoat\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-chefcoat-0"/>
+<path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" id="am-path-chefcoat-1"/>
+<rect x=\"127\" y=\"48\" width=\"10\" height=\"60\" fill-opacity=\"0.22\" id="am-path-chefcoat-2"/>
+<rect x=\"120\" y=\"46\" width=\"24\" height=\"12\" fill-opacity=\"0.3\" id="am-path-chefcoat-3"/>
+<mask id="am-mask-chefcoat" fill="white">
+<use xlink:href="#am-path-chefcoat-0"></use>
+<use xlink:href="#am-path-chefcoat-1"></use>
+<use xlink:href="#am-path-chefcoat-2"></use>
+<use xlink:href="#am-path-chefcoat-3"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-chefcoat-0"></use>
+<use xlink:href="#am-path-chefcoat-1"></use>
+<use xlink:href="#am-path-chefcoat-2"></use>
+<use xlink:href="#am-path-chefcoat-3"></use>
+</g>
+<g mask="url(#am-mask-chefcoat)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"70\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"85\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"100\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  Jumpsuit(
+      """<g id=\"OutfitTypes/Jumpsuit\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-jumpsuit-0"/>
+<path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" id="am-path-jumpsuit-1"/>
+<rect x=\"128\" y=\"48\" width=\"8\" height=\"60\" fill-opacity=\"0.35\" id="am-path-jumpsuit-2"/>
+<mask id="am-mask-jumpsuit" fill="white">
+<use xlink:href="#am-path-jumpsuit-0"></use>
+<use xlink:href="#am-path-jumpsuit-1"></use>
+<use xlink:href="#am-path-jumpsuit-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-jumpsuit-0"></use>
+<use xlink:href="#am-path-jumpsuit-1"></use>
+<use xlink:href="#am-path-jumpsuit-2"></use>
+</g>
+<g mask="url(#am-mask-jumpsuit)">
+<rect x=\"130\" y=\"48\" width=\"2\" height=\"60\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" />
+</g>
+</g>"""),
+  StripedTee(
+      """<g id=\"OutfitTypes/StripedTee\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-stripedtee-0"/>
+<path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" id="am-path-stripedtee-1"/>
+<mask id="am-mask-stripedtee" fill="white">
+<use xlink:href="#am-path-stripedtee-0"></use>
+<use xlink:href="#am-path-stripedtee-1"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-stripedtee-0"></use>
+<use xlink:href="#am-path-stripedtee-1"></use>
+</g>
+<g mask="url(#am-mask-stripedtee)">
+<rect x=\"32\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" /><rect x=\"54.2\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" /><rect x=\"76.4\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" /><rect x=\"98.7\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" /><rect x=\"120.9\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" /><rect x=\"143.1\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" /><rect x=\"165.3\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" /><rect x=\"187.6\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" /><rect x=\"209.8\" y=\"0\" width=\"10\" height=\"110\" fill=\"#FFFFFF\" fill-opacity=\"0.16\" />
+</g>
+</g>"""),
+  GraphicTee(
+      """<g id=\"OutfitTypes/GraphicTee\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /><path d=\"M110,62 L132,48 L154,62 L148,90 L132,80 L116,90 Z\" fill-opacity=\"0.3\" /></g></g>"""),
+  CropTop(
+      """<g id=\"OutfitTypes/CropTop\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /><rect x=\"32\" y=\"86\" width=\"200\" height=\"24\" fill-opacity=\"0.3\" /></g></g>"""),
+  Uniform("""<g id=\"OutfitTypes/Uniform\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-uniform-0"/>
+<path d=\"M100,26 L132,50 L164,26 L170,31 L138,62 L126,62 L94,31 Z\" id="am-path-uniform-1"/>
+<rect x=\"126\" y=\"48\" width=\"12\" height=\"96\" fill-opacity=\"0.22\" id="am-path-uniform-2"/>
+<rect x=\"98\" y=\"50\" width=\"12\" height=\"22\" fill-opacity=\"0.35\" id="am-path-uniform-3"/>
+<rect x=\"154\" y=\"50\" width=\"12\" height=\"22\" fill-opacity=\"0.35\" id="am-path-uniform-4"/>
+<mask id="am-mask-uniform" fill="white">
+<use xlink:href="#am-path-uniform-0"></use>
+<use xlink:href="#am-path-uniform-1"></use>
+<use xlink:href="#am-path-uniform-2"></use>
+<use xlink:href="#am-path-uniform-3"></use>
+<use xlink:href="#am-path-uniform-4"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-uniform-0"></use>
+<use xlink:href="#am-path-uniform-1"></use>
+<use xlink:href="#am-path-uniform-2"></use>
+<use xlink:href="#am-path-uniform-3"></use>
+<use xlink:href="#am-path-uniform-4"></use>
+</g>
+<g mask="url(#am-mask-uniform)">
+<circle cx=\"132\" cy=\"55\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"71\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"87\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"103\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"119\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" /><circle cx=\"132\" cy=\"135\" r=\"2.6\" fill=\"#FFFFFF\" fill-opacity=\"0.9\" />
+</g>
+</g>"""),
+  TurtleneckRibbed(
+      """<g id=\"OutfitTypes/TurtleneckRibbed\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-turtleneckribbed-0"/>
+<rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" id="am-path-turtleneckribbed-1"/>
+<mask id="am-mask-turtleneckribbed" fill="white">
+<use xlink:href="#am-path-turtleneckribbed-0"></use>
+<use xlink:href="#am-path-turtleneckribbed-1"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-turtleneckribbed-0"></use>
+<use xlink:href="#am-path-turtleneckribbed-1"></use>
+</g>
+<g mask="url(#am-mask-turtleneckribbed)">
+<rect x=\"32\" y=\"48\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"63\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"78\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"93\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"108\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"123\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" /><rect x=\"32\" y=\"138\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.1\" />
+</g>
+</g>"""),
+  HoodiePocket(
+      """<g id=\"OutfitTypes/HoodiePocket\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" id="am-path-hoodiepocket-0"/>
+<path d=\"M98,26 C92,-2 172,-2 166,26 C158,44 106,44 98,26 Z\" id="am-path-hoodiepocket-1"/>
+<path d=\"M96,76 L168,76 L168,102 L96,102 Z\" fill-opacity=\"0.22\" id="am-path-hoodiepocket-2"/>
+<mask id="am-mask-hoodiepocket" fill="white">
+<use xlink:href="#am-path-hoodiepocket-0"></use>
+<use xlink:href="#am-path-hoodiepocket-1"></use>
+<use xlink:href="#am-path-hoodiepocket-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-hoodiepocket-0"></use>
+<use xlink:href="#am-path-hoodiepocket-1"></use>
+<use xlink:href="#am-path-hoodiepocket-2"></use>
+</g>
+<g mask="url(#am-mask-hoodiepocket)">
+<path d=\"M124,44 L120,78\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" /><path d=\"M140,44 L144,78\" fill=\"none\" stroke=\"#FFFFFF\" stroke-width=\"2\" stroke-linecap=\"round\" /><circle cx=\"120\" cy=\"80\" r=\"3\" fill=\"#FFFFFF\" /><circle cx=\"144\" cy=\"80\" r=\"3\" fill=\"#FFFFFF\" />
+</g>
+</g>"""),
+  BomberRibbed(
+      """<g id=\"OutfitTypes/BomberRibbed\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-bomberribbed-0"/>
+<rect x=\"100\" y=\"24\" width=\"64\" height=\"10\" rx=\"4\" id="am-path-bomberribbed-1"/>
+<rect x=\"128\" y=\"46\" width=\"8\" height=\"60\" fill-opacity=\"0.35\" id="am-path-bomberribbed-2"/>
+<mask id="am-mask-bomberribbed" fill="white">
+<use xlink:href="#am-path-bomberribbed-0"></use>
+<use xlink:href="#am-path-bomberribbed-1"></use>
+<use xlink:href="#am-path-bomberribbed-2"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-bomberribbed-0"></use>
+<use xlink:href="#am-path-bomberribbed-1"></use>
+<use xlink:href="#am-path-bomberribbed-2"></use>
+</g>
+<g mask="url(#am-mask-bomberribbed)">
+<rect x=\"130\" y=\"46\" width=\"2\" height=\"60\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" /><rect x=\"32\" y=\"48\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.14\" /><rect x=\"32\" y=\"63\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.14\" /><rect x=\"32\" y=\"78\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.14\" /><rect x=\"32\" y=\"93\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.14\" />
+</g>
+</g>"""),
+  ParkaFur(
+      """<g id=\"OutfitTypes/ParkaFur\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L160,29 L160,14 C160,10 104,10 104,29 Z\" id="am-path-parkafur-0"/>
+<path d=\"M98,26 C92,-2 172,-2 166,26 C158,44 106,44 98,26 Z\" id="am-path-parkafur-1"/>
+<ellipse cx=\"132\" cy=\"12\" rx=\"46\" ry=\"18\" fill-opacity=\"0.3\" id="am-path-parkafur-2"/>
+<rect x=\"128\" y=\"44\" width=\"8\" height=\"64\" fill-opacity=\"0.35\" id="am-path-parkafur-3"/>
+<path d=\"M42,68 L76,68 L76,94 L42,94 Z\" fill-opacity=\"0.22\" id="am-path-parkafur-4"/>
+<path d=\"M188,68 L222,68 L222,94 L188,94 Z\" fill-opacity=\"0.22\" id="am-path-parkafur-5"/>
+<mask id="am-mask-parkafur" fill="white">
+<use xlink:href="#am-path-parkafur-0"></use>
+<use xlink:href="#am-path-parkafur-1"></use>
+<use xlink:href="#am-path-parkafur-2"></use>
+<use xlink:href="#am-path-parkafur-3"></use>
+<use xlink:href="#am-path-parkafur-4"></use>
+<use xlink:href="#am-path-parkafur-5"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-parkafur-0"></use>
+<use xlink:href="#am-path-parkafur-1"></use>
+<use xlink:href="#am-path-parkafur-2"></use>
+<use xlink:href="#am-path-parkafur-3"></use>
+<use xlink:href="#am-path-parkafur-4"></use>
+<use xlink:href="#am-path-parkafur-5"></use>
+</g>
+<g mask="url(#am-mask-parkafur)">
+<rect x=\"130\" y=\"44\" width=\"2\" height=\"64\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" />
+</g>
+</g>"""),
+  LeatherJacket(
+      """<g id=\"OutfitTypes/LeatherJacket\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L104,29 Z\" id="am-path-leatherjacket-0"/>
+<path d=\"M96,22 L132,54 L102,44 Z\" id="am-path-leatherjacket-1"/>
+<path d=\"M168,22 L132,54 L162,44 Z\" id="am-path-leatherjacket-2"/>
+<rect x=\"128\" y=\"48\" width=\"8\" height=\"60\" fill-opacity=\"0.35\" id="am-path-leatherjacket-3"/>
+<mask id="am-mask-leatherjacket" fill="white">
+<use xlink:href="#am-path-leatherjacket-0"></use>
+<use xlink:href="#am-path-leatherjacket-1"></use>
+<use xlink:href="#am-path-leatherjacket-2"></use>
+<use xlink:href="#am-path-leatherjacket-3"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-leatherjacket-0"></use>
+<use xlink:href="#am-path-leatherjacket-1"></use>
+<use xlink:href="#am-path-leatherjacket-2"></use>
+<use xlink:href="#am-path-leatherjacket-3"></use>
+</g>
+<g mask="url(#am-mask-leatherjacket)">
+<rect x=\"130\" y=\"48\" width=\"2\" height=\"60\" fill=\"#FFFFFF\" fill-opacity=\"0.55\" />
+</g>
+</g>"""),
+  SailorTop(
+      """<g id=\"OutfitTypes/SailorTop\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 L158,44 L106,44 L106,29 Z\" /><path d=\"M98,28 L166,28 L166,52 L98,52 Z\" fill-opacity=\"0.3\" /><path d=\"M124,52 L140,52 L140,72 L124,72 Z\" fill-opacity=\"0.3\" /></g></g>"""),
+  SweaterVneck(
+      """<g id=\"OutfitTypes/SweaterVneck\" transform=\"translate(0,170)\"><defs>
+<path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L162,29 L132,58 L102,29 Z\" id="am-path-sweatervneck-0"/>
+<path d=\"M104,26 L132,56 L160,26 L166,31 L132,66 L98,31 Z\" id="am-path-sweatervneck-1"/>
+<mask id="am-mask-sweatervneck" fill="white">
+<use xlink:href="#am-path-sweatervneck-0"></use>
+<use xlink:href="#am-path-sweatervneck-1"></use>
+</mask>
+</defs>
+<g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\">
+<use xlink:href="#am-path-sweatervneck-0"></use>
+<use xlink:href="#am-path-sweatervneck-1"></use>
+</g>
+<g mask="url(#am-mask-sweatervneck)">
+<rect x=\"32\" y=\"48\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"32\" y=\"63\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"32\" y=\"78\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"32\" y=\"93\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" /><rect x=\"32\" y=\"108\" width=\"200\" height=\"8\" fill=\"#FFFFFF\" fill-opacity=\"0.12\" />
+</g>
+</g>"""),
+  Bolero(
+      """<g id=\"OutfitTypes/Bolero\" transform=\"translate(0,170)\"><g id=\"$TO_REPLACE_WITH_OUTFIT_COLOR_NAME\" fill=\"$TO_REPLACE_WITH_OUTFIT_COLOR\" fill-rule=\"evenodd\"><path d=\"M104.0,29.0 C64,29 32.0,61 32.0,101.0 L32.0,110.0 L232.0,110.0 L232.0,101.0 C232.0,61 200,29 160.0,29.0 L158,29 C158,32 158,45 132,45 C106,45 106,32 106,29 Z\" /><path d=\"M104,26 C104,44 160,44 160,26 L160,40 C160,52 104,52 104,40 Z\" /><rect x=\"32\" y=\"88\" width=\"200\" height=\"8\" fill-opacity=\"0.3\" /></g></g>"""),
+
   LabCoat("""
 <g id=" OutfitTypes/LabCoat" transform="translate(0.000000, 170.000000)">
 <defs>
